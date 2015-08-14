@@ -25,6 +25,12 @@ body {
 #page-header {
   padding-bottom: 7px;
   background: white;
+
+  @include media($medium-screen + 20em) {
+    .home &  {
+      padding-bottom: 2em;
+    }
+  }
 }
 
 #primary {
@@ -33,6 +39,14 @@ body {
   position: relative;
   top: 0;
   @include transition(all 0.25s ease-in-out);
+
+  @include media($medium-screen + 20em) {
+    .home &  {
+      width: 620px;
+      padding-top: 3em;
+      margin-bottom: -25px;
+    }
+  }
 }
 
 .search-is-visible #primary {
@@ -52,6 +66,13 @@ body {
   @include media($medium-screen) {
     width: 80px;
     height: 80px;
+  }
+
+  .home & {
+    @include media($medium-screen + 20em) {
+      width: 120px;
+      height: 120px;
+    }
   }
 }
 
@@ -95,6 +116,26 @@ body {
   @include media($medium-screen + 26em) {
     width: 450px;
   }
+
+  .home & {
+    @include media($medium-screen + 20em) {
+      font-size: 1.5em;
+      width: 460px;
+      padding-top: 0;
+    }
+  }
+}
+
+#page-title .page-subheader {
+  display: none;
+
+  @include media($medium-screen + 20em) {
+    display: inline;
+    font-size: .7em;
+    font-weight: normal;
+    float: left;
+    color: #727272;
+  }
 }
 
 #page-search {
@@ -127,6 +168,18 @@ body {
     top: -37px;
     width: 500px;
     padding-right: 1em;
+  }
+
+  @include media($medium-screen + 20em) {
+    .home & {
+      position: relative;
+      top: 0;
+      right: 0;
+      left: 0;
+      width: 600px;
+      margin: 0 auto;
+      padding-left: 135px
+    }
   }
 }
 
@@ -205,6 +258,12 @@ body {
   input[type="radio"] {
     float: right;
     margin: 4px 4px 0 10px;
+  }
+
+  @include media($medium-screen + 20em) {
+    .home & {
+      left: 135px;
+    }
   }
 
 }
