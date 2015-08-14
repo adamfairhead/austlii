@@ -479,8 +479,35 @@ body {
   }
 
   a {
-    margin: 0 0 0 1em;
+    padding: .25em .5em;
     font-size: .9em;
+    color: #989898;
+
+    &:hover {
+      color: darken(#989898, 25);
+    }
+  }
+
+  li:first-child a {
+    padding-left: 0;
+  }
+
+  .selected a,
+  .selected:first-child a {
+    color: darken($blue, 10);
+    padding: .25em 1em;
+    background: #c6e0f0;
+    border-radius: $base-border-radius; 
+    margin-right: 5px;
+  }
+
+  .sort-more {
+    a:after {
+      content: '▼';
+      font-size: .6em;
+      color: #aaa;
+      margin-left: .5em;
+    }
   }
 }
 
