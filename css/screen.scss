@@ -498,10 +498,14 @@ body {
   }
 
   a,
-  #panel-year div {
+  #panel-year li  div {
     padding: 1.1em 1em .3em;
     background: $panel-fg;
     border-radius: $base-border-radius;
+  }
+
+  #panel-year li  div {
+    padding: 1em 1em .7em;
   }
 
   p {
@@ -587,7 +591,7 @@ body {
     }
 
     ul {
-      min-width: 1300px;
+      min-width: 1350px;
     }
 
     #panel-letter {
@@ -862,6 +866,7 @@ body {
 #page-content { 
   position: relative;
   z-index: 1; 
+  margin-bottom: 3em;
   @include outer-container;
 
   @include media($medium-screen) {
