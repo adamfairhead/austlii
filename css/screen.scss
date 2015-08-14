@@ -1,0 +1,535 @@
+---
+---
+@import 'normalize';
+@import 'bourbon/bourbon';
+@import 'base/grid-settings';
+@import 'base/base';
+@import 'neat/neat';
+
+// Global
+
+body {
+  background: $light-gray;
+}
+
+// Mixins
+
+%container {
+  @include outer-container;
+  padding-left: 1em;
+  padding-right: 1em;
+}
+
+// Header
+
+#page-header {
+  padding-bottom: 7px;
+  background: white;
+}
+
+#primary {
+  @extend %container; 
+  @include clearfix;
+  position: relative;
+  top: 0;
+  @include transition(all 0.25s ease-in-out);
+}
+
+.search-is-visible #primary {
+  top: 100px;
+}
+
+#page-logo {
+  width: 40px;
+  height: 40px;
+  display: inline-block;
+  float: left;
+  text-indent: -999em;
+  background: $red;
+  margin-top: 7px;
+  background: url('../images/logo.svg') no-repeat;
+
+  @include media($medium-screen) {
+    width: 80px;
+    height: 80px;
+  }
+}
+
+#page-title {
+  display: inline-block;
+  position: relative;
+  top: 10px;
+  left: 8px;
+  max-width: 180px;
+  font-size: .9em;
+  
+  @include media($medium-screen) {
+    font-size: 1.2em;
+    padding-top: 13px;
+    max-width: 240px;
+  }
+}
+
+#page-search {
+  position: relative;
+  top: -120px;
+  height: 0;
+  @include transition(all 0.25s ease-in-out);
+
+  @include media($medium-screen + 20em) {
+    top: -10px;
+    height: auto;
+    @include outer-container();
+  }
+}
+
+.search-box {
+  position: absolute;
+  top: 0;
+  max-height: 50px;
+  overflow: hidden;
+  width: 100%;
+
+  @include media($medium-screen + 20em) {
+    right: 0;
+    top: -37px;
+    width: 500px;
+  }
+}
+
+.search-dropdown {
+  margin-left: 1em;
+  text-align: center;
+  display: inline-block;
+  float: left;
+  width: 10%;
+  border-right: 1px solid #e3e3e3;
+  height: 34px;
+  font-size: .8em;
+  background: #f4f4f4;
+  border-radius: $base-border-radius 0 0 $base-border-radius;
+  color: #a1a1a1;
+  line-height: 2.7;
+
+  &:hover {
+    color: black;
+  }
+
+  @include media($medium-screen) {
+    width: 30px;
+  }
+}
+
+.search-box input[type="text"] {
+  float: left; 
+  background: #f4f4f4;
+  box-shadow: none;
+  border: none;
+  border-radius: 0 $base-border-radius $base-border-radius 0;
+  -webkit-appearance: none;
+  position: absolute;
+  width: 76%;
+  margin-left: 10%;
+  margin-right: 10%;
+  font-size: .9em;
+  padding-top: .6em;
+  padding-bottom: .6em;
+
+  @include media($medium-screen + 20em) {
+    width: 440px;
+    margin-left: 43px;
+    margin-right: 0;
+  }
+}
+
+.search-box input[type="submit"] {
+  width: 10%;
+  height: 28px;
+  text-indent: -999em;
+  background: $red url('../images/search-2.svg') center no-repeat;
+  background-size: 15px auto;
+  float: left;
+  box-shadow: none;
+  border: none;
+  border-radius: $base-border-radius;
+  -webkit-appearance: none;
+  position: absolute;
+  right: 15%;
+  top: 3px;
+
+  @include media($medium-screen + 20em) {
+    right: 20px;
+  }
+}
+
+.go-primary {
+  position: absolute;
+  right: 1em;
+  top: 0;
+  text-indent: -999em;
+  background: url('../images/close.svg') right 10px no-repeat;
+  background-size: 15px auto;
+  width: 10%;
+  height: 40px;
+  padding: 0;
+
+  @include media($medium-screen + 20em) {
+    display: none; 
+  }
+}
+
+.search-is-visible #page-search {
+  top: -38px;
+}
+
+#page-tertiary {
+  display: none;
+}
+
+.go-search {
+  width: 40px;
+  height: 40px;
+  display: inline-block;
+  text-indent: -999em;
+  background: $medium-gray;
+  float: right;
+  margin-top: 7px;
+  background: url('../images/search.svg') center right no-repeat;
+  background-size: 20px auto;
+
+  @include media($medium-screen) {
+    margin-top: 26px;
+  }
+
+  @include media($medium-screen + 20em) {
+    display: none;
+  }
+}
+
+// Ribbons
+
+#ribbon {
+  background: $red;
+  z-index: 1;
+  position: relative;
+  overflow: scroll;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+
+  .ribbon-type { z-index: 7; }
+  .ribbon-jurisdiction { z-index: 6; }
+  .ribbon-database { z-index: 5; }
+  .ribbon-year { z-index: 4; }
+  .ribbon-letter { z-index: 3; }
+
+  @include media($medium-screen) {
+    overflow: auto;
+    overflow-y: hidden;
+  }
+
+  span {
+    display: block;
+    color: #ffaea9;
+  
+    @include media(max-width $medium-screen) {
+      display: none;
+    }
+  }
+
+  ul {
+    min-width: 370px;
+
+    @include media($medium-screen) {
+      min-width: 850px;
+    }
+  }
+
+  li, a {
+    display: inline-block;
+    color: white;
+  }
+
+  a {
+    padding: .5em .5em .5em 1em;
+    position: relative;
+    font-size: .9em;
+    margin-left: -4px;
+
+    @include media($medium-screen) {
+      padding: .5em 1.5em .5em 1.5em;
+    }
+  }
+
+  .is-selected a {
+    background: lighten($red, 10);
+  }
+
+  .is-selected:before {
+    content: '';
+    width: 0;
+    height: 0;
+    border-style: solid;
+    display: block;
+    border-width: 10px 10px 0 10px;
+    position: absolute;
+    border-color: transparent transparent transparent transparent; // the first one
+    bottom: -5px;
+    left: 40%; 
+    z-index: 2;
+  }
+
+  li {
+    position: relative;
+  }
+
+  li:first-child a {
+    padding-left: 1em;
+  }
+
+  li:last-child a:before,
+  li:last-child a:after {
+    display: none;
+  }
+
+  a:before {
+    content: '';
+    width: 0;
+    height: 0;
+    border-style: solid;
+    display: block;
+    border-width: 20px 0 20px 7px;
+    position: absolute;
+    border-color: transparent transparent transparent #d82d21; 
+    top: 0;
+    right: -7px;
+
+    @include media($medium-screen) {
+      border-width: 32px 0 32px 7px;
+    }
+  }
+
+  a:after {
+    content: '';
+    width: 0;
+    height: 0;
+    border-style: solid;
+    display: block;
+    border-width: 20px 0 20px 7px;
+    position: absolute;
+    border-color: transparent transparent transparent $red;
+    top: 0;
+    right: -6px;
+
+    @include media($medium-screen) {
+      border-width: 32px 0 32px 7px;
+    }
+  }
+
+  .is-selected a:after {
+    border-color: transparent transparent transparent lighten($red, 10);
+  }
+}
+
+// Panels
+
+#panels {
+  background: $panel-bg;
+  position: relative;
+  z-index: 1;
+  font-size: .8em;
+  overflow: scroll;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  min-height: 75px;
+  @include transition(all 0.25s ease-in-out);
+
+  @include media($medium-screen) {
+    overflow: auto;
+    overflow-y: hidden;
+  }
+ 
+  li, a {
+    display: inline-block;
+    color: white;
+  }
+
+  li {
+    padding: 1em 0 1em 1em;
+  }
+
+  a {
+    padding: 1.1em 1em .3em;
+    background: $panel-fg;
+    border-radius: $base-border-radius;
+  }
+
+  p {
+    color: #c5c4c4;
+    margin: -5px 0 .7em;
+  }
+
+  .is-selected a {
+    background: white;
+    color: $panel-bg;
+  }
+
+  & > div {
+    @include transition(all 0.25s ease-in-out);
+    max-height: 0;
+    opacity: 0;
+    position: relative;
+  }
+
+  &.is-type {
+    height: 95px;
+
+    ul {
+      min-width: 1000px;
+    }
+
+    @include media($medium-screen) {
+      height: 105px;
+
+      ul {
+        min-width: 1300px;
+      }
+    }
+    
+    #panel-type {
+      max-height: 100px;
+      opacity: 1;
+      z-index: 10;
+    }
+  }
+
+  &.is-jurisdiction {
+    height: 65px;
+
+    @include media($medium-screen) {
+      height: 80px;
+    }
+
+    ul {
+      min-width: 850px;
+    }
+
+    #panel-jurisdiction {
+      max-height: 100px;
+      opacity: 1;
+      z-index: 10;
+    }
+  }
+
+  &.is-year {
+    height: 70px;
+
+    @include media($medium-screen) {
+      height: 80px;
+    }
+
+    ul {
+      min-width: 300px;
+    }
+
+    #panel-year {
+      max-height: 100px;
+      opacity: 1;
+      z-index: 10;
+    }
+  }
+
+  &.is-letter {
+    height: 70px;
+
+    @include media($medium-screen) {
+      height: 80px;
+    }
+
+    ul {
+      min-width: 1300px;
+    }
+
+    #panel-letter {
+      max-height: 100px;
+      opacity: 1;
+      z-index: 10;
+    }
+  }
+}
+
+// Page Main
+
+#page-main {
+  @extend %container;
+
+  @include media(max-width $medium-screen) {
+    padding: 0;    
+  }
+
+  @include media($medium-screen) {
+    @include span-columns(9);
+  }
+}
+
+#page-sort {
+  padding: .5em 0;
+
+  li, a {
+    display: inline-block;
+  }
+
+  a {
+    margin: 0 0 0 1em;
+    font-size: .9em;
+  }
+}
+
+.card {
+  background: white;
+  border-top: 1px solid #ddd;
+
+  @include media($medium-screen) {
+    border: 1px solid #ddd;
+    border-radius: $base-border-radius;
+  }
+}
+
+.card a {
+  padding: .7em 1em;
+  display: block;
+  font-size: .9em;
+}
+
+.card li:nth-child(2n) a {
+  background: #f6fafd;
+  border-top: #eaf0f6 1px solid;
+  border-bottom: #eaf0f6 1px solid;
+}
+
+// Page Side
+
+#page-side {
+  display: none;
+
+  @include media($medium-screen) {
+    display: block;
+    @include span-columns(3);
+
+    .side-element {
+      font-size: .8em;
+    }
+  }
+}
+
+// Page Content
+
+#page-content { 
+  position: relative;
+  z-index: 1;
+  @include outer-container;
+
+  @include media($medium-screen) {
+    padding-top: 1.5em;
+    
+  }
+}
