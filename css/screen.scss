@@ -87,7 +87,6 @@ body {
   position: absolute;
   top: 0;
   max-height: 50px;
-  overflow: hidden;
   width: 100%;
 
   @include media($medium-screen + 20em) {
@@ -98,6 +97,7 @@ body {
 }
 
 .search-dropdown {
+  @include transition(all 0.25s ease-in-out);
   margin-left: 1em;
   text-align: center;
   display: inline-block;
@@ -117,6 +117,66 @@ body {
 
   @include media($medium-screen) {
     width: 30px;
+  }
+}
+
+.search-options {
+  @include transition(all 0.25s ease-in-out);
+  background: #e9e9e9;
+  border-radius: 0 0 $base-border-radius $base-border-radius;
+  position: absolute;
+  z-index: 5;
+  top: 33px;
+  left: 13px;
+  opacity: 0;
+
+  a,
+  label {
+    padding: 0 .5em .5em;
+    display: block;
+    margin: 0;
+    font-size: .8em;
+    font-weight: normal;
+  }
+
+  li:nth-child(1),
+  li:nth-child(3) {
+    border-bottom: #d4d4d4 1px solid;
+    margin-left: .5em;
+
+    label {
+      padding-left: 0;
+    }
+  }
+
+  li:nth-child(2),
+  li:nth-child(4) {
+    border-bottom: #d4d4d4 1px solid;
+  }
+
+  label:first-child {
+    padding-top: .5em;
+  }
+
+  a {
+    padding: .5em;
+  }
+
+  input[type="radio"] {
+    float: right;
+    margin: 4px 4px 0 10px;
+  }
+
+}
+
+.search-box.options-visible {
+  .search-options {
+    opacity: 1;
+  }
+
+  .search-dropdown {
+    background: #e9e9e9;
+    border-radius: $base-border-radius 0 0 0;
   }
 }
 

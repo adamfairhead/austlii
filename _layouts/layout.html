@@ -18,6 +18,15 @@
     <div id="page-search">
       <div class="search-box">
         <a class="search-dropdown" href="#">▼</a>
+
+        <ul class="search-options">
+          <li><label>All database <input type="radio"></label></li>
+          <li><label>This database only <input type="radio"></label></li>
+          <li><label>Full text <input type="radio"></label></li>
+          <li><label>Titles only <input type="radio"></label></li>
+          <li><a href="#">Advanced Search…</a></li>
+        </ul>
+
         <input type="text" placeholder="Search AustLII">
         <input type="submit" value="Search">
       </div>
@@ -184,6 +193,10 @@
     $(function() {
       $('.go-search, .go-primary').on('click', function() {
         $('#page-header').toggleClass('search-is-visible');
+      });
+
+      $('.search-dropdown').on('click', function() {
+        $('.search-box').toggleClass('options-visible');
       });
 
       $('#ribbon li a').on('click', function() {
