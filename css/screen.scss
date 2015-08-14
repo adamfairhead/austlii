@@ -470,7 +470,11 @@ body {
 }
 
 #page-sort {
-  padding: .5em 0;
+  padding: .5em 1em;
+
+  @include media($medium-screen) {
+    padding: .5em 0;
+  }
 
   li, a {
     display: inline-block;
