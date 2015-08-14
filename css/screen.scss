@@ -409,11 +409,12 @@ body {
 
 #ribbon {
   background: $red;
-  z-index: 1;
   position: relative;
   overflow: scroll;
   overflow-y: hidden;
   -webkit-overflow-scrolling: touch;
+  box-shadow: 0 2px 2px rgba(0,0,0,.2);
+  z-index: 4;
 
   .ribbon-type { z-index: 7; }
   .ribbon-jurisdiction { z-index: 6; }
@@ -527,6 +528,28 @@ body {
   .is-selected a:after {
     border-color: transparent transparent transparent lighten($red, 10);
   }
+
+  .home & {
+    a:after,
+    a:before {
+      display: none;
+    }
+
+    @include media($medium-screen) {
+      a {
+        padding: .5em 1em;
+      }
+    }
+
+    @include media($medium-screen + 20em) {
+      text-align: center;
+
+      a {
+        padding: 1em;
+        font-size: 1em;
+      }
+    }
+  }
 }
 
 // Panels
@@ -539,8 +562,9 @@ body {
   overflow: scroll;
   overflow-y: hidden;
   -webkit-overflow-scrolling: touch;
-  min-height: 75px;
+  min-height: 70px;
   @include transition(all 0.25s ease-in-out);
+  box-shadow: 0 2px 2px rgba(0,0,0,.2);
 
   @include media($medium-screen) {
     overflow: auto;
@@ -585,7 +609,7 @@ body {
   }
 
   &.is-type {
-    height: 95px;
+    height: 90px;
 
     ul {
       min-width: 1000px;
@@ -607,12 +631,6 @@ body {
   }
 
   &.is-jurisdiction {
-    height: 65px;
-
-    @include media($medium-screen) {
-      height: 80px;
-    }
-
     ul {
       min-width: 850px;
     }
@@ -621,11 +639,17 @@ body {
       max-height: 100px;
       opacity: 1;
       z-index: 10;
+
+      @include media($medium-screen + 20em) {
+        .home & {
+          text-align: center; 
+        }
+      }
     }
   }
 
   &.is-year {
-    height: 70px;
+    height: 80px;
 
     @include media($medium-screen) {
       height: 80px;
