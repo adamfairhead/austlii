@@ -58,15 +58,42 @@ body {
 #page-title {
   display: inline-block;
   position: relative;
-  top: 10px;
+  top: 9px;
   left: 8px;
-  max-width: 180px;
+  width: 180px;
+  height: 35px;
   font-size: .9em;
+  line-height: 30px;
+
+  span {
+    display: inline-block;
+    vertical-align: middle;
+    line-height: normal;
+  }
+
+  @include media(em(480)) {
+    width: 350px;
+  }
+
+  @include media(em(530)) {
+    width: 410px;
+  }
   
   @include media($medium-screen) {
+    top: 10px;
     font-size: 1.2em;
     padding-top: 13px;
-    max-width: 240px;
+    width: 490px;
+    height: 65px;
+    line-height: 50px;
+  }
+
+  @include media($medium-screen + 20em) {
+    width: 360px;
+  }
+
+  @include media($medium-screen + 26em) {
+    width: 450px;
   }
 }
 
@@ -140,7 +167,7 @@ body {
 
   a,
   label {
-    padding: 0 .5em .5em;
+    padding: 0 .75em .5em;
     display: block;
     margin: 0;
     font-size: .8em;
@@ -150,7 +177,7 @@ body {
   li:nth-child(1),
   li:nth-child(3) {
     border-bottom: #d4d4d4 1px solid;
-    margin-left: .5em;
+    margin-left: .75em;
 
     label {
       padding-left: 0;
@@ -167,7 +194,12 @@ body {
   }
 
   a {
-    padding: .5em;
+    padding: .5em .75em;
+
+    &:hover {
+      background: $blue;
+      color: white;
+    }
   }
 
   input[type="radio"] {
@@ -265,6 +297,33 @@ body {
 
 #page-tertiary {
   display: none;
+  @include outer-container;
+  @extend %container;
+  text-align: right;
+
+  @include media($medium-screen + 20em) {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    
+    li {
+      display: inline-block;
+      
+      a {
+        font-size: .8em;
+        color: #727272;
+        margin-left: 1em;
+        position: relative;
+        top: 1em;
+
+        &:hover {
+          color: $blue;
+        }
+      }
+    }
+  }
 }
 
 .go-search {
@@ -562,34 +621,85 @@ body {
   }
 
   a {
-    padding: .25em .5em;
+    padding: .25em .75em;
     font-size: .9em;
     color: #989898;
+    @include transition(all 0.25s ease-in-out);
 
     &:hover {
       color: darken(#989898, 25);
     }
   }
 
-  li:first-child a {
+  & > ul > li:first-child a {
     padding-left: 0;
   }
 
   .selected a,
   .selected:first-child a {
     color: darken($blue, 10);
-    padding: .25em 1em;
+    padding: .25em .75em;
     background: #c6e0f0;
     border-radius: $base-border-radius; 
     margin-right: 5px;
   }
 
   .sort-more {
-    a:after {
+    & > a {
+      @include transition(all 0.25s ease-in-out);
+    }
+
+    & > a:after {
       content: '▼';
       font-size: .6em;
       color: #aaa;
       margin-left: .5em;
+    }
+  }
+
+  .sort-options {
+    @include transition(all 0.25s ease-in-out);
+    background: #e3e3e3;
+    border-radius: 0 $base-border-radius $base-border-radius $base-border-radius;
+    position: absolute;
+    z-index: 5;
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+
+    li, a {
+      display: block;
+    }
+
+    a {
+      @include transition(all 0 ease-in-out);
+      padding: .5em .75em;
+      font-weight: normal;
+      border-bottom: #d4d4d4 1px solid;
+      color: #838383;
+
+      &:hover {
+        background: $blue;
+        border-color: darken($blue, 5);
+        color: white;
+      }
+    }
+
+    li:last-child a {
+      border: none;
+    }
+  }
+
+  &.options-visible {
+    .sort-options {
+      opacity: 1;
+      max-height: 200px;
+    }
+
+    .sort-more > a {
+      background: #e3e3e3;
+      border-radius: $base-border-radius $base-border-radius 0 0;
+      color: #838383;
     }
   }
 }

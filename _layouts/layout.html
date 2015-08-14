@@ -11,7 +11,7 @@
   <header id="page-header">
     <div id="primary">
       <a id="page-logo" href="/">AustLII</a>
-      <h1 id="page-title">Supreme Court of New South Wales</h1>
+      <h1 id="page-title"><span>Supreme Court of New South Wales</span></h1>
       <a class="go-search" href="#">Search</a>
     </div>
 
@@ -35,9 +35,9 @@
 
     <ul id="page-tertiary">
       <li><a href="#">About</a></li>
-      <li><a href="#">About</a></li>
-      <li><a href="#">About</a></li>
-      <li><a href="#">About</a></li>
+      <li><a href="#">Copyright</a></li>
+      <li><a href="#">Privacy</a></li>
+      <li><a href="#">Disclaimers</a></li>
     </ul>
   </header>
 
@@ -122,9 +122,16 @@
     <div id="page-main">
       <div id="page-sort">
         <ul>
-          <li class="sort-recent selected"><a href="#">Most Recent</a></li>
-          <li class="sort-cited"><a href="#">Most Cited</a></li>
-          <li class="sort-more"><a href="#">More</a></li>
+          <li class="sort-item sort-recent selected"><a href="#">Most Recent</a></li>
+          <li class="sort-item sort-cited"><a href="#">Most Cited</a></li>
+          <li class="sort-more">
+            <a href="#">More</a>
+            <ul class="sort-options">
+              <li><a href="#">Extra Option</a></li>
+              <li><a href="#">Extra Option</a></li>
+              <li><a href="#">Extra Option</a></li>
+            </ul>
+          </li>
         </ul>
       </div>
 
@@ -197,6 +204,15 @@
 
       $('.search-dropdown').on('click', function() {
         $('.search-box').toggleClass('options-visible');
+      });
+
+      $('.sort-more').on('click', function() {
+        $('#page-sort').toggleClass('options-visible');
+      });
+
+      $('.sort-item').on('click', function() {
+        $('.sort-item').removeClass('selected');
+        $(this).addClass('selected');
       });
 
       $('#ribbon li a').on('click', function() {
