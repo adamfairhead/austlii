@@ -38,7 +38,10 @@ body {
   @include clearfix;
   position: relative;
   top: 0;
-  @include transition(all 0.25s ease-in-out);
+
+  @include media(max-width $medium-screen + 20em) {
+    @include transition(all 0.25s ease-in-out);
+  }
 
   @include media($medium-screen + 20em) {
     .home &  {
@@ -50,7 +53,7 @@ body {
 }
 
 .search-is-visible #primary {
-  top: 100px;
+  top: -100px;
 }
 
 #page-logo {
@@ -416,7 +419,7 @@ body {
   box-shadow: 0 2px 2px rgba(0,0,0,.2);
   z-index: 4;
 
-  .ribbon-type { z-index: 7; }
+  .ribbon-type { z-index: 7; padding-left: .5em; }
   .ribbon-jurisdiction { z-index: 6; }
   .ribbon-database { z-index: 5; }
   .ribbon-year { z-index: 4; }
@@ -438,6 +441,7 @@ body {
 
   ul {
     min-width: 370px;
+    white-space: nowrap;
 
     @include media($medium-screen) {
       min-width: 850px;
@@ -462,6 +466,10 @@ body {
 
   .is-selected a {
     background: lighten($red, 10);
+  }
+
+  .ribbon-document.is-selected a {
+    background: $red;
   }
 
   .is-selected:before {
@@ -648,6 +656,11 @@ body {
     }
   }
 
+  &.is-closed {
+    height: 0;
+    min-height: 0;
+  }
+
   &.is-year {
     height: 80px;
 
@@ -737,6 +750,7 @@ body {
   padding-right: 1em;
   opacity: 0;
   max-height: 0;
+  overflow: hidden;
   @include transition(all 0.5s ease-in-out);
 
   &.is-visible {
@@ -774,6 +788,18 @@ body {
 
   @include media($large-screen) {
     @include span-columns(8.5);
+  }
+
+  .database & {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+
+    @include media($large-screen) {
+      width: 100%;
+      margin-left: 0;
+      margin-right: 0;
+    }
   }
 }
 
@@ -880,16 +906,32 @@ body {
 
   @include media($medium-screen) {
     border: 1px solid #ddd;
+    box-shadow: 0 1px 1px rgba(0,0,0,.07);
     border-radius: $base-border-radius;
   }
 
   a:hover {
     text-decoration: underline;
   }
+
+  &.card-double {
+    @include media($medium-screen) {
+      @include span-columns(6);
+
+      &.omega {
+        @include omega;
+      }
+    }
+  }
+}
+
+.card-group {
+  @include row;
 }
 
 .card-title {
   padding: .25em 1em 0;
+  clear: both;
   color: #989898;
   font-weight: normal;
 
@@ -973,5 +1015,48 @@ body {
     padding-top: 1.5em;
     padding-left: 1em;
     padding-right: 1em;
+  }
+}
+
+// Document
+
+.document {
+  background: white;
+
+  #page-main {
+    @include media($x-large-screen) {
+      @include span-columns(7);
+      @include shift(2.5);
+    }
+  } 
+
+  #page-side {
+    margin-top: 3em;
+
+    @include media($x-large-screen) {
+      @include span-columns(2);
+      @include shift(0.5);
+    }
+  }
+
+  .the-document { 
+    line-height: 1.7;
+    @extend %container;
+
+    header {
+      @include media($medium-screen) {
+        text-align: center;
+      }
+    }
+
+    h1 {
+      padding: 2em 0 1em;
+
+      @include media($medium-screen) {
+        font-size: 1.5em;
+        display: block;
+        padding: 2em 0 1em;
+      }
+    }
   }
 }

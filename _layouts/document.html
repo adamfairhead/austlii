@@ -45,21 +45,14 @@
     <ul>
       <li class="ribbon-type"><a href="#">Type <span>Cases &amp; Legislation</span></a></li>
       <li class="ribbon-jurisdiction"><a href="#">Jurisdiction <span>New South Wales</span></a></li>
-      {% unless page.class == 'database' %}
       <li class="ribbon-database"><a href="database.html">Database <span>Supreme Court of New South Wales</span></a></li>
-      <li class="ribbon-year is-selected"><a href="#">Year <span>Any</span></a></li>
+      <li class="ribbon-year"><a href="#">Year <span>Any</span></a></li>
       <li class="ribbon-letter"><a href="#">Starts with <span>Any letter</span></a></li>
-      {% else %}
-      <li class="ribbon-database"><a href="#">Database <span>Select a database</span></a></li>
-      {% endunless %}
+      <li class="ribbon-document"><a href="#">Citation <span>[2015] NSWSC 1</span></a></li>
     </ul>
   </nav>
 
-  {% unless page.class == 'database' %}
-  <div id="panels" class="is-year">
-  {% else %}
   <div id="panels" class="is-closed">
-  {% endunless %}
     <div id="panel-type">
       <ul>
         <li class="panel-type-all"><a href="#"><h5>All Databases</h5><p>Description goes here for selection.</p></a></li>
@@ -86,7 +79,6 @@
       </ul>
     </div>
 
-    {% unless page.class == 'database' %}
     <div id="panel-year">
       <ul>
         <li class="panel-type-all"><div href="#"><h5>Specific Year</h5><a href="#" class="year-specific-dropdown">2015</a></div></li>
@@ -124,10 +116,8 @@
         <li class="panel-letter-b"><a href="#"><h5>Z</h5></a></li>
       </ul>
     </div>
-    {% endunless %}
   </div>
 
-  {% unless page.class == 'database' %}
   <div class="year-options-list">
     <div class="year-specific-options year-options">
       <ul>
@@ -288,58 +278,47 @@
       </ul>
     </div>
   </div>
-  {% endunless %}
 
   <div id="page-content">
 
     <div id="page-main">
-      {% if page.sort == true %}
-      <div id="page-sort">
-        <ul>
-          <li class="sort-item sort-recent selected"><a href="#">Most Recent</a></li>
-          <li class="sort-item sort-cited"><a href="#">Most Cited</a></li>
-          <li class="sort-more">
-            <a href="#">More</a>
-            <ul class="sort-options">
-              <li><a href="#">Extra Option</a></li>
-              <li><a href="#">Extra Option</a></li>
-              <li><a href="#">Extra Option</a></li>
-            </ul>
-          </li>
-        </ul>
-      </div>
-      {% endif %}
-
       {{ content }}
     </div>
-    
-    {% unless page.class == 'database' %}
-    <div id="page-side">
-      <div class="side-element side-partner">
-        <h4>Partner</h4>
-        <p>This database is presented in partnership with Bond University Faculty of Law.</p>
-        <img src="http://placehold.it/145x50" alt="" />
-      </div>
 
-      <div class="side-element side-contributors">
-        <h4>Contributors</h4>
+    <div id="page-side">
+      <div class="side-element side-download">
+        <h4>Download</h4>
         <ul>
-          <li><a href="#">Recent contributors</a></li>
-          <li><a href="#">Recent contributors</a></li>
-          <li class="contribute-now"><a href="#">Contribute Now</a></li>
+          <li><a href="#">Plain text format (1KB)</a></li>
+          <li><a href="#">PDF format (2.3KB)</a></li>
         </ul>
       </div>
 
-      <div class="side-element side-updates">
-        <h4>Update Status</h4>
+      <div class="side-element side-cited">
+        <h4>Cited</h4>
         <ul>
-          <li><a href="#">Recent contributors</a></li>
-          <li><a href="#">Recent contributors</a></li>
-          <li><a href="#">Recent contributors</a></li>
+          <li><a href="#">3 Cases</a></li>
+          <li><a href="#">5 Legislation</a></li>
+          <li><a href="#">8 Journal articals</a></li>
+        </ul>
+      </div>
+
+      <div class="side-element side-cited-by">
+        <h4>Cited By</h4>
+        <ul>
+          <li><a href="#">27 NoteUp references</a></li>
+          <li><a href="#">22 LawCite records</a></li>
+        </ul>
+      </div>
+
+      <div class="side-element side-authors">
+        <h4>Authors</h4>
+        <ul>
+          <li><a href="#">John Smith</a></li>
+          <li><a href="#">Jane Doe</a></li>
         </ul>
       </div>
     </div>
-    {% endunless %}
   </div>
 
   <script src="js/jquery.min.js"></script>
