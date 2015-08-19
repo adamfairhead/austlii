@@ -1,10 +1,29 @@
 ---
 ---
+@import url(http://fonts.googleapis.com/css?family=Noto+Sans:400,700);
 @import 'normalize';
 @import 'bourbon/bourbon';
 @import 'base/grid-settings';
 @import 'base/base';
 @import 'neat/neat';
+
+// Rows
+
+@include media($medium-screen) {
+  .row {
+    @include row;
+  }
+
+  .half-row {
+    @include span-columns(6);
+  }
+}
+
+hr {
+  border: none;
+  margin: 4em 1em;
+}
+
 
 // Global
 
@@ -46,7 +65,7 @@ body {
   @include media($medium-screen + 20em) {
     .home &  {
       width: 620px;
-      padding-top: 3em;
+      padding-top: 2.5em;
       margin-bottom: -25px;
     }
   }
@@ -75,6 +94,7 @@ body {
     @include media($medium-screen + 20em) {
       width: 120px;
       height: 120px;
+      margin: 15px 0 -10px;
     }
   }
 }
@@ -168,7 +188,7 @@ body {
 
   @include media($medium-screen + 20em) {
     right: 0;
-    top: -37px;
+    top: -46px;
     width: 500px;
     padding-right: 1em;
   }
@@ -182,6 +202,14 @@ body {
       width: 600px;
       margin: 0 auto;
       padding-left: 135px
+    }
+  }
+
+  @include media($x-large-screen + 10em) {
+    &.is-fixed {
+      position: fixed;
+      z-index: 7;
+      top: 11px;
     }
   }
 }
@@ -206,6 +234,11 @@ body {
 
   @include media(em(480)) {
     width: 10%;
+  }
+
+  @include media($medium-screen) {
+    height: 40px;
+    line-height: 3.2;
   }
 }
 
@@ -263,6 +296,10 @@ body {
     margin: 4px 4px 0 10px;
   }
 
+  @include media($medium-screen) {
+    top: 40px;
+  }
+
   @include media($medium-screen + 20em) {
     .home & {
       left: 135px;
@@ -311,11 +348,15 @@ body {
   @include media(em(480)) {
     width: 90%;
   }
+
+  @include media($medium-screen) {
+    height: 40px;
+  }
 }
 
 .search-box input[type="submit"] {
   width: 10%;
-  height: 28px;
+  height: 34px;
   text-indent: -999em;
   background: $red url('../images/search-2.svg') center no-repeat;
   background-size: 15px auto;
@@ -345,7 +386,7 @@ body {
   padding: 0;
 
   @include media($medium-screen) {
-    top: -17px;
+    top: -21px;
   }
 
   @include media($medium-screen + 20em) {
@@ -366,7 +407,7 @@ body {
   @include media($medium-screen + 20em) {
     display: block;
     position: absolute;
-    top: 0;
+    top: -1px;
     left: 0;
     right: 0;
     
@@ -374,11 +415,11 @@ body {
       display: inline-block;
       
       a {
-        font-size: .8em;
+        font-size: .7em;
         color: #727272;
         margin-left: 1em;
         position: relative;
-        top: 1em;
+        top: .25em;
 
         &:hover {
           color: $blue;
@@ -419,11 +460,23 @@ body {
   box-shadow: 0 2px 2px rgba(0,0,0,.2);
   z-index: 4;
 
-  .ribbon-type { z-index: 7; padding-left: .5em; }
+  .ribbon-type { z-index: 7; }
   .ribbon-jurisdiction { z-index: 6; }
   .ribbon-database { z-index: 5; }
   .ribbon-year { z-index: 4; }
   .ribbon-letter { z-index: 3; }
+
+  .ribbon-type a {
+    padding-left: .5em;
+  }
+
+  span {
+    max-width: 200px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    vertical-align: top;
+  }
 
   @include media($medium-screen) {
     overflow: auto;
@@ -838,6 +891,26 @@ body {
     margin-right: 5px;
   }
 
+  .sort-options {
+    .more-qld,
+    .more-sa,
+    .more-tas,
+    .more-vic,
+    .more-wa,
+    .more-ni,
+    .more-nz {
+      display: none;
+    }
+  }
+
+  @include media(max-width em(390)) { .sort-qld { display: none; } .sort-options .more-qld { display: inline; }}
+  @include media(max-width em(420)) { .sort-sa  { display: none; } .sort-options .more-sa  { display: inline; }}
+  @include media(max-width em(470)) { .sort-tas { display: none; } .sort-options .more-tas { display: inline; }}
+  @include media(max-width em(520)) { .sort-vic { display: none; } .sort-options .more-vic { display: inline; }}
+  @include media(max-width em(560)) { .sort-wa  { display: none; } .sort-options .more-wa  { display: inline; }}
+  @include media(max-width em(680)) { .sort-ni  { display: none; } .sort-options .more-ni  { display: inline; }}
+  @include media(max-width em(790)) { .sort-nz  { display: none; } .sort-options .more-nz  { display: inline; }}
+
   .sort-more {
     & > a {
       @include transition(all 0.25s ease-in-out);
@@ -860,6 +933,10 @@ body {
     opacity: 0;
     max-height: 0;
     overflow: hidden;
+
+    @include media(max-width $medium-screen) {
+      margin-left: -25px;
+    }
 
     li, a {
       display: block;
@@ -887,7 +964,7 @@ body {
   &.options-visible {
     .sort-options {
       opacity: 1;
-      max-height: 200px;
+      max-height: 500px;
     }
 
     .sort-more > a {
@@ -934,6 +1011,13 @@ body {
   clear: both;
   color: #989898;
   font-weight: normal;
+
+  &.card-title-large {
+    font-size: 1.2em;
+    padding: .5em .8em 0;
+    color: #565656;
+    font-weight: bold;
+  }
 
   @include media(max-width $medium-screen) {
     &:first-child {
@@ -1059,4 +1143,18 @@ body {
       }
     }
   }
+}
+
+.all-section {
+  max-height: 4000px;
+  overflow: hidden;
+  opacity: 1;
+  @include transition(all .5s ease-in-out);
+  padding-bottom: 4em;
+}
+
+.all-section.is-hidden {
+  opacity: 0;
+  max-height: 0;
+  padding-bottom: 0;
 }
