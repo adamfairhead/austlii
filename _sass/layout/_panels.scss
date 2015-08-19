@@ -1,0 +1,218 @@
+// Panels
+
+#panels {
+  background: $panel-bg;
+  position: relative;
+  z-index: 1;
+  font-size: .8em;
+  overflow: scroll;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  min-height: 70px;
+  @include transition(all 0.25s ease-in-out);
+  box-shadow: 0 2px 2px rgba(0,0,0,.2);
+
+  @include media($medium-screen) {
+    overflow: auto;
+    overflow-y: hidden;
+  }
+ 
+  li, a {
+    display: inline-block;
+    color: white;
+  }
+
+  li {
+    padding: 1em 0 1em 1em;
+  }
+
+  a,
+  #panel-year li  div {
+    padding: 1.1em 1em .3em;
+    background: $panel-fg;
+    border-radius: $base-border-radius;
+  }
+
+  #panel-year li  div {
+    padding: 1em 1em .7em;
+  }
+
+  p {
+    color: #c5c4c4;
+    margin: -5px 0 .7em;
+  }
+
+  .is-selected a {
+    background: white;
+    color: $panel-bg;
+  }
+
+  & > div {
+    @include transition(all 0.25s ease-in-out);
+    max-height: 0;
+    opacity: 0;
+    position: relative;
+  }
+
+  &.is-type {
+    height: 90px;
+
+    ul {
+      min-width: 1000px;
+    }
+
+    @include media($medium-screen) {
+      height: 105px;
+
+      ul {
+        min-width: 1300px;
+      }
+    }
+    
+    #panel-type {
+      max-height: 100px;
+      opacity: 1;
+      z-index: 10;
+    }
+  }
+
+  &.is-jurisdiction {
+    ul {
+      min-width: 850px;
+    }
+
+    #panel-jurisdiction {
+      max-height: 100px;
+      opacity: 1;
+      z-index: 10;
+
+      @include media($medium-screen + 20em) {
+        .home & {
+          text-align: center; 
+        }
+      }
+    }
+  }
+
+  &.is-closed {
+    height: 0;
+    min-height: 0;
+  }
+
+  &.is-year {
+    height: 80px;
+
+    @include media($medium-screen) {
+      height: 80px;
+    }
+
+    ul {
+      min-width: 600px;
+    }
+
+    #panel-year {
+      max-height: 100px;
+      opacity: 1;
+      z-index: 10;
+    }
+  }
+
+  &.is-letter {
+    height: 70px;
+
+    @include media($medium-screen) {
+      height: 80px;
+    }
+
+    ul {
+      min-width: 1350px;
+    }
+
+    #panel-letter {
+      max-height: 100px;
+      opacity: 1;
+      z-index: 10;
+    }
+  }
+
+  #panel-year {
+    h5 {
+      display: inline-block;
+    }
+
+    .year-specific-dropdown,
+    .year-range-dropdown-1,
+    .year-range-dropdown-2 {
+      padding: .2em .5em;
+      margin-left: .7em;
+      display: inline-block;
+      background: #434343;
+      border: 2px solid #575757;
+      color: white;
+
+      &.is-selected {
+        background: white;
+        color: $base-font-color;
+        border-color: #ddd;
+      }
+
+      &:after {
+        content: '▼';
+        color: #858585;
+        font-size: .8em;
+        margin-left: .5em;
+      }
+    }
+
+    .button {
+      background: $red;
+      color: white;
+      padding: .2em .5em;
+      border: 2px solid $red;
+      margin-left: .7em;
+
+      &:hover {
+        background: lighten($red, 10);
+        border: 2px solid lighten($red, 10);
+      }
+    }
+  }
+}
+
+.year-options-list {
+  background: $panel-fg;
+}
+
+.year-options {
+  padding-left: 1em;
+  padding-right: 1em;
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  @include transition(all 0.5s ease-in-out);
+
+  &.is-visible {
+    opacity: 1;
+    max-height: 700px;
+    padding-top: .5em;
+    padding-bottom: .5em;
+  }
+  
+  li {
+    display: inline-block;
+  }
+
+  a {
+    display: inline-block;
+    padding: .8em 1em;
+    background: darken($panel-fg, 10);
+    border-radius: $base-border-radius;
+    margin: .5em 1em 0 0;
+    color: white;
+    font-size: .8em;
+
+    &:hover {
+      background: lighten($panel-fg, 10);
+    }
+  }
+}

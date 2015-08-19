@@ -1,0 +1,15 @@
+// Page: All Databases
+
+.all-section {
+  max-height: 4000px;
+  overflow: hidden;
+  opacity: 1;
+  @include transition(all .5s ease-in-out);
+  padding-bottom: 4em;
+}
+
+.all-section.is-hidden {
+  opacity: 0;
+  max-height: 0;
+  padding-bottom: 0;
+}

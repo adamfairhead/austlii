@@ -1,0 +1,163 @@
+// Ribbons
+
+#ribbon {
+  background: $red;
+  position: relative;
+  overflow: scroll;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  box-shadow: 0 2px 2px rgba(0,0,0,.2);
+  z-index: 4;
+
+  .ribbon-type { z-index: 7; }
+  .ribbon-jurisdiction { z-index: 6; }
+  .ribbon-database { z-index: 5; }
+  .ribbon-year { z-index: 4; }
+  .ribbon-letter { z-index: 3; }
+
+  .ribbon-type a {
+    padding-left: .5em;
+  }
+
+  span {
+    max-width: 200px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    vertical-align: top;
+  }
+
+  @include media($medium-screen) {
+    overflow: auto;
+    overflow-y: hidden;
+  }
+
+  span {
+    display: block;
+    color: #ffaea9;
+  
+    @include media(max-width $medium-screen) {
+      display: none;
+    }
+  }
+
+  ul {
+    min-width: 370px;
+    white-space: nowrap;
+
+    @include media($medium-screen) {
+      min-width: 850px;
+    }
+  }
+
+  li, a {
+    display: inline-block;
+    color: white;
+  }
+
+  a {
+    padding: .5em .5em .5em 1em;
+    position: relative;
+    font-size: .9em;
+    margin-left: -4px;
+
+    @include media($medium-screen) {
+      padding: .5em 1.5em .5em 1.5em;
+    }
+  }
+
+  .is-selected a {
+    background: lighten($red, 10);
+  }
+
+  .ribbon-document.is-selected a {
+    background: $red;
+  }
+
+  .is-selected:before {
+    content: '';
+    width: 0;
+    height: 0;
+    border-style: solid;
+    display: block;
+    border-width: 10px 10px 0 10px;
+    position: absolute;
+    border-color: transparent transparent transparent transparent; // the first one
+    bottom: -5px;
+    left: 40%; 
+    z-index: 2;
+  }
+
+  li {
+    position: relative;
+  }
+
+  li:first-child a {
+    padding-left: 1em;
+  }
+
+  li:last-child a:before,
+  li:last-child a:after {
+    display: none;
+  }
+
+  a:before {
+    content: '';
+    width: 0;
+    height: 0;
+    border-style: solid;
+    display: block;
+    border-width: 20px 0 20px 7px;
+    position: absolute;
+    border-color: transparent transparent transparent #d82d21; 
+    top: 0;
+    right: -7px;
+
+    @include media($medium-screen) {
+      border-width: 32px 0 32px 7px;
+    }
+  }
+
+  a:after {
+    content: '';
+    width: 0;
+    height: 0;
+    border-style: solid;
+    display: block;
+    border-width: 20px 0 20px 7px;
+    position: absolute;
+    border-color: transparent transparent transparent $red;
+    top: 0;
+    right: -6px;
+
+    @include media($medium-screen) {
+      border-width: 32px 0 32px 7px;
+    }
+  }
+
+  .is-selected a:after {
+    border-color: transparent transparent transparent lighten($red, 10);
+  }
+
+  .home & {
+    a:after,
+    a:before {
+      display: none;
+    }
+
+    @include media($medium-screen) {
+      a {
+        padding: .5em 1em;
+      }
+    }
+
+    @include media($medium-screen + 20em) {
+      text-align: center;
+
+      a {
+        padding: 1em;
+        font-size: 1em;
+      }
+    }
+  }
+}

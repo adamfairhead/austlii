@@ -1,0 +1,134 @@
+// Header
+
+#page-header {
+  padding-bottom: 7px;
+  background: white;
+
+  @include media($medium-screen + 20em) {
+    .home &  {
+      padding-bottom: 2em;
+    }
+  }
+}
+
+#primary {
+  @extend %container; 
+  @include clearfix;
+  position: relative;
+  top: 0;
+
+  @include media(max-width $medium-screen + 20em) {
+    @include transition(all 0.25s ease-in-out);
+  }
+
+  @include media($medium-screen + 20em) {
+    .home &  {
+      width: 620px;
+      padding-top: 2.5em;
+      margin-bottom: -25px;
+    }
+  }
+}
+
+.search-is-visible #primary {
+  top: -100px;
+}
+
+#page-logo {
+  width: 40px;
+  height: 40px;
+  display: inline-block;
+  float: left;
+  text-indent: -999em;
+  background: $red;
+  margin-top: 7px;
+  background: url('../images/logo.svg') no-repeat;
+
+  @include media($medium-screen) {
+    width: 80px;
+    height: 80px;
+  }
+
+  .home & {
+    @include media($medium-screen + 20em) {
+      width: 120px;
+      height: 120px;
+      margin: 15px 0 -10px;
+    }
+  }
+}
+
+#page-title {
+  display: inline-block;
+  position: relative;
+  top: 9px;
+  left: 8px;
+  width: 180px;
+  height: 35px;
+  font-size: .9em;
+  line-height: 30px;
+
+  span {
+    display: inline-block;
+    vertical-align: middle;
+    line-height: normal;
+  }
+
+  @include media(em(480)) {
+    width: 350px;
+  }
+
+  @include media(em(530)) {
+    width: 410px;
+  }
+  
+  @include media($medium-screen) {
+    top: 10px;
+    font-size: 1.2em;
+    padding-top: 13px;
+    width: 490px;
+    height: 65px;
+    line-height: 50px;
+  }
+
+  @include media($medium-screen + 20em) {
+    width: 360px;
+  }
+
+  @include media($medium-screen + 26em) {
+    width: 450px;
+  }
+
+  .home & {
+    @include media($medium-screen + 20em) {
+      font-size: 1.5em;
+      width: 460px;
+      padding-top: 0;
+    }
+  }
+}
+
+#page-title .page-subheader {
+  display: none;
+
+  @include media($medium-screen + 20em) {
+    display: inline;
+    font-size: .7em;
+    font-weight: normal;
+    float: left;
+    color: #727272;
+  }
+}
+
+#page-search {
+  position: relative;
+  top: -120px;
+  height: 0;
+  @include transition(all 0.25s ease-in-out);
+
+  @include media($medium-screen + 20em) {
+    top: -10px;
+    height: auto;
+    @include outer-container();
+  }
+}

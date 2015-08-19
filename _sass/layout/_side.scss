@@ -1,0 +1,49 @@
+// Page Side
+
+#page-side {
+  display: none;
+
+  @include media($large-screen) {
+    margin-top: .8em;
+    display: block;
+    @include span-columns(3);
+    @include shift(0.5);
+
+    .side-element {
+      font-size: .8em;
+    }
+  }
+}
+
+.side-element {
+  position: relative;
+  padding-left: 3em;
+  margin-bottom: 2em;
+
+  h4 {
+    font-size: 1.3em;
+    font-weight: normal;
+    padding-top: 2px;
+  }
+
+  &:before {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0;
+    width: 25px;
+    height: 25px;
+    background: #ddd;
+  }
+
+  a {
+    margin-bottom: .3em;
+    display: block;
+    color: $base-font-color;
+  }
+
+  .contribute-now a,
+  a:hover {
+    color: $blue;
+  }
+}

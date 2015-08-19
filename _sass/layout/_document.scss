@@ -1,0 +1,42 @@
+// Document
+
+.document {
+  background: white;
+
+  #page-main {
+    @include media($x-large-screen) {
+      @include span-columns(7);
+      @include shift(2.5);
+    }
+  } 
+
+  #page-side {
+    margin-top: 3em;
+
+    @include media($x-large-screen) {
+      @include span-columns(2);
+      @include shift(0.5);
+    }
+  }
+
+  .the-document { 
+    line-height: 1.7;
+    @extend %container;
+
+    header {
+      @include media($medium-screen) {
+        text-align: center;
+      }
+    }
+
+    h1 {
+      padding: 2em 0 1em;
+
+      @include media($medium-screen) {
+        font-size: 1.5em;
+        display: block;
+        padding: 2em 0 1em;
+      }
+    }
+  }
+}
