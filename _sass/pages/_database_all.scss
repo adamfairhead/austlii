@@ -13,3 +13,9 @@
   max-height: 0;
   padding-bottom: 0;
 }
+
+.database.cases #page-sort .sort-more {
+  @include media(em(790)) {
+    display: none;
+  }
+}

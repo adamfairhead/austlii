@@ -59,8 +59,8 @@
   <nav id="ribbon">
     <ul>
       <li class="ribbon-type"><a href="#">Type <span>Cases &amp; Legislation</span></a></li>
-      <li class="ribbon-jurisdiction"><a href="#">Jurisdiction <span>New South Wales</span></a></li>
-      {% unless page.class == 'database' %}
+      <li class="ribbon-jurisdiction"><a href="#">Jurisdiction <span>{% if page.class contains 'database cases' %}Select a Region{% else %}New South Wales{% endif %}</span></a></li>
+      {% unless page.class contains 'database' %}
       <li class="ribbon-database"><a href="database.html">Database <span>Supreme Court of New South Wales</span></a></li>
       <li class="ribbon-year {% unless page.class == 'document' %}is-selected{% endunless %}"><a href="#">Year <span>Any</span></a></li>
       <li class="ribbon-letter"><a href="#">Starts with <span>Any letter</span></a></li>
@@ -71,7 +71,7 @@
   </nav>
   {% endif %}
 
-  {% if page.class == 'database' %}
+  {% if page.class contains 'database' %}
   <div id="panels" class="is-closed">
   {% elsif page.class == 'home' %}
   <div id="panels" class="is-jurisdiction">
@@ -82,8 +82,8 @@
   {% endif %}
     <div id="panel-type">
       <ul>
-        <li class="panel-type-all"><a href="#"><h5>All Databases</h5><p>Description goes here for selection.</p></a></li>
-        <li class="panel-type-all"><a href="#"><h5>Cases &amp; Legislation</h5><p>Description goes here for selection.</p></a></li>
+        <li class="panel-type-all"><a href="database-all.html"><h5>All Databases</h5><p>Description goes here for selection.</p></a></li>
+        <li class="panel-type-all"><a href="database-cases.html"><h5>Cases &amp; Legislation</h5><p>Description goes here for selection.</p></a></li>
         <li class="panel-type-all"><a href="#"><h5>Journals &amp; Scholarship</h5><p>Description goes here for selection.</p></a></li>
         <li class="panel-type-all"><a href="#"><h5>Libraries</h5><p>Description goes here for selection.</p></a></li>
         <li class="panel-type-all"><a href="#"><h5>Catalog</h5><p>Description goes here for selection.</p></a></li>
@@ -106,7 +106,7 @@
       </ul>
     </div>
 
-    {% unless page.class == 'database' %}
+    {% unless page.class contains 'database' %}
     <div id="panel-year">
       <ul>
         <li class="panel-type-all"><div href="#"><h5>Specific Year</h5><a href="#" class="year-specific-dropdown">2015</a></div></li>
@@ -314,7 +314,7 @@
 
     <div id="page-main">
       {% if page.sort == true %}
-      {% if page.class == 'database' %}
+      {% if page.class contains 'database' %}
       <div id="page-sort">
         <ul>
           <li class="sort-item sort-all selected"><a href="#">All</a></li>
@@ -339,11 +339,13 @@
               <li class="sort-item more-wa"><a href="#">WA</a></li>
               <li class="sort-item more-ni"><a href="#">Norfolk Island</a></li>
               <li class="sort-item more-nz"><a href="#">New Zealand</a></li>
+              {% unless page.class contains 'cases' %}
               <li class="sort-item more-journals"><a href="#">Journals</a></li>
               <li class="sort-item more-law-reform"><a href="#">Law Reform</a></li>
               <li class="sort-item more-treaties"><a href="#">Australian Treaties</a></li>
               <li class="sort-item more-libraries"><a href="#">Libraries</a></li>
               <li class="sort-item more-pages"><a href="#">Hosted Home Pages</a></li>
+              {% endunless %}
             </ul>
           </li>
         </ul>
@@ -380,7 +382,7 @@
       {% endif %}
     </div>
     
-    {% if page.class == 'database' %}
+    {% if page.class contains 'database' %}
     {% elsif page.class == 'document' %}
     <div id="page-side">
       <div class="side-element side-download">
