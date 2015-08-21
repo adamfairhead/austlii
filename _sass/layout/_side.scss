@@ -26,16 +26,6 @@
     padding-top: 2px;
   }
 
-  &:before {
-    content: '';
-    display: block;
-    position: absolute;
-    left: 0;
-    width: 25px;
-    height: 25px;
-    background: #ddd;
-  }
-
   a {
     margin-bottom: .3em;
     display: block;
@@ -45,5 +35,25 @@
   .contribute-now a,
   a:hover {
     color: $blue;
+  }
+
+  svg {
+    position: absolute;
+    width: 27px;
+    left: 0px; 
+  }
+
+  &.side-statistics {
+    li {
+      color: #a0a0a0;
+      margin-bottom: .75em;
+    }
+
+    strong {
+      display: block;
+      font-size: 1.2em;
+      color: $base-font-color;
+      line-height: 1;
+    }
   }
 }
