@@ -26,15 +26,25 @@
     padding: 1em 0 1em 1em;
   }
 
+  a {
+    &:hover {
+      background: lighten($panel-fg, 20);
+    }
+  }
+
   a,
-  #panel-year li  div {
+  #panel-year li div {
     padding: 1.1em 1em .3em;
     background: $panel-fg;
     border-radius: $base-border-radius;
   }
 
-  #panel-year li  div {
+  #panel-year li div {
     padding: 1em 1em .7em;
+  }
+
+  h5 {
+    color: white;
   }
 
   p {
@@ -45,6 +55,14 @@
   .is-selected a {
     background: white;
     color: $panel-bg;
+    
+    h5 {
+      color: $panel-bg;
+    }
+    
+    p {
+      color: darken(#c5c4c4, 15);
+    }
   }
 
   & > div {

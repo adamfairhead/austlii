@@ -23,7 +23,8 @@
     @include span-columns(8.5);
   }
 
-  .database & {
+  .database.all &,
+  .database.cases & {
     width: 100%;
     margin-left: 0;
     margin-right: 0;

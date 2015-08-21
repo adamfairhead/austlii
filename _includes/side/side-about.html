@@ -1,0 +1,37 @@
+{% if page.class == 'results' %}
+<div class="side-element side-about">
+  {% include svg/icon-about.svg %}
+  <h4>About this Database</h4>
+  <p>This database contains decisions from June 1995 of the Supreme Court of New South Wales. The decisions in this database are all those that have been selected and provided by the Court. Decisions are usually sent on a daily basis. Decisions are also available at the Court site.</p>
+  <p><a href="#">See the Court site for further information concerning the Court.</a></p>
+</div>
+{% endif %}
+
+{% if page.class contains 'libraries' %}
+<div class="side-element side-about">
+  {% include svg/icon-about.svg %}
+  <h4>About this Library</h4>
+  <p>This Library includes databases of Australasian aviation law accessible via AustLII and NZLII. Catalog and Websearch enables searches of Australian aviation materials on other websites as does Law on Google. More information about this Library can be found in the <a href="#">Australasian Aviation Law Library brochure [PDF].</a></p>
+  <p>For comments and suggested additions to the Library, please contact <a href="#">suggestions@austlii.edu.au</a></p>
+  <p>This Library is developed with the assistance of the <a href="#">Aviation Law Association of Australia & New Zealand (ALAANZ).</a> AustLII thanks those organisations that provide it with data, funding and other assistance.</p>
+</div>
+{% endif %}
+
+{% if page.class contains 'journals' %}
+<div class="side-element side-about">
+  {% include svg/icon-about.svg %}
+  <h4>About this Journal</h4>
+  <p>This database contains documents from the Aboriginal Law Bulletin (AboriginalLawB). In April 1997, it was renamed as the Indigenous Law Bulletin (IndigLawB). More information can be found on the Bulletin website.</p>
+
+  <a href="javascript:void(0);" class="side-about-more-link">More</a>
+  <div class="side-about-more">
+    <h6>Names of Deceased People</h6>
+    <p>The Indigenous/Aboriginal Law Bulletin may contain names of and other references to deceased persons. This may cause distress, especially to the relatives of these people.</p>
+    <p>Where requested by relatives or representatives, names which have appeared in the original print edition have been suppressed for this reproduction.</p>
+    <h6>Sensitive Use</h6>
+    <p>Users are required to treat this material with sensitivity, being aware that it may contain words or descriptions which may be offensive or distressing.</p>
+    <h6>Reproduction for Online Use</h6>
+    <p>The ILB/ALB is now fully text searchable on AustLII. The wording of all articles is in its original form, except where names have been suppressed as above. For older material, where original digital material was not available, original print editions have been scanned, and the text extracted by character recognition software. All possible efforts to proofread the material have been made, but it is possible some errors remain where words have been wrongly recognised by the software. References in the text to other articles in the ILB/ALB are print citations.</p>
+  </div>
+</div>
+{% endif %}

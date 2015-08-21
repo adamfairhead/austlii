@@ -20,8 +20,14 @@
         <a class="search-dropdown" href="javascript:void(0);">▼</a>
 
         <ul class="search-options">
-          <li><label>All database <input type="radio"></label></li>
-          <li><label>This database only <input type="radio"></label></li>
+          {% if page.class contains 'results' %}
+            <li><label>All databases <input type="radio"></label></li>
+            <li><label>This database only <input type="radio"></label></li>
+          {% endif %}
+          {% if page.searchable == true %}
+            <li><label>All databases <input type="radio"></label></li>
+            <li><label>Selected databases <input type="radio"></label></li>
+          {% endif %}
           <li><label>Full text <input type="radio"></label></li>
           <li><label>Titles only <input type="radio"></label></li>
           <li><a href="#">Advanced Search…</a></li>
@@ -48,7 +54,7 @@
   <nav id="ribbon">
     <ul>
       <li class="ribbon-home-databases"><a href="database-all.html">All Databases</a></li>
-      <li class="ribbon-home-cases"><a href="javascript:void(0);">Cases &amp; Legislation</a></li>
+      <li class="ribbon-home-cases is-selected"><a href="javascript:void(0);">Cases &amp; Legislation</a></li>
       <li class="ribbon-home-journals"><a href="database-journals.html">Journals &amp; Scholarship</a></li>
       <li class="ribbon-home-treaties"><a href="database-treaties.html">Treaties</a></li>
       <li class="ribbon-home-libraries"><a href="database-libraries.html">Libraries</a></li>
@@ -58,14 +64,40 @@
   {% else %}
   <nav id="ribbon">
     <ul>
+      {% if page.class contains 'libraries' %}
+      <li class="ribbon-type"><a href="#">Type <span>Libraries</span></a></li>
+      {% elsif page.class contains 'treaties' %}
+      <li class="ribbon-type"><a href="#">Type <span>Treaties</span></a></li>
+      {% elsif page.class contains 'journals' %}
+      <li class="ribbon-type"><a href="#">Type <span>Journals</span></a></li>
+      {% else %}
       <li class="ribbon-type"><a href="#">Type <span>Cases &amp; Legislation</span></a></li>
+      {% endif %}
+
+      {% if page.class == 'database libraries' %}
+      <li class="ribbon-library"><a href="#">Library <span>Select a library</span></a></li>
+      {% elsif page.class contains 'aviation' or page.class contains 'libraries results' %}
+      <li class="ribbon-library"><a href="database-libraries.html">Library <span>Australasian Aviation Law Library</span></a></li>
+      {% endif %}
+
       {% unless page.class contains 'journals' or page.class contains 'libraries' or page.class contains 'treaties' %}
-      <li class="ribbon-jurisdiction"><a href="#">Jurisdiction <span>{% if page.class contains 'database' %}Select a Region{% else %}New South Wales{% endif %}</span></a></li>
+      <li class="ribbon-jurisdiction"><a href="#">Jurisdiction <span>{% if page.class contains 'database cases' or page.class contains 'database all' %}Select a Region{% else %}New South Wales{% endif %}</span></a></li>
       {% endunless %}
+
       {% unless page.class contains 'database' %}
+      {% if page.class contains 'libraries' %}
+      <li class="ribbon-database"><a href="libraries-aviation.html">Database <span>Aviation Law Association of Australia & New Zealand (ALAANZ) Aviation Briefs (AustLII)</span></a></li>
+      {% elsif page.class contains 'treaties' %}
+      <li class="ribbon-database"><a href="database-treaties.html">Database <span>Australian Treaty Action - Monthly Updates (AustLII)</span></a></li>
+      {% elsif page.class contains 'journals' %}
+      <li class="ribbon-database"><a href="database-journals.html">Database <span>Aboriginal Law Bulletin</span></a></li>
+      {% else %}
       <li class="ribbon-database"><a href="database.html">Database <span>Supreme Court of New South Wales</span></a></li>
+      {% endif %}
+
       <li class="ribbon-year {% unless page.class == 'document' %}is-selected{% endunless %}"><a href="#">Year <span>Any</span></a></li>
       <li class="ribbon-letter"><a href="#">Starts with <span>Any letter</span></a></li>
+      {% elsif page.class == 'database libraries' %}
       {% else %}
       <li class="ribbon-database"><a href="#">Database <span>Select a database</span></a></li>
       {% endunless %}
@@ -84,11 +116,11 @@
   {% endif %}
     <div id="panel-type">
       <ul>
-        <li class="panel-type-all"><a href="database-all.html"><h5>All Databases</h5><p>Description goes here for selection.</p></a></li>
-        <li class="panel-type-all"><a href="database-cases.html"><h5>Cases &amp; Legislation</h5><p>Description goes here for selection.</p></a></li>
-        <li class="panel-type-all"><a href="database-journals.html"><h5>Journals &amp; Scholarship</h5><p>Description goes here for selection.</p></a></li>
-        <li class="panel-type-all"><a href="database-treaties.html"><h5>Treaties</h5><p>Description goes here for selection.</p></a></li>
-        <li class="panel-type-all"><a href="database-libraries.html"><h5>Libraries</h5><p>Description goes here for selection.</p></a></li>
+        <li class="panel-type-all {% if page.class == 'database all' %}is-selected{% endif %}"><a href="database-all.html"><h5>All Databases</h5><p>Description goes here for selection.</p></a></li>
+        <li class="panel-type-all {% if page.class contains 'cases' or page.class == 'results' or page.class == 'database' %}is-selected{% endif %}"><a href="database-cases.html"><h5>Cases &amp; Legislation</h5><p>Description goes here for selection.</p></a></li>
+        <li class="panel-type-all {% if page.class contains 'journals' %}is-selected{% endif %}"><a href="database-journals.html"><h5>Journals &amp; Scholarship</h5><p>Description goes here for selection.</p></a></li>
+        <li class="panel-type-all {% if page.class contains 'treaties' %}is-selected{% endif %}"><a href="database-treaties.html"><h5>Treaties</h5><p>Description goes here for selection.</p></a></li>
+        <li class="panel-type-all {% if page.class contains 'libraries' %}is-selected{% endif %}"><a href="database-libraries.html"><h5>Libraries</h5><p>Description goes here for selection.</p></a></li>
         <li class="panel-type-all"><a href="http://www.worldlii.org/catalog/1.html"><h5>Catalogs</h5><p>Description goes here for selection.</p></a></li>
       </ul>
     </div>
@@ -98,7 +130,7 @@
         <li class="panel-type-all"><a href="database.html"><h5>Australia</h5></a></li>
         <li class="panel-type-all"><a href="database.html"><h5>CTH</h5></a></li>
         <li class="panel-type-all"><a href="database.html"><h5>ACT</h5></a></li>
-        <li class="panel-type-all"><a href="database.html"><h5>NSW</h5></a></li>
+        <li class="panel-type-all {% if page.class == 'database' or page.class == 'results' %}is-selected {% endif %}"><a href="database.html"><h5>NSW</h5></a></li>
         <li class="panel-type-all"><a href="database.html"><h5>NT</h5></a></li>
         <li class="panel-type-all"><a href="database.html"><h5>QLD</h5></a></li>
         <li class="panel-type-all"><a href="database.html"><h5>SA</h5></a></li>
@@ -315,15 +347,17 @@
 
   <div id="page-content">
 
-    <div id="page-main">
+    <div id="page-main"> 
       {% if page.sort == true %}
       {% if page.class contains 'database' %}
       <div id="page-sort">
         <ul>
           <li class="sort-item sort-all selected"><a href="#">All</a></li>
+          {% unless page.class contains 'journals' %}
           <li class="sort-item sort-cth"><a href="#">Cth</a></li>
           <li class="sort-item sort-act"><a href="#">ACT</a></li>
           <li class="sort-item sort-nsw"><a href="#">NSW</a></li>
+          <li class="sort-item sort-nt"><a href="#">NT</a></li>
           <li class="sort-item sort-qld"><a href="#">Qld</a></li>
           <li class="sort-item sort-sa"><a href="#">SA</a></li>
           <li class="sort-item sort-tas"><a href="#">Tas</a></li>
@@ -331,6 +365,13 @@
           <li class="sort-item sort-wa"><a href="#">WA</a></li>
           <li class="sort-item sort-ni"><a href="#">Norfolk Island</a></li>
           <li class="sort-item sort-nz"><a href="#">New Zealand</a></li>
+          {% else %}
+          <li class="sort-item sort-au"><a href="#">Australian</a></li>
+          <li class="sort-item sort-nz"><a href="#">New Zealand</a></li>
+          <li class="sort-item sort-js"><a href="#">Judicial Scholarship</a></li>
+          <li class="sort-item sort-lrs"><a href="#">Research</a></li>
+          <li class="sort-item sort-ms"><a href="#">Monographs</a></li>
+          {% endunless %}
 
           <li class="sort-more">
             <a href="#">More</a>
@@ -361,9 +402,10 @@
           <li class="sort-more">
             <a href="#">More</a>
             <ul class="sort-options">
-              <li><a href="#">Extra Option</a></li>
-              <li><a href="#">Extra Option</a></li>
-              <li><a href="#">Extra Option</a></li>
+              <li><a href="#">Most Accessed</a></li>
+              <li><a href="#">Earliest First</a></li>
+              <li><a href="#">Least Cited</a></li>
+              <li><a href="#">Least Accessed</a></li>
             </ul>
           </li>
         </ul>
@@ -385,101 +427,78 @@
       {% endif %}
     </div>
     
-    {% if page.class contains 'database' %}
-    {% elsif page.class == 'document' %}
+    {% if page.class == 'database' %}
+    <!-- Libraries Sidebar -->
     <div id="page-side">
-      <div class="side-element side-download">
-        {% include svg/icon-download.svg %}
-        <h4>Download</h4>
-        <ul>
-          <li><a href="#">Plain text format (1KB)</a></li>
-          <li><a href="#">PDF format (2.3KB)</a></li>
-        </ul>
-      </div>
+    {% include side/side-partner.html %}
+    {% include side/side-contributors.html %}
+    {% include side/side-tools.html %}
+    </div>
+    {% endif %}
 
-      <div class="side-element side-cited">
-        {% include svg/icon-cited.svg %}
-        <h4>Cited</h4>
-        <ul>
-          <li><a href="#">3 Cases</a></li>
-          <li><a href="#">5 Legislation</a></li>
-          <li><a href="#">8 Journal articals</a></li>
-        </ul>
-      </div>
+    {% if page.class == 'database libraries' %}
+    <!-- Libraries Sidebar -->
+    <div id="page-side">
+    {% include side/side-libraries.html %}
+    {% include side/side-contributors.html %}
+    {% include side/side-tools.html %}
+    </div>
+    {% endif %}
 
-      <div class="side-element side-cited-by">
-        {% include svg/icon-cited-by.svg %}
-        <h4>Cited By</h4>
-        <ul>
-          <li><a href="#">27 NoteUp references</a></li>
-          <li><a href="#">22 LawCite records</a></li>
-        </ul>
-      </div>
+    {% if page.class == 'database treaties' %}
+    <!-- Libraries Sidebar -->
+    <div id="page-side">
+    {% include side/side-treaties.html %}
+    {% include side/side-contributors.html %}
+    </div>
+    {% endif %}
 
-      <div class="side-element side-authors">
-        {% include svg/icon-authors.svg %}
-        <h4>Authors</h4>
-        <ul>
-          <li><a href="#">John Smith</a></li>
-          <li><a href="#">Jane Doe</a></li>
-        </ul>
-      </div>
+    {% if page.class == 'database journals' %}
+    <!-- Journals Sidebar -->
+    <div id="page-side">
+    {% include side/side-journals.html %}
+    {% include side/side-contributors.html %}
+    {% include side/side-tools.html %}
+    </div>
+    {% endif %}
+
+    {% if page.class == 'database libraries aviation' %}
+    <!-- Libraries Sidebar -->
+    <div id="page-side">
+    {% include side/side-partner.html %}
+    {% include side/side-libraries.html %} 
+    {% include side/side-contributors.html %}
+    {% include side/side-tools.html %}
+    </div>
+    {% endif %}
+
+    {% if page.class contains 'document' %}
+    <!-- Document Sidebar -->
+    <div id="page-side">
+      {% include side/side-download.html %}
+      {% include side/side-cited.html %}
+      {% include side/side-cited-by.html %}
+      {% include side/side-authors.html %}
     </div> 
-    {% else %} 
+    {% endif %}
+
+    {% if page.class == 'home' %}
+    <!-- Home Sidebar -->
     <div id="page-side">
-      {% unless page.class == 'home' %}
-      <div class="side-element side-partner">
-        {% include svg/icon-partner.svg %}
-        <h4>Partner</h4>
-        <p>This database is presented in partnership with Bond University Faculty of Law.</p>
-        <img src="http://placehold.it/145x50" alt="" />
-      </div>
-      {% endunless %}
+      {% include side/side-contributors.html %}
+      {% include side/side-updates.html %}
+      {% include side/side-stats.html %}
+      {% include side/side-tools.html %}
+    </div>
+    {% endif %}
 
-      <div class="side-element side-contributors">
-        {% include svg/icon-contributors.svg %}
-        <h4>Contributors</h4>
-        <ul>
-          <li><a href="#">Recent Contributors</a></li>
-          <li><a href="#">Annual Reports</a></li>
-          <li class="contribute-now"><a href="#">Contribute Now</a></li>
-        </ul>
-      </div>
-
-      <div class="side-element side-updates">
-        {% include svg/icon-updates.svg %}
-        <h4>Update Status</h4>
-        <ul>
-          <li><a href="#">Case Law Updates</a></li>
-          <li><a href="#">Journal Updates</a></li>
-          <li><a href="#">Legislation Updates</a></li>
-        </ul>
-      </div>
-
-      <div class="side-element side-statistics">
-        {% include svg/icon-stats.svg %}
-        <h4>Statistics</h4> 
-        <ul>
-          <li><strong>6,121,203</strong> documents</li>
-          <li><strong>675</strong> databases</li>
-          <li><strong>112</strong> years of data</li>
-          <li><strong>97</strong> contributors</li>
-        </ul>
-      </div>
-
-      <div class="side-element side-tools">
-        {% include svg/icon-tools.svg %}
-        <h4>Tools &amp; Guides</h4>
-        <ul>
-          <li><a href="#">User Guide</a></li>
-          <li><a href="#">Online Help</a></li>
-          <li><a href="#">Apps</a></li>
-          <li><a href="#">LawCite</a></li>
-          <li><a href="#">Toolbar</a></li>
-          <li><a href="#">Research Seminars</a></li>
-          <li><a href="#">Subscribe to News</a></li>
-        </ul>
-      </div>
+    {% if page.class contains 'results' %}
+    <!-- Results Sidebar -->
+    <div id="page-side">
+      {% include side/side-partner.html %}
+      {% include side/side-about.html %} 
+      {% include side/side-contributors.html %}
+      {% include side/side-tools.html %}
     </div>
     {% endif %}
   </div>
@@ -581,6 +600,11 @@
         $('#nsw').removeClass('is-hidden');
       });
 
+      $('.sort-nt, .more-nt').on('click', function() {
+        $('.all-section').addClass('is-hidden');
+        $('#nt').removeClass('is-hidden');
+      });
+
       $('.sort-qld, .more-qld').on('click', function() {
         $('.all-section').addClass('is-hidden');
         $('#qld').removeClass('is-hidden');
@@ -639,6 +663,10 @@
       $('.more-pages').on('click', function() {
         $('.all-section').addClass('is-hidden');
         $('#pages').removeClass('is-hidden');
+      });
+
+      $('.side-about-more-link').on('click', function() {
+        $('.side-about').addClass('has-more');
       });
 
     });
