@@ -72,6 +72,11 @@
     display: inline-block;
     vertical-align: middle;
     line-height: normal;
+
+    @include media(max-width $medium-screen) {
+      overflow-y: hidden;
+      max-height: 35px;
+    }
   }
 
   @include media(em(480)) {

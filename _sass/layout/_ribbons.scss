@@ -9,6 +9,17 @@
   box-shadow: 0 2px 2px rgba(0,0,0,.2);
   z-index: 4;
 
+  &.first-hovered,
+  &.first-selected  {
+    @include linear-gradient(50deg, lighten($red, 10) 49%, $red 50%);
+  }
+
+  .inner {
+    background: $red;
+    max-width: 74em;
+    margin: 0 auto;
+  }
+
   .ribbon-type { z-index: 7; }
   .ribbon-jurisdiction { z-index: 6; }
   .ribbon-database { z-index: 5; }
@@ -61,11 +72,16 @@
     font-size: .9em;
     margin-left: -4px;
 
+    .home & {
+      padding: .5em .75em;
+    }
+
     @include media($medium-screen) {
       padding: .5em 1.5em .5em 1.5em;
     }
   }
 
+  a:hover,
   .is-selected a {
     background: lighten($red, 10);
   }
@@ -88,8 +104,20 @@
     z-index: 2;
   }
 
+
   li {
     position: relative;
+  }
+
+  li:last-child a,
+  li:last-child a:hover {
+    border-color: transparent;
+    background: transparent;
+    cursor: text;
+  }
+  .ribbon-home-catalogs a:hover {
+    cursor: pointer !important;
+    background: lighten($red, 10) !important;
   }
 
   li:first-child a {
@@ -101,6 +129,7 @@
     display: none;
   }
 
+  a:hover:before,
   a:before {
     content: '';
     width: 0;
@@ -118,6 +147,7 @@
     }
   }
 
+  a:hover:after,
   a:after {
     content: '';
     width: 0;
@@ -135,6 +165,7 @@
     }
   }
 
+  a:hover:after,
   .is-selected a:after {
     border-color: transparent transparent transparent lighten($red, 10);
   }

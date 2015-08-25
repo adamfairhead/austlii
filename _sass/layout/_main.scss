@@ -72,7 +72,7 @@
     margin-right: 5px;
   }
 
-  .sort-options {
+  .sort-options { 
     .more-qld,
     .more-sa,
     .more-tas,
@@ -105,8 +105,9 @@
     }
   }
 
-  .sort-options {
+  .sort-options { 
     @include transition(all 0.25s ease-in-out);
+    width: 140px;
     background: #e3e3e3;
     border-radius: 0 $base-border-radius $base-border-radius $base-border-radius;
     position: absolute;
@@ -116,7 +117,8 @@
     overflow: hidden;
 
     @include media(max-width $medium-screen) {
-      margin-left: -25px;
+      border-radius: $base-border-radius 0 $base-border-radius $base-border-radius;
+      margin-left: -73px;
     }
 
     li, a {

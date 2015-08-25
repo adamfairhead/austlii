@@ -9,7 +9,7 @@
   @include media($medium-screen + 20em) {
     display: block;
     position: absolute;
-    top: -1px;
+    top: -7px;
     left: 0;
     right: 0;
     
@@ -24,7 +24,7 @@
         top: .25em;
 
         &:hover {
-          color: $blue;
+          text-decoration: underline;
         }
       }
     }

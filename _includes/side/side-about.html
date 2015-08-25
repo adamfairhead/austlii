@@ -1,3 +1,45 @@
+{% if page.class contains 'about' %}
+<div class="side-element side-about">
+  {% include svg/icon-about.svg %}
+  <h4>About AustLII</h4>
+  <h6>General Info</h6>
+  <ul>
+    <li><a href="#">Overview</a></li>
+    <li><a href="#">Annual Report</a></li>
+    <li><a href="#">Guides</a></li>
+    <li><a href="#">Published papers</a></li>
+    <li><a href="#">FAQs</a></li>
+    <li><a href="#">Feedback</a></li>
+    <li><a href="#">Contact us</a></li>
+  </ul>
+  <br />
+
+  <h6>Help with AustLII</h6>
+  <ul>
+    <li><a href="#">Legal Research Guide</a></li>
+    <li><a href="#">Help Pages</a></li>
+  </ul>
+  <br />
+
+  <h6>Policies</h6>
+  <ul>
+    <li><a href="#">Disclaimers</a></li>
+    <li><a href="#">Privacy Policy</a></li>
+    <li><a href="#">Copyright Policy</a></li>
+    <li><a href="#">Linking</a></li>
+  </ul>
+  <br />
+
+  <h6>Who &amp; How</h6>
+  <ul>
+    <li><a href="#">Personnel</a></li> 
+    <li><a href="#">Funding info</a></li>
+    <li><a href="#">Careers</a></li>
+    <li><a href="#">Thanks</a></li>
+  </ul>
+</div>
+{% endif %}
+
 {% if page.class == 'results' %}
 <div class="side-element side-about">
   {% include svg/icon-about.svg %}

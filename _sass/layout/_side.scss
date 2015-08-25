@@ -1,7 +1,10 @@
 // Page Side
 
 #page-side {
-  display: none;
+  @include media(max-width $large-screen) {
+    padding-left: 1em;
+    padding-right: 1em;
+  }
 
   @include media($large-screen) {
     margin-top: .8em;
@@ -20,6 +23,10 @@
   padding-left: 3em;
   margin-bottom: 2em;
 
+  @include media(max-width $large-screen) {
+    padding-left: 2.5em;
+  }
+
   h4 {
     font-size: 1.3em;
     font-weight: normal;
@@ -29,6 +36,15 @@
   a {
     margin-bottom: .3em;
     display: block;
+
+    &:hover {
+      text-decoration: underline;
+    }
+
+    @include media(max-width $large-screen) {
+      border-top: 1px solid rgba(0,0,0,.1);
+      padding-top: .25em;
+    }
   }
 
   svg {
