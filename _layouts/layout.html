@@ -10,7 +10,7 @@
 <body{% if page.class %} class="{{ page.class }}"{% endif %}>
   <header id="page-header">
     <div id="primary">
-      <a id="page-logo" href="/">AustLII</a>
+      <a id="page-logo" href="index.html">AustLII</a>
       {% if page.class contains 'document' %}
       <h2 id="page-title"><span>{{ page.database }}</span></h2>
       {% else %}
@@ -67,7 +67,7 @@
         <li class="ribbon-home-journals"><a href="database-journals.html">Journals &amp; Scholarship</a></li>
         <li class="ribbon-home-treaties"><a href="database-treaties.html">Treaties</a></li>
         <li class="ribbon-home-libraries"><a href="database-libraries.html">Libraries</a></li>
-        <li class="ribbon-home-catalogs"><a href="http://www.worldlii.org/catalog/1.html">Catalogs</a></li>
+        <li class="ribbon-home-lawcite"><a href="#">LawCite</a></li>
       </ul>
     </div>
   </nav>
@@ -81,7 +81,7 @@
           <li class="ribbon-home-journals"><a href="database-journals.html">Journals &amp; Scholarship</a></li>
           <li class="ribbon-home-treaties"><a href="database-treaties.html">Treaties</a></li>
           <li class="ribbon-home-libraries"><a href="database-libraries.html">Libraries</a></li>
-          <li class="ribbon-home-catalogs"><a href="http://www.worldlii.org/catalog/1.html">Catalogs</a></li> 
+          <li class="ribbon-home-lawcite"><a href="#">LawCite</a></li> 
         </ul>
       </div>
     </nav>
@@ -152,7 +152,7 @@
         <li class="panel-type-all {% if page.class contains 'journals' %}is-selected{% endif %}"><a href="database-journals.html"><h5>Journals &amp; Scholarship</h5><p>Description goes here for selection.</p></a></li>
         <li class="panel-type-all {% if page.class contains 'treaties' %}is-selected{% endif %}"><a href="database-treaties.html"><h5>Treaties</h5><p>Description goes here for selection.</p></a></li>
         <li class="panel-type-all {% if page.class contains 'libraries' %}is-selected{% endif %}"><a href="database-libraries.html"><h5>Libraries</h5><p>Description goes here for selection.</p></a></li>
-        <li class="panel-type-all"><a href="http://www.worldlii.org/catalog/1.html"><h5>Catalogs</h5><p>Description goes here for selection.</p></a></li>
+        <li class="panel-type-all"><a href="#"><h5>LawCite</h5><p>Description goes here for selection.</p></a></li>
       </ul>
     </div>
 
