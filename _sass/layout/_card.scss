@@ -17,7 +17,7 @@
   }
 
   input[type="checkbox"] {
-    margin: 0.9em .5em 0 1em;
+    margin: 0.55em .5em 0 1em;
     display: inline-block;
     float: left;
   }
@@ -44,13 +44,53 @@
 }
 
 .card a {
-  padding: .7em 1em;
+  padding: .5em 1em;
   display: block;
   font-size: .9em;
+}
+
+.is-searchable .card a {
+  padding: .5em 1em .5em 3.5em;
 }
 
 .card li:nth-child(2n) a {
   background: #f6fafd;
   border-top: #eaf0f6 1px solid;
   border-bottom: #eaf0f6 1px solid;
+}
+
+.card input[type="checkbox"] {
+  @include transition(all 0.2s ease-in-out);
+  background: white; 
+  border: 2px solid #ddd;
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  position: relative;
+  text-align: center;
+  line-height: .9;
+  border-radius: $base-border-radius - 1;
+  outline: none;
+}
+
+.card input[type="checkbox"]:checked {
+  background: $blue;
+  border: none;
+}
+
+input[type="checkbox"]:checked:before {
+  content: "";
+  position: absolute;
+  border-color: #eee;
+  left: 6px;
+  top: 2px;
+  width: 6px;
+  height: 12px;
+  border-width: 2px;
+  border-style: solid;
+  border-top: 0;
+  border-left: 0;
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+  display: table;
 }

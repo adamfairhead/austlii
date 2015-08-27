@@ -29,8 +29,8 @@
             <li><label>This database only <input type="radio"></label></li>
           {% endif %}
           {% if page.searchable == true %}
-            <li><label>All databases <input type="radio"></label></li>
             <li><label>Selected databases <input type="radio"></label></li>
+            <li><label>All databases <input type="radio"></label></li>
           {% endif %}
           <li><label>Full text <input type="radio"></label></li>
           <li><label>Titles only <input type="radio"></label></li>
@@ -372,7 +372,7 @@
   </div>
   {% endunless %}
 
-  <div id="page-content">
+  <div id="page-content"{% if page.searchable == true %} class="is-searchable"{% endif %}>
 
     <div id="page-main"> 
       {% if page.sort == true %}
