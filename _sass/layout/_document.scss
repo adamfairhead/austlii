@@ -3,6 +3,10 @@
 .document {
   background: white;
 
+  a:hover {
+    text-decoration: underline;
+  }
+
   #page-main {
     @include media($x-large-screen) {
       @include span-columns(7);
