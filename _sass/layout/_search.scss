@@ -187,7 +187,7 @@
 
 .search-box input[type="submit"] {
   width: 10%;
-  height: 34px;
+  height: 27px;
   text-indent: -999em;
   background: $red url('../images/search-2.svg') center no-repeat;
   background-size: 15px auto;
@@ -201,6 +201,7 @@
   top: 3px;
 
   @include media($medium-screen + 20em) {
+    height: 34px;
     right: 1.2em;
     width: 7%;
   }
