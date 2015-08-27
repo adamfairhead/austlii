@@ -25,16 +25,16 @@
 
         <ul class="search-options">
           {% if page.class contains 'results' %}
-            <li><label>All databases <input type="radio"></label></li>
-            <li><label>This database only <input type="radio"></label></li>
+            <li class="all-databases"><label>All databases <input type="radio"></label></li>
+            <li class="this-database"><label>This database only <input type="radio"></label></li>
           {% endif %}
           {% if page.searchable == true %}
-            <li><label>Selected databases <input type="radio"></label></li>
-            <li><label>All databases <input type="radio"></label></li>
+            <li class="selected-databases"><label>Selected databases <input type="radio"></label></li>
+            <li class="or-all-databases"><label>All databases <input type="radio"></label></li>
           {% endif %}
-          <li><label>Full text <input type="radio"></label></li>
-          <li><label>Titles only <input type="radio"></label></li>
-          <li><a href="#">Advanced Search…</a></li>
+          <li class="full-text"><label>Full text <input type="radio"></label></li>
+          <li class="title-only"><label>Titles only <input type="radio"></label></li>
+          <li class="advanced-search"><a href="#">Advanced Search…</a></li>
         </ul>
 
         {% if page.searchable == true %}

@@ -89,27 +89,34 @@
     font-weight: normal;
   }
 
-  li:nth-child(1),
-  li:nth-child(3) {
+  li {
     border-bottom: #d4d4d4 1px solid;
     margin-left: .75em;
 
     label {
       padding-left: 0;
     }
-  }
 
-  li:nth-child(2),
-  li:nth-child(4) {
-    border-bottom: #d4d4d4 1px solid;
+    &:last-child {
+      border-bottom: none;
+    }
   }
 
   label:first-child {
     padding-top: .5em;
   }
 
+  li.this-database,
+  li.title-only {
+    border-bottom: #d4d4d4 2px solid;
+    margin-left: 0;
+    padding-left: .75em;
+  }
+
   a {
-    padding: .5em .75em;
+    padding: .51em .75em .5em 1em;
+    margin-left: -12px;
+    margin-top: -2px;
 
     &:hover {
       background: $blue;
