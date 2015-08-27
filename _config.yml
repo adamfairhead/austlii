@@ -1,0 +1,10 @@
+baseurl: /
+permalink: /:title/
+markdown: rdiscount
+relative_permalinks: false
+excerpt_separator: <!--more-->
+exclude: ["README.md","Gemfile","Gemfile.lock","gruntfile.js","package.json","node_modules","js/layout","js/production.js",vendor,"Rakefile","Procfile","config.ru"]
+
+sass:
+  sass_dir: _sass
+  style: :compressed

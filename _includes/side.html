@@ -1,0 +1,95 @@
+{% if page.class == 'database' %}
+<!-- Libraries Sidebar -->
+<div id="page-side">
+{% include side/side-partner.html %}
+{% include side/side-contributors.html %}
+{% include side/side-tools.html %}
+</div>
+{% endif %}
+
+{% if page.class == 'database libraries' %}
+<!-- Libraries Sidebar -->
+<div id="page-side">
+{% include side/side-libraries.html %}
+{% include side/side-contributors.html %}
+{% include side/side-tools.html %}
+</div>
+{% endif %}
+
+{% if page.class == 'database treaties' %}
+<!-- Libraries Sidebar -->
+<div id="page-side">
+{% include side/side-treaties.html %}
+{% include side/side-contributors.html %}
+</div>
+{% endif %}
+
+{% if page.class == 'database journals' %}
+<!-- Journals Sidebar -->
+<div id="page-side">
+{% include side/side-journals.html %}
+{% include side/side-contributors.html %}
+{% include side/side-tools.html %}
+</div>
+{% endif %}
+
+{% if page.class == 'database libraries aviation' %}
+<!-- Libraries Sidebar -->
+<div id="page-side">
+{% include side/side-partner.html %}
+{% include side/side-libraries.html %} 
+{% include side/side-contributors.html %}
+{% include side/side-tools.html %}
+</div>
+{% endif %}
+
+{% if page.class == 'document' %}
+<!-- Document Sidebar -->
+<div id="page-side">
+  {% include side/side-download.html %}
+  {% include side/side-cited.html %}
+  {% include side/side-cited-by.html %}
+  {% include side/side-authors.html %}
+</div> 
+{% endif %}
+
+{% if page.class contains 'about' %}
+<!-- Document Sidebar -->
+<div id="page-side">
+  {% include side/side-about.html %}
+</div> 
+{% endif %}
+
+{% if page.class == 'home' %}
+<!-- Home Sidebar -->
+<div id="page-side">
+  {% include side/side-contributors.html %}
+  {% include side/side-updates.html %}
+  {% include side/side-stats.html %}
+
+  <div class="side-element side-search">
+    {% include svg/icon-websearch.svg %}
+    <h4>Catalogs</h4>
+    <ul>
+      <li><a href="http://www.worldlii.org/catalog/1.html">Australia</a></li>
+      <li><a href="http://www.worldlii.org/catalog/2602.html">By Jurisdiction</a></li>
+      <li><a href="http://www.worldlii.org/catalog/33.html">By Subject</a></li>
+      <li><a href="http://www.worldlii.org/catalog/2385.html">Community Info</a></li>
+      <li><a href="http://www.worldlii.org/catalog/193.html">Legal Services</a></li>
+      <li><a href="http://www.worldlii.org/catalog/1.html">More…</a></li>
+      <li><a href="http://www.worldlii.org/catalog/242.html">New Zealand</a></li>
+  </div>
+
+  {% include side/side-tools.html %}
+</div>
+{% endif %}
+
+{% if page.class contains 'results' %}
+<!-- Results Sidebar -->
+<div id="page-side">
+  {% include side/side-partner.html %}
+  {% include side/side-about.html %} 
+  {% include side/side-contributors.html %}
+  {% include side/side-tools.html %}
+</div>
+{% endif %}

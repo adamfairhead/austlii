@@ -1,0 +1,75 @@
+{% if page.class == 'home' %}
+<nav id="ribbon">
+  <div class="inner">
+    <ul>
+      <li class="ribbon-home-databases"><a href="database-all.html">All Databases</a></li>
+      <li class="ribbon-home-cases is-selected"><a href="javascript:void(0);">Cases &amp; Legislation</a></li>
+      <li class="ribbon-home-journals"><a href="database-journals.html">Journals &amp; Scholarship</a></li>
+      <li class="ribbon-home-treaties"><a href="database-treaties.html">Treaties</a></li>
+      <li class="ribbon-home-libraries"><a href="database-libraries.html">Libraries</a></li>
+      <li class="ribbon-home-lawcite"><a href="#">LawCite</a></li>
+    </ul>
+  </div>
+</nav>
+{% elsif page.class contains 'about' %}
+<div class="home">
+  <nav id="ribbon">
+    <div class="inner">
+      <ul>
+        <li class="ribbon-home-databases"><a href="database-all.html">All Databases</a></li>
+        <li class="ribbon-home-cases"><a href="database-cases.html">Cases &amp; Legislation</a></li>
+        <li class="ribbon-home-journals"><a href="database-journals.html">Journals &amp; Scholarship</a></li>
+        <li class="ribbon-home-treaties"><a href="database-treaties.html">Treaties</a></li>
+        <li class="ribbon-home-libraries"><a href="database-libraries.html">Libraries</a></li>
+        <li class="ribbon-home-lawcite"><a href="#">LawCite</a></li> 
+      </ul>
+    </div>
+  </nav>
+</div>
+{% else %}
+<nav id="ribbon">
+  <div class="inner">
+    <ul>
+      {% if page.class contains 'libraries' %}
+      <li class="ribbon-type"><a href="#">Type <span>Libraries</span></a></li>
+      {% elsif page.class contains 'treaties' %}
+      <li class="ribbon-type"><a href="#">Type <span>Treaties</span></a></li>
+      {% elsif page.class contains 'journals' %}
+      <li class="ribbon-type"><a href="#">Type <span>Journals</span></a></li>
+      {% elsif page.class contains 'all' %}
+      <li class="ribbon-type"><a href="#">Type <span>All Databases</span></a></li>
+      {% else %}
+      <li class="ribbon-type"><a href="#">Type <span>Cases &amp; Legislation</span></a></li>
+      {% endif %}
+
+      {% if page.class == 'database libraries' %}
+      <li class="ribbon-library"><a href="#">Library <span>Select a library</span></a></li>
+      {% elsif page.class contains 'aviation' or page.class contains 'libraries results' %}
+      <li class="ribbon-library"><a href="database-libraries.html">Library <span>Australasian Aviation Law Library</span></a></li>
+      {% endif %}
+
+      {% unless page.class contains 'journals' or page.class contains 'libraries' or page.class contains 'treaties' %}
+      <li class="ribbon-jurisdiction"><a href="#">Jurisdiction <span>{% if page.class contains 'database cases' or page.class contains 'database all' %}Select a Region{% else %}New South Wales{% endif %}</span></a></li>
+      {% endunless %}
+
+      {% unless page.class contains 'database' %}
+      {% if page.class contains 'libraries' %}
+      <li class="ribbon-database"><a href="libraries-aviation.html">Database <span>Aviation Law Association of Australia & New Zealand (ALAANZ) Aviation Briefs (AustLII)</span></a></li>
+      {% elsif page.class contains 'treaties' %}
+      <li class="ribbon-database"><a href="database-treaties.html">Database <span>Australian Treaty Action - Monthly Updates (AustLII)</span></a></li>
+      {% elsif page.class contains 'journals' %}
+      <li class="ribbon-database"><a href="database-journals.html">Database <span>Aboriginal Law Bulletin</span></a></li>
+      {% else %}
+      <li class="ribbon-database"><a href="database.html">Database <span>Supreme Court of New South Wales</span></a></li>
+      {% endif %}
+
+      <li class="ribbon-year {% unless page.class == 'document' %}is-selected{% endunless %}"><a href="#">Year <span>Any</span></a></li>
+      <li class="ribbon-letter"><a href="#">Starts with <span>Any letter</span></a></li>
+      {% elsif page.class == 'database libraries' %}
+      {% else %}
+      <li class="ribbon-database"><a href="#">Database <span>Select a database</span></a></li>
+      {% endunless %}
+    </ul>
+  </div>
+</nav>
+{% endif %}

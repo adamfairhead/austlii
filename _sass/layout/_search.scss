@@ -214,13 +214,6 @@
   }
 }
 
-@include media($medium-screen + 20em) {
-  .search-box:not(.focus) input[type="submit"] {
-    background: transparent url('../images/search.svg') center no-repeat;
-    background-size: 15px auto;
-  }
-}
-
 .go-primary {
   position: absolute;
   right: 1em;
