@@ -96,6 +96,9 @@
     }
   }
 
+  .sort-accessed { display: inline; } .sort-options .more-accessed { display: none; }
+  @include media(max-width em(560)) { .sort-accessed { display: none; } .sort-options .more-accessed { display: inline; }}
+
   .database.all & ,
   .database.cases & {
     @include media(max-width em(430)) { [data-sort="qld"] { display: none; } .sort-options [data-sort="qld"] { display: inline; }}
