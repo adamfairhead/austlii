@@ -72,25 +72,54 @@
     margin-right: 5px;
   }
 
+  .sort-options .selected a {
+    border-radius: 0;
+    padding: .5em .75em;
+    background: $blue;
+    border-bottom: darken($blue, 5) 1px solid;
+    color: white;
+    margin-right: 0;
+  }
+
   .sort-options { 
-    .more-qld,
-    .more-sa,
-    .more-tas,
-    .more-vic,
-    .more-wa,
-    .more-ni,
-    .more-nz {
+    [data-sort="qld"],
+    [data-sort="sa"],
+    [data-sort="tas"],
+    [data-sort="vic"],
+    [data-sort="wa"],
+    [data-sort="no"],
+    [data-sort="nz"],
+    [data-sort="js"],
+    [data-sort="lrs"],
+    [data-sort="mt"] {
       display: none;
     }
   }
 
-  @include media(max-width em(390)) { .sort-qld { display: none; } .sort-options .more-qld { display: inline; }}
-  @include media(max-width em(420)) { .sort-sa  { display: none; } .sort-options .more-sa  { display: inline; }}
-  @include media(max-width em(470)) { .sort-tas { display: none; } .sort-options .more-tas { display: inline; }}
-  @include media(max-width em(520)) { .sort-vic { display: none; } .sort-options .more-vic { display: inline; }}
-  @include media(max-width em(560)) { .sort-wa  { display: none; } .sort-options .more-wa  { display: inline; }}
-  @include media(max-width em(680)) { .sort-ni  { display: none; } .sort-options .more-ni  { display: inline; }}
-  @include media(max-width em(790)) { .sort-nz  { display: none; } .sort-options .more-nz  { display: inline; }}
+  .database.all & ,
+  .database.cases & {
+    @include media(max-width em(430)) { [data-sort="qld"] { display: none; } .sort-options [data-sort="qld"] { display: inline; }}
+    @include media(max-width em(470)) { [data-sort="sa"]  { display: none; } .sort-options [data-sort="sa"]  { display: inline; }}
+    @include media(max-width em(520)) { [data-sort="tas"] { display: none; } .sort-options [data-sort="tas"] { display: inline; }}
+    @include media(max-width em(560)) { [data-sort="vic"] { display: none; } .sort-options [data-sort="vic"] { display: inline; }}
+    @include media(max-width em(680)) { [data-sort="wa"]  { display: none; } .sort-options [data-sort="wa"]  { display: inline; }}
+    @include media(max-width em(790)) { [data-sort="no"]  { display: none; } .sort-options [data-sort="no"]  { display: inline; }}
+    @include media(max-width em(860)) { [data-sort="nz"]  { display: none; } .sort-options [data-sort="nz"]  { display: inline; }}
+    @include media(min-width em(860)) { .sort-more { display: none; }}
+  }
+
+  .database.all & {
+    .second-row { display: none; }
+    @include media(min-width em(860)) { .sort-more { display: none; } .second-row { display: block; } }
+  }
+
+  .database.journals & {
+    @include media(max-width em(400)) { [data-sort="nz"]  { display: none; } .sort-options [data-sort="nz"]  { display: inline; }}
+    @include media(max-width em(590)) { [data-sort="js"]  { display: none; } .sort-options [data-sort="js"]  { display: inline; }}
+    @include media(max-width em(900)) { [data-sort="lrs"] { display: none; } .sort-options [data-sort="lrs"] { display: inline; }}
+    @include media(max-width em(900)) { [data-sort="mt"]  { display: none; } .sort-options [data-sort="mt"]  { display: inline; }}
+    @include media(min-width em(900)) { .sort-more { display: none; }}
+  }
 
   .sort-more {
     & > a {

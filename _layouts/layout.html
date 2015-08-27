@@ -92,6 +92,8 @@
         <li class="ribbon-type"><a href="#">Type <span>Treaties</span></a></li>
         {% elsif page.class contains 'journals' %}
         <li class="ribbon-type"><a href="#">Type <span>Journals</span></a></li>
+        {% elsif page.class contains 'all' %}
+        <li class="ribbon-type"><a href="#">Type <span>All Databases</span></a></li>
         {% else %}
         <li class="ribbon-type"><a href="#">Type <span>Cases &amp; Legislation</span></a></li>
         {% endif %}
@@ -380,46 +382,65 @@
       <div id="page-sort">
         <ul>
           <li class="sort-item sort-all selected"><a href="#">All</a></li>
-          {% unless page.class contains 'journals' %}
-          <li class="sort-item sort-cth"><a href="#">Cth</a></li>
-          <li class="sort-item sort-act"><a href="#">ACT</a></li>
-          <li class="sort-item sort-nsw"><a href="#">NSW</a></li>
-          <li class="sort-item sort-nt"><a href="#">NT</a></li>
-          <li class="sort-item sort-qld"><a href="#">Qld</a></li>
-          <li class="sort-item sort-sa"><a href="#">SA</a></li>
-          <li class="sort-item sort-tas"><a href="#">Tas</a></li>
-          <li class="sort-item sort-vic"><a href="#">Vic</a></li>
-          <li class="sort-item sort-wa"><a href="#">WA</a></li>
-          <li class="sort-item sort-ni"><a href="#">Norfolk Island</a></li>
-          <li class="sort-item sort-nz"><a href="#">New Zealand</a></li>
-          {% else %}
-          <li class="sort-item sort-au"><a href="#">Australian</a></li>
-          <li class="sort-item sort-nz"><a href="#">New Zealand</a></li>
-          <li class="sort-item sort-js"><a href="#">Judicial Scholarship</a></li>
-          <li class="sort-item sort-lrs"><a href="#">Research</a></li>
-          <li class="sort-item sort-ms"><a href="#">Monographs</a></li>
-          {% endunless %}
+
+          {% if page.class contains 'all' or page.class contains 'cases' %}
+          <li class="sort-item" data-sort="cth"><a href="#">Cth</a></li>
+          <li class="sort-item" data-sort="act"><a href="#">ACT</a></li>
+          <li class="sort-item" data-sort="nsw"><a href="#">NSW</a></li>
+          <li class="sort-item" data-sort="nt"><a href="#">NT</a></li>
+          <li class="sort-item" data-sort="qld"><a href="#">Qld</a></li>
+          <li class="sort-item" data-sort="sa"><a href="#">SA</a></li>
+          <li class="sort-item" data-sort="tas"><a href="#">Tas</a></li>
+          <li class="sort-item" data-sort="vic"><a href="#">Vic</a></li>
+          <li class="sort-item" data-sort="wa"><a href="#">WA</a></li>
+          <li class="sort-item" data-sort="no"><a href="#">Norfolk Island</a></li>
+          <li class="sort-item" data-sort="nz"><a href="#">New Zealand</a></li>
+          {% endif %}
+          {% if page.class contains 'journals' %}
+          <li class="sort-item" data-sort="au"><a href="#">Australian</a></li>
+          <li class="sort-item" data-sort="nz"><a href="#">New Zealand</a></li>
+          <li class="sort-item" data-sort="js"><a href="#">Judicial Scholarship</a></li>
+          <li class="sort-item" data-sort="lrs"><a href="#">Research</a></li>
+          <li class="sort-item" data-sort="mt"><a href="#">Monographs</a></li>
+          {% endif %}
 
           <li class="sort-more">
             <a href="#">More</a>
             <ul class="sort-options">
-              <li class="sort-item more-qld"><a href="#">Qld</a></li>
-              <li class="sort-item more-sa"><a href="#">SA</a></li>
-              <li class="sort-item more-tas"><a href="#">Tas</a></li>
-              <li class="sort-item more-vic"><a href="#">Vic</a></li>
-              <li class="sort-item more-wa"><a href="#">WA</a></li>
-              <li class="sort-item more-ni"><a href="#">Norfolk Island</a></li>
-              <li class="sort-item more-nz"><a href="#">New Zealand</a></li>
-              {% unless page.class contains 'cases' %}
-              <li class="sort-item more-journals"><a href="#">Journals</a></li>
-              <li class="sort-item more-law-reform"><a href="#">Law Reform</a></li>
-              <li class="sort-item more-treaties"><a href="#">Australian Treaties</a></li>
-              <li class="sort-item more-libraries"><a href="#">Libraries</a></li>
-              <li class="sort-item more-pages"><a href="#">Hosted Home Pages</a></li>
-              {% endunless %}
+              {% if page.class contains 'all' or page.class contains 'cases' %}
+              <li class="sort-item" data-sort="qld"><a href="#">Qld</a></li>
+              <li class="sort-item" data-sort="sa"><a href="#">SA</a></li>
+              <li class="sort-item" data-sort="tas"><a href="#">Tas</a></li>
+              <li class="sort-item" data-sort="vic"><a href="#">Vic</a></li>
+              <li class="sort-item" data-sort="wa"><a href="#">WA</a></li>
+              <li class="sort-item" data-sort="no"><a href="#">Norfolk Island</a></li>
+              <li class="sort-item" data-sort="nz"><a href="#">New Zealand</a></li>
+              {% endif %}
+              {% if page.class contains 'all' %}
+              <li class="sort-item" data-sort="journals"><a href="#">Journals</a></li>
+              <li class="sort-item" data-sort="law-reform"><a href="#">Law Reform</a></li>
+              <li class="sort-item" data-sort="treaties"><a href="#">Australian Treaties</a></li>
+              <li class="sort-item" data-sort="libraries"><a href="#">Libraries</a></li>
+              <li class="sort-item" data-sort="pages"><a href="#">Hosted Home Pages</a></li>
+              {% endif %}
+              {% if page.class contains 'journals' %}
+              <li class="sort-item" data-sort="nz"><a href="#">New Zealand</a></li>
+              <li class="sort-item" data-sort="js"><a href="#">Judicial Scholarship</a></li>
+              <li class="sort-item" data-sort="lrs"><a href="#">Research</a></li>
+              <li class="sort-item" data-sort="mt"><a href="#">Monographs</a></li>
+              {% endif %}
             </ul>
           </li>
         </ul>
+        {% if page.class contains 'all' %}
+        <ul class="second-row">
+          <li class="sort-item" data-sort="journals"><a href="#">Journals</a></li>
+          <li class="sort-item" data-sort="law-reform"><a href="#">Law Reform</a></li>
+          <li class="sort-item" data-sort="treaties"><a href="#">Australian Treaties</a></li>
+          <li class="sort-item" data-sort="libraries"><a href="#">Libraries</a></li>
+          <li class="sort-item" data-sort="pages"><a href="#">Hosted Home Pages</a></li>
+        </ul>
+        {% endif %}
       </div>
       {% else %}
       <div id="page-sort">
@@ -540,69 +561,81 @@
   <script src="js/jquery.min.js"></script>
   <script>
     $(function() {
+      // Make fill in left-space on ribbon if first is highlighted
       $('.ribbon-type').hover(function() {
         $('#ribbon').addClass('first-hovered');
       }, function() {
         $('#ribbon').removeClass('first-hovered');
       });
 
+      // Make fill in left-space on ribbon if first is selected
       $('#ribbon a').on('click', function() {
         $('#ribbon').removeClass('first-selected');
       });
-
       $('.ribbon-type').on('click', function() {
         $('#ribbon').addClass('first-selected');
       });
 
+      // Show search on mobile
       $('.go-search, .go-primary').on('click', function() {
         $('#page-header').toggleClass('search-is-visible');
       });
 
+      // Show search options
       $('.search-dropdown').on('click', function() {
         $('.search-box').toggleClass('options-visible');
       });
 
+      // Show 'more' sort option
       $('.sort-more').on('click', function() {
         $('#page-sort').toggleClass('options-visible');
       });
 
+      // Select a sort item
       $('.sort-item').on('click', function() {
         $('.sort-item').removeClass('selected');
         $(this).addClass('selected');
       });
 
+      // Select a ribbon item
       $('#ribbon li a').on('click', function() {
         $('#ribbon li').removeClass('is-selected');
         $(this).parent().addClass('is-selected');
       });
 
+      // Select a panel item
       $('#panels a').on('click', function() {
         $('#panels li').removeClass('is-selected');
         $(this).parent().addClass('is-selected');
       });
 
+      // Select 'Type' ribbon item
       $('.ribbon-type').on('click', function() {
         $('#panels').removeClass().addClass('is-type');
         $('.year-options').removeClass('is-visible');
         $('#panel-year .is-selected').removeClass('is-selected');
       });
 
+      // Select 'Jurisdiction' ribbon item
       $('.ribbon-jurisdiction').on('click', function() {
         $('#panels').removeClass().addClass('is-jurisdiction');
         $('.year-options').removeClass('is-visible');
         $('#panel-year .is-selected').removeClass('is-selected');
       });
 
+      // Select 'Year' ribbon item
       $('.ribbon-year').on('click', function() {
         $('#panels').removeClass().addClass('is-year');
       });
 
+      // Select 'Letter' ribbon item
       $('.ribbon-letter').on('click', function() {
         $('#panels').removeClass().addClass('is-letter');
         $('.year-options').removeClass('is-visible');
         $('#panel-year .is-selected').removeClass('is-selected');
       });
 
+      // Select 'Specific Year' panel dropdown
       $('.year-specific-dropdown').on('click', function() {
         $('.year-options').removeClass('is-visible');
         $('.year-specific-options').addClass('is-visible');
@@ -610,6 +643,7 @@
         $(this).addClass('is-selected');
       });
 
+      // Select 'Year Range #1' panel dropdown
       $('.year-range-dropdown-1').on('click', function() {
         $('.year-options').removeClass('is-visible');
         $('.year-range-1-options').addClass('is-visible');
@@ -617,6 +651,7 @@
         $(this).addClass('is-selected');
       });
 
+      // Select 'Year Range #2' panel dropdown
       $('.year-range-dropdown-2').on('click', function() {
         $('.year-options').removeClass('is-visible');
         $('.year-range-2-options').addClass('is-visible');
@@ -624,99 +659,35 @@
         $(this).addClass('is-selected');
       });
 
+      // Hide the year options dropdown when a year is selected
       $('.year-options a').on('click', function() {
         $('.year-options.is-visible').removeClass('is-visible');
         $('#panel-year a.is-selected').removeClass('is-selected');
       });
 
+      // Sort item filtering
+      $('.sort-item').each(function() {
+        var $sortItem = 0;
+
+        $(this).on('click', function() {
+          $sortItem = $(this).attr('data-sort');
+          $('.all-section').addClass('is-hidden');
+          $('#' + $sortItem).removeClass('is-hidden');
+        });
+
+      });
+
+      // Sort item "all"
       $('.sort-all').on('click', function() {
         $('.all-section').removeClass('is-hidden');
       });
 
-      $('.sort-cth').on('click', function() {
-        $('.all-section').addClass('is-hidden');
-        $('#cth').removeClass('is-hidden');
-      });
-
-      $('.sort-act').on('click', function() {
-        $('.all-section').addClass('is-hidden');
-        $('#act').removeClass('is-hidden');
-      });
-
-      $('.sort-nsw').on('click', function() {
-        $('.all-section').addClass('is-hidden');
-        $('#nsw').removeClass('is-hidden');
-      });
-
-      $('.sort-nt, .more-nt').on('click', function() {
-        $('.all-section').addClass('is-hidden');
-        $('#nt').removeClass('is-hidden');
-      });
-
-      $('.sort-qld, .more-qld').on('click', function() {
-        $('.all-section').addClass('is-hidden');
-        $('#qld').removeClass('is-hidden');
-      });
-
-      $('.sort-sa, .more-sa').on('click', function() {
-        $('.all-section').addClass('is-hidden');
-        $('#sa').removeClass('is-hidden');
-      });
-
-      $('.sort-tas, .more-tas').on('click', function() {
-        $('.all-section').addClass('is-hidden');
-        $('#tas').removeClass('is-hidden');
-      });
-
-      $('.sort-vic, .more-vic').on('click', function() {
-        $('.all-section').addClass('is-hidden');
-        $('#vic').removeClass('is-hidden');
-      });
-
-      $('.sort-wa, .more-wa').on('click', function() {
-        $('.all-section').addClass('is-hidden');
-        $('#wa').removeClass('is-hidden');
-      });
-
-      $('.sort-ni, .more-ni').on('click', function() {
-        $('.all-section').addClass('is-hidden');
-        $('#no').removeClass('is-hidden');
-      });
-      
-      $('.sort-nz, .more-nz').on('click', function() {
-        $('.all-section').addClass('is-hidden');
-        $('#nz').removeClass('is-hidden');
-      });
-
-      $('.more-journals').on('click', function() {
-        $('.all-section').addClass('is-hidden');
-        $('#journals').removeClass('is-hidden');
-      });
-
-      $('.more-law-reform').on('click', function() {
-        $('.all-section').addClass('is-hidden');
-        $('#law-reform').removeClass('is-hidden');
-      });
-
-      $('.more-treaties').on('click', function() {
-        $('.all-section').addClass('is-hidden');
-        $('#treaties').removeClass('is-hidden');
-      });
-
-      $('.more-libraries').on('click', function() {
-        $('.all-section').addClass('is-hidden');
-        $('#libraries').removeClass('is-hidden');
-      });
-
-      $('.more-pages').on('click', function() {
-        $('.all-section').addClass('is-hidden');
-        $('#pages').removeClass('is-hidden');
-      });
-
+      // Show 'more' sidebar items
       $('.side-about-more-link').on('click', function() {
         $('.side-about').addClass('has-more');
       });
 
+      // Add/remove 'focus' from the input search box
       $('.search-box input[type="text"]').blur(function() {
         $('.search-box').removeClass("focus");
       }).focus(function() {
