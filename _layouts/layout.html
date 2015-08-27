@@ -37,7 +37,11 @@
           <li><a href="#">Advanced Search…</a></li>
         </ul>
 
+        {% if page.searchable == true %}
+        <input type="text" placeholder="Search selected databases">
+        {% else %}
         <input type="text" placeholder="Search AustLII">
+        {% endif %}
         <input type="submit" value="Search">
       </div>
       <a class="go-primary" href="#">Close</a>
