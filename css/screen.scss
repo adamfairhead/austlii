@@ -62,6 +62,16 @@
 }
 
 .home .closing {
+  text-align: center;
+
+  .inner {
+    background: url('../images/falm.svg') center top no-repeat;
+    background-size: 45px;
+    padding-top: 55px;
+  }
+}
+
+.home-2 .closing {
   text-align: center; 
 
   .inner {

@@ -22,7 +22,7 @@ layout: compress
       {% if page.class contains 'document' %}
       <h2 id="page-title"><span>{{ page.database }}</span></h2>
       {% else %}
-      <h1 id="page-title"><span>{% if page.class == 'home' %}Australasian Legal Information Institute{% elsif page.class == 'document' %}{{ page.database }}{% else %}{{ page.title }}{% endif %}</span>{% if page.class == 'home' %} <span class="page-subheader">A joint facility of UTS & UNSW Faculties of Law.</span>{% endif %}</h1>
+      <h1 id="page-title"><span>{% if page.class contains 'home' %}Australasian Legal Information Institute{% elsif page.class == 'document' %}{{ page.database }}{% else %}{{ page.title }}{% endif %}</span>{% if page.class contains 'home' %} <span class="page-subheader">A joint facility of UTS & UNSW Faculties of Law.</span>{% endif %}</h1>
       {% endif %}
       {% unless page.search == false %}
       <a class="go-search" href="#">Search</a>
