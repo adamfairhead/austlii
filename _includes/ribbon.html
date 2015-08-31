@@ -63,8 +63,13 @@
       <li class="ribbon-database"><a href="database.html">Database <span>Supreme Court of New South Wales</span></a></li>
       {% endif %}
 
-      <li class="ribbon-year {% unless page.class == 'document' %}is-selected{% endunless %}"><a href="#">Year <span>Any</span></a></li>
-      <li class="ribbon-letter"><a href="#">Starts with <span>Any letter</span></a></li>
+      <li class="ribbon-year {% unless page.class == 'document' or page.class contains 'country' or page.class contains 'subject' %}is-selected{% endunless %}"><a href="#">Year <span>{% if page.class == 'document' %}2015{% else %}Any{% endif %}</span></a></li>
+      {% unless page.class contains 'document' %}<li class="ribbon-letter"><a href="#">Starts with <span>Any letter</span></a></li>{% endunless %}
+      {% if page.class contains 'document' %}<li class="ribbon-citation"><a href="#">Citation <span>[2015] NSWSC 1</span></a></li>{% endif %}
+      {% if page.class contains 'treaties' %}
+      <li class="ribbon-country {% if page.class contains 'country' %}is-selected{% endif %}"><a href="treaty-country.html">From Country <span>Any</span></a></li>
+      <li class="ribbon-subject {% if page.class contains 'subject' %}is-selected{% endif %}"><a href="treaty-subject.html">On Subject <span>Any</span></a></li>
+      {% endif %}
       {% elsif page.class == 'database libraries' %}
       {% else %}
       <li class="ribbon-database"><a href="#">Database <span>Select a database</span></a></li>

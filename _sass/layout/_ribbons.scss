@@ -105,7 +105,6 @@
     z-index: 2;
   }
 
-
   li {
     position: relative;
   }
@@ -114,7 +113,6 @@
   li:last-child a:hover {
     border-color: transparent;
     background: transparent;
-    cursor: text;
   }
   .ribbon-home-lawcite a:hover {
     cursor: pointer !important;
@@ -148,6 +146,17 @@
     }
   }
 
+  .results & {
+    .ribbon-letter a:hover:before,
+    .ribbon-letter a:before,
+    .ribbon-country a:hover:before,
+    .ribbon-country a:before,
+    .ribbon-subject a:hover:before,
+    .ribbon-subject a:before {
+      border-color: #d82d21;
+    }
+  }
+
   a:hover:after,
   a:after {
     content: '';
@@ -166,9 +175,31 @@
     }
   }
 
+  .results & {
+    .ribbon-letter a:hover:after,
+    .ribbon-letter a:after,
+    .ribbon-country a:hover:after,
+    .ribbon-country a:after,
+    .ribbon-subject a:hover:after,
+    .ribbon-subject a:after {
+      border-color: $red;
+    }
+  }
+
   a:hover:after,
   .is-selected a:after {
     border-color: transparent transparent transparent lighten($red, 10);
+  }
+
+  .results & {
+    .ribbon-letter a:hover:after,
+    .ribbon-letter.is-selected a:after,
+    .ribbon-country a:hover:after,
+    .ribbon-country.is-selected a:after,
+    .ribbon-subject a:hover:after,
+    .ribbon-subject.is-selected a:after {
+      border-color: lighten($red, 10);
+    }
   }
 
   .home & {
