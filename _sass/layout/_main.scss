@@ -37,6 +37,10 @@
   }
 }
 
+.database #page-sort {
+  margin-bottom: 1em;
+}
+
 #page-sort {
   padding: .5em 1em;
 
@@ -113,7 +117,7 @@
 
   .database.all & {
     .second-row { display: none; }
-    @include media(min-width em(860)) { .sort-more { display: none; } .second-row { display: block; } }
+    @include media(min-width em(860)) { .sort-more { display: none; } .second-row { display: block; border-top: 1px solid #ddd; margin-top: .75em; padding-top: .5em;}}
   }
 
   .database.journals & {

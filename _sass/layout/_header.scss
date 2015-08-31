@@ -58,6 +58,10 @@
   }
 }
 
+.home #page-title {
+  letter-spacing: -0.03em;
+}
+
 #page-title {
   display: inline-block;
   position: relative;
@@ -67,6 +71,7 @@
   height: 35px;
   font-size: .9em;
   line-height: 30px;
+  letter-spacing: -0.02em;
 
   span {
     display: inline-block;
@@ -93,7 +98,7 @@
     padding-top: 13px;
     width: 490px;
     height: 65px;
-    line-height: 50px;
+    line-height: 45px;
   }
 
   @include media($medium-screen + 20em) {

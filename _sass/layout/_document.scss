@@ -10,12 +10,12 @@
     }
   } 
 
-  #page-side {
+  #page-side,
+  #page-index {
     margin-top: 3em;
 
     @include media($x-large-screen) {
       @include span-columns(2);
-      @include shift(0.5);
     }
   }
 
@@ -34,12 +34,13 @@
     }
 
     h1 {
-      padding: 2em 0 1em;
+      padding: 1.5em 0 1em;
 
       @include media($medium-screen) {
-        font-size: 1.5em;
+        font-size: 1.6em;
         display: block;
         padding: 2em 0 1em;
+        letter-spacing: -0.02em;
       }
     }
   }

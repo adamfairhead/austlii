@@ -1,5 +1,25 @@
 // Page Side
 
+#page-index {
+  @include media(max-width $large-screen) {
+    padding-left: 1em;
+    padding-right: 1em;
+  }
+
+  @include media($large-screen) {
+    margin-top: .8em;
+    display: block;
+    @include span-columns(3);
+    position: absolute;
+    top: 1em;
+    left: 0;
+
+    .side-element {
+      font-size: .8em;
+    }
+  }
+}
+
 #page-side {
   @include media(max-width $large-screen) {
     padding-left: 1em;
@@ -10,7 +30,9 @@
     margin-top: .8em;
     display: block;
     @include span-columns(3);
-    @include shift(0.5);
+    position: absolute;
+    top: 1em;
+    right: 0;
 
     .side-element {
       font-size: .8em;

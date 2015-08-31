@@ -33,12 +33,17 @@
 
   .inner {
     @extend %container;
-    background: url('../images/logo-mono.svg') no-repeat right center;
-    background-size: 55px;
+
+    @include media($large-screen) {
+      background: url('../images/logo-mono.svg') no-repeat right center;
+      background-size: 55px;
+    }
   }
 
   li {
-    display: inline-block;
+    @include media($medium-screen) {
+      display: inline-block;
+    }
   }
 
   small {
