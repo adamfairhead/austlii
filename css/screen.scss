@@ -7,7 +7,6 @@
 @import 'base/grid-settings';
 @import 'base/base';
 @import 'neat/neat';
-
 @import 'layout/global';
 @import 'layout/header';
 @import 'layout/search';
@@ -18,7 +17,6 @@
 @import 'layout/card';
 @import 'layout/side';
 @import 'layout/document';
-
 @import 'pages/database_all';
 
 .document .closing {
@@ -295,4 +293,20 @@
 .page-content .button {
   @extend button;
   margin: 0 0 2em 1em;
+}
+
+
+@media print {
+  #page-search,
+  #page-tertiary,
+  #ribbon,
+  #panels,
+  #page-sort,
+  .year-options-list,
+  .closing-primary,
+  .closing-tertiary,
+  #page-side,
+  #page-index {
+    display: none !important;
+  }
 }

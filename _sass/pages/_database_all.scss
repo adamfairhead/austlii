@@ -6,6 +6,12 @@
   opacity: 1;
   @include transition(all .5s ease-in-out);
   padding-bottom: 4em;
+
+  @media print {
+    max-height: none;
+    padding: 0 !important;
+    margin: 0;
+  }
 }
 
 .all-section.is-hidden {

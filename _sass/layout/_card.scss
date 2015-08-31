@@ -30,11 +30,21 @@
   font-weight: normal;
   display: block;
 
+  @media print {
+    padding: 0;
+    margin: 0;
+  }
+
   &.card-title-large {
     font-size: 1.2em;
     padding: .5em .8em 0;
     color: #565656;
     font-weight: bold;
+
+    @media print {
+      padding: 0;
+      margin: 0;
+    }
   }
 
   @include media(max-width $medium-screen) {
@@ -57,6 +67,11 @@
   padding: .5em 1em;
   display: block;
   font-size: .9em;
+
+  @media print {
+    padding: 0;
+    margin: 0;
+  }
 }
 
 .card-checkboxes a {
@@ -67,6 +82,11 @@
   padding: .5em 1em;
   display: block;
   font-size: .9em;
+
+  @media print {
+    padding: 0;
+    margin: 0;
+  }
 
   a {
     font-size: 1em;

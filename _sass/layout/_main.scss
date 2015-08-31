@@ -10,6 +10,10 @@
     padding-left: 1em;
     padding-right: 1em;
   }
+
+  @media print {
+    font-size: .8em;
+  }
 }
 
 // Page Main

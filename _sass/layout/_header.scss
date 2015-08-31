@@ -9,6 +9,12 @@
       padding-bottom: 2em;
     }
   }
+
+  @media print {
+    padding: 0;
+    margin: 0;
+    width: 100% !important;
+  }
 }
 
 #primary {
@@ -44,6 +50,10 @@
   margin-top: 7px;
   background: url('../images/logo.svg') no-repeat;
 
+  @media print {
+    display: none;
+  }
+
   @include media($medium-screen) {
     width: 80px;
     height: 80px;
@@ -72,6 +82,13 @@
   font-size: .9em;
   line-height: 30px;
   letter-spacing: -0.02em;
+
+  @media print {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    left: 0;
+  }
 
   span {
     display: inline-block;

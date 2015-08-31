@@ -28,4 +28,9 @@ body {
   @include outer-container;
   padding-left: 1em;
   padding-right: 1em;
+
+  @media print {
+    padding: 0 !important;
+    margin: 0 !important;
+  }
 }
