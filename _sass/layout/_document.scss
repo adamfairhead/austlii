@@ -3,10 +3,6 @@
 .document {
   background: white;
 
-  a:hover {
-    text-decoration: underline;
-  }
-
   #page-main {
     @include media($x-large-screen) {
       @include span-columns(7);
@@ -31,6 +27,10 @@
       @include media($medium-screen) {
         text-align: center;
       }
+    }
+
+    a:hover {
+      text-decoration: underline;
     }
 
     h1 {
