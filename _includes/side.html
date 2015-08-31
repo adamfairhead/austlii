@@ -1,3 +1,11 @@
+{% if page.class == 'search' %}
+<!-- Libraries Sidebar -->
+<div id="page-side">
+{% include side/side-about.html %}
+{% include side/side-tools.html %}
+</div>
+{% endif %}
+
 {% if page.class == 'database' %}
 <!-- Libraries Sidebar -->
 <div id="page-side">

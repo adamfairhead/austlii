@@ -49,14 +49,35 @@
   font-size: .9em;
 }
 
+.card-checkboxes a {
+  padding-left: 3.4em;
+}
+
+.card .multi {
+  padding: .5em 1em;
+  display: block;
+  font-size: .9em;
+
+  a {
+    font-size: 1em;
+    padding: 0;
+    display: inline;
+  }
+}
+
 .is-searchable .card a {
   padding: .5em 1em .5em 3.5em;
 }
 
-.card li:nth-child(2n) a {
+.card li:nth-child(2n) a,
+.card .multi:nth-child(2n) {
   background: #f6fafd;
   border-top: #eaf0f6 1px solid;
   border-bottom: #eaf0f6 1px solid;
+}
+
+.card .multi:nth-child(2n) a {
+  border: none;
 }
 
 .card input[type="checkbox"] {

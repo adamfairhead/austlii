@@ -1,3 +1,12 @@
+{% if page.class contains 'search' %}
+<div class="side-element side-about">
+  {% include svg/icon-about.svg %}
+  <h4>About Advanced Search</h4>
+  <p>The copy that goes here will explain advanced search, how it works, what the types of options are, etc.</p>
+  <p>Fairly succinctly, mind you.</p>
+</div>
+{% endif %}
+
 {% if page.class contains 'about' %}
 <div class="side-element side-about">
   {% include svg/icon-about.svg %}

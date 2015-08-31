@@ -19,9 +19,12 @@ layout: compress
       {% else %}
       <h1 id="page-title"><span>{% if page.class == 'home' %}Australasian Legal Information Institute{% elsif page.class == 'document' %}{{ page.database }}{% else %}{{ page.title }}{% endif %}</span>{% if page.class == 'home' %} <span class="page-subheader">A joint facility of UTS & UNSW Faculties of Law.</span>{% endif %}</h1>
       {% endif %}
+      {% unless page.search == false %}
       <a class="go-search" href="#">Search</a>
+      {% endunless %}
     </div>
 
+    {% unless page.search == false %}
     <div id="page-search">
       <div class="search-box">
         <a class="search-dropdown" href="javascript:void(0);">▼</a>
@@ -49,6 +52,7 @@ layout: compress
       </div>
       <a class="go-primary" href="#">Close</a>
     </div>
+    {% endunless %}
 
     <ul id="page-tertiary">
       <li><a href="about.html">About</a></li>

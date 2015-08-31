@@ -1,4 +1,4 @@
-{% unless page.class contains 'about' %}
+{% unless page.class contains 'about' or page.class contains 'search' %}
 {% if page.class contains 'database' %}
 <div id="panels" class="is-closed">
 {% elsif page.class == 'home' %}

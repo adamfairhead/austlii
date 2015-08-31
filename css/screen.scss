@@ -219,3 +219,49 @@
   background-position: -2295px -6px;
   width: 34px;
 }
+
+// Advanced Search
+
+.search {
+  .card {
+    .multi {
+      @include row;
+      padding: 1em;
+
+      h6 {
+        @include span-columns(3);
+        font-weight: normal;
+      }
+
+      div {
+        @include span-columns(9);
+      }
+
+      input {
+        margin-bottom: 0;
+
+        background: #f4f4f4;
+        box-shadow: none;
+        border: none;
+        border-radius: $base-border-radius;
+        -webkit-appearance: none;
+        font-size: .9em;
+        height: 33px;
+      }
+
+      &:nth-child(2n) input {
+        background: #EBEEF1;
+      }
+
+      p {
+        margin-bottom: 0;
+        font-size: .9em;
+        opacity: .7;
+      }
+    }
+  }
+}
+
+.button {
+  @extend button;
+}
