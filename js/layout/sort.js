@@ -31,4 +31,14 @@ $(function() {
   $('.side-about-more-link').on('click', function() {
     $('.side-about').addClass('has-more');
   });
+
+  // Card checkboxes using JS so Firefox etc. can see the custom styles
+  $('.card input[type="checkbox"]').parent().addClass('checkbox checked');
+  $('.card input[type="checkbox"]').change(function() {
+    if(this.checked) {
+      $(this).parent().addClass('checked');
+    } else {
+      $(this).parent().removeClass('checked');
+    }
+  });
 });
