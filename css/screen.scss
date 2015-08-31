@@ -26,18 +26,43 @@
 }
 
 .closing {
-  text-align: center;
-  margin-top: 2em;
   background: white;
+  margin-top: 2em;
   padding-top: 3em;
   padding-bottom: 3em;
 
   .inner {
     @extend %container;
+    background: url('../images/logo-mono.svg') no-repeat right center;
+    background-size: 55px;
   }
 
   li {
     display: inline-block;
+  }
+
+  small {
+    opacity: .5;
+  }
+}
+
+.closing-primary a {
+  margin: 0 1em .5em 0;
+  display: inline-block;
+}
+
+.closing-tertiary a {
+  font-size: .8em;
+  margin: 0 1em .5em 0;
+  display: inline-block;
+  color: $base-font-color;
+}
+
+.home .closing {
+  text-align: center; 
+
+  .inner {
+    background: transparent;
   }
 
   a {
@@ -47,177 +72,177 @@
     text-indent: -999em;
     text-align: left;
   }
-}
 
-.altlaw a {
-  background-position: 0 0;
-  width: 62px;
-}
+  .altlaw a {
+    background-position: 0 0;
+    width: 62px;
+  }
 
-.asianlii a {
-  background-position: -78px -8px;
-  width: 39px;
-}
+  .asianlii a {
+    background-position: -78px -8px;
+    width: 39px;
+  }
 
-.austlii a {
-  background-position: -132px -8px;
-  width: 34px;
-}
+  .austlii a {
+    background-position: -132px -8px;
+    width: 34px;
+  }
 
-.bailii a {
-  background-position: -181px -6px;
-  width: 31px;
-}
+  .bailii a {
+    background-position: -181px -6px;
+    width: 31px;
+  }
 
-.canlii a {
-  background-position: -225px -4px;
-  width: 72px;
-}
+  .canlii a {
+    background-position: -225px -4px;
+    width: 72px;
+  }
 
-.cardiffuni a {
-  background-position: -313px -6px;
-  width: 39px;
-}
+  .cardiffuni a {
+    background-position: -313px -6px;
+    width: 39px;
+  }
 
-.commonlii a {
-  background-position: -368px -4px;
-  width: 45px;
-}
+  .commonlii a {
+    background-position: -368px -4px;
+    width: 45px;
+  }
 
-.cylaw a {
-  background-position: -425px -2px;
-  width: 80px;
-}
+  .cylaw a {
+    background-position: -425px -2px;
+    width: 80px;
+  }
 
-.droit a {
-  background-position: -521px -2px;
-  width: 80px;
-}
+  .droit a {
+    background-position: -521px -2px;
+    width: 80px;
+  }
 
-.glin a {
-  background-position: -613px -2px;
-  width: 67px;
-}
+  .glin a {
+    background-position: -613px -2px;
+    width: 67px;
+  }
 
-.hklii a {
-  background-position: -693px -2px;
-  width: 42px;
-}
+  .hklii a {
+    background-position: -693px -2px;
+    width: 42px;
+  }
 
-.idt a {
-  background-position: -753px -4px;
-  width: 42px;
-}
+  .idt a {
+    background-position: -753px -4px;
+    width: 42px;
+  }
 
-.unam a {
-  background-position: -810px -4px;
-  width: 35px;
-}
+  .unam a {
+    background-position: -810px -4px;
+    width: 35px;
+  }
 
-.iijusticia a {
-  background-position: -858px -2px;
-  width: 65px;
-}
+  .iijusticia a {
+    background-position: -858px -2px;
+    width: 65px;
+  }
 
-.irlii a {
-  background-position: -936px -2px;
-  width: 46px;
-  height: 44px;
-}
+  .irlii a {
+    background-position: -936px -2px;
+    width: 46px;
+    height: 44px;
+  }
 
-.ittig a {
-  background-position: -991px -2px;
-  width: 46px;
-}
+  .ittig a {
+    background-position: -991px -2px;
+    width: 46px;
+  }
 
-.jerseylaw a {
-  background-position: -1049px -5px;
-  width: 74px;
-}
+  .jerseylaw a {
+    background-position: -1049px -5px;
+    width: 74px;
+  }
 
-.jips a {
-  background-position: -1138px -2px;
-  width: 28px;
-}
+  .jips a {
+    background-position: -1138px -2px;
+    width: 28px;
+  }
 
-.juriburkina a {
-  background-position: -1184px -4px;
-  width: 73px;
-}
+  .juriburkina a {
+    background-position: -1184px -4px;
+    width: 73px;
+  }
 
-.juriniger a {
-  background-position: -1265px -3px;
-  width: 76px;
-}
+  .juriniger a {
+    background-position: -1265px -3px;
+    width: 76px;
+  }
 
-.eklr a {
-  background-position: -1351px -3px;
-  width: 65px;
-}
+  .eklr a {
+    background-position: -1351px -3px;
+    width: 65px;
+  }
 
-.ksl a {
-  background-position: -1427px -4px;
-  width: 41px;
-}
+  .ksl a {
+    background-position: -1427px -4px;
+    width: 41px;
+  }
 
-.klri a {
-  background-position: -1481px -4px;
-  width: 85px;
-}
+  .klri a {
+    background-position: -1481px -4px;
+    width: 85px;
+  }
 
-.lawphil a {
-  background-position: -1584px -4px;
-  width: 117px;
-}
+  .lawphil a {
+    background-position: -1584px -4px;
+    width: 117px;
+  }
 
-.lexum a {
-  background-position: -1725px -4px;
-  width: 77px;
-}
+  .lexum a {
+    background-position: -1725px -4px;
+    width: 77px;
+  }
 
-.cornell a {
-  background-position: -1817px -4px;
-  width: 68px;
-}
+  .cornell a {
+    background-position: -1817px -4px;
+    width: 68px;
+  }
 
-.liiofindia a {
-  background-position: -1906px -6px;
-  width: 38px;
-}
+  .liiofindia a {
+    background-position: -1906px -6px;
+    width: 38px;
+  }
 
-.malawilii a {
-  background-position: -1964px -6px;
-  width: 52px;
-}
+  .malawilii a {
+    background-position: -1964px -6px;
+    width: 52px;
+  }
 
-.nzlii a {
-  background-position: -2029px -8px;
-  width: 35px;
-}
+  .nzlii a {
+    background-position: -2029px -8px;
+    width: 35px;
+  }
 
-.paclii a {
-  background-position: -2080px -4px;
-  width: 27px;
-}
+  .paclii a {
+    background-position: -2080px -4px;
+    width: 27px;
+  }
 
-.saflii a {
-  background-position: -2122px -4px;
-  width: 45px;
-}
+  .saflii a {
+    background-position: -2122px -4px;
+    width: 45px;
+  }
 
-.tlrc a {
-  background-position: -2183px -6px;
-  width: 33px;
-}
+  .tlrc a {
+    background-position: -2183px -6px;
+    width: 33px;
+  }
 
-.ulii a {
-  background-position: -2230px -6px;
-  width: 51px;
-}
+  .ulii a {
+    background-position: -2230px -6px;
+    width: 51px;
+  }
 
-.worldlii a {
-  background-position: -2295px -6px;
-  width: 34px;
+  .worldlii a {
+    background-position: -2295px -6px;
+    width: 34px;
+  }
 }
 
 // Advanced Search

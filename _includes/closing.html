@@ -1,5 +1,6 @@
 <footer class="closing">
   <div class="inner">
+    {% if page.class contains 'home' %}
     <p>AustLII participates in the free access to law movement, a grouping of the following organisations:</p>
 
     <ul>
@@ -38,5 +39,27 @@
       <li class="ulii"><a href="#">ULII</a></li>
       <li class="worldlii"><a href="#">WorldLII</a></li>
     </ul>
+    {% else %}
+    <ul class="closing-primary">
+      <li><a href="database-all.html">All Databases</a></li>
+      <li><a href="database-cases.html">Cases &amp; Legislation</a></li>
+      <li><a href="database-journals.html">Journals &amp; Scholarships</a></li>
+      <li><a href="database-treaties.html">Treaties</a></li>
+      <li><a href="database-libraries.html">Libraries</a></li>
+      <li><a href="#">LawCite</a></li>
+    </ul>
+
+    <ul class="closing-tertiary">
+      <li><a href="about.html">About</a></li>
+      <li><a href="#">Contact</a></li>
+      <li><a href="#">Copyright &amp; Usage</a></li>
+      <li><a href="#">Privacy</a></li>
+      <li><a href="#">Disclaimers</a></li>
+      <li><a href="#">Feedback</a></li>
+      <li><a href="#">Help</a></li>
+    </ul>
+
+    <small>http://www.austlii.edu.au{{ page.url }}</small>
+    {% endif %}
   </div>
 </footer>

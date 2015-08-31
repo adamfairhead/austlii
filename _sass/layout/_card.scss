@@ -45,7 +45,12 @@
 }
 
 .select-all-none {
-  padding-left: 1em;
+  display: inline;
+  padding: 0 .55em 0 .11em;
+
+  label {
+    margin: 0 0 -2px;
+  }
 }
 
 .card a {

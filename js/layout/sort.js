@@ -45,9 +45,9 @@ $(function() {
   // Select All / Select None toggle  
   $('.select-all-none input').on('click', function() {
     if (this.checked) {
-      $(this).parent().parent().parent().find('.card input').prop('checked', true).parent().addClass('checked');     
+      $(this).parent().parent().parent().parent().find('.card input').prop('checked', true).parent().addClass('checked');     
     } else {
-      $(this).parent().parent().parent().find('.card input').prop('checked', false).parent().removeClass('checked');
+      $(this).parent().parent().parent().parent().find('.card input').prop('checked', false).parent().removeClass('checked');
     }
   });
 });
