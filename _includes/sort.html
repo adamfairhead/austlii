@@ -63,6 +63,22 @@
   </ul>
   {% endif %}
 </div>
+{% elsif page.class == 'results search' %}
+<div id="page-sort">
+  <ul>
+    <li class="sort-item sort-recent selected"><a href="#">By Relevance</a></li>
+    <li class="sort-item sort-cited"><a href="#">By Date</a></li>
+    <li class="sort-item sort-accessed"><a href="#">By Title</a></li>
+    <li class="sort-more">
+      <a href="#">More</a>
+      <ul class="sort-options">
+        <li class="sort-item more-accessed"><a href="#">By Title</a></li>
+        <li class="sort-item more-earliest"><a href="#">By Database</a></li>
+        <li class="sort-item more-leastaccessed"><a href="#">By Citation Frequency</a></li>
+      </ul>
+    </li>
+  </ul>
+</div>
 {% else %}
 <div id="page-sort">
   <ul>

@@ -25,33 +25,39 @@ layout: compress
     </div>
 
     {% unless page.search == false %}
-    <div id="page-search">
-      <div class="search-box">
-        <a class="search-dropdown" href="javascript:void(0);">▼</a>
+    <form action="results-search.html">
+      <div id="page-search">
+        <div class="search-box">
+          <a class="search-dropdown" href="javascript:void(0);">▼</a>
 
-        <ul class="search-options">
-          {% if page.class contains 'results' %}
-            <li class="all-databases"><label>All databases <input type="radio"></label></li>
-            <li class="this-database"><label>This database only <input type="radio"></label></li>
-          {% endif %}
+          <ul class="search-options">
+            {% if page.class contains 'results' %}
+            {% unless page.class contains 'search' %}
+              <li class="all-databases"><label>All databases <input type="radio"></label></li>
+              <li class="this-database"><label>This database only <input type="radio"></label></li>
+            {% endunless %}
+            {% endif %}
+            {% if page.searchable == true %}
+              <li class="selected-databases"><label>Selected databases <input type="radio"></label></li>
+              <li class="or-all-databases"><label>All databases <input type="radio"></label></li>
+            {% endif %}
+            <li class="full-text"><label>Full text <input type="radio"></label></li>
+            <li class="title-only"><label>Titles only <input type="radio"></label></li>
+            <li class="advanced-search"><a href="search.html">Advanced Search…</a></li>
+          </ul>
+
           {% if page.searchable == true %}
-            <li class="selected-databases"><label>Selected databases <input type="radio"></label></li>
-            <li class="or-all-databases"><label>All databases <input type="radio"></label></li>
+          <input type="text" placeholder="Search selected databases">
+          {% elsif page.class == 'results search' %}
+          <input type="text" placeholder="Search AustLII" value="Test">
+          {% else %}
+          <input type="text" placeholder="Search AustLII">
           {% endif %}
-          <li class="full-text"><label>Full text <input type="radio"></label></li>
-          <li class="title-only"><label>Titles only <input type="radio"></label></li>
-          <li class="advanced-search"><a href="search.html">Advanced Search…</a></li>
-        </ul>
-
-        {% if page.searchable == true %}
-        <input type="text" placeholder="Search selected databases">
-        {% else %}
-        <input type="text" placeholder="Search AustLII">
-        {% endif %}
-        <input type="submit" value="Search">
+          <input type="submit" value="Search">
+        </div>
+        <a class="go-primary" href="#">Close</a>
       </div>
-      <a class="go-primary" href="#">Close</a>
-    </div>
+    </form>
     {% endunless %}
 
     <ul id="page-tertiary">

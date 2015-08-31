@@ -94,6 +94,24 @@
 {% endif %}
 
 {% if page.class contains 'results' %}
+{% if page.class contains 'search' %}
+<!-- Search Results Sidebar -->
+<div id="page-side">
+  <div class="side-element side-about">
+    {% include svg/icon-websearch.svg %}
+    <h4>Databases Selected</h4>
+    <ul>
+      <li><a href="#">Commonwealth Numbered Acts</a></li>
+      <li><a href="#">Commonwealth Numbered Regulations</a></li>
+      <li><a href="#">Commonwealth Numbered Regulations Explanations</a></li>
+      <li><a href="#">Commonwealth Repealed Acts</a></li>
+      <li><a href="#">Commonwealth Repealed Regulations</a></li>
+    </ul>
+  </div>
+  {% include side/side-contributors.html %}
+  {% include side/side-tools.html %}
+</div>
+{% else %}
 <!-- Results Sidebar -->
 <div id="page-side">
   {% include side/side-partner.html %}
@@ -101,4 +119,5 @@
   {% include side/side-contributors.html %}
   {% include side/side-tools.html %}
 </div>
+{% endif %}
 {% endif %}
