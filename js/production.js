@@ -131,9 +131,9 @@ $(function() {
     $('.side-about').addClass('has-more');
   });
 
-  $('.card input[type="checkbox"]').parent().addClass('checkbox checked');
-
-  $('.card input[type="checkbox"]').change(function() {
+  // Card checkboxes using JS so Firefox etc. can see the custom styles
+  $('input[type="checkbox"]').parent().addClass('checkbox checked');
+  $('input[type="checkbox"]').change(function() {
     if(this.checked) {
       $(this).parent().addClass('checked');
     } else {
@@ -141,4 +141,12 @@ $(function() {
     }
   });
 
+  // Select All / Select None toggle  
+  $('.select-all-none input').on('click', function() {
+    if (this.checked) {
+      $(this).parent().parent().parent().find('.card input').prop('checked', true).parent().addClass('checked');     
+    } else {
+      $(this).parent().parent().parent().find('.card input').prop('checked', false).parent().removeClass('checked');
+    }
+  });
 });

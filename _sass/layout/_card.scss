@@ -19,7 +19,6 @@
   input[type="checkbox"],
   .checkbox {
     margin: 0.55em .5em 0 1em;
-    display: inline-block;
     float: left;
   }
 }
@@ -29,6 +28,7 @@
   clear: both;
   color: #989898;
   font-weight: normal;
+  display: inline-block;
 
   &.card-title-large {
     font-size: 1.2em;
@@ -42,6 +42,10 @@
       padding-top: 1.5em;
     }
   }
+}
+
+.select-all-none {
+  padding-left: 1em;
 }
 
 .card a {
@@ -81,12 +85,8 @@
   border: none;
 }
 
-.card label {
-  display: none;
-}
-
-.card .checkbox {
-  display: inine-block;
+.checkbox {
+  display: inline-block;
   @include transition(all 0.2s ease-in-out);
   background: white; 
   border: 2px solid #ddd;
@@ -105,12 +105,12 @@
   }
 }
 
-.card .checkbox.checked {
+.checkbox.checked {
   background: $blue;
   border: none;
 }
 
-.card .checkbox.checked:before {
+.checkbox.checked:before {
   content: "";
   position: absolute;
   border-color: #eee;
