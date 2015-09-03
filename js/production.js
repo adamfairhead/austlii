@@ -172,4 +172,17 @@ $(function() {
       $(this).parent().parent().parent().parent().find('.card input').prop('checked', false).parent().removeClass('checked');
     }
   });
+
+  // Overall Select All / Select None toggle  
+  $('.select-all-none-overall').on('click', function() {
+    var selector = $('.select-all-none-overall');
+    var input = $(selector).find('input');
+    if ($(selector).hasClass('checked') && $(input.checked)) {
+      $(selector).removeClass('checked').find('label').removeClass('checked').find('input').prop('checked', false);
+      $('.checkbox input').prop('checked', false).parent().removeClass('checked');
+    } else {
+      $(selector).addClass('checked').find('label').addClass('checked').find('input').prop('checked', true);
+      $('.checkbox input').prop('checked', true).parent().addClass('checked');
+    }
+  });
 });

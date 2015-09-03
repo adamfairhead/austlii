@@ -51,7 +51,9 @@ layout: compress
             <li class="advanced-search"><a href="search.html">Advanced Search…</a></li>
           </ul>
 
-          {% if page.searchable == true %}
+          {% if page.class contains 'home' %}
+          <input type="text" placeholder="Search all databases">
+          {% elsif page.searchable == true %}
           <input type="text" placeholder="Search selected databases">
           {% elsif page.class == 'results search' %}
           <input type="text" placeholder="Search AustLII" value="Test">

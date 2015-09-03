@@ -81,15 +81,11 @@
     height: 90px;
 
     ul {
-      min-width: 1500px;
+      min-width: 1550px;
     }
 
     @include media($medium-screen) {
       height: 105px;
-
-      ul {
-        min-width: 1480px;
-      }
     }
     
     #panel-type {

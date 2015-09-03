@@ -19,3 +19,27 @@
   max-height: 0;
   padding-bottom: 0;
 }
+
+.select-all-none-overall {
+  cursor: pointer;
+  background: #ddd;
+  padding: .5em .7em .3em .5em;
+  display: inline-block;
+  border-radius: 4px;
+  font-size: .8em;
+  font-weight: normal;
+  color: #888;
+  margin-left: .8em;
+  position: absolute;
+  right: 0;
+
+  &:hover {
+    background: #ccc;
+    color: #777;
+  }
+}
+
+.select-all-none-overall span {
+  position: relative;
+  top: -3px;
+}
