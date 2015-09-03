@@ -1,29 +1,35 @@
 // Page Side
 
 #page-index {
-  @include media(max-width $large-screen) {
-    padding-left: 1em;
-    padding-right: 1em;
+  padding-right: 1em;
+  word-break: break-word;
+
+  .side-element {
+    font-size: .8em;
   }
 
-  @include media($large-screen) {
-    margin-top: .8em;
+  @include media(max-width $x-large-screen) {
+    border: 1px solid $base-border-color;
+    padding: 1em 1em 0;
+    margin-bottom: 2em;
+  }
+
+  @include media($x-large-screen) {
+    margin-top: 3em;
     display: block;
-    @include span-columns(3);
+    @include span-columns(2.5);
     position: absolute;
     top: 1em;
     left: 0;
-
-    .side-element {
-      font-size: .8em;
-    }
   }
 }
 
 #page-side {
+  padding-right: 1em;
+  word-break: break-word;
+
   @include media(max-width $large-screen) {
     padding-left: 1em;
-    padding-right: 1em;
   }
 
   @include media($large-screen) {

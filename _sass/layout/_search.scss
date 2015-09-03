@@ -9,7 +9,7 @@
   padding-left: 1em;
 
   @include media($medium-screen) {
-    top: -17px;
+    top: -22px;
   }
 
   @include media($medium-screen + 20em) {
@@ -207,8 +207,11 @@
   right: 53px;
   top: 3px;
 
-  @include media($medium-screen + 20em) {
+  @include media($medium-screen) {
     height: 34px;
+  }
+
+  @include media($medium-screen + 20em) {
     right: 1.2em;
     width: 7%;
   }
@@ -226,7 +229,7 @@
   padding: 0;
 
   @include media($medium-screen) {
-    top: -21px;
+    top: -20px;
   }
 
   @include media($medium-screen + 20em) {

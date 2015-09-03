@@ -141,6 +141,14 @@ $(function() {
     }
   });
 
+  $('.radio input').change(function() {
+    if(this.checked) {
+      $(this).parent().addClass('checked');
+    } else {
+      $(this).parent().removeClass('checked');
+    }
+  });
+
   // Select All / Select None toggle  
   $('.select-all-none input').on('click', function() {
     if (this.checked) {

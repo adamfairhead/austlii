@@ -10,12 +10,11 @@
     }
   } 
 
-  #page-side,
-  #page-index {
+  #page-side {
     margin-top: 3em;
 
     @include media($x-large-screen) {
-      @include span-columns(2);
+      @include span-columns(2.5);
     }
   }
 

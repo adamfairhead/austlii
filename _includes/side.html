@@ -60,25 +60,11 @@
   {% include side/side-cited-by.html %}
   {% include side/side-authors.html %}
 </div> 
-<div id="page-index">
-  <div class="side-element side-authors">
-    {% include svg/icon-authors.svg %}
-    <h4>Table of Contents</h4>
-    <ul>
-      <li>This document isn’t part of a series.</li>
-    </ul>
-  </div>
-</div> 
 {% endif %}
 
 {% if page.class contains 'about' %}
 <!-- About Sidebar -->
 <div id="page-side">
-  {% include side/side-contributors.html %}
-  {% include side/side-stats.html %}
-  {% include side/side-tools.html %}
-</div> 
-<div id="page-index">
   {% include side/side-about.html %}
 </div> 
 {% endif %}

@@ -38,16 +38,16 @@ layout: compress
           <ul class="search-options">
             {% if page.class contains 'results' %}
             {% unless page.class contains 'search' %}
-              <li class="all-databases"><label>All databases <input type="radio"></label></li>
-              <li class="this-database"><label>This database only <input type="radio"></label></li>
+              <li class="all-databases"><label>All databases <input type="radio" name="search-database" checked></label></li>
+              <li class="this-database"><label>This database only <input type="radio" name="search-database"></label></li>
             {% endunless %}
             {% endif %}
             {% if page.searchable == true %}
-              <li class="selected-databases"><label>Selected databases <input type="radio"></label></li>
-              <li class="or-all-databases"><label>All databases <input type="radio"></label></li>
+              <li class="selected-databases"><label>Selected databases <input type="radio" name="search-filter" checked></label></li>
+              <li class="or-all-databases"><label>All databases <input type="radio" name="search-filter"></label></li>
             {% endif %}
-            <li class="full-text"><label>Full text <input type="radio"></label></li>
-            <li class="title-only"><label>Titles only <input type="radio"></label></li>
+            <li class="full-text"><label>Full text <input type="radio" name="search-text" checked></label></li>
+            <li class="title-only"><label>Titles only <input type="radio" name="search-text"></label></li>
             <li class="advanced-search"><a href="search.html">Advanced Search…</a></li>
           </ul>
 
@@ -85,10 +85,24 @@ layout: compress
       {% include sort.html %}
 
       {% if page.class contains 'document' %}
+
       <article class="the-document">
         <header>
           <h1>{{ page.title }}</h1>
         </header>
+
+        {% if page.class == 'document' %}
+        <div id="page-index">
+          <div class="side-element side-authors">
+            {% include svg/icon-authors.svg %}
+            <h4>Table of Contents</h4>
+            <ul>
+              <li>This document isn’t part of a series.</li>
+            </ul>
+          </div>
+        </div> 
+        {% endif %}
+
         {{ content }}
       </article>
       {% else %}
