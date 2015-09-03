@@ -145,7 +145,13 @@ $(function() {
 
   // Show 'more' sidebar items
   $('.side-about-more-link').on('click', function() {
-    $('.side-about').addClass('has-more');
+    if ($('.side-about').hasClass('has-more')) {
+      $('.side-about').removeClass('has-more');
+      $(this).text('More');
+    } else {
+      $('.side-about').addClass('has-more');
+      $(this).text('Less');
+    };
   });
 
   // Card checkboxes using JS so Firefox etc. can see the custom styles
