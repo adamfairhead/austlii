@@ -321,3 +321,25 @@
     display: none !important;
   }
 }
+
+.search {
+  #panels.card {
+    border-color: black;
+    margin-bottom: 0;
+    height: 98px;
+    overflow: hidden;
+
+    a:hover {
+      text-decoration: none;
+    }
+  }
+
+  #panels.is-year ul {
+    min-width: 100%; 
+  }
+
+  .year-options-list {
+    margin-bottom: 2em;
+    margin-top: -2px;
+  }
+}

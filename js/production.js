@@ -3,6 +3,7 @@ $(function() {
   $('#panels a').on('click', function() {
     $('#panels li').removeClass('is-selected');
     $(this).parent().addClass('is-selected');
+    return false;
   });
 
   // Select 'Specific Year' panel dropdown
@@ -11,6 +12,7 @@ $(function() {
     $('.year-specific-options').addClass('is-visible');
     $('.year-range-dropdown-1, .year-range-dropdown-2').removeClass('is-selected');
     $(this).addClass('is-selected');
+    return false;
   });
 
   // Select 'Year Range #1' panel dropdown
@@ -19,6 +21,7 @@ $(function() {
     $('.year-range-1-options').addClass('is-visible');
     $('.year-specific-dropdown, .year-range-dropdown-2').removeClass('is-selected');
     $(this).addClass('is-selected');
+    return false;
   });
 
   // Select 'Year Range #2' panel dropdown
@@ -27,12 +30,14 @@ $(function() {
     $('.year-range-2-options').addClass('is-visible');
     $('.year-specific-dropdown, .year-range-dropdown-1').removeClass('is-selected');
     $(this).addClass('is-selected');
+    return false;
   });
 
   // Hide the year options dropdown when a year is selected
   $('.year-options a').on('click', function() {
     $('.year-options.is-visible').removeClass('is-visible');
     $('#panel-year a.is-selected').removeClass('is-selected');
+    return false;
   });
 });
 
