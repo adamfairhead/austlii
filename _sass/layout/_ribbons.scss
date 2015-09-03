@@ -27,6 +27,8 @@
   .ribbon-database { z-index: 5; }
   .ribbon-year { z-index: 4; }
   .ribbon-letter { z-index: 3; }
+  .ribbon-country { z-index: 2; }
+  .ribbon-subject { z-index: 1; }
 
   .ribbon-type a {
     padding-left: .5em;
@@ -110,10 +112,9 @@
     position: relative;
   }
 
-  li:last-child a,
+  li:last-child.is-selected a,
   li:last-child a:hover {
-    border-color: transparent;
-    background: transparent;
+    @include linear-gradient(90deg, lighten($red, 10) 50%, $red 100%);
   }
   .ribbon-home-lawcite a:hover {
     cursor: pointer !important;
