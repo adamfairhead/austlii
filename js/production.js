@@ -91,16 +91,33 @@ $(function() {
     $('#page-header').toggleClass('search-is-visible');
   });
 
-  // Show search options
-  $('.search-dropdown').on('click', function() {
+  // Close search options when you click on the page
+  $(document).on('click', function() {
+    $('.search-box').removeClass('options-visible');
+  });
+
+  // Show search options (without closing itself)
+  $('.search-dropdown').on('click', function(e) {
     $('.search-box').toggleClass('options-visible');
+    e.stopPropagation();
+  });
+
+  // Keep search options open when you click on it
+  $('.search-options').on('click', function(e) {
+    e.stopPropagation();
   });
 });
 
 $(function() {
+  // Close sort options when you click on the page
+  $(document).on('click', function() {
+    $('#page-sort').removeClass('options-visible');
+  });
+
   // Show 'more' sort option
-  $('.sort-more').on('click', function() {
+  $('.sort-more').on('click', function(e) {
     $('#page-sort').toggleClass('options-visible');
+    e.stopPropagation();
   });
 
   // Select a sort item
@@ -134,14 +151,6 @@ $(function() {
   // Card checkboxes using JS so Firefox etc. can see the custom styles
   $('input[type="checkbox"]').parent().addClass('checkbox checked');
   $('input[type="checkbox"]').change(function() {
-    if(this.checked) {
-      $(this).parent().addClass('checked');
-    } else {
-      $(this).parent().removeClass('checked');
-    }
-  });
-
-  $('.radio input').change(function() {
     if(this.checked) {
       $(this).parent().addClass('checked');
     } else {
