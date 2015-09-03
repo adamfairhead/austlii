@@ -28,6 +28,10 @@
   padding-right: 1em;
   word-break: break-word;
 
+  .selected a {
+    text-decoration: underline;
+  }
+
   @include media(max-width $large-screen) {
     padding-left: 1em;
   }
