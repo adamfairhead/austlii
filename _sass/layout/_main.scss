@@ -3,6 +3,7 @@
 #page-content { 
   position: relative;
   z-index: 1; 
+  min-height: 700px;
   @include outer-container;
 
   @include media($medium-screen) {
