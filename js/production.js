@@ -152,7 +152,7 @@ $(function() {
   });
 
   // Select a sort item
-  $('.sort-item').on('click', function() {
+  $(document).on('click', '.sort-item', function() {
     $('.sort-item').removeClass('selected');
     $(this).addClass('selected');
   });
@@ -216,4 +216,19 @@ $(function() {
       $('.checkbox input').prop('checked', true).parent().addClass('checked');
     }
   });
+
+  // Sort alphabetically if Letter search
+  $('#panel-letter a').on('click', function() {
+    if (!$('#page-sort').hasClass('has-special')) {
+      $('#page-sort').addClass('has-special').find('.selected').removeClass('selected');
+      $('<li class="sort-item sort-special selected"><a href="#">Alphabetically</a></li>').insertBefore('#page-sort .sort-recent');
+    };
+
+    if ($(this).parent().hasClass('panel-letter-any')) {
+      $('.sort-special').remove();
+      $('#page-sort').removeClass('has-special').find('.sort-recent').addClass('selected');
+    }
+  });
+
+
 });

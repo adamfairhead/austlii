@@ -107,8 +107,25 @@
     }
   }
 
-  .sort-accessed { display: inline; } .sort-options .more-accessed { display: none; }
-  @include media(max-width em(560)) { .sort-accessed { display: none; } .sort-options .more-accessed { display: inline; }}
+  .sort-accessed { display: inline; }
+  .sort-options .more-cited { display: none; }
+  .sort-options .more-accessed { display: none; }
+
+  &.has-special {
+    .sort-accessed { display: none; }
+    .sort-options .more-accessed { display: inline; }
+  }
+
+  @include media(max-width em(560)) {
+    .sort-accessed { display: none; }
+    .sort-options .more-cited { display: none; }
+    .sort-options .more-accessed { display: inline; }
+
+    &.has-special {
+      .sort-cited { display: none; }
+      .sort-options .more-cited { display: inline; }
+    }
+  }
 
   .database.all & ,
   .database.cases & {
