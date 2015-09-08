@@ -1,6 +1,6 @@
 baseurl: /
 permalink: /:title/
-markdown: rdiscount
+markdown: kramdown
 relative_permalinks: false
 excerpt_separator: <!--more-->
 exclude: ["README.md","Gemfile","Gemfile.lock","gruntfile.js","package.json","node_modules","js/layout","js/production.js",vendor,"Rakefile","Procfile","config.ru"]

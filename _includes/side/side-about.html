@@ -13,38 +13,37 @@
   <h4>About AustLII</h4>
   <h6>General Info</h6>
   <ul>
-    <li class="selected"><a href="#">Overview</a></li>
+    <li class="{% if page.url == '/about.html' %}selected{% endif %}"><a href="about.html">Overview</a></li>
     <li><a href="#">Annual Report</a></li>
-    <li><a href="#">Guides</a></li>
-    <li><a href="#">Published papers</a></li>
-    <li><a href="#">FAQs</a></li>
-    <li><a href="#">Feedback</a></li>
-    <li><a href="#">Contact us</a></li>
+    <li class="{% if page.url == '/publications.html' %}selected{% endif %}"><a href="publications.html">Published papers</a></li>
+    <li class="{% if page.url == '/faq.html' %}selected{% endif %}"><a href="faq.html">FAQs</a></li>
+    <li class="{% if page.url == '/feedback.html' %}selected{% endif %}"><a href="feedback.html">Feedback</a></li>
+    <li class="{% if page.url == '/contact.html' %}selected{% endif %}"><a href="contact.html">Contact us</a></li>
   </ul>
   <br />
 
   <h6>Help with AustLII</h6>
   <ul>
-    <li><a href="#">Legal Research Guide</a></li>
+    <li><a href="http://www.worldlii.org/catalog/2332.html">Legal Research Guide</a></li>
     <li><a href="#">Help Pages</a></li>
   </ul>
   <br />
 
   <h6>Policies</h6>
   <ul>
-    <li><a href="#">Disclaimers</a></li>
-    <li><a href="#">Privacy Policy</a></li>
-    <li><a href="#">Copyright Policy</a></li>
-    <li><a href="#">Linking</a></li>
+    <li class="{% if page.url == '/disclaimers.html' %}selected{% endif %}"><a href="disclaimers.html">Disclaimers</a></li>
+    <li class="{% if page.url == '/privacy.html' %}selected{% endif %}"><a href="privacy.html">Privacy Policy</a></li>
+    <li class="{% if page.url == '/copyright.html' %}selected{% endif %}"><a href="copyright.html">Copyright Policy</a></li>
+    <li class="{% if page.url == '/linking.html' %}selected{% endif %}"><a href="linking.html">Linking</a></li>
   </ul>
   <br />
 
   <h6>Who &amp; How</h6>
   <ul>
-    <li><a href="#">Personnel</a></li> 
-    <li><a href="#">Funding info</a></li>
-    <li><a href="#">Careers</a></li>
-    <li><a href="#">Thanks</a></li>
+    <li class="{% if page.url == '/personnel.html' %}selected{% endif %}"><a href="personnel.html">Personnel</a></li> 
+    <li class="{% if page.url == '/funding.html' %}selected{% endif %}"><a href="funding.html">Funding info</a></li>
+    <li class="{% if page.url == '/careers.html' %}selected{% endif %}"><a href="careers.html">Careers</a></li>
+    <li class="{% if page.url == '/thanks.html' %}selected{% endif %}"><a href="thanks.html">Thanks</a></li>
   </ul>
 </div>
 {% endif %}
