@@ -126,7 +126,7 @@
     }
 
     ul {
-      min-width: 600px;
+      min-width: 1080px;
     }
 
     #panel-year {
@@ -161,7 +161,8 @@
 
     .year-specific-dropdown,
     .year-range-dropdown-1,
-    .year-range-dropdown-2 {
+    .year-range-dropdown-2,
+    .date-range {
       padding: .2em .5em;
       margin-left: .7em;
       display: inline-block;
@@ -180,6 +181,41 @@
         color: #858585;
         font-size: .8em;
         margin-left: .5em;
+      }
+    }
+
+
+    .date-range {
+      padding: 0;
+
+      &:after {
+        content: '';
+        display: none;
+      }
+      
+      a {
+        background: transparent;
+        padding: 0;
+        padding: .2em .5em .2em .6em;
+        border-right: 2px solid #575757;
+        border-radius: 0;
+
+        &.is-selected {
+          background: white;
+          color: #333;
+          border-color: #ddd;
+        }
+
+        &:after {
+          content: '▼';
+          color: #858585;
+          font-size: .8em;
+          margin-left: .5em;
+        }
+
+        &:last-child {
+          border: none;
+        }
       }
     }
 

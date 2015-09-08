@@ -3,7 +3,6 @@ $(function() {
   $('#panels a').on('click', function() {
     $('#panels li').removeClass('is-selected');
     $(this).parent().addClass('is-selected');
-    return false;
   });
 
   // Select 'Specific Year' panel dropdown
@@ -19,7 +18,7 @@ $(function() {
   $('.year-range-dropdown-1').on('click', function() {
     $('.year-options').removeClass('is-visible');
     $('.year-range-1-options').addClass('is-visible');
-    $('.year-specific-dropdown, .year-range-dropdown-2').removeClass('is-selected');
+    $('#panel-year .panel-type-all .is-selected').removeClass('is-selected');
     $(this).addClass('is-selected');
     return false;
   });
@@ -28,8 +27,35 @@ $(function() {
   $('.year-range-dropdown-2').on('click', function() {
     $('.year-options').removeClass('is-visible');
     $('.year-range-2-options').addClass('is-visible');
-    $('.year-specific-dropdown, .year-range-dropdown-1').removeClass('is-selected');
+    $('#panel-year .panel-type-all .is-selected').removeClass('is-selected');
     $(this).addClass('is-selected');
+    return false;
+  });
+
+  // Select 'Date Range #1' panel dropdown
+  $('.date-range-dropdown-1').on('click', function() {
+    $('.year-options').removeClass('is-visible');
+    $('.date-range-1-options').addClass('is-visible');
+    $('#panel-year .panel-type-all .is-selected').removeClass('is-selected');
+    $(this).addClass('is-selected').parent().removeClass('is-selected');
+    return false;
+  });
+
+  // Select 'Date Range #2' panel dropdown
+  $('.date-range-dropdown-2').on('click', function() {
+    $('.year-options').removeClass('is-visible');
+    $('.date-range-2-options').addClass('is-visible');
+    $('#panel-year .panel-type-all .is-selected').removeClass('is-selected');
+    $(this).addClass('is-selected').parent().removeClass('is-selected');
+    return false;
+  });
+
+  // Select 'Date Range #3' panel dropdown
+  $('.date-range-dropdown-3').on('click', function() {
+    $('.year-options').removeClass('is-visible');
+    $('.year-range-2-options').addClass('is-visible');
+    $(this).parent().parent().find('.is-selected').removeClass('is-selected');
+    $(this).addClass('is-selected').parent().removeClass('is-selected');
     return false;
   });
 
