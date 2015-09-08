@@ -19,4 +19,15 @@ $(function() {
   $('.search-options').on('click', function(e) {
     e.stopPropagation();
   });
+
+  // Document page index expand/collapse
+  $(document).on('click', '.index-expand', function() {
+    $('#page-index').toggleClass('is-expanded');
+
+    if ($(this).parent().parent().hasClass('is-expanded')) {
+      $(this).text('Hide');
+    } else {
+      $(this).text('Show');
+    };
+  });
 });

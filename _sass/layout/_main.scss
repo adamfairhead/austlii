@@ -19,9 +19,11 @@
 
 // Page Main
 
-#page-main {
+.database #page-main {
   position: relative;
+}
 
+#page-main {
   @include media(max-width $medium-screen) {
     padding: 0;    
   }
@@ -60,7 +62,7 @@
   }
 
   a {
-    padding: .25em .75em;
+    padding: .25em .6em;
     font-size: .9em;
     color: #989898;
     @include transition(all 0.25s ease-in-out);
@@ -77,7 +79,7 @@
   .selected a,
   .selected:first-child a {
     color: darken($blue, 10);
-    padding: .25em .75em;
+    padding: .25em .6em;
     background: #c6e0f0;
     border-radius: $base-border-radius; 
     margin-right: 5px;

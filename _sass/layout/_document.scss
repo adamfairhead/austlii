@@ -47,4 +47,30 @@
       padding-top: 2em;
     }
   }
+
+  .index-expand {
+    display: none;
+
+    @include media(max-width $x-large-screen) {
+      display: inline;
+      float: right;
+      border: none;
+    }
+  }
+
+  #page-index ul {
+    @include media(max-width $x-large-screen) {
+      display: none;
+
+      li:first-child a {
+        border: none;
+      }
+    }
+  }
+
+  #page-index.is-expanded ul {
+    @include media(max-width $x-large-screen) {
+      display: block;
+    }
+  }
 }
