@@ -68,11 +68,18 @@
   }
 
   #page-index ul {
+    padding-left: 0;
+    list-style: none;
+
     @include media(max-width $x-large-screen) {
       display: none;
 
       li:first-child a {
         border: none;
+      }
+
+      a {
+        padding-top: 1em;
       }
     }
   }

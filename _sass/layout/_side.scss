@@ -34,6 +34,7 @@
 
   @include media(max-width $large-screen) {
     padding-left: 1em;
+    font-size: .9em;
   }
 
   @include media($large-screen) {
@@ -51,7 +52,6 @@
 
   .contribute-now a {
     font-weight: bold;
-    text-decoration: underline;
   }
 }
 
@@ -81,7 +81,7 @@
 
     @include media(max-width $large-screen) {
       border-top: 1px solid rgba(0,0,0,.1);
-      padding-top: .25em;
+      padding-top: .6em;
     }
   }
 
