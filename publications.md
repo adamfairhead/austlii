@@ -6,7 +6,7 @@ database: About AustLII
 ---
 ## AustLII publications which are updated periodically
 
-* AustLII [An overview of AustLII[(#) - a one page snapshot (please copy!)
+* [An overview of AustLII](#) - a one page snapshot (please copy!)
 * [AustLII User Guide](#) (2007)
 
 ## Publications concerning AustLII and its research

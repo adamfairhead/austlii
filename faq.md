@@ -4,6 +4,26 @@ title: Frequently Asked Questions (FAQs)
 class: about document
 database: About AustLII
 ---
+<div id="page-index">
+<div class="side-element side-authors">
+{% include svg/icon-index.svg %}
+<a class="index-expand" href="javascript:void(0);">Show</a>
+<h4>Table of Contents</h4>
+<ul>
+<li><a href="#content-databases-and-markup">1. Content, Databases and Markup</a></li>
+<li><a href="#i-have-found-a-wrong-or-acontextual-link">1.1) I have found a wrong (or acontextual) link!</a></li>
+<li><a href="#i-have-found-a-broken-link">1.2) I have found a broken link!</a></li>
+<li><a href="#how-do-you-do-the-hypertext-markup">1.3) How do you do the hypertext markup?</a></li>
+<li><a href="#why-is-the-alphabetic-list-of-cases-wrong">1.4) Why is alphabetical list of cases wrong?</a></li>
+<li><a href="#how-do-i-find-the-xyz-act-or-regulation">1.5) How do I find the XYZ Act or Regulation?</a></li>
+<li><a href="#how-up-to-date-is-the-xyz-database">1.6) How up to date is the XYZ database?</a></li>
+<li><a href="#does-austlii-publish-an-authorised-version-of-xyz">1.7) Does AustLII publish an authorised version of XYZ?</a></li>
+<li><a href="#when-will-materials-from-xyz-be-added-to-austlii">1.8) When will materials from XYZ be added to/updated on AustLII?</a></li>
+<li><a href="#how-do-you-choose-the-cases-which-will-be-reported">1.9) How do you choose the cases which will be reported?</a></li>
+</ul>
+</div>
+</div> 
+
 ## 1. Content, Databases and Markup
 
 ### 1.1) I have found a wrong (or acontextual) link!
