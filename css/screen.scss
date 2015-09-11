@@ -278,7 +278,6 @@
 
       input {
         margin-bottom: 0;
-
         background: #f4f4f4;
         box-shadow: none;
         border: none;
@@ -286,6 +285,22 @@
         -webkit-appearance: none;
         font-size: .9em;
         height: 33px;
+      }
+
+      .day,
+      .month,
+      .year {
+        width: 30%;
+        display: inline-block;
+        margin-right: 5%;
+
+        @include media($large-screen) {
+          width: 15%;
+        }
+      }
+
+      .year {
+        margin-right: 0;
       }
 
       &:nth-child(2n) input {
@@ -327,25 +342,6 @@
 }
 
 .search {
-  #panels.card {
-    border-color: black;
-    margin-bottom: 0;
-    height: 98px;
-    overflow: hidden;
-
-    a:hover {
-      text-decoration: none;
-    }
-  }
-
-  #panels.is-year ul {
-    min-width: 100%; 
-  }
-
-  .year-options-list {
-    margin-bottom: 2em;
-    margin-top: -2px;
-  }
 }
 
 // Personnel
