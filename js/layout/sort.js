@@ -5,7 +5,7 @@ $(function() {
   });
 
   // Show 'more' sort option
-  $('.sort-more').on('click', function(e) {
+  $(document).on('click', '.sort-more', function(e) {
     $('#page-sort').toggleClass('options-visible');
     e.stopPropagation();
   });
@@ -14,6 +14,12 @@ $(function() {
   $(document).on('click', '.sort-item', function() {
     $('.sort-item').removeClass('selected');
     $(this).addClass('selected');
+
+    if ($(this).parent('.sort-options').length > 0) {
+      $('.sort-more').addClass('selected');
+    } else {
+      $('.sort-more').removeClass('selected');
+    };
   });
 
   // Sort item filtering

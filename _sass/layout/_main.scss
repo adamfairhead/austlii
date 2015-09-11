@@ -80,8 +80,8 @@
     padding-left: 0;
   }
 
-  .selected a,
-  .selected:first-child a {
+  .selected > a,
+  .selected:first-child > a {
     color: darken($blue, 10);
     padding: .25em .6em;
     background: #c6e0f0;
@@ -169,6 +169,10 @@
       font-size: .6em;
       color: #aaa;
       margin-left: .5em;
+    }
+
+    &.selected > a:after {
+      color: $action-color;
     }
   }
 
