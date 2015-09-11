@@ -38,6 +38,7 @@
   &.card-title-large {
     font-size: 1.2em;
     padding: .5em .8em 0;
+    margin-bottom: .3em;
     color: $base-font-color;
     font-weight: bold;
 
@@ -49,7 +50,7 @@
 
   @include media(max-width $medium-screen) {
     &:first-child {
-      padding-top: 1.5em;
+      padding-top: .7em;
     }
   }
 }

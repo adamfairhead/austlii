@@ -1,7 +1,7 @@
 // Page: All Databases
 
 .all-section {
-  max-height: 4000px;
+  max-height: 6000px;
   overflow: hidden;
   opacity: 1;
   @include transition(all .5s ease-in-out);
@@ -30,12 +30,15 @@
   font-weight: normal;
   color: #888;
   margin-left: .8em;
-  position: absolute;
-  right: 0;
 
   &:hover {
     background: #ccc;
     color: #777;
+  }
+
+  @include media($medium-screen) {
+    position: absolute;
+    right: 0;
   }
 }
 

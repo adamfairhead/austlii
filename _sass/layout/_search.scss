@@ -265,3 +265,17 @@
   margin-left: 0;
   margin-bottom: 6px;
 }
+
+.search .card-checkboxes {
+  max-height: 5000px;
+  @include transition(all 0.5s ease-in-out);
+}
+
+.search .card-checkboxes.is-collapsed {
+  max-height: 188px;
+  overflow: hidden;
+
+  @include media($medium-screen) {
+    max-height: 179px;
+  }
+}
