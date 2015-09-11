@@ -3,6 +3,10 @@
 .document {
   background: white;
 
+  embed {
+    @extend .card;
+  }
+
   #page-main {
     @include media($x-large-screen) {
       @include span-columns(7);
