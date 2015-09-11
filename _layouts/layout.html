@@ -33,7 +33,7 @@ layout: compress
     <form action="results-search.html">
       <div id="page-search">
         <div class="search-box">
-          <a class="search-dropdown" href="javascript:void(0);">▼</a>
+          <a class="search-dropdown" href="javascript:void(0);">▼</a> 
 
           <ul class="search-options">
             {% if page.class contains 'results' %}
@@ -48,6 +48,11 @@ layout: compress
             {% endif %}
             <li class="full-text"><label>Full text <input type="radio" name="search-text" checked></label></li>
             <li class="title-only"><label>Titles only <input type="radio" name="search-text"></label></li>
+            {% if page.extra-search == true %}
+              <li class="extra-search-1"><label>Databases <input type="radio" name="extrasearch" checked></label></li>
+              <li class="extra-search-2"><label>Catalog &amp; Websearch <input type="radio" name="extrasearch"></label></li>
+              <li class="extra-search-3"><label>Law on Google <input type="radio" name="extrasearch"></label></li>
+            {% endif %}
             <li class="advanced-search"><a href="search.html">Advanced Search…</a></li>
           </ul>
 
@@ -61,6 +66,10 @@ layout: compress
           <input type="text" placeholder="Search AustLII">
           {% endif %}
           <input type="submit" value="Search">
+
+          {% if page.extra-search == true %}
+          <div class="extra-search"><label><input type="radio" name="extrasearch2" checked>Databases</input></label> <label><input type="radio" name="extrasearch2">Catalog &amp; Websearch</label> <label><input type="radio" name="extrasearch2">Law on Google</label></div>
+          {% endif %}
         </div>
         <a class="go-primary" href="#">Close</a>
       </div>

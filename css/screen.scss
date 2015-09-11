@@ -397,3 +397,23 @@
     color: #888;
   }
 }
+
+.extra-search {
+  display: none;
+
+  @include media($large-screen) {
+    display: block;
+    float: left;
+    margin: -11px 0 0 49px;
+    font-size: .72em;
+    color: #727272;
+    position: relative;
+    top: .25em;
+
+    label {
+      display: inline-block;
+      margin-right: 1.25em;
+      font-weight: normal;
+    }
+  }
+}
