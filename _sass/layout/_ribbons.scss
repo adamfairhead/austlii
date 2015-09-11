@@ -34,14 +34,6 @@
     padding-left: .5em;
   }
 
-  span {
-    max-width: 200px;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    vertical-align: top;
-  }
-
   @include media($medium-screen) {
     overflow: auto;
     overflow-y: hidden;
@@ -50,6 +42,12 @@
   span {
     display: block;
     color: #ffaea9;
+    max-width: 200px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    vertical-align: top;
+    font-weight: 400;
   
     @include media(max-width $medium-screen) {
       display: none;
@@ -71,9 +69,11 @@
   }
 
   a {
-    padding: .5em .5em .5em 1em;
+    padding: .5em .55em .5em 1em;
     position: relative;
     font-size: .9em;
+    font-weight: 600;
+    line-height: 1.4;
     margin-left: -4px;
 
     .home & {
@@ -81,7 +81,7 @@
     }
 
     @include media($medium-screen) {
-      padding: .5em 1.5em .5em 1.5em;
+      padding: .75em 1.55em .85em 1.5em;
     }
   }
 
@@ -213,6 +213,7 @@
     @include media($medium-screen) {
       a {
         padding: .5em 1em;
+        font-weight: 400;
       }
     }
 

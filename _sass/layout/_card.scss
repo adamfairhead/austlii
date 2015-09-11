@@ -38,7 +38,7 @@
   &.card-title-large {
     font-size: 1.2em;
     padding: .5em .8em 0;
-    color: #565656;
+    color: $base-font-color;
     font-weight: bold;
 
     @media print {
@@ -102,8 +102,8 @@
 .card li:nth-child(2n) a,
 .card .multi:nth-child(2n) {
   background: #f6fafd;
-  border-top: #eaf0f6 1px solid;
-  border-bottom: #eaf0f6 1px solid;
+  //border-top: #eaf0f6 1px solid;
+  //border-bottom: #eaf0f6 1px solid;
 }
 
 .card .multi:nth-child(2n) a {
