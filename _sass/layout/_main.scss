@@ -6,6 +6,10 @@
   min-height: 700px;
   @include outer-container;
 
+  @include media(max-width $medium-screen) {
+    font-size: 1.05em;
+  }
+
   @include media($medium-screen) {
     padding-top: 1.5em;
     padding-left: 1em;
@@ -157,6 +161,7 @@
   .sort-more {
     & > a {
       @include transition(all 0.25s ease-in-out);
+      width: 60px;
     }
 
     & > a:after {
@@ -180,7 +185,7 @@
 
     @include media(max-width $medium-screen) {
       border-radius: $base-border-radius 0 $base-border-radius $base-border-radius;
-      margin-left: -73px;
+      margin-left: -80px;
     }
 
     li, a {
