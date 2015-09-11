@@ -351,21 +351,20 @@
 }
 
 .person {
+  padding-bottom: 2em;
+
   @include media($medium-screen) {
-    @include span-columns(6);
-    padding: 1em;
+    padding-left: 180px;
 
-    &:nth-child(2n-1) {
-      clear: left;
-    }
-
-    &:nth-child(2n) {
-      @include omega;
+    img {
+      margin-left: -180px;
+      position: absolute;
     }
   }
 
   img {
     margin-bottom: .5em;
+    max-width: 150px;
   }
 
   .email, .phone, .website {
