@@ -256,6 +256,25 @@
   
   li {
     display: inline-block;
+
+    // Specific rows/columns for years at certain screen sizes
+    @include media(max-width em(480)) {
+      @include span-columns(3);
+      a { width: 100%; }
+      &:nth-child(4n) { @include omega; }
+    }
+
+    @include media(min-width em(480) max-width em(800)) {
+      @include span-columns(2);
+      a { width: 100%; }
+      &:nth-child(6n) { @include omega; }
+    }
+
+    @include media(min-width em(800) max-width em(1200)) {
+      @include span-columns(1);
+      a { width: 100%; }
+      &:nth-child(12n) { @include omega; }
+    }
   }
 
   a {
