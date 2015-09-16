@@ -7,9 +7,10 @@ layout: compress
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=Edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AustLII</title>
+  <title>{% if page.class == 'home' %}Australasian Legal Information Institute{% else %}{% if page.title %}{{ page.title }}{% endif %}{% endif %}</title>
   <link rel="stylesheet" href="css/screen.css" />
   <meta name="theme-color" content="#ee3224">
+  <meta name="description" content="Australasian Legal Information Institute, a joint facility of UTY & NUSW Faculties of Law.">
   <link rel="icon" sizes="192x192" href="images/icon-192.png">
   <link rel="apple-touch-icon-precomposed" href="images/icon-shortcut.png">
   <meta name="msapplication-TileColor" content="#ee3224">
@@ -18,7 +19,7 @@ layout: compress
 <body{% if page.class %} class="{{ page.class }}"{% endif %}>
   <header id="page-header">
     <div id="primary">
-      <a id="page-logo" href="index.html">AustLII</a>
+      <a id="page-logo" href="index.html" tabindex="1">AustLII</a>
       {% unless page.search == false %}
       <a class="go-search" href="#">Search</a>
       {% endunless %}
@@ -35,40 +36,47 @@ layout: compress
         <div class="search-box">
           <a class="search-dropdown" href="javascript:void(0);">▼</a> 
 
-          <ul class="search-options">
-            {% if page.class contains 'results' %}
-            {% unless page.class contains 'search' %}
-              <li class="all-databases"><label>All databases <input type="radio" name="search-database" checked></label></li>
-              <li class="this-database"><label>This database only <input type="radio" name="search-database"></label></li>
-            {% endunless %}
-            {% endif %}
-            {% if page.searchable == true %}
-              <li class="selected-databases"><label>Selected databases <input type="radio" name="search-filter" checked></label></li>
-              <li class="or-all-databases"><label>All databases <input type="radio" name="search-filter"></label></li>
-            {% endif %}
-            <li class="full-text"><label>Full text <input type="radio" name="search-text" checked></label></li>
-            <li class="title-only"><label>Titles only <input type="radio" name="search-text"></label></li>
-            {% if page.extra-search == true %}
-              <li class="extra-search-1"><label>Databases <input type="radio" name="extrasearch" checked></label></li>
-              <li class="extra-search-2"><label>Catalog &amp; Websearch <input type="radio" name="extrasearch"></label></li>
-              <li class="extra-search-3"><label>Law on Google <input type="radio" name="extrasearch"></label></li>
-            {% endif %}
-            <li class="advanced-search"><a href="search.html">Advanced Search…</a></li>
-          </ul>
+          <fieldset>
+            <legend>Search Options</legend>
+            <ul class="search-options">
+              {% if page.class contains 'results' %}
+              {% unless page.class contains 'search' %}
+                <li class="all-databases"><label for="database-all">All databases <input type="radio" name="search-database" id="database-all" checked tabindex="2"></label></li>
+                <li class="this-database"><label for="database-this">This database only <input type="radio" name="search-database" id="database-this" tabindex="3"></label></li>
+              {% endunless %}
+              {% endif %}
+              {% if page.searchable == true %}
+                <li class="selected-databases"><label for="database-selected">Selected databases <input type="radio" name="search-filter" checked tabindex="4"></label></li>
+                <li class="or-all-databases"><label for="database-all">All databases <input type="radio" name="search-filter" id="database-all" tabindex="5"></label></li>
+              {% endif %}
+              <li class="full-text"><label for="database-full">Full text <input type="radio" name="search-text" id="database-full" checked tabindex="6"></label></li>
+              <li class="title-only"><label for="database-title">Titles only <input type="radio" name="search-text" id="database-title" tabindex="7"></label></li>
+              {% if page.extra-search == true %}
+                <li class="extra-search-1"><label for="database-database">Databases <input type="radio" name="extrasearch" id="database-database" checked></label></li>
+                <li class="extra-search-2"><label for="database-catalog">Catalog &amp; Websearch <input type="radio" name="extrasearch" id="database-catalog"></label></li>
+                <li class="extra-search-3"><label for="database-google">Law on Google <input type="radio" name="extrasearch" id="database-google"></label></li>
+              {% endif %}
+              <li class="advanced-search"><a href="search.html" tabindex="8">Advanced Search…</a></li>
+            </ul>
+          </fieldset>
 
-          {% if page.class contains 'home' %}
-          <input type="text" placeholder="Search all databases">
+          <label for="search-box" class="hide">Search term:</label>
+          {% if page.class contains 'home' %} 
+          <input id="search-box" type="text" placeholder="Search all databases" tabindex="9">
           {% elsif page.searchable == true %}
-          <input type="text" placeholder="Search selected databases">
+          <input id="search-box" type="text" placeholder="Search selected databases" tabindex="9">
           {% elsif page.class == 'results search' %}
-          <input type="text" placeholder="Search AustLII" value="Test">
+          <input id="search-box" type="text" placeholder="Search AustLII" value="Test" tabindex="9">
           {% else %}
-          <input type="text" placeholder="Search AustLII">
+          <input id="search-box" type="text" placeholder="Search AustLII" tabindex="9">
           {% endif %}
-          <input type="submit" value="Search">
+          <input type="submit" value="Search" tabindex="9">
 
           {% if page.extra-search == true %}
-          <div class="extra-search"><label><input type="radio" name="extrasearch2" checked>Databases</input></label> <label><input type="radio" name="extrasearch2">Catalog &amp; Websearch</label> <label><input type="radio" name="extrasearch2">Law on Google</label></div>
+          <div class="extra-search">
+            <label for="extra-database"><input type="radio" name="extrasearch2" id="extra-database" checked>Databases</input></label> 
+            <label for="extra-catalog"><input type="radio" name="extrasearch2" id="extra-catalog">Catalog &amp; Websearch</label> 
+            <label for="extra-google"><input type="radio" name="extrasearch2" id="extra-google">Law on Google</label></div>
           {% endif %}
         </div>
         <a class="go-primary" href="#">Close</a>

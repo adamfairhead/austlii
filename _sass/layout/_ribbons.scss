@@ -86,6 +86,7 @@
   }
 
   a:hover,
+  a:focus,
   .is-selected a {
     background: lighten($red, 10);
   }
@@ -113,10 +114,12 @@
   }
 
   li:last-child.is-selected a,
-  li:last-child a:hover {
+  li:last-child a:hover,
+  li:last-child a:focus {
     @include linear-gradient(90deg, lighten($red, 10) 50%, $red 100%);
   }
-  .ribbon-home-lawcite a:hover {
+  .ribbon-home-lawcite a:hover,
+  .ribbon-home-lawcite a:focus {
     cursor: pointer !important;
     background: lighten($red, 10) !important;
   }
@@ -131,6 +134,7 @@
   }
 
   a:hover:before,
+  a:focus:before,
   a:before {
     content: '';
     width: 0;
@@ -150,16 +154,20 @@
 
   .results & {
     .ribbon-letter a:hover:before,
+    .ribbon-letter a:focus:before,
     .ribbon-letter a:before,
     .ribbon-country a:hover:before,
+    .ribbon-country a:focus:before,
     .ribbon-country a:before,
     .ribbon-subject a:hover:before,
+    .ribbon-subject a:focus:before,
     .ribbon-subject a:before {
       border-color: #d82d21;
     }
   }
 
   a:hover:after,
+  a:focus:after,
   a:after {
     content: '';
     width: 0;
@@ -179,16 +187,20 @@
 
   .results & {
     .ribbon-letter a:hover:after,
+    .ribbon-letter a:focus:after,
     .ribbon-letter a:after,
     .ribbon-country a:hover:after,
+    .ribbon-country a:focus:after,
     .ribbon-country a:after,
     .ribbon-subject a:hover:after,
+    .ribbon-subject a:focus:after,
     .ribbon-subject a:after {
       border-color: $red;
     }
   }
 
   a:hover:after,
+  a:focus:after,
   .is-selected a:after {
     border-color: transparent transparent transparent lighten($red, 10);
   }

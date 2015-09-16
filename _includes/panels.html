@@ -9,74 +9,74 @@
 <div id="panels" class="is-year">
 {% endif %}
   <div class="inner">
-  <div id="panel-type">
-    <ul>
-      <li class="panel-type-all {% if page.class == 'database all' %}is-selected{% endif %}"><a href="database-all.html"><h5>All Databases</h5><p>Description goes here for selection.</p></a></li>
-      <li class="panel-type-all {% if page.class contains 'cases' or page.class == 'results' or page.class == 'database' %}is-selected{% endif %}"><a href="database-cases.html"><h5>Cases &amp; Legislation</h5><p>Description goes here for selection.</p></a></li>
-      <li class="panel-type-all {% if page.class contains 'journals' %}is-selected{% endif %}"><a href="database-journals.html"><h5>Journals &amp; Scholarship</h5><p>Description goes here for selection.</p></a></li>
-      <li class="panel-type-all {% if page.class contains 'treaties' %}is-selected{% endif %}"><a href="database-treaties.html"><h5>Treaties</h5><p>Description goes here for selection.</p></a></li>
-      <li class="panel-type-all {% if page.class contains 'libraries' %}is-selected{% endif %}"><a href="database-libraries.html"><h5>Libraries</h5><p>Description goes here for selection.</p></a></li>
-      <li class="panel-type-all"><a href="#"><h5>LawCite</h5><p>Description goes here for selection.</p></a></li>
-    </ul>
-  </div>
+    <div id="panel-type">
+      <ul>
+        <li class="panel-type-all {% if page.class == 'database all' %}is-selected{% endif %}"><a href="database-all.html"><h5>All Databases</h5><p>Description goes here for selection.</p></a></li>
+        <li class="panel-type-all {% if page.class contains 'cases' or page.class == 'results' or page.class == 'database' %}is-selected{% endif %}"><a href="database-cases.html"><h5>Cases &amp; Legislation</h5><p>Description goes here for selection.</p></a></li>
+        <li class="panel-type-all {% if page.class contains 'journals' %}is-selected{% endif %}"><a href="database-journals.html"><h5>Journals &amp; Scholarship</h5><p>Description goes here for selection.</p></a></li>
+        <li class="panel-type-all {% if page.class contains 'treaties' %}is-selected{% endif %}"><a href="database-treaties.html"><h5>Treaties</h5><p>Description goes here for selection.</p></a></li>
+        <li class="panel-type-all {% if page.class contains 'libraries' %}is-selected{% endif %}"><a href="database-libraries.html"><h5>Libraries</h5><p>Description goes here for selection.</p></a></li>
+        <li class="panel-type-all"><a href="#"><h5>LawCite</h5><p>Description goes here for selection.</p></a></li>
+      </ul>
+    </div>
 
-  <div id="panel-jurisdiction">
-    <ul>
-      <li class="panel-type-all"><a href="database.html"><h5>Australia</h5></a></li>
-      <li class="panel-type-all"><a href="database.html"><h5>CTH</h5></a></li>
-      <li class="panel-type-all"><a href="database.html"><h5>ACT</h5></a></li>
-      <li class="panel-type-all {% if page.class == 'database' or page.class == 'results' %}is-selected {% endif %}"><a href="database.html"><h5>NSW</h5></a></li>
-      <li class="panel-type-all"><a href="database.html"><h5>NT</h5></a></li>
-      <li class="panel-type-all"><a href="database.html"><h5>QLD</h5></a></li>
-      <li class="panel-type-all"><a href="database.html"><h5>SA</h5></a></li>
-      <li class="panel-type-all"><a href="database.html"><h5>TAS</h5></a></li>
-      <li class="panel-type-all"><a href="database.html"><h5>VIC</h5></a></li>
-      <li class="panel-type-all"><a href="database.html"><h5>WA</h5></a></li>
-      <li class="panel-type-all"><a href="database.html"><h5>New Zealand</h5></a></li>
-    </ul>
-  </div>
+    <div id="panel-jurisdiction">
+      <ul>
+        <li class="panel-type-all"><a href="database.html"><h5>Australia</h5></a></li>
+        <li class="panel-type-all"><a href="database.html"><h5>CTH</h5></a></li>
+        <li class="panel-type-all"><a href="database.html"><h5>ACT</h5></a></li>
+        <li class="panel-type-all {% if page.class == 'database' or page.class == 'results' %}is-selected {% endif %}"><a href="database.html"><h5>NSW</h5></a></li>
+        <li class="panel-type-all"><a href="database.html"><h5>NT</h5></a></li>
+        <li class="panel-type-all"><a href="database.html"><h5>QLD</h5></a></li>
+        <li class="panel-type-all"><a href="database.html"><h5>SA</h5></a></li>
+        <li class="panel-type-all"><a href="database.html"><h5>TAS</h5></a></li>
+        <li class="panel-type-all"><a href="database.html"><h5>VIC</h5></a></li>
+        <li class="panel-type-all"><a href="database.html"><h5>WA</h5></a></li>
+        <li class="panel-type-all"><a href="database.html"><h5>New Zealand</h5></a></li>
+      </ul>
+    </div>
 
-  {% unless page.class contains 'database' %}
-  <div id="panel-year">
-    <ul>
-      <li class="panel-type-all"><div href="#"><h5>Specific Year</h5><a href="#" class="year-specific-dropdown">2015</a></div></li>
-      <li class="panel-type-all"><div href="#"><h5>Year Range</h5><a href="#" class="year-range-dropdown-1">1970</a><a href="#" class="year-range-dropdown-2">2015</a><a href="results.html" class="button">Apply</a></div></li>
-    </ul>
-  </div>
+    {% unless page.class contains 'database' %}
+      <div id="panel-year">
+        <ul>
+          <li class="panel-type-all"><div><h5>Specific Year</h5><a href="#" class="year-specific-dropdown">2015</a></div></li>
+          <li class="panel-type-all"><div><h5>Year Range</h5><a href="#" class="year-range-dropdown-1">1970</a><a href="#" class="year-range-dropdown-2">2015</a><a href="results.html" class="button">Apply</a></div></li>
+        </ul>
+      </div>
 
-  <div id="panel-letter">
-    <ul>
-      <li class="panel-letter-any"><a href="#"><h5>Any</h5></a></li>
-      <li class="panel-letter-0"><a href="#"><h5>0</h5></a></li>
-      <li class="panel-letter-a"><a href="#"><h5>A</h5></a></li>
-      <li class="panel-letter-b"><a href="#"><h5>B</h5></a></li>
-      <li class="panel-letter-c"><a href="#"><h5>C</h5></a></li>
-      <li class="panel-letter-b"><a href="#"><h5>D</h5></a></li>
-      <li class="panel-letter-b"><a href="#"><h5>E</h5></a></li>
-      <li class="panel-letter-b"><a href="#"><h5>F</h5></a></li>
-      <li class="panel-letter-b"><a href="#"><h5>G</h5></a></li>
-      <li class="panel-letter-b"><a href="#"><h5>H</h5></a></li>
-      <li class="panel-letter-b"><a href="#"><h5>I</h5></a></li>
-      <li class="panel-letter-b"><a href="#"><h5>J</h5></a></li>
-      <li class="panel-letter-b"><a href="#"><h5>K</h5></a></li>
-      <li class="panel-letter-b"><a href="#"><h5>L</h5></a></li>
-      <li class="panel-letter-b"><a href="#"><h5>M</h5></a></li>
-      <li class="panel-letter-b"><a href="#"><h5>N</h5></a></li>
-      <li class="panel-letter-b"><a href="#"><h5>O</h5></a></li>
-      <li class="panel-letter-b"><a href="#"><h5>P</h5></a></li>
-      <li class="panel-letter-b"><a href="#"><h5>Q</h5></a></li>
-      <li class="panel-letter-b"><a href="#"><h5>R</h5></a></li>
-      <li class="panel-letter-b"><a href="#"><h5>S</h5></a></li>
-      <li class="panel-letter-b"><a href="#"><h5>T</h5></a></li>
-      <li class="panel-letter-b"><a href="#"><h5>U</h5></a></li>
-      <li class="panel-letter-b"><a href="#"><h5>V</h5></a></li>
-      <li class="panel-letter-b"><a href="#"><h5>W</h5></a></li>
-      <li class="panel-letter-b"><a href="#"><h5>X</h5></a></li>
-      <li class="panel-letter-b"><a href="#"><h5>Y</h5></a></li>
-      <li class="panel-letter-b"><a href="#"><h5>Z</h5></a></li>
-    </ul>
-  </div>
-  {% endunless %}
+      <div id="panel-letter">
+        <ul>
+          <li class="panel-letter-any"><a href="#"><h5>Any</h5></a></li>
+          <li class="panel-letter-0"><a href="#"><h5>0</h5></a></li>
+          <li class="panel-letter-a"><a href="#"><h5>A</h5></a></li>
+          <li class="panel-letter-b"><a href="#"><h5>B</h5></a></li>
+          <li class="panel-letter-c"><a href="#"><h5>C</h5></a></li>
+          <li class="panel-letter-b"><a href="#"><h5>D</h5></a></li>
+          <li class="panel-letter-b"><a href="#"><h5>E</h5></a></li>
+          <li class="panel-letter-b"><a href="#"><h5>F</h5></a></li>
+          <li class="panel-letter-b"><a href="#"><h5>G</h5></a></li>
+          <li class="panel-letter-b"><a href="#"><h5>H</h5></a></li>
+          <li class="panel-letter-b"><a href="#"><h5>I</h5></a></li>
+          <li class="panel-letter-b"><a href="#"><h5>J</h5></a></li>
+          <li class="panel-letter-b"><a href="#"><h5>K</h5></a></li>
+          <li class="panel-letter-b"><a href="#"><h5>L</h5></a></li>
+          <li class="panel-letter-b"><a href="#"><h5>M</h5></a></li>
+          <li class="panel-letter-b"><a href="#"><h5>N</h5></a></li>
+          <li class="panel-letter-b"><a href="#"><h5>O</h5></a></li>
+          <li class="panel-letter-b"><a href="#"><h5>P</h5></a></li>
+          <li class="panel-letter-b"><a href="#"><h5>Q</h5></a></li>
+          <li class="panel-letter-b"><a href="#"><h5>R</h5></a></li>
+          <li class="panel-letter-b"><a href="#"><h5>S</h5></a></li>
+          <li class="panel-letter-b"><a href="#"><h5>T</h5></a></li>
+          <li class="panel-letter-b"><a href="#"><h5>U</h5></a></li>
+          <li class="panel-letter-b"><a href="#"><h5>V</h5></a></li>
+          <li class="panel-letter-b"><a href="#"><h5>W</h5></a></li>
+          <li class="panel-letter-b"><a href="#"><h5>X</h5></a></li>
+          <li class="panel-letter-b"><a href="#"><h5>Y</h5></a></li>
+          <li class="panel-letter-b"><a href="#"><h5>Z</h5></a></li>
+        </ul>
+      </div>
+    {% endunless %}
   </div>
 </div>
 {% endunless %}

@@ -48,6 +48,19 @@ $(function() {
       $('.year-range-dropdown-2').text($(this).text());
     };
   });
+
+
+
+
+  // Open option if closed and tab focus
+  $(document).keyup(function() {
+    if ($('.search-options input').is(":focus")) {
+      $('.search-box').addClass('options-visible');
+      console.log('true');
+    }
+  });
+
+
 });
 
 $(function() {

@@ -2,12 +2,12 @@
 <nav id="ribbon">
   <div class="inner">
     <ul>
-      <li class="ribbon-home-databases"><a href="database-all.html">All Databases</a></li>
-      <li class="ribbon-home-cases is-selected"><a href="javascript:void(0);">Cases &amp; Legislation</a></li>
-      <li class="ribbon-home-journals"><a href="database-journals.html">Journals &amp; Scholarship</a></li>
-      <li class="ribbon-home-treaties"><a href="database-treaties.html">Treaties</a></li>
-      <li class="ribbon-home-libraries"><a href="database-libraries.html">Libraries</a></li>
-      <li class="ribbon-home-lawcite"><a href="#">LawCite</a></li>
+      <li class="ribbon-home-databases"><a href="database-all.html" tabindex="10">All Databases</a></li>
+      <li class="ribbon-home-cases is-selected"><a href="javascript:void(0);" tabindex="11">Cases &amp; Legislation</a></li>
+      <li class="ribbon-home-journals"><a href="database-journals.html" tabindex="12">Journals &amp; Scholarship</a></li>
+      <li class="ribbon-home-treaties"><a href="database-treaties.html" tabindex="13">Treaties</a></li>
+      <li class="ribbon-home-libraries"><a href="database-libraries.html" tabindex="14">Libraries</a></li>
+      <li class="ribbon-home-lawcite"><a href="#" tabindex="15">LawCite</a></li>
     </ul>
   </div>
 </nav>
@@ -16,12 +16,12 @@
   <nav id="ribbon">
     <div class="inner">
       <ul>
-        <li class="ribbon-home-databases"><a href="database-all.html">All Databases</a></li>
-        <li class="ribbon-home-cases"><a href="database-cases.html">Cases &amp; Legislation</a></li>
-        <li class="ribbon-home-journals"><a href="database-journals.html">Journals &amp; Scholarship</a></li>
-        <li class="ribbon-home-treaties"><a href="database-treaties.html">Treaties</a></li>
-        <li class="ribbon-home-libraries"><a href="database-libraries.html">Libraries</a></li>
-        <li class="ribbon-home-lawcite"><a href="#">LawCite</a></li> 
+        <li class="ribbon-home-databases"><a href="database-all.html" tabindex="10">All Databases</a></li>
+        <li class="ribbon-home-cases"><a href="database-cases.html" tabindex="11">Cases &amp; Legislation</a></li>
+        <li class="ribbon-home-journals"><a href="database-journals.html" tabindex="12">Journals &amp; Scholarship</a></li>
+        <li class="ribbon-home-treaties"><a href="database-treaties.html" tabindex="13">Treaties</a></li>
+        <li class="ribbon-home-libraries"><a href="database-libraries.html" tabindex="14">Libraries</a></li>
+        <li class="ribbon-home-lawcite"><a href="#" tabindex="15">LawCite</a></li> 
       </ul>
     </div>
   </nav>
@@ -31,44 +31,44 @@
   <div class="inner">
     <ul>
       {% if page.class contains 'libraries' %}
-      <li class="ribbon-type"><a href="#">Type <span>Libraries</span></a></li>
+      <li class="ribbon-type"><a href="#" tabindex="10">Type <span>Libraries</span></a></li>
       {% elsif page.class contains 'treaties' %}
-      <li class="ribbon-type"><a href="#">Type <span>Treaties</span></a></li>
+      <li class="ribbon-type"><a href="#" tabindex="10">Type <span>Treaties</span></a></li>
       {% elsif page.class contains 'journals' %}
-      <li class="ribbon-type"><a href="#">Type <span>Journals</span></a></li>
+      <li class="ribbon-type"><a href="#" tabindex="10">Type <span>Journals</span></a></li>
       {% elsif page.class contains 'all' %}
-      <li class="ribbon-type"><a href="#">Type <span>All Databases</span></a></li>
+      <li class="ribbon-type"><a href="#" tabindex="10">Type <span>All Databases</span></a></li>
       {% else %}
-      <li class="ribbon-type"><a href="#">Type <span>Cases &amp; Legislation</span></a></li>
+      <li class="ribbon-type"><a href="#" tabindex="10">Type <span>Cases &amp; Legislation</span></a></li>
       {% endif %}
 
       {% if page.class == 'database libraries' %}
-      <li class="ribbon-library"><a href="#">Library <span>Select a library</span></a></li>
+      <li class="ribbon-library"><a href="#" tabindex="11">Library <span>Select a library</span></a></li>
       {% elsif page.class contains 'aviation' or page.class contains 'libraries results' %}
-      <li class="ribbon-library"><a href="database-libraries.html">Library <span>Australasian Aviation Law Library</span></a></li>
+      <li class="ribbon-library"><a href="database-libraries.html" tabindex="11">Library <span>Australasian Aviation Law Library</span></a></li>
       {% endif %}
 
       {% unless page.class contains 'journals' or page.class contains 'libraries' or page.class contains 'treaties' %}
-      <li class="ribbon-jurisdiction"><a href="#">Jurisdiction <span>{% if page.class contains 'database cases' or page.class contains 'database all' %}Select a Region{% else %}New South Wales{% endif %}</span></a></li>
+      <li class="ribbon-jurisdiction"><a href="#" tabindex="12">Jurisdiction <span>{% if page.class contains 'database cases' or page.class contains 'database all' %}Select a Region{% else %}New South Wales{% endif %}</span></a></li>
       {% endunless %}
 
       {% unless page.class contains 'database' %}
       {% if page.class contains 'libraries' %}
-      <li class="ribbon-database"><a href="libraries-aviation.html">Database <span>Aviation Law Association of Australia & New Zealand (ALAANZ) Aviation Briefs (AustLII)</span></a></li>
+      <li class="ribbon-database"><a href="libraries-aviation.html" tabindex="13">Database <span>Aviation Law Association of Australia & New Zealand (ALAANZ) Aviation Briefs (AustLII)</span></a></li>
       {% elsif page.class contains 'treaties' %}
-      <li class="ribbon-database"><a href="database-treaties.html">Database <span>Australian Treaty Action - Monthly Updates (AustLII)</span></a></li>
+      <li class="ribbon-database"><a href="database-treaties.html" tabindex="13">Database <span>Australian Treaty Action - Monthly Updates (AustLII)</span></a></li>
       {% elsif page.class contains 'journals' %}
-      <li class="ribbon-database"><a href="database-journals.html">Database <span>Aboriginal Law Bulletin</span></a></li>
+      <li class="ribbon-database"><a href="database-journals.html" tabindex="13">Database <span>Aboriginal Law Bulletin</span></a></li>
       {% else %}
-      <li class="ribbon-database"><a href="database.html">Database <span>Supreme Court of New South Wales</span></a></li>
+      <li class="ribbon-database"><a href="database.html" tabindex="13">Database <span>Supreme Court of New South Wales</span></a></li>
       {% endif %}
 
-      <li class="ribbon-year {% unless page.class == 'document' or page.class contains 'country' or page.class contains 'subject' %}is-selected{% endunless %}"><a href="#">Year <span>{% if page.class == 'document' %}2015{% else %}Any{% endif %}</span></a></li>
-      {% unless page.class contains 'document' %}<li class="ribbon-letter"><a href="#">Starts with <span>Any letter</span></a></li>{% endunless %}
-      {% if page.class contains 'document' %}<li class="ribbon-citation"><a href="#">Citation <span>[2015] NSWSC 1</span></a></li>{% endif %}
+      <li class="ribbon-year {% unless page.class == 'document' or page.class contains 'country' or page.class contains 'subject' %}is-selected{% endunless %}"><a href="#" tabindex="14">Year <span>{% if page.class == 'document' %}2015{% else %}Any{% endif %}</span></a></li>
+      {% unless page.class contains 'document' %}<li class="ribbon-letter"><a href="#" tabindex="15">Starts with <span>Any letter</span></a></li>{% endunless %}
+      {% if page.class contains 'document' %}<li class="ribbon-citation"><a href="#" tabindex="16">Citation <span>[2015] NSWSC 1</span></a></li>{% endif %}
       {% if page.class contains 'treaties' %}
-      <li class="ribbon-country {% if page.class contains 'country' %}is-selected{% endif %}"><a href="treaty-country.html">From Country <span>Any</span></a></li>
-      <li class="ribbon-subject {% if page.class contains 'subject' %}is-selected{% endif %}"><a href="treaty-subject.html">On Subject <span>Any</span></a></li>
+      <li class="ribbon-country {% if page.class contains 'country' %}is-selected{% endif %}"><a href="treaty-country.html" tabindex="17">From Country <span>Any</span></a></li>
+      <li class="ribbon-subject {% if page.class contains 'subject' %}is-selected{% endif %}"><a href="treaty-subject.html" tabindex="18">On Subject <span>Any</span></a></li>
       {% endif %}
       {% elsif page.class == 'database libraries' %}
       {% else %}

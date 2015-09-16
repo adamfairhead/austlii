@@ -8,6 +8,17 @@
   padding-right: 50px;
   padding-left: 1em;
 
+  fieldset {
+    background: transparent;
+    border: none;
+    margin: 0;
+    padding: 0;
+
+    legend {
+      display: none;
+    }
+  }
+
   @include media($medium-screen) {
     top: -22px;
   }
@@ -206,6 +217,11 @@
   position: absolute;
   right: 53px;
   top: 3px;
+
+  &:hover,
+  &:focus {
+    background-color: darken($red, 10);
+  }
 
   @include media($medium-screen) {
     height: 34px;

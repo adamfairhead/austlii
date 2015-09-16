@@ -70,7 +70,7 @@
   font-size: $discovery-font-size;
   padding: .25em 1em 0;
   clear: both;
-  color: $medium-gray;
+  color: darken($medium-gray, 15);
   font-weight: normal;
   display: block;
 

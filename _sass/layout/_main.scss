@@ -68,11 +68,11 @@
   a {
     padding: .25em .6em;
     font-size: $discovery-font-size;
-    color: #989898;
+    color: darken($medium-gray, 15);
     @include transition(all 0.25s ease-in-out);
 
     &:hover {
-      color: darken(#989898, 25);
+      color: $dark-gray;
     }
 
     @include media(max-width $medium-screen - 10em) {

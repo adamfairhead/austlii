@@ -12,7 +12,7 @@
   #page-main {
     @include media($x-large-screen) {
       @include span-columns(7);
-      @include shift(2.5);
+      @include shift(2.25);
     }
   } 
 
