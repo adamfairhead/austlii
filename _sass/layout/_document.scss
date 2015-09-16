@@ -3,10 +3,12 @@
 .document {
   background: white;
 
+  // Inline PDFs get a 'card' wrapper
   embed {
     @extend .card;
   }
 
+  // Move Main content to the center on large screens
   #page-main {
     @include media($x-large-screen) {
       @include span-columns(7);
@@ -14,17 +16,19 @@
     }
   } 
 
+  // Shrink the right sidebar on large screens
   #page-side {
-    margin-top: 3em;
+    margin-top: 4.5em;
 
     @include media($x-large-screen) {
       @include span-columns(2.5);
     }
   }
 
+  // Main document section of the page
   .the-document { 
-    line-height: 1.7;
     @extend %container;
+    line-height: 1.7;
 
     header {
       @include media($medium-screen) {
@@ -32,6 +36,7 @@
       }
     }
 
+    // List styles for document content
     ul {
       list-style: disc;
       padding-left: 1.5em;
@@ -41,10 +46,13 @@
       }
     }
 
-    a:hover {
+    // Hyperlink styles within documents
+    a {
       text-decoration: underline;
     }
 
+    // Make the header larger than default
+    // (Default is normally the top-left)
     h1 {
       padding: 1.5em 0 1em;
 
@@ -56,11 +64,13 @@
       }
     }
 
+    // Usse H2 to break up the page content
     h2 {
       padding-top: 2em;
     }
   }
 
+  // Expander button to show table of contents
   .index-expand {
     display: none;
 
@@ -71,23 +81,30 @@
     }
   }
 
+  // Table of contents section modifications
+  // (So it doesn't look like document content)
   #page-index ul {
     padding-left: 0;
     list-style: none;
 
+    li {
+      margin-bottom: 0;
+    }
+
+    a {
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
     @include media(max-width $x-large-screen) {
       display: none;
-
-      li:first-child a {
-        border: none;
-      }
-
-      a {
-        padding-top: 1em;
-      }
     }
   }
 
+  // Showing the table of contents
   #page-index.is-expanded ul {
     @include media(max-width $x-large-screen) {
       display: block;

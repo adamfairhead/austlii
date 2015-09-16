@@ -4,6 +4,8 @@ $heading-font-family: $base-font-family;
 
 // Font Sizes
 $base-font-size: 1em;
+$discovery-font-size: .95em;
+$side-font-size: $discovery-font-size * .9;
 
 // Line height
 $base-line-height: 1.5;
@@ -18,6 +20,7 @@ $base-z-index: 0;
 // Colors
 $blue: #3796cc;
 $dark-blue: #4a7bcc;
+$light-blue: #f6fafd;
 $dark-gray: #333;
 $medium-gray: #999;
 $light-gray: #f2f2f2;
@@ -33,7 +36,7 @@ $base-font-color: $dark-gray;
 $action-color: $blue;
 
 // Border
-$base-border-color: $light-gray;
+$base-border-color: darken($light-gray, 10);
 $base-border: 1px solid $base-border-color;
 
 // Forms

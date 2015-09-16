@@ -2,20 +2,62 @@
 
 .card {
   background: white;
-  border-top: 1px solid #ddd;
-  border-bottom: 1px solid #ddd;
+  border-top: $base-border;
+  border-bottom: $base-border;
   margin-bottom: 1.5em;
 
+  // For when cards have checkboxes in the rows
+  &.card-checkboxes a {
+    padding: .5em 1em .5em 3.5em;
+  }
+
+  // Give sides etc. when larger
   @include media($medium-screen) {
-    border: 1px solid #ddd;
+    border: $base-border;
     box-shadow: 0 1px 1px rgba(0,0,0,.07);
     border-radius: $base-border-radius;
   }
 
-  a:hover {
-    text-decoration: underline;
+  a {
+    padding: .5em 1em;
+    display: block;
+    font-size: $discovery-font-size;
+
+    &:hover {
+      text-decoration: underline;
+    }
+
+    @media print {
+      padding: 0;
+      margin: 0;
+    }
   }
 
+  // Rows that have multiple links in them
+  .multi {
+    padding: .5em 1em;
+    display: block;
+    font-size: $discovery-font-size;
+
+    a {
+      font-size: $base-font-size;
+      padding: 0;
+      display: inline;
+    }
+
+    @media print {
+      padding: 0;
+      margin: 0;
+    }
+  }
+
+  // Odd/Even row styles
+  li:nth-child(2n) a,
+  .multi:nth-child(2n) {
+    background: $light-blue;
+  }
+
+  // Positioning for card checkboxes
   input[type="checkbox"],
   .checkbox {
     margin: 0.55em .5em 0 1em;
@@ -23,21 +65,31 @@
   }
 }
 
+// Gray titles above cards
 .card-title {
+  font-size: $discovery-font-size;
   padding: .25em 1em 0;
   clear: both;
-  color: #989898;
+  color: $medium-gray;
   font-weight: normal;
   display: block;
+
+  // Increase padding of first title when small
+  @include media(max-width $medium-screen) {
+    &:first-child {
+      padding-top: .7em;
+    }
+  }
 
   @media print {
     padding: 0;
     margin: 0;
   }
 
+  // Larger black titles above cards
   &.card-title-large {
     font-size: 1.2em;
-    padding: .5em .8em 0;
+    padding: .5em .8em;
     margin-bottom: .3em;
     color: $base-font-color;
     font-weight: bold;
@@ -47,14 +99,9 @@
       margin: 0;
     }
   }
-
-  @include media(max-width $medium-screen) {
-    &:first-child {
-      padding-top: .7em;
-    }
-  }
 }
 
+// All/None toggle switches
 .select-all-none {
   display: inline;
   padding: 0 .55em 0 .11em;
@@ -64,60 +111,13 @@
   }
 }
 
-.card a {
-  padding: .5em 1em;
-  display: block;
-  font-size: .9em;
-
-  @media print {
-    padding: 0;
-    margin: 0;
-  }
-}
-
-.card-checkboxes a {
-  padding-left: 3.4em;
-}
-
-.card .multi {
-  padding: .5em 1em;
-  display: block;
-  font-size: .9em;
-
-  @media print {
-    padding: 0;
-    margin: 0;
-  }
-
-  a {
-    font-size: 1em;
-    padding: 0;
-    display: inline;
-  }
-}
-
-.is-searchable .card a {
-  padding: .5em 1em .5em 3.5em;
-}
-
-.card li:nth-child(2n) a,
-.card .multi:nth-child(2n) {
-  background: #f6fafd;
-  //border-top: #eaf0f6 1px solid;
-  //border-bottom: #eaf0f6 1px solid;
-}
-
-.card .multi:nth-child(2n) a {
-  border: none;
-}
-
+// Checkboxes
 .checkbox {
-  display: inline-block;
   @include transition(all 0.2s ease-in-out);
+  @include appearance(none);
+  display: inline-block;
   background: white; 
-  border: 2px solid #ddd;
-  -webkit-appearance: none;
-  -moz-appearance: none;
+  border: 2px solid $base-border-color;
   width: 18px;
   height: 18px;
   position: relative;

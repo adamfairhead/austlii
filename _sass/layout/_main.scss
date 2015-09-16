@@ -67,12 +67,16 @@
 
   a {
     padding: .25em .6em;
-    font-size: .9em;
+    font-size: $discovery-font-size;
     color: #989898;
     @include transition(all 0.25s ease-in-out);
 
     &:hover {
       color: darken(#989898, 25);
+    }
+
+    @include media(max-width $medium-screen - 10em) {
+      padding: .25em .5em;
     }
   }
 
@@ -227,4 +231,13 @@
       color: #838383;
     }
   }
+}
+
+#page-content .button {
+  @extend button;
+  font-weight: normal;
+}
+
+.search #page-main .button {
+  margin: 0 0 2em 1em;
 }

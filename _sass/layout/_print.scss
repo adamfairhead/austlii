@@ -1,0 +1,14 @@
+@media print {
+  #page-search,
+  #page-tertiary,
+  #ribbon,
+  #panels,
+  #page-sort,
+  .year-options-list,
+  .closing-primary,
+  .closing-tertiary,
+  #page-side,
+  #page-index {
+    display: none !important;
+  }
+}

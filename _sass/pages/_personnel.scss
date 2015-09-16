@@ -1,0 +1,52 @@
+// Personnel
+
+.personnel-list {
+  @include row;
+}
+
+.person {
+  padding-bottom: 2em;
+
+  @include media($medium-screen) {
+    padding-left: 180px;
+
+    img {
+      margin-left: -180px;
+      position: absolute;
+    }
+  }
+
+  img {
+    margin-bottom: .5em;
+    max-width: 150px;
+  }
+
+  .email, .phone, .website {
+    background: #eee;
+    border-radius: $base-border-radius;
+    padding: .25em .5em;
+    margin-bottom: 1em;
+    font-size: .8em;
+    display: inline-block;
+
+    &:hover {
+      text-decoration: none !important;
+      background: $blue;
+      color: white;
+    }
+  }
+
+  p {
+    font-size: .875em;
+    line-height: 1.4;
+  }
+
+  h3 span {
+    font-weight: 400;
+  }
+
+  h4 {
+    font-weight: 400;
+    color: #888;
+  }
+}

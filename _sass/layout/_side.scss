@@ -1,86 +1,69 @@
 // Page Side
 
+// Table of contents for documents
 #page-index {
   padding-right: 1em;
   word-break: break-word;
+  font-size: $side-font-size;
 
-  .side-element {
-    font-size: .9em;
-  }
-
+  // Contain in an inline box on smaller screens
   @include media(max-width $x-large-screen) {
-    border: 1px solid $base-border-color;
+    border: $base-border;
     padding: 1em 1em 0;
     margin-bottom: 2em;
   }
 
+  // Turn into a sidebar on larger screens
   @include media($x-large-screen) {
-    margin-top: 3em;
-    display: block;
     @include span-columns(2.5);
     position: absolute;
     top: 1em;
     left: 0;
+    margin-top: 4.5em;
   }
 }
 
+// Main right-sidebar
 #page-side {
   padding-right: 1em;
+  font-size: $side-font-size;
   word-break: break-word;
 
-  .selected a {
-    text-decoration: underline;
-  }
+  .selected a { text-decoration: underline; }
 
-  @include media(max-width $large-screen) {
-    padding-left: 1em;
-    font-size: .9em;
-  }
+  @include media(max-width $large-screen) { padding-left: 1em; }
 
   @include media($large-screen) {
-    margin-top: .8em;
-    display: block;
     @include span-columns(3);
+    margin-top: 1.4em;
+    display: block;
     position: absolute;
     top: 1em;
     right: 0;
-
-    .side-element {
-      font-size: .8em;
-    }
   }
 }
 
+.contribute-now {
+  margin-top: .4em;
+}
+
+// Elements of the sidebars
 .side-element {
   position: relative;
-  padding-left: 3em;
-  margin-bottom: 2em;
+  padding-left: 2.75em;
+  margin-bottom: 1.5em;
 
-  @include media(max-width $large-screen) {
-    padding-left: 2.5em;
-  }
+  @include media(max-width $large-screen) { padding-left: 2.5em; }
 
-  h4 {
-    font-size: 1em;
-    font-weight: 600;
-    padding-top: 6px;
-  }
-
+  // Sidebar link lists
   a {
-    margin-bottom: .7em;
+    margin-bottom: .2em;
     display: block;
-    line-height: 1.2;
 
-    &:hover {
-      text-decoration: underline;
-    }
-
-    @include media(max-width $large-screen) {
-      border-top: 1px solid rgba(0,0,0,.1);
-      padding-top: .6em;
-    }
+    &:hover { text-decoration: underline; }
   }
 
+  // Sidebar icons
   svg {
     position: absolute;
     width: 27px;
@@ -89,9 +72,10 @@
     left: 0px; 
   }
 
+  // Special rules for the stat sidebar element
   &.side-statistics {
     li {
-      color: #a0a0a0;
+      color: $medium-gray;
       margin-bottom: .75em;
     }
 
@@ -103,37 +87,32 @@
     }
   }
 
+  // Special rules for the about sidevar element
+  // (Has 'More' / 'Less' collapsible)
   &.side-about {
     @include transition(all 0.25s ease-in-out);
 
-    svg {
-      @include transition(all 0.25s ease-in-out);
-    }
+    svg { @include transition(all 0.25s ease-in-out); }
 
     .side-about-more-link {
+      @include transition(all 0.25s ease-in-out);
       display: block;
       opacity: 1;
       max-height: 80px;
       overflow: hidden;
-      @include transition(all 0.25s ease-in-out);
     }
 
     .side-about-more {
+      @include transition(all 0.25s ease-in-out);
       opacity: 0;
       max-height: 0;
       overflow: hidden;
-      @include transition(all 0.25s ease-in-out);
     }
 
     &.has-more {
       padding-left: 0;
 
-      svg {
-        opacity: 0;
-      }
-
-      .side-about-more-link {
-      }
+      svg { opacity: 0; }
 
       .side-about-more {
         opacity: 1;
