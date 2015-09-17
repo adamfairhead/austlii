@@ -56,4 +56,17 @@ $(function() {
       console.log('true');
     }
   });
+
+  // Set print layout
+  $(document).on('click', '.print-special', function() {
+    $('body').addClass('special');
+    window.print();
+    return false;
+  });
+  $(document).on('click', '.print-minimal', function() {
+    $('body').removeClass('special');
+    window.print();
+    return false;
+  });
+
 });

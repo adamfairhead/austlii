@@ -2,30 +2,51 @@
 ---
 @import url(http://fonts.googleapis.com/css?family=Noto+Sans:400,700);
 @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700);
-
+  
 @import 'normalize';
 @import 'bourbon/bourbon';
 @import 'base/grid-settings';
 @import 'base/base';
 @import 'neat/neat';
 
-@import 'layout/global';
-@import 'layout/header';
-@import 'layout/search';
-@import 'layout/tertiary';
-@import 'layout/ribbons';
-@import 'layout/panels';
-@import 'layout/main';
-@import 'layout/card';
-@import 'layout/side';
-@import 'layout/document';
-@import 'layout/closing';
-@import 'layout/print';
+@media screen {
+  @import 'layout/global';
+  @import 'layout/header';
+  @import 'layout/search';
+  @import 'layout/tertiary';
+  @import 'layout/ribbons';
+  @import 'layout/panels';
+  @import 'layout/main';
+  @import 'layout/card';
+  @import 'layout/side';
+  @import 'layout/document';
+  @import 'layout/closing';
 
-@import 'pages/database_all';
-@import 'pages/adv_search';
-@import 'pages/personnel';
+  @import 'pages/database_all';
+  @import 'pages/adv_search';
+  @import 'pages/personnel';
+}
 
+@media print {
+  @import 'layout/print';
+}
+
+// Things that can't live inside a @media
+
+// General hide rule
 .hide {
   display: none;
+}
+
+// Buttons
+#page-content .button {
+  @extend button;
+  font-weight: normal;
+}
+
+// Inline PDFs get a 'card' wrapper
+.document {
+  embed {
+    @extend .card;
+  }
 }

@@ -49,9 +49,6 @@ $(function() {
     };
   });
 
-
-
-
   // Open option if closed and tab focus
   $(document).keyup(function() {
     if ($('.search-options input').is(":focus")) {
@@ -60,6 +57,17 @@ $(function() {
     }
   });
 
+  // Set print layout
+  $(document).on('click', '.print-special', function() {
+    $('body').addClass('special');
+    window.print();
+    return false;
+  });
+  $(document).on('click', '.print-minimal', function() {
+    $('body').removeClass('special');
+    window.print();
+    return false;
+  });
 
 });
 

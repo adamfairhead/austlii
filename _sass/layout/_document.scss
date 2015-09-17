@@ -3,11 +3,6 @@
 .document {
   background: white;
 
-  // Inline PDFs get a 'card' wrapper
-  embed {
-    @extend .card;
-  }
-
   // Move Main content to the center on large screens
   #page-main {
     @include media($x-large-screen) {
