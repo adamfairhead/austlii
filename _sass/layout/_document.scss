@@ -23,7 +23,7 @@
   // Main document section of the page
   .the-document { 
     @extend %container;
-    line-height: 1.7;
+    line-height: 1.6;
 
     header {
       @include media($medium-screen) {
