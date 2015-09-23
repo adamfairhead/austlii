@@ -83,4 +83,13 @@
       }
     }
   }
+
+  .card-checkboxes.is-collapsed {
+    max-height: 162px;
+    overflow: hidden;
+
+    @include media($medium-screen) {
+      max-height: 152px;
+    }
+  }
 }

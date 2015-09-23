@@ -73,13 +73,26 @@ $(function() {
   $('.select-all-none-overall').on('click', function() {
     var selector = $('.select-all-none-overall');
     var input = $(selector).find('input');
-    if ($(selector).hasClass('checked') && $(input.checked)) {
-      $(selector).removeClass('checked').find('label').removeClass('checked').find('input').prop('checked', false);
-      $('.checkbox input').prop('checked', false).parent().removeClass('checked');
+
+    if ($('body').hasClass('search')) {
+      // Adv. Search functionality
+      if ($(selector).hasClass('checked') && $(input.checked)) {
+        $(selector).removeClass('checked').find('label').removeClass('checked').find('input').prop('checked', false);
+        $('.card-checkboxes').addClass('is-collapsed');
+      } else {
+        $(selector).addClass('checked').find('label').addClass('checked').find('input').prop('checked', true);
+        $('.card-checkboxes.is-collapsed').removeClass('is-collapsed');
+      }
     } else {
-      $(selector).addClass('checked').find('label').addClass('checked').find('input').prop('checked', true);
-      $('.checkbox input').prop('checked', true).parent().addClass('checked');
-    }
+      // Non-Adv.Search functionality
+      if ($(selector).hasClass('checked') && $(input.checked)) {
+        $(selector).removeClass('checked').find('label').removeClass('checked').find('input').prop('checked', false);
+        $('.checkbox input').prop('checked', false).parent().removeClass('checked');
+      } else {
+        $(selector).addClass('checked').find('label').addClass('checked').find('input').prop('checked', true);
+        $('.checkbox input').prop('checked', true).parent().addClass('checked');
+      }
+    };
   });
 
   // Sort alphabetically if Letter search

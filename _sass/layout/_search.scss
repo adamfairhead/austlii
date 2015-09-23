@@ -287,15 +287,6 @@
   @include transition(all 0.5s ease-in-out);
 }
 
-.search .card-checkboxes.is-collapsed {
-  max-height: 202px;
-  overflow: hidden;
-
-  @include media($medium-screen) {
-    max-height: 188px;
-  }
-}
-
 .extra-search {
   display: none;
 

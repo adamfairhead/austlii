@@ -28,6 +28,8 @@
 }
 
 #page-main {
+  position: relative;
+
   @include media(max-width $medium-screen) {
     padding: 0;    
   }

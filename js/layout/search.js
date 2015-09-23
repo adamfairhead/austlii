@@ -30,10 +30,4 @@ $(function() {
       $(this).text('Show');
     };
   });
-
-  $(document).on('click', '.search .show-more', function() {
-    $(this).parent().remove();
-    $('.is-collapsed').removeClass('is-collapsed');
-    return false;
-  });
 });
