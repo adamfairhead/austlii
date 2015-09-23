@@ -123,3 +123,26 @@ code {
     width: 30px;
   }
 }
+
+// Contributors
+
+.contrib {
+  @include row;
+}
+
+.contrib-logo {
+  float: left;
+  width: 20%;
+}
+
+.contrib-desc {
+  float: left;
+  width: 60%;
+  padding-left: 1em;
+}
+
+.contrib-funds {
+  float: left;
+  width: 10%;
+  padding-left: 1em;
+}
