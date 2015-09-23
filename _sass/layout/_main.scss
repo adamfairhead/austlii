@@ -23,13 +23,12 @@
 
 // Page Main
 
-.database #page-main {
+.database #page-main,
+.search #page-main {
   position: relative;
 }
 
 #page-main {
-  position: relative;
-
   @include media(max-width $medium-screen) {
     padding: 0;    
   }
