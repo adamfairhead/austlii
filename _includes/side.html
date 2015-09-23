@@ -50,7 +50,23 @@
 </div>
 {% endif %}
 
-{% if page.class == 'document' %}
+{% if page.class contains 'document legislation' %}
+<!-- Document Sidebar -->
+<div id="page-side">
+  {% include side/side-partner.html %}
+  {% include side/side-context.html %}
+  <div class="side-element side-cited">
+    {% include svg/icon-cited.svg %}
+    <h4>Notes</h4>
+    <ul>
+      <li><a href="document-legislation-3.html">Legislation Notes</a></li>
+    </ul>
+  </div>
+  {% include side/side-print.html %}
+  {% include side/side-download.html %}
+  {% include side/side-cited-by.html %}
+</div> 
+{% elsif page.class contains 'document' %}
 <!-- Document Sidebar -->
 <div id="page-side">
   {% include side/side-partner.html %}

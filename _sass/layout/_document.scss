@@ -92,3 +92,65 @@
     @include media(max-width $x-large-screen) { display: block; }
   }
 }
+
+// Legislation doc
+.document.legislation {
+  .the-document {
+    td {
+      vertical-align: top;
+      font-size: .8em;
+    }
+
+    th,
+    td {
+      padding: 5px;
+    }
+
+    header {
+      text-align: left;
+    }
+
+    h1 {
+      padding-bottom: 0;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0 0 1em 1em;
+    }
+
+    li {
+      margin: 0 0 .5em;
+      font-size: .95em;
+    }
+
+    h2 {
+      text-transform: uppercase;
+      font-size: 1.2em;
+
+      &:first-of-type {
+        padding-top: 0;
+      }
+    }
+
+    h3 {
+      margin: 0;
+      font-size: 1.1em;
+      padding-bottom: .15em;
+      font-weight: 600;
+    }
+
+    h4 {
+      color: darken($medium-gray, 15);
+      font-weight: 500;
+      margin: .25em 0 .5em 1em;
+      padding-bottom: .15em;
+      border-bottom: 1px solid lighten($medium-gray, 30);
+    }
+
+    .leg-number {
+      text-decoration: none;
+      margin: 0 .25em;
+    }
+  }
+}
