@@ -57,7 +57,6 @@
   display: inline-block;
   float: left;
   width: 15%;
-  border-right: 1px solid #e3e3e3;
   height: 33px;
   font-size: .8em;
   background: #f4f4f4;
@@ -65,8 +64,16 @@
   color: #a1a1a1;
   line-height: 2.7;
 
-  &:hover {
-    color: black;
+  html.no-js & {
+    color: #f4f4f4;
+  }
+
+  html.js & {
+    border-right: 1px solid #e3e3e3;
+
+    &:hover {
+      color: black;
+    }
   }
 
   @include media(em(480)) {
@@ -79,7 +86,26 @@
   }
 }
 
-.search-options {
+
+html.no-js .search-options {
+  position: absolute;
+  top: 38px;
+  right: 1em;
+  text-align: right;
+  width: 100%;
+
+  li {
+    display: inline-block;
+    font-size: .7em;
+    margin-left: .25em;
+  }
+
+  input {
+    margin-left: .25em;
+  }
+}
+
+html.js .search-options {
   @include transition(all 0.25s ease-in-out);
   background: #e9e9e9;
   border-radius: 0 0 $base-border-radius $base-border-radius;
@@ -287,7 +313,11 @@
   @include transition(all 0.5s ease-in-out);
 }
 
-.extra-search {
+html.no-js .extra-search {
+  display: none;
+}
+
+html.js .extra-search {
   display: none;
 
   @include media($large-screen) {

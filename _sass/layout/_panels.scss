@@ -29,6 +29,7 @@
 
   li {
     padding: 1em 0 1em .75em;
+    vertical-align: top;
   }
 
   & li > a {
@@ -164,6 +165,10 @@
       display: inline-block;
     }
 
+    select {
+      display: none;
+    }
+
     .year-specific-dropdown,
     .year-range-dropdown-1,
     .year-range-dropdown-2,
@@ -293,5 +298,19 @@
     &:hover {
       background: lighten($panel-fg, 10);
     }
+  }
+}
+
+// No-JS select boxes
+.no-js {
+  .year-specific-dropdown,
+  .year-range-dropdown-1,
+  .year-range-dropdown-2 {
+    display: none !important
+  }
+
+  #panel-year select {
+    display: inline-block !important;
+    margin: 0 0 0 10px;
   }
 }

@@ -55,6 +55,10 @@
   margin-bottom: .2em;
 }
 
+html.no-js .sort-more {
+  display: none !important;
+}
+
 #page-sort {
   padding: .5em 1em;
 

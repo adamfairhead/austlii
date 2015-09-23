@@ -2,7 +2,7 @@
 layout: compress
 ---
 <!doctype html>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" class="no-js">
 <head>
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=Edge">
@@ -15,6 +15,8 @@ layout: compress
   <link rel="apple-touch-icon-precomposed" href="images/icon-shortcut.png">
   <meta name="msapplication-TileColor" content="#ee3224">
   <meta name="msapplication-TileImage" content="images/icon/ms.png">
+
+  <script src="js/modernizr.min.js"></script>
 </head>
 <body{% if page.class %} class="{{ page.class }}"{% endif %}>
   <header id="page-header">

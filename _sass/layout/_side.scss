@@ -52,7 +52,6 @@
 }
 
 #page-content .annual-reports {
-
   .button {
     background: #ddd;
     color: #888;
@@ -69,8 +68,13 @@
 
 
   .annual-reports-dropdown {
-    @include transition(all 0.25s ease-in-out);
-    max-height: 500px;
+    html.js & {
+      @include transition(all 0.25s ease-in-out);
+    }
+
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
     width: 120px;
     background: white;
     margin-top: -3px;
@@ -96,12 +100,9 @@
     }
   }
 
-  &.is-collapsed {
-    .annual-reports-dropdown {
-      max-height: 0;
-      opacity: 0;
-      overflow: hidden;
-    }
+  &.is-open .annual-reports-dropdown {
+    max-height: 500px;
+    opacity: 1;
   }
 }
 
