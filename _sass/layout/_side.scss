@@ -45,7 +45,66 @@
 
 .contribute-now {
   margin-top: .4em;
+
+  a {
+    width: 120px;
+  }
 }
+
+#page-content .annual-reports {
+
+  .button {
+    background: #ddd;
+    color: #888;
+    margin-top: .5em;
+    width: 120px;
+    position: relative;
+    z-index: 1;
+
+    &:hover {
+      background: #ccc;
+      color: #777;
+    }
+  }
+
+
+  .annual-reports-dropdown {
+    @include transition(all 0.25s ease-in-out);
+    max-height: 500px;
+    width: 120px;
+    background: white;
+    margin-top: -3px;
+    border: 1px solid #d9d9d9;
+    box-shadow: 0 1px 1px rgba(0,0,0,0.07);
+    border-radius: $base-border-radius;
+
+    li:first-child a {
+      padding-top: .7em;
+    }
+
+    li:last-child a {
+      border-radius: 0  $base-border-radius $base-border-radius;
+    }
+
+    li a {
+      padding: .3em .75em;
+      margin-bottom: 0;
+    }
+
+    li:nth-child(2n) a {
+      background: $light-blue;
+    }
+  }
+
+  &.is-collapsed {
+    .annual-reports-dropdown {
+      max-height: 0;
+      opacity: 0;
+      overflow: hidden;
+    }
+  }
+}
+
 
 // Elements of the sidebars
 .side-element {

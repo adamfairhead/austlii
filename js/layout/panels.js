@@ -69,4 +69,9 @@ $(function() {
     return false;
   });
 
+  // Annual reports dropdown
+  $(document).on('click', '.annual-reports .button', function() {
+    $(this).parent().toggleClass('is-collapsed');
+  });
+
 });
