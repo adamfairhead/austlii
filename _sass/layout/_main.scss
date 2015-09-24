@@ -195,7 +195,8 @@ html.no-js .sort-more {
   }
 
   .database.all & ,
-  .database.cases & {
+  .database.cases &,
+  .database.status & {
     @include media(max-width em(430)) { [data-sort="qld"] { display: none; } .sort-options [data-sort="qld"] { display: inline; }}
     @include media(max-width em(470)) { [data-sort="sa"]  { display: none; } .sort-options [data-sort="sa"]  { display: inline; }}
     @include media(max-width em(520)) { [data-sort="tas"] { display: none; } .sort-options [data-sort="tas"] { display: inline; }}
@@ -204,6 +205,10 @@ html.no-js .sort-more {
     @include media(max-width em(790)) { [data-sort="no"]  { display: none; } .sort-options [data-sort="no"]  { display: inline; }}
     @include media(max-width em(860)) { [data-sort="nz"]  { display: none; } .sort-options [data-sort="nz"]  { display: inline; }}
     @include media(min-width em(860)) { .sort-more { display: none; }}
+  }
+
+  .database.status & {
+    @include media(min-width em(680)) { .sort-more { display: none; }}
   }
 
   .database.all & {

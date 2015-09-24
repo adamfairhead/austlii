@@ -51,6 +51,23 @@
     }
   }
 
+  // Cards with tables in them (e.g. Status)
+  table {
+    margin: 2%;
+    width: 96%;
+
+    th,
+    td {
+      padding: 10px;
+      line-height: 1.2;
+      font-size: .95em;
+    }
+
+    a {
+      padding: 0;
+    }
+  }
+
   // Odd/Even row styles
   li:nth-child(2n) a,
   .multi:nth-child(2n) {

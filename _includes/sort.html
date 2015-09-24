@@ -25,6 +25,17 @@
     <li class="sort-item" data-sort="no"><a href="#">Norfolk Island</a></li>
     <li class="sort-item" data-sort="nz"><a href="#">New Zealand</a></li>
     {% endif %}
+    {% if page.class contains 'status' %}
+    <li class="sort-item" data-sort="cth"><a href="#">Cth</a></li>
+    <li class="sort-item" data-sort="act"><a href="#">ACT</a></li>
+    <li class="sort-item" data-sort="nsw"><a href="#">NSW</a></li>
+    <li class="sort-item" data-sort="nt"><a href="#">NT</a></li>
+    <li class="sort-item" data-sort="qld"><a href="#">Qld</a></li>
+    <li class="sort-item" data-sort="sa"><a href="#">SA</a></li>
+    <li class="sort-item" data-sort="tas"><a href="#">Tas</a></li>
+    <li class="sort-item" data-sort="vic"><a href="#">Vic</a></li>
+    <li class="sort-item" data-sort="wa"><a href="#">WA</a></li>
+    {% endif %}
     {% if page.class contains 'journals' %}
     <li class="sort-item" data-sort="au"><a href="#">Australian</a></li>
     <li class="sort-item" data-sort="nz"><a href="#">New Zealand</a></li>
@@ -44,6 +55,13 @@
         <li class="sort-item" data-sort="wa"><a href="#">WA</a></li>
         <li class="sort-item" data-sort="no"><a href="#">Norfolk Island</a></li>
         <li class="sort-item" data-sort="nz"><a href="#">New Zealand</a></li>
+        {% endif %}
+        {% if page.class contains 'status' %}
+        <li class="sort-item" data-sort="qld"><a href="#">Qld</a></li>
+        <li class="sort-item" data-sort="sa"><a href="#">SA</a></li>
+        <li class="sort-item" data-sort="tas"><a href="#">Tas</a></li>
+        <li class="sort-item" data-sort="vic"><a href="#">Vic</a></li>
+        <li class="sort-item" data-sort="wa"><a href="#">WA</a></li>
         {% endif %}
         {% if page.class contains 'all' %}
         <li class="sort-item" data-sort="journals"><a href="#">Journals</a></li>
