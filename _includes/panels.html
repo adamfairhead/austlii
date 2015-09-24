@@ -5,6 +5,8 @@
 <div id="panels" class="is-jurisdiction">
 {% elsif page.class contains 'document' %}
 <div id="panels" class="is-closed">
+{% elsif page.class contains 'legislation' %}
+<div id="panels" class="is-letter">
 {% else %}
 <div id="panels" class="is-year">
 {% endif %}

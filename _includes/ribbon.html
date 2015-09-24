@@ -59,14 +59,14 @@
       <li class="ribbon-database"><a href="database-treaties.html" tabindex="13">Database <span>Australian Treaty Action - Monthly Updates (AustLII)</span></a></li>
       {% elsif page.class contains 'journals' %}
       <li class="ribbon-database"><a href="database-journals.html" tabindex="13">Database <span>Aboriginal Law Bulletin</span></a></li>
-      {% elsif page.class contains 'document legislation' %}
+      {% elsif page.class contains 'legislation' %}
       <li class="ribbon-database"><a href="database.html" tabindex="13">Database <span>Commonwealth Consolidated Acts</span></a></li>
       {% else %}
       <li class="ribbon-database"><a href="database.html" tabindex="13">Database <span>Supreme Court of New South Wales</span></a></li>
       {% endif %}
 
-      <li class="ribbon-year {% unless page.class contains 'document' or page.class contains 'country' or page.class contains 'subject' %}is-selected{% endunless %}"><a href="#" tabindex="14">Year <span>{% if page.class contains 'document' %}2015{% else %}Any{% endif %}</span></a></li>
-      {% unless page.class contains 'document' %}<li class="ribbon-letter"><a href="#" tabindex="15">Starts with <span>Any letter</span></a></li>{% endunless %}
+      {% unless page.class contains 'legislation' %}<li class="ribbon-year {% unless page.class contains 'document' or page.class contains 'country' or page.class contains 'subject' %}is-selected{% endunless %}"><a href="#" tabindex="14">Year <span>{% if page.class contains 'document' %}2015{% else %}Any{% endif %}</span></a></li>{% endunless %}
+      {% unless page.class contains 'document cases' %}<li class="ribbon-letter{% if page.class contains 'results legislation' %} is-selected{% endif %}"><a href="#" tabindex="15">Starts with <span>Any letter</span></a></li>{% endunless %}
       {% if page.class contains 'document legislation' %}<li class="ribbon-citation"><a href="document-legislation.html" tabindex="16">Legislation <span>Fair Work Act 2009</span></a></li>
       {% elsif page.class contains 'document' %}<li class="ribbon-citation"><a href="#" tabindex="16">Citation <span>[2015] NSWSC 1</span></a></li>{% endif %}
 

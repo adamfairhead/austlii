@@ -47,7 +47,32 @@
 </div>
 {% endif %}
 
-{% if page.class == 'results' %}
+{% if page.class contains 'results legislation' %}
+<div class="side-element side-about">
+  {% include svg/icon-about.svg %}
+  <h4>About this Database</h4>
+  <p>This database contains copies of all consolidated Commonwealth Acts with the exception of some Appropriation and Supply Acts and, from May 2015, all amending Acts due to ComLaw changes.</p>
+  <p>If there have been no amendments to an Act or an official consolidation does not yet exist, you will not find it in this database; instead, you will find it in the numbered Acts database.</p>
+
+  <div class="side-about-more">
+    <p>The Commonwealth Attorney-General's Department maintains ComLaw, a website of Commonwealth legislation.  All material herein is reproduced by permission, but does not purport to be the official or authorised version.</p>
+
+    <h6>Database last updated: 21 September 2015</h6>
+    <p>This is the date AustLII last updated this database and does not necessarily indicate currency. This database is updated from data obtained directly from the ComLaw website which is maintained by the Office of Legislative Drafting in the Attorney-General's Department. AustLII aims to publish updates on a weekly basis. Amendments made after AustLII's most recent update will not be available in this database.</p>
+    <p>To check the date of the most recent update on AustLII of any act check the [Notes] link at the top of any section of the Act. More recent updates may be available from ComLaw.</p>
+
+    <h6>Data Provision</h6>
+    <p>Data in this database is owned by the Commonwealth of Australia and is provided to AustLII under a cooperative arrangement between the Office of Legislative Drafting, Attorney-General's Department, Canberra and AustLII. AustLII gratefully acknowledges the assistance of the Office of Legislative Drafting in making this data available for public access.</p>
+  </div>
+
+  <ul>
+    <li><a href="#">Numbered Acts database</a></li>
+    <li><a href="#">ComLaw</a></li>
+  </ul>
+
+  <a href="javascript:void(0);" class="side-about-more-link">More</a>
+</div>
+{% elsif page.class contains 'results' %}
 <div class="side-element side-about">
   {% include svg/icon-about.svg %}
   <a href="#" class="learn-more">More</a>
