@@ -144,6 +144,18 @@
     font-weight: 600;
   }
 
+  // Sidebar sub-lists
+  ul >  li > ul > li {
+    padding-left: .5em;
+
+    &:before {
+      content: '• ';
+      padding-right: .5em;
+      float: left;
+      color: #b6b6b6;
+    }
+  }
+
   // Sidebar icons
   svg {
     position: absolute;
