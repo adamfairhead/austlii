@@ -47,7 +47,7 @@ body {
     text-shadow: 0 0 0 #fff;
     font-size: 1em;
     font-weight: 600;
-    padding: 3em 0 .75em 2em;
+    padding: 1em 0 .75em 2em;
     border-bottom: 2px solid darken($red, 15);
     margin-bottom: 0 !important;
   }
@@ -71,7 +71,7 @@ body {
       text-shadow: 0 0 0 #fff;
       font-size: 2em;
       font-weight: 600;
-      padding: 1.5em .95em 1.5em .95em;
+      padding: 1em .95em 1.5em .95em;
 
       &:after {
         content: url(https://chart.googleapis.com/chart?cht=qr&chs=150x150&chl=http://austlii.edu.au&choe=UTF-8);
