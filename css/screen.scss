@@ -22,6 +22,7 @@
   @import 'layout/document';
   @import 'layout/closing';
 
+  @import 'layout/contributors';
   @import 'pages/database_all';
   @import 'pages/adv_search';
   @import 'pages/personnel';
@@ -34,9 +35,7 @@
 // Things that can't live inside a @media
 
 // General hide rule
-.hide {
-  display: none;
-}
+.hide { display: none; }
 
 // Buttons
 #page-content .button {

@@ -1,0 +1,60 @@
+// Contributors
+
+.contrib { @include row; }
+
+@include media(max-width $large-screen) {
+  .card .multi .contrib-logo {
+    display: block;
+  }
+
+  .card .multi [data-year] {
+    display: block;
+    
+    &:before { content: attr(data-year) ': '; }
+  }
+}
+
+@include media($large-screen) {
+  .contributors .card {
+    position: relative;
+  }
+
+  .contributors .card li:first-child [data-year]:before {
+    content: attr(data-year);
+    position: absolute;
+    top: -2.4em;
+    font-weight: normal;
+    color: #737373;
+  }
+
+  .contrib-logo {
+    float: left;
+    width: 20%;
+  }
+
+  .contrib-desc {
+    float: left;
+    width: 50%;
+    padding-left: 1em;
+  }
+
+  .contrib-funds {
+    float: left;
+    width: 15%;
+    padding-left: 1em;
+  }
+}
+
+@include media($x-large-screen) {
+  .contrib-logo {
+    width: 20%;
+  }
+
+  .contrib-desc {
+    width: 60%;
+  }
+
+  .contrib-funds {
+    width: 10%;
+  }
+}
