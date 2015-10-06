@@ -80,3 +80,45 @@
     @extend %container;
   }
 }
+
+code {
+  display: block;
+  margin-bottom: 1em;
+}
+
+.document .the-document .faq-title {
+  margin-bottom: 1em;
+}
+
+.document .the-document .faq-answer {
+  padding-bottom: 1em;
+  margin-bottom: 1.75em;
+  border-bottom: $base-border;
+
+  &:last-child {
+    border: none;
+  }
+
+  h3 {
+    color: $red;
+    margin-top: 0;
+    padding-top: 0;
+  }
+}
+
+.document .faq-title a,
+.document .faq-answer h3 a {
+  @include media($x-large-screen) {
+    position: absolute;
+    margin-left: -40px;
+    font-weight: normal;
+    text-decoration: none;
+    text-align: right;
+    width: 30px;
+    color: $medlight-gray;
+
+    &:hover {
+      color: $blue;
+    }
+  }
+}
