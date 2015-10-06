@@ -7,7 +7,7 @@
   padding-bottom: 3em;
 
   .inner {
-    @extend %container;
+    margin: 0 1em;
 
     @include media($large-screen) {
       background: url('../images/logo-mono.svg') no-repeat right center;

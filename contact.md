@@ -3,8 +3,9 @@ layout: layout
 title: Contacting AustLII
 class: about document
 database: About AustLII
+hero: /images/contact.jpg
+hero-invert: true
 ---
-## Looking for help using AustLII?
 Looking for help using AustLII? Please use our comprehensive [Online Help](http://www.austlii.edu.au/austlii/help/) or our [AustLII Feedback](/austlii/feedback.html) form. AustLII does not provide any user support by telephone as we do not have the resources to do so.
 
 ## AustLII Staff Offices
