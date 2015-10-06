@@ -16,16 +16,15 @@
     <li class="{% if page.url == '/about.html' %}selected{% endif %}"><a href="about.html">Overview</a></li>
     <li><a href="#">Annual Report</a></li>
     <li class="{% if page.url == '/publications.html' %}selected{% endif %}"><a href="publications.html">Published papers</a></li>
-    <li class="{% if page.url == '/faq.html' %}selected{% endif %}"><a href="faq.html">FAQs</a></li>
-    <li class="{% if page.url == '/feedback.html' %}selected{% endif %}"><a href="feedback.html">Feedback</a></li>
     <li class="{% if page.url == '/contact.html' %}selected{% endif %}"><a href="contact.html">Contact us</a></li>
   </ul>
   <br />
 
   <h6>Help with AustLII</h6>
   <ul>
-    <li><a href="http://www.worldlii.org/catalog/2332.html">Legal Research Guide</a></li>
-    <li><a href="#">Help Pages</a></li>
+    <li class="{% if page.url == '/faq.html' %}selected{% endif %}"><a href="faq.html">FAQs</a></li>
+    <li><a href="#">User Guides</a></li>
+    <li class="{% if page.url == '/feedback.html' %}selected{% endif %}"><a href="feedback.html">Give Feedback</a></li>
   </ul>
   <br />
 
@@ -38,7 +37,7 @@
   </ul>
   <br />
 
-  <h6>Who &amp; How</h6>
+  <h6>Our Team</h6>
   <ul>
     <li class="{% if page.url == '/personnel.html' %}selected{% endif %}"><a href="personnel.html">Personnel</a></li> 
     <li class="{% if page.url == '/funding.html' %}selected{% endif %}"><a href="funding.html">Funding info</a></li>

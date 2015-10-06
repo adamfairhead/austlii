@@ -3,32 +3,43 @@
 .document {
   background: white;
 
+  @include media($large-screen) {
+    @include background-image(linear-gradient(left, white 49%, $light-gray 50%));
+  }
+
+  #page-content { 
+    padding-left: 1em;
+    padding-right: 1em;
+
+    @include media($medium-screen) {
+      padding-top: 0;
+    }
+  }
+
   // Move Main content to the center on large screens
   #page-main {
-    @include media($x-large-screen) {
-      @include span-columns(7);
-      @include shift(2.5);
+    @include media($large-screen) {
+      @include span-columns(8.5);
+      background: white;
+      border-right: $base-border;
+      padding-right: 3em;
     }
   } 
 
   // Shrink the right sidebar on large screens
   #page-side {
-    margin-top: 4.5em;
-
-    @include media($x-large-screen) {
-      @include span-columns(2.5);
-    }
+    margin-top: 2.5em;
   }
 
   // Main document section of the page
   .the-document { 
-    @extend %container;
     line-height: 1.6;
+    padding-bottom: 2em;
+    min-height: 700px;
 
-    header {
-      @include media($medium-screen) {
-        text-align: center;
-      }
+    p,
+    li {
+      font-size: 1.1em;
     }
 
     // List styles for document content
@@ -54,20 +65,28 @@
       @include media($medium-screen) {
         font-size: 1.6em;
         display: block;
-        padding: 2em 0 1em;
+        padding: 2em 0 0;
         letter-spacing: -0.02em;
       }
     }
 
-    // Usse H2 to break up the page content
+    // Use H2 to break up the page content
     h2 {
       padding-top: 2em;
+    }
+
+    // If H2 comes first in the document, remove that padding
+    header + h2,
+    #page-index + h2 {
+      padding-top: 0;
     }
   }
 
   // Expander button to show table of contents
-  .index-expand {
+  .the-document .index-expand {
     display: none;
+    margin-top: .25em;
+    text-decoration: none;
 
     @include media(max-width $x-large-screen) {
       display: inline;

@@ -5,29 +5,19 @@
   padding-right: 1em;
   word-break: break-word;
   font-size: $side-font-size;
+  background: #fcfcfc;
+  border-color: #eaeaea;
+
+  @include media($medium-screen) {
+    float: right;
+    margin: 1em 0 1em 2em;
+    width: 20em;
+  }
 
   // Contain in an inline box on smaller screens
-  @include media(max-width $x-large-screen) {
-    border: $base-border;
-    padding: 1em 1em 0;
-    margin-bottom: 2em;
-  }
-
-  // Turn into a sidebar on larger screens
-  @include media($x-large-screen) {
-    @include span-columns(2.5);
-    position: absolute;
-    top: 1em;
-    left: 0;
-    margin-top: 4.5em;
-
-    a {
-      width: 100%;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-  }
+  border: $base-border;
+  padding: 1em 1em 0;
+  margin-bottom: 2em;
 }
 
 // Main right-sidebar
@@ -65,7 +55,7 @@
     margin-top: .5em;
     width: 120px;
     position: relative;
-    z-index: 1;
+    z-index: 1; 
 
     &:hover {
       background: #ccc;
@@ -88,6 +78,7 @@
     border: 1px solid #d9d9d9;
     box-shadow: 0 1px 1px rgba(0,0,0,0.07);
     border-radius: $base-border-radius;
+    margin-bottom: 2em;
 
     li:first-child a {
       padding-top: .7em;
