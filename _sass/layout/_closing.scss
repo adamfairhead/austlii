@@ -6,7 +6,7 @@
   @include media($large-screen) {
     @include span-columns(3);
     position: absolute;
-    bottom: 0;
+    bottom: 2em;
     right: 0;
     z-index: 3;
   }
@@ -18,19 +18,10 @@
   }
 
   li {
-    @include media($medium-screen) {
-      display: inline-block;
-    }
+    @include media($medium-screen) { display: inline-block; }
   }
 
-  small {
-    opacity: .5;
-  }
-}
-
-.closing-primary a {
-  margin: 0 1em .5em 0;
-  display: inline-block;
+  small { opacity: .5; }
 }
 
 .closing-tertiary a {
@@ -39,27 +30,33 @@
   display: inline-block;
   color: $medium-gray;
 
-  &:hover {
-    text-decoration: underline;
-  }
+  &:hover { text-decoration: underline; }
 }
 
 .home .closing {
-  text-align: center;
-
   .inner {
-    background: url('../images/falm.svg') center top no-repeat;
+    background: url('../images/falm.svg') left 10px no-repeat;
     background-size: 45px;
-    padding-top: 55px;
+    padding-top: 65px;
+  }
+
+  p {
+    font-size: .8em;
+    margin: 0 1em 0 0;
+    display: inline-block;
+    color: $medium-gray;
+
+    a {
+      color: $medium-gray;
+      &:hover { text-decoration: underline; }
+    }
   }
 }
 
 .home-2 .closing {
   text-align: center; 
 
-  .inner {
-    background: transparent;
-  }
+  .inner { background: transparent; }
 
   a {
     background: url('../images/closing.png');

@@ -105,6 +105,11 @@ html.no-js .search-options {
   }
 }
 
+
+html.js .home .search-box .search-options {
+  @include media($medium-screen) { left: 135px; }
+}
+
 html.js .search-options {
   @include transition(all 0.25s ease-in-out);
   background: #e9e9e9;
