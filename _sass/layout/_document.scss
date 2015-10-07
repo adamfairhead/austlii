@@ -1,19 +1,10 @@
 // Document
-
 .document {
-  background: white;
-
-  @include media($large-screen) {
-    @include background-image(linear-gradient(left, white 49%, $light-gray 50%));
-  }
-
   #page-content { 
     padding-left: 1em;
     padding-right: 1em;
 
-    @include media($medium-screen) {
-      padding-top: 0;
-    }
+    @include media($medium-screen) { padding-top: 0; }
   }
 
   // Move Main content to the center on large screens
@@ -21,15 +12,12 @@
     @include media($large-screen) {
       @include span-columns(8.5);
       background: white;
-      border-right: $base-border;
-      padding-right: 3em;
+      padding-right: 4em;
     }
   } 
 
   // Shrink the right sidebar on large screens
-  #page-side {
-    margin-top: 2.5em;
-  }
+  #page-side { margin-top: 2.5em; }
 
   // Main document section of the page
   .the-document { 
@@ -37,25 +25,16 @@
     padding-bottom: 2em;
     min-height: 700px;
 
-    p,
-    li {
-      font-size: 1.1em;
-    }
-
     // List styles for document content
     ul {
       list-style: disc;
       padding-left: 1.5em;
 
-      li {
-        margin-bottom: 1em;
-      }
+      li { margin-bottom: 1em; }
     }
 
     // Hyperlink styles within documents
-    a {
-      text-decoration: underline;
-    }
+    a { text-decoration: underline; }
 
     // Make the header larger than default
     // (Default is normally the top-left)
@@ -65,21 +44,17 @@
       @include media($medium-screen) {
         font-size: 1.6em;
         display: block;
-        padding: 2em 0 0;
+        padding: 1.5em 0 0;
         letter-spacing: -0.02em;
       }
     }
 
     // Use H2 to break up the page content
-    h2 {
-      padding-top: 2em;
-    }
+    h2 { padding-top: 2em; }
 
     // If H2 comes first in the document, remove that padding
     header + h2,
-    #page-index + h2 {
-      padding-top: 0;
-    }
+    #page-index + h2 { padding-top: 0; }
   }
 
   // Expander button to show table of contents
@@ -101,27 +76,19 @@
     padding-left: 0;
     list-style: none;
 
-    li {
-      margin-bottom: 0;
-    }
+    li { margin-bottom: 0; }
 
     a {
       text-decoration: none;
 
-      &:hover {
-        text-decoration: underline;
-      }
+      &:hover { text-decoration: underline; }
     }
 
-    @include media(max-width $x-large-screen) {
-      display: none;
-    }
+    @include media(max-width $x-large-screen) { display: none; }
   }
 
   // Showing the table of contents
   #page-index.is-expanded ul {
-    @include media(max-width $x-large-screen) {
-      display: block;
-    }
+    @include media(max-width $x-large-screen) { display: block; }
   }
 }

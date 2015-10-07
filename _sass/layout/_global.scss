@@ -1,29 +1,23 @@
-// Rows
-
-@include media($medium-screen) {
-  .row {
-    @include row;
-  }
-
-  .half-row {
-    @include span-columns(6);
-  }
-}
-
-hr {
-  border: none;
-  margin: 4em 1em;
-}
-
-
 // Global
 
+// Setting body background color, and also setting relative/height
+// so that the footer can absolutely hug the bottom of the page.
 body {
-  background: $light-gray;
+  position: relative;
+  height: 100%;
+  
+  @include media($large-screen) {
+    @include background-image(linear-gradient(left, white 49%, $light-gray 50%));
+
+    &.database.cases,
+    &.database.all { background: white; }
+  }
 }
 
 // Mixins
 
+// Containers move content from the browser edges, so they don't
+// sit flush and awkward.
 %container {
   @include outer-container;
   padding-left: 1em;
@@ -33,4 +27,11 @@ body {
     padding: 0 !important;
     margin: 0 !important;
   }
+}
+
+// Rows: Useful for pages such as "All Databases"
+@include media($medium-screen) {
+  .row { @include row; }
+
+  .half-row { @include span-columns(6); }
 }

@@ -2,8 +2,6 @@
 
 .card {
   background: white;
-  border-top: $base-border;
-  border-bottom: $base-border;
   margin-bottom: 1.5em;
 
   // For when cards have checkboxes in the rows
@@ -13,15 +11,17 @@
 
   // Give sides etc. when larger
   @include media($medium-screen) {
-    border: $base-border;
-    box-shadow: 0 1px 1px rgba(0,0,0,.07);
-    border-radius: $base-border-radius;
+    border: none;
   }
 
   a {
     padding: .5em 1em;
     display: block;
-    font-size: $discovery-font-size;
+    font-size: $discovery-font-size * 0.9;
+
+    @include media($medium-screen) {
+      font-size: $discovery-font-size;
+    }
 
     &:hover {
       text-decoration: underline;
@@ -55,6 +55,13 @@
   li:nth-child(2n) a,
   .multi:nth-child(2n) {
     background: $light-blue;
+    border-top: 1px solid darken($light-blue, 2);
+    border-bottom: 1px solid darken($light-blue, 2);
+  }
+
+  .multi:nth-child(2n) a {
+    background: none;
+    border: none;
   }
 
   // Positioning for card checkboxes
@@ -67,17 +74,31 @@
 
 // Gray titles above cards
 .card-title {
-  font-size: $discovery-font-size;
-  padding: .25em 1em 0;
+  font-size: 1em;
+  font-weight: 400;
+  padding: .25em 1em;
   clear: both;
-  color: darken($medium-gray, 15);
-  font-weight: normal;
+  color: $medium-gray;
   display: block;
+  padding-top: .55em;
+  margin-bottom: 0;
+
+  &.title-checkbox {
+    padding-left: .9em;
+
+    .select-all-none {
+      padding-right: .75em;
+
+      @include media($medium-screen) {
+        padding-right: 1em;
+      }
+    }
+  }
 
   // Increase padding of first title when small
   @include media(max-width $medium-screen) {
     &:first-child {
-      padding-top: .7em;
+      padding-top: 1.2em;
     }
   }
 

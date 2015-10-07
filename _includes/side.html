@@ -28,7 +28,6 @@
 <!-- Libraries Sidebar -->
 <div id="page-side">
 {% include side/side-treaties.html %}
-{% include side/side-contributors.html %}
 </div>
 {% endif %}
 
@@ -61,6 +60,7 @@
   {% include side/side-cited.html %}
   {% include side/side-cited-by.html %}
   {% include side/side-authors.html %}
+  <div class="end-of-side"></div>
 </div> 
 {% endif %}
 
@@ -112,7 +112,7 @@
     </ul>
   </div>
   {% include side/side-contributors.html %}
-  {% include side/side-tools.html %}
+  {% include side/side-tools.html %} 
 </div>
 {% else %}
 <!-- Results Sidebar -->

@@ -24,10 +24,12 @@ $blue: #3796cc;
 $dark-blue: #4a7bcc;
 $light-blue: #f6fafd;
 $dark-gray: #333;
-$medium-gray: #999;
+$medium-gray: #888;
 $medlight-gray: #bbb;
-$light-gray: #f2f2f2;
-$red: #ee3224;
+$light-gray: #fafafa;
+$orange: #fb9445;
+$red: #fc4a35;
+$red-type: #dd5b4a;
 $light-red: #ff4638;
 $panel-bg: #434343;
 $panel-fg: #2c2c2c;
@@ -39,7 +41,7 @@ $base-font-color: $dark-gray;
 $action-color: $blue;
 
 // Border
-$base-border-color: darken($light-gray, 10);
+$base-border-color: darken($light-gray, 5);
 $base-border: 1px solid $base-border-color;
 
 // Forms

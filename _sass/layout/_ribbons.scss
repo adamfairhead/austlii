@@ -6,7 +6,6 @@
   overflow: scroll;
   overflow-y: hidden;
   -webkit-overflow-scrolling: touch;
-  box-shadow: 0 2px 2px rgba(0,0,0,.2);
   z-index: 4;
   letter-spacing: -0.01em;
 
@@ -16,7 +15,7 @@
   }
 
   .inner {
-    background: $red;
+    @include linear-gradient(lighten($red, 3), $red);
     max-width: 74em;
     margin: 0 auto;
   }
@@ -41,7 +40,7 @@
 
   span {
     display: block;
-    color: #ffaea9;
+    color: #ffbfba;
     max-width: 200px;
     overflow: hidden;
     white-space: nowrap;

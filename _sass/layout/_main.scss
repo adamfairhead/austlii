@@ -6,35 +6,33 @@
   min-height: 700px;
   @include outer-container;
 
-  @include media(max-width $medium-screen) {
-    font-size: 1.05em;
-  }
+  @include media(max-width $medium-screen) { font-size: 1.05em; }
 
   @include media($medium-screen) {
-    padding-top: 1.5em;
     padding-left: 1em;
     padding-right: 1em;
   }
 
-  @media print {
-    font-size: .8em;
-  }
+  @media print { font-size: .8em; }
 }
 
 // Page Main
 
 .database #page-main,
-.search #page-main {
-  position: relative;
-}
+.search #page-main { position: relative; }
 
 #page-main {
-  @include media(max-width $medium-screen) {
-    padding: 0;    
+  @include media(max-width $medium-screen) { padding: 0; }
+
+  @include media($medium-screen) {
+    min-height: 800px;
+    padding-top: 1em;
   }
 
   @include media($large-screen) {
     @include span-columns(8.5);
+    background: white;
+    padding-right: 4em;
   }
 
   .database.all &,
@@ -51,19 +49,17 @@
   }
 }
 
-.database #page-sort {
-  margin-bottom: .2em;
-}
-
 html.no-js .sort-more {
   display: none !important;
 }
 
 #page-sort {
-  padding: .5em 1em;
+  background: darken($light-gray, 2);
+  padding: 1em;
 
   @include media($medium-screen) {
-    padding: .5em 0;
+    border-radius: $base-border-radius;
+    margin-bottom: 1em;
   }
 
   li, a {
@@ -73,7 +69,7 @@ html.no-js .sort-more {
   a {
     padding: .25em .6em;
     font-size: $discovery-font-size;
-    color: darken($medium-gray, 15);
+    color: $medium-gray;
     @include transition(all 0.25s ease-in-out);
 
     &:hover {
@@ -93,7 +89,7 @@ html.no-js .sort-more {
   .selected:first-child > a {
     color: darken($blue, 10);
     padding: .25em .6em;
-    background: #c6e0f0;
+    background: darken($light-blue, 10);
     border-radius: $base-border-radius; 
     margin-right: 5px;
   }
@@ -156,7 +152,7 @@ html.no-js .sort-more {
 
   .database.all & {
     .second-row { display: none; }
-    @include media(min-width em(860)) { .sort-more { display: none; } .second-row { display: block; border-top: 1px solid #ddd; margin-top: .75em; padding-top: .5em;}}
+    @include media(min-width em(860)) { .sort-more { display: none; } .second-row { display: block; border-top: $base-border; margin-top: .75em; padding-top: .5em;}}
   }
 
   .database.journals & {
@@ -188,7 +184,8 @@ html.no-js .sort-more {
   .sort-options { 
     @include transition(all 0.25s ease-in-out);
     width: 140px;
-    background: #e3e3e3;
+    background: #f4f4f4;
+    box-shadow: 0 1px 1px rgba(0,0,0,.15);
     border-radius: 0 $base-border-radius $base-border-radius $base-border-radius;
     position: absolute;
     z-index: 5;
@@ -231,7 +228,7 @@ html.no-js .sort-more {
     }
 
     .sort-more > a {
-      background: #e3e3e3;
+      background: #f4f4f4;
       border-radius: $base-border-radius $base-border-radius 0 0;
       color: #838383;
     }

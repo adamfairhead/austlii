@@ -71,8 +71,7 @@ $(function() {
 
   // Annual reports dropdown
   $('.annual-reports.is-open').removeClass('is-open');
-  $(document).on('click', '.annual-reports .button', function() {
-    $(this).parent().toggleClass('is-open');
+  $(document).on('click', '.annual-reports-button', function() {
+    $('.annual-reports').toggleClass('is-open');
   });
-
 });
