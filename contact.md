@@ -1,37 +1,39 @@
 ---
 layout: layout
 title: Contacting AustLII
-class: about document
+class: about document contact
 database: About AustLII
-hero: /images/contact.jpg
+hero: /images/map.svg
 hero-invert: true
 ---
 Looking for help using AustLII? Please use our comprehensive [Online Help](http://www.austlii.edu.au/austlii/help/) or our [AustLII Feedback](/austlii/feedback.html) form. AustLII does not provide any user support by telephone as we do not have the resources to do so.
 
-## AustLII Staff Offices
-AustLII is a joint facility of the University of Technology Sydney (UTS) Faculty of Law and the University of New South Wales (UNSW) Faculty of Law. Its offices and staff are located at:
+<div id="offices">
+  <h2>AustLII Staff Offices</h2>
+  <address>
+    <p>Australasian Legal Information Institute<br />
+    University of Technology, Sydney<br />
+    Level 12, Building 10<br />
+    235 Jones Street, Ultimo NSW 2007</p>
+  </address>
+</div>
 
-### Street address: [(Map)](AustLII_map.pdf)
-Australasian Legal Information Institute  
-University of Technology, Sydney  
-Level 12, Building 10  
-235 Jones Street  
-Ultimo  NSW  2007
+<div id="mailing">
+  <h2>Mailing address:</h2>
+  <address>
+    <p>AustLII, Faculty of Law<br />
+    University of Technology, Sydney<br />
+    PO Box 123<br />
+    Broadway NSW 2007, Australia</p>
+  </address>
+</div>
 
-### Mailing address:
-AustLII, Faculty of Law  
-University of Technology, Sydney  
-PO Box 123  
-Broadway NSW 2007  
-Australia
-
-### Telephone/Facsimile:
-_Note: User support is provided through [Feedback](feedback.html) only._
-
-AustLII Tel: (02) 9514 4921  
-From overseas: +61-2-9514-4921  
-AustLII Fax: (02) 9514 4908  
-From overseas: +61-2-9514-4908
-
-### E-mail:
-Please use the [AustLII Feedback](feedback.html) form for any issues so that we can better track and respond to them promptly. 
+<div id="phone">
+  <h2>Phone / Fax</h2>
+  <ul>
+    <li>Phone: (02) 9514 4921</li>
+    <li>Phone: +61-2-9514-4921</li>
+    <li>Fax: (02) 9514 4908</li>
+    <li>Fax: +61-2-9514-4908</li>
+  </ul>
+</div>

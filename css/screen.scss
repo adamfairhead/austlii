@@ -57,20 +57,29 @@
 }
 
 .page-hero {
-  height: 450px;
+  height: 200px;
   width: 100%;
   background-repeat: no-repeat;
-  background-position: top center;
-  background-size: cover;
+  background-position: center;
+  background-size: auto 150%;
   text-align: center;
   display: table;
+
+  @include media($medium-screen) {
+    height: 450px;
+    background-size: cover;
+  }
 
   header {
     display: table-cell;
     vertical-align: middle;
-    font-size: 2.6em;
+    font-size: 2em;
     color: white;
     text-shadow: 0 3px 20px rgba(0,0,0,.25);
+
+    @include media($medium-screen) {
+      font-size: 2.6em;
+    }
   }
 
   h1 {
@@ -144,4 +153,33 @@ code {
   float: left;
   width: 10%;
   padding-left: 1em;
+}
+
+
+// Contact
+
+.contact {
+  h1 { display: none; }
+
+  #offices {
+    @include media($medium-screen) { @include span-columns(6); }
+    @include media($x-large-screen) { @include span-columns(4.75); }
+  }
+
+  #mailing {
+    @include media($medium-screen) { @include span-columns(6); @include omega ;}
+    @include media($x-large-screen) { @include span-columns(4.25); }
+  }
+
+  #phone {
+    @include media($medium-screen) { @include span-columns(12); }
+    @include media($x-large-screen) { @include span-columns(3); }
+
+    ul { padding: 0; }
+
+    li {
+      list-style: none;
+      margin: 0;
+    }
+  }
 }
