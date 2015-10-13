@@ -185,3 +185,40 @@ code {
     }
   }
 }
+
+
+// User Guides
+
+.panel {
+  background: $light-gray;
+  border: $base-border;
+  padding: 1em 1em .5em;
+}
+
+.tile-list {
+  @include row;
+
+  .document .the-document & { padding: 0; }
+
+  li {
+    @include media(min-width em(480) max-width $medium-screen) {
+      @include span-columns(6);
+      &:nth-child(2n) { @include omega; }
+    }
+
+    @include media(min-width $medium-screen max-width $large-screen) {
+      @include span-columns(4);
+      &:nth-child(3n) { @include omega; }
+    }
+
+    @include media(min-width $large-screen max-width $x-large-screen) {
+      @include span-columns(6);
+      &:nth-child(2n) { @include omega; }
+    }
+
+    @include media($x-large-screen) {
+      @include span-columns(4);
+      &:nth-child(3n) { @include omega; }
+    }
+  }
+}

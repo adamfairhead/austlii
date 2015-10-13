@@ -22,8 +22,9 @@
 
   <h6>Help with AustLII</h6>
   <ul>
+    <li class="{% if page.url == '/help.html' %}selected{% endif %}"><a href="help.html">Overview</a></li>
     <li class="{% if page.url == '/faq.html' %}selected{% endif %}"><a href="faq.html">FAQs</a></li>
-    <li><a href="#">User Guides</a></li>
+    <li class="{% if page.class contains 'guide' %}selected{% endif %}"><a href="guides.html">User Guides</a></li>
     <li class="{% if page.url == '/feedback.html' %}selected{% endif %}"><a href="feedback.html">Give Feedback</a></li>
   </ul>
   <br />
