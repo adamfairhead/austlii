@@ -73,12 +73,18 @@
   <a href="javascript:void(0);" class="side-about-more-link">More</a>
 </div>
 {% elsif page.class contains 'results' %}
+{% unless page.class contains 'journals' %}
 <div class="side-element side-about">
   {% include svg/icon-about.svg %}
-  <a href="#" class="learn-more">More</a>
   <h4>About this Database</h4>
   <p>This database contains decisions from June 1995 of the Supreme Court of New South Wales. The decisions in this database are all those that have been selected and provided by the Court. Decisions are usually sent on a daily basis. Decisions are also available at the Court site.</p>
+
+  <ul>
+    <li><a href="#">Subscribe to database</a></li>
+    <li><a href="#">Subscribe to search/filter</a></li>
+  </ul>
 </div>
+{% endunless %}
 {% endif %}
 
 {% if page.class contains 'libraries' %}
@@ -94,6 +100,7 @@
 {% if page.class contains 'journals' %}
 <div class="side-element side-about">
   {% include svg/icon-about.svg %}
+  <a href="javascript:void(0);" class="learn-more side-about-more-link">More</a>
   <h4>About this Journal</h4>
   <p>This database contains documents from the Aboriginal Law Bulletin (AboriginalLawB). In April 1997, it was renamed as the Indigenous Law Bulletin (IndigLawB). More information can be found on the Bulletin website.</p>
  
@@ -106,7 +113,5 @@
     <h6>Reproduction for Online Use</h6>
     <p>The ILB/ALB is now fully text searchable on AustLII. The wording of all articles is in its original form, except where names have been suppressed as above. For older material, where original digital material was not available, original print editions have been scanned, and the text extracted by character recognition software. All possible efforts to proofread the material have been made, but it is possible some errors remain where words have been wrongly recognised by the software. References in the text to other articles in the ILB/ALB are print citations.</p>
   </div>
-
-  <a href="javascript:void(0);" class="side-about-more-link">More</a>
 </div>
 {% endif %}

@@ -55,14 +55,8 @@
 <div id="page-side">
   {% include side/side-partner.html %}
   {% include side/side-context.html %}
-  <div class="side-element side-cited">
-    {% include svg/icon-cited.svg %}
-    <h4>Notes</h4>
-    <ul>
-      <li><a href="document-legislation-3.html">Legislation Notes</a></li>
-    </ul>
-  </div>
   {% include side/side-print.html %}
+  {% include side/side-notes.html %}
   {% include side/side-download.html %}
   {% include side/side-cited-by.html %}
 </div> 
@@ -94,27 +88,10 @@
 <div id="page-side">
   {% include side/side-contributors.html %}
   {% include side/side-updates.html %}
-  {% include side/side-stats.html %}
-
-  <div class="side-element side-search">
-    {% include svg/icon-websearch.svg %}
-    <h4>Catalogs</h4>
-    <ul>
-      <li><a href="http://www.worldlii.org/catalog/1.html">Australia</a></li>
-      <li>
-        <ul>
-          <li><a href="http://www.worldlii.org/catalog/2602.html">By Jurisdiction</a></li>
-          <li><a href="http://www.worldlii.org/catalog/33.html">By Subject</a></li>
-          <li><a href="http://www.worldlii.org/catalog/2385.html">Community Info</a></li>
-          <li><a href="http://www.worldlii.org/catalog/193.html">Legal Services</a></li>
-          <li><a href="http://www.worldlii.org/catalog/1.html">More…</a></li>
-        </ul>
-      </li>
-      <li><a href="http://www.worldlii.org/catalog/242.html">New Zealand</a></li>
-    </ul>
-  </div>
-
+  {% include side/side-social.html %}
+  {% include side/side-catalogs.html %}
   {% include side/side-tools.html %}
+  {% include side/side-stats.html %}
 </div>
 {% endif %}
 
@@ -122,17 +99,7 @@
 {% if page.class contains 'search' %}
 <!-- Search Results Sidebar -->
 <div id="page-side">
-  <div class="side-element side-about">
-    {% include svg/icon-websearch.svg %}
-    <h4>Databases Selected</h4>
-    <ul>
-      <li><a href="#">Commonwealth Numbered Acts</a></li>
-      <li><a href="#">Commonwealth Numbered Regulations</a></li>
-      <li><a href="#">Commonwealth Numbered Regulations Explanations</a></li>
-      <li><a href="#">Commonwealth Repealed Acts</a></li>
-      <li><a href="#">Commonwealth Repealed Regulations</a></li>
-    </ul>
-  </div>
+  {% include side/side-search-results.html %}
   {% include side/side-contributors.html %}
   {% include side/side-tools.html %} 
 </div>
