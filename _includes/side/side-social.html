@@ -4,5 +4,6 @@
   <ul>
     <li><a href="https://twitter.com/search?q=%23austlii" target="_blank">Recent tweets about AustLII</a></li>
     <li><a href="https://twitter.com/intent/user?screen_name=AustLII" target="_blank">Follow @AustLII on Twitter</a></li>
+    {% if page.class contains 'document' %}<li><a href="https://twitter.com/intent/tweet?text=“{{ page.title }}”&url=http://www.austii.edu.au{{ page.url }}&via=austlii&hashtags=austlii" target="_blank">Tweet this page</a></li>{% endif %}
   </ul>
 </div> 
