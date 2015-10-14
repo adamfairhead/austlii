@@ -35,6 +35,10 @@
     position: absolute;
     top: 1em;
     right: 0;
+
+    .is-sortable & {
+      margin-top: -4em;
+    }
   }
 }
 

@@ -19,6 +19,12 @@
     }
   }
 
+  #page-sort & {
+    position: relative;
+    top: 0;
+    padding-left: 0;
+  }
+
   @include media($medium-screen) {
     top: -22px;
   }

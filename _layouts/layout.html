@@ -72,7 +72,7 @@ layout: compress
           <input id="search-box" type="text" placeholder="Search all databases" tabindex="9">
           {% elsif page.searchable == true %}
           <input id="search-box" type="text" placeholder="Search selected databases" tabindex="9">
-          {% elsif page.class == 'results search' %}
+          {% elsif page.class contains 'results search' %}
           <input id="search-box" type="text" placeholder="Search AustLII" value="Test" tabindex="9">
           {% else %}
           <input id="search-box" type="text" placeholder="Search AustLII" tabindex="9">
@@ -113,10 +113,11 @@ layout: compress
   </div>
   {% endif %}
 
-  <div id="page-content"{% if page.searchable == true %} class="is-searchable"{% endif %}>
+  {% include sort.html %}
+
+  <div id="page-content"{% if page.searchable == true %} class="is-searchable"{% endif %}{% if page.sort == true %} class="is-sortable"{% endif %}>
 
     <div id="page-main"> 
-      {% include sort.html %}
 
       {% if page.class contains 'document' %}
 

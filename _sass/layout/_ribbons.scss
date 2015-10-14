@@ -1,5 +1,9 @@
 // Ribbons
 
+.about #ribbon a {
+    color: #ffbfba;
+}
+
 #ribbon {
   background: $red;
   position: relative;
@@ -216,7 +220,8 @@
     }
   }
 
-  .home & {
+  .home &,
+  .about & {
     a:after,
     a:before {
       display: none;
@@ -236,6 +241,12 @@
         padding: 1em;
         font-size: 1em;
       }
+    }
+  }
+
+  .home.about & {
+    @include media($medium-screen + 20em) {
+      text-align: left;
     }
   }
 }

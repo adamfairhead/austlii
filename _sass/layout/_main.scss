@@ -53,13 +53,69 @@ html.no-js .sort-more {
   display: none !important;
 }
 
+#page-sort-2 {
+  background: $light-gray;
+
+  a {
+    display: inline-block;
+    font-size: $side-font-size;
+    @include transition(all 0.25s ease-in-out); 
+    margin-right: 1em;
+    color: $medium-gray; 
+
+    &.selected { text-decoration: underline; }
+  }
+
+  .page-sort-inner { 
+    @include outer-container;
+    padding-left: 1em;
+    padding-right: 1em;
+  }
+
+  .sort-extra-item {
+    margin-bottom: .25em;
+    padding-bottom: .25em;
+    display: inline-block;
+    border-right: $base-border;
+    margin-right: .75em;
+    padding-right: .25em;
+
+    &:last-child {
+      border: none;
+    }
+  }
+}
+
+
 #page-sort {
-  background: darken($light-gray, 2);
-  padding: 1em;
+  border-bottom: 1px solid $light-gray;
 
   @include media($medium-screen) {
-    border-radius: $base-border-radius;
-    margin-bottom: 1em;
+    border-bottom: 1em solid $light-gray;
+  }
+
+  .page-sort-inner { 
+    @include outer-container;
+
+    @include media($medium-screen) {
+      padding-left: 1em;
+      padding-right: 1em;
+    }
+  }
+
+  .page-sort-inner > ul {
+    position: relative;
+    padding-bottom: 1em;
+
+    @include media($medium-screen) {
+      padding-top: 1em;
+    }
+
+    @include media($large-screen) {
+      @include span-columns(8.5);
+      background: white;
+      padding-right: 4em;
+    }
   }
 
   li, a {
@@ -81,7 +137,7 @@ html.no-js .sort-more {
     }
   }
 
-  & > ul > li:first-child a {
+  ul > li:first-child a {
     padding-left: 0;
   }
 
@@ -160,6 +216,14 @@ html.no-js .sort-more {
     @include media(max-width em(590)) { [data-sort="js"]  { display: none; } .sort-options [data-sort="js"]  { display: inline; }}
     @include media(max-width em(900)) { [data-sort="lrs"] { display: none; } .sort-options [data-sort="lrs"] { display: inline; }}
     @include media(max-width em(900)) { [data-sort="mt"]  { display: none; } .sort-options [data-sort="mt"]  { display: inline; }}
+    @include media(min-width em(900)) { .sort-more { display: none; }}
+  }
+
+  .results.search & {
+    @include media(max-width em(400)) { .sort-date      { display: none; } .more-date      { display: inline; }}
+    @include media(max-width em(590)) { .sort-title     { display: none; } .more-title     { display: inline; }}
+    @include media(max-width em(900)) { .sort-database  { display: none; } .more-database  { display: inline; }}
+    @include media(max-width em(900)) { .sort-citations { display: none; } .more-citations { display: inline; }}
     @include media(min-width em(900)) { .sort-more { display: none; }}
   }
 

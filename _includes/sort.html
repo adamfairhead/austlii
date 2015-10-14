@@ -1,16 +1,14 @@
 {% if page.sort == true %}
-{% if page.class contains 'contributors' %}
+<div id="page-sort"><div class="page-sort-inner">
 
-<div id="page-sort">
+{% if page.class contains 'contributors' %}
   <ul>
     <li class="sort-item{% if page.class contains 'all' %} selected{% endif %}"><a href="contributor-list.html">All</a></li>
     <li class="sort-item{% if page.class contains 'type' %} selected{% endif %}"><a href="contributor-type.html">By Type</a></li>
     <li class="sort-item{% if page.class contains 'jurisdiction' %} selected{% endif %}"><a href="contributor-jurisdiction.html">By Jurisdiction</a></li>
   </ul>
-</div>
 
 {% elsif page.class contains 'database' %}
-<div id="page-sort">
   <ul>
     <li class="sort-item sort-all selected"><a href="#">All</a></li>
 
@@ -72,26 +70,24 @@
     <li class="sort-item" data-sort="pages"><a href="#">Hosted Home Pages</a></li>
   </ul>
   {% endif %}
-</div>
-{% elsif page.class == 'results search' %}
-<div id="page-sort">
+{% elsif page.class contains 'results search' %}
   <ul>
-    <li class="sort-item sort-recent selected"><a href="#">By Relevance</a></li>
-    <li class="sort-item sort-cited"><a href="#">By Date</a></li>
-    <li class="sort-item sort-accessed"><a href="#">By Title</a></li>
+    <li class="sort-item sort-relevance{% if page.class == 'results search' %} selected{% endif %}"><a href="results-search.html">By Relevance</a></li>
+    <li class="sort-item sort-date{% if page.class == 'results search search-3' %} selected{% endif %}"><a href="results-search-3.html">By Date</a></li>
+    <li class="sort-item sort-title{% if page.class == 'results search search-2' %} selected{% endif %}"><a href="results-search-2.html">By Title</a></li>
+    <li class="sort-item sort-database{% if page.class == 'results search search-4' %} selected{% endif %}"><a href="results-search-4.html">By&nbsp;Database</a></li>
+    <li class="sort-item sort-citations{% if page.class == 'results search search-5' %} selected{% endif %}"><a href="results-search-5.html">By Citation Frequency</a></li>
     <li class="sort-more">
       <a href="#">More</a>
       <ul class="sort-options">
-        <li class="sort-item more-cited"><a href="#">By Date</a></li>
-        <li class="sort-item more-accessed"><a href="#">By Title</a></li>
-        <li class="sort-item more-earliest"><a href="#">By Database</a></li>
-        <li class="sort-item more-leastaccessed"><a href="#">By Citation Frequency</a></li>
+        <li class="sort-item more-date"><a href="#">By Date</a></li>
+        <li class="sort-item more-title"><a href="#">By Title</a></li>
+        <li class="sort-item more-database"><a href="#">By Database</a></li>
+        <li class="sort-item more-citations"><a href="#">By Citation Frequency</a></li>
       </ul>
     </li>
   </ul>
-</div>
 {% else %}
-<div id="page-sort">
   <ul> 
     <li class="sort-item sort-recent selected"><a href="#">Most Recent</a></li>
     <li class="sort-item sort-cited"><a href="#">Most Cited</a></li>
@@ -107,6 +103,31 @@
       </ul>
     </li>
   </ul>
+{% endif %}
+</div></div>
+
+{% if page.class contains 'results search' %}
+<div id="page-sort-2">
+  <div class="page-sort-inner">
+    <ul>
+      {% if page.class == 'results search' %}
+      <li class="sort-extra-item"><a href="#" class="selected">Collapse multi-sections</a> <a href="#">Show all sections</a></li>
+      {% endif %}
+      {% if page.class == 'results search search-2' %}
+      <li class="sort-extra-item"><a href="#" class="selected">Collapse multi-sections</a> <a href="#">Show all sections</a> <a href="#">Collapse titles</a></li>
+      {% endif %}
+      {% if page.class == 'results search search-3' %}
+      <li class="sort-extra-item"><a href="#" class="selected">Collapse multi-sections</a> <a href="#">Show all sections</a></li>
+      <li class="sort-extra-item"><a href="#" class="selected">Earliest first</a> <a href="#">Latest first</a></li>
+      {% endif %}
+      {% if page.class == 'results search search-4' %}
+      <li class="sort-extra-item"><a href="#" class="selected">Collapse listing</a> <a href="#">Expand listing</a></li>
+      {% endif %}
+      {% if page.class == 'results search search-5' %}
+      <li class="sort-extra-item"><a href="#" class="selected">Least often cited</a> <a href="#">Most often cited</a></li>
+      {% endif %}
+    </ul>
+  </div>
 </div>
 {% endif %}
 {% endif %}
