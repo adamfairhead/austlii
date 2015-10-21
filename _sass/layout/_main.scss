@@ -21,6 +21,14 @@
 .database #page-main,
 .search #page-main { position: relative; }
 
+.document #page-main {
+  @include media($large-screen) {
+    background: white;
+    padding-right: 4em;
+    border-right: $base-border;
+  }
+}
+
 #page-main {
   @include media(max-width $medium-screen) { padding: 0; }
 
@@ -31,8 +39,6 @@
 
   @include media($large-screen) {
     @include span-columns(8.5);
-    background: white;
-    padding-right: 4em;
   }
 
   .database.all &,

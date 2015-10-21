@@ -113,11 +113,10 @@ layout: compress
   </div>
   {% endif %}
 
-  {% include sort.html %}
-
   <div id="page-content"{% if page.searchable == true %} class="is-searchable"{% endif %}{% if page.sort == true %} class="is-sortable"{% endif %}>
 
     <div id="page-main"> 
+      {% include sort.html %}
 
       {% if page.class contains 'document' %}
 

@@ -2,7 +2,9 @@
 
 .card {
   background: white;
-  margin-bottom: 1.5em;
+  margin-bottom: 1.5em; 
+  border-top: $base-border;
+  border-bottom: $base-border;
 
   // For when cards have checkboxes in the rows
   &.card-checkboxes a {
@@ -11,7 +13,7 @@
 
   // Give sides etc. when larger
   @include media($medium-screen) {
-    border: none;
+    border: $base-border;
   }
 
   a {
@@ -71,9 +73,9 @@
   // Odd/Even row styles
   li:nth-child(2n) a,
   .multi:nth-child(2n) {
-    background: $light-blue;
-    border-top: 1px solid darken($light-blue, 2);
-    border-bottom: 1px solid darken($light-blue, 2);
+    background: #fdfdfd;
+    border-top: $base-border;
+    border-bottom: $base-border;
   }
 
   .multi:nth-child(2n) a {

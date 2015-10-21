@@ -3,3 +3,4 @@ _site
 .sass-cache
 *.ai
 Gemfile.lock
+*.swp

@@ -1,5 +1,5 @@
 {% if page.sort == true %}
-<div id="page-sort"><div class="page-sort-inner">
+
 
 {% if page.class contains 'contributors' %}
   <ul>
@@ -9,6 +9,7 @@
   </ul>
 
 {% elsif page.class contains 'database' %}
+<div id="page-sort"><div class="page-sort-inner">
   <ul>
     <li class="sort-item sort-all selected"><a href="#">All</a></li>
 
@@ -88,7 +89,9 @@
     <li class="sort-item" data-sort="pages"><a href="#">Hosted Home Pages</a></li>
   </ul>
   {% endif %}
+</div></div>
 {% elsif page.class contains 'results search' %}
+<div id="page-sort" class="sort-tabs">
   <ul>
     <li class="sort-item sort-relevance{% if page.class == 'results search' %} selected{% endif %}"><a href="results-search.html">By Relevance</a></li>
     <li class="sort-item sort-date{% if page.class == 'results search search-3' %} selected{% endif %}"><a href="results-search-3.html">By Date</a></li>
@@ -105,7 +108,9 @@
       </ul>
     </li>
   </ul>
+</div>
 {% else %}
+<div id="page-sort" class="sort-tabs">
   <ul> 
     <li class="sort-item sort-recent selected"><a href="#">Most Recent</a></li>
     <li class="sort-item sort-cited"><a href="#">Most Cited</a></li>
@@ -121,8 +126,8 @@
       </ul>
     </li>
   </ul>
+</div>
 {% endif %}
-</div></div>
 
 {% if page.class contains 'results search' %}
 <div id="page-sort-2">

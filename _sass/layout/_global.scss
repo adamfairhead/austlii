@@ -5,12 +5,12 @@
 body {
   position: relative;
   height: 100%;
+  background: $light-gray;
   
-  @include media($large-screen) {
-    @include background-image(linear-gradient(left, white 49%, $light-gray 50%));
-
-    &.database.cases,
-    &.database.all { background: white; }
+  &.document {
+    @include media($large-screen) {
+      @include background-image(linear-gradient(left, white 49%, $light-gray 50%));
+    }
   }
 }
 
