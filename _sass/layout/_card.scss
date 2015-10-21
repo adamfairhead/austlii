@@ -7,27 +7,17 @@
   border-bottom: $base-border;
 
   // For when cards have checkboxes in the rows
-  &.card-checkboxes a {
-    padding: .5em 1em .5em 3.5em;
-  }
+  &.card-checkboxes a { padding: .5em 1em .5em 3.5em; }
 
   // Give sides etc. when larger
-  @include media($medium-screen) {
-    border: $base-border;
-  }
+  @include media($medium-screen) { border: $base-border; }
 
   a {
     padding: .5em 1em;
     display: block;
-    font-size: $discovery-font-size * 0.9;
+    font-size: $discovery-font-size;
 
-    @include media($medium-screen) {
-      font-size: $discovery-font-size;
-    }
-
-    &:hover {
-      text-decoration: underline;
-    }
+    &:hover { text-decoration: underline; }
 
     @media print {
       padding: 0;
@@ -65,9 +55,7 @@
       font-size: .95em;
     }
 
-    a {
-      padding: 0;
-    }
+    a { padding: 0; }
   }
 
   // Odd/Even row styles
@@ -77,6 +65,9 @@
     border-top: $base-border;
     border-bottom: $base-border;
   }
+
+  li:last-child,
+  li:last-child a { border-bottom: none; }
 
   .multi:nth-child(2n) a {
     background: none;
@@ -146,9 +137,7 @@
   display: inline;
   padding: 0 .55em 0 .11em;
 
-  label {
-    margin: 0 0 -2px;
-  }
+  label { margin: 0 0 -2px; }
 }
 
 // Checkboxes
@@ -166,9 +155,7 @@
   border-radius: $base-border-radius - 1;
   outline: none;
 
-  input {
-    display: none;
-  }
+  input { display: none; }
 }
 
 .checkbox.checked {
@@ -193,6 +180,4 @@
   display: table;
 }
 
-.faux-checkbox {
-  @extend .checkbox;
-}
+.faux-checkbox { @extend .checkbox; }

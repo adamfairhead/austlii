@@ -2,14 +2,16 @@
 
 
 {% if page.class contains 'contributors' %}
+<div id="page-sort">
   <ul>
     <li class="sort-item{% if page.class contains 'all' %} selected{% endif %}"><a href="contributor-list.html">All</a></li>
     <li class="sort-item{% if page.class contains 'type' %} selected{% endif %}"><a href="contributor-type.html">By Type</a></li>
     <li class="sort-item{% if page.class contains 'jurisdiction' %} selected{% endif %}"><a href="contributor-jurisdiction.html">By Jurisdiction</a></li>
   </ul>
+</div>
 
 {% elsif page.class contains 'database' %}
-<div id="page-sort"><div class="page-sort-inner">
+<div id="page-sort">
   <ul>
     <li class="sort-item sort-all selected"><a href="#">All</a></li>
 
@@ -89,7 +91,7 @@
     <li class="sort-item" data-sort="pages"><a href="#">Hosted Home Pages</a></li>
   </ul>
   {% endif %}
-</div></div>
+</div>
 {% elsif page.class contains 'results search' %}
 <div id="page-sort" class="sort-tabs">
   <ul>

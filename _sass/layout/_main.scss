@@ -55,12 +55,14 @@
   }
 }
 
-html.no-js .sort-more {
-  display: none !important;
-}
+html.no-js .sort-more { display: none !important; }
 
 #page-sort-2 {
-  background: $light-gray;
+  background: white;
+  padding-top: .5em;
+  border: $base-border;
+  border-radius: $base-border-radius;
+  margin-bottom: 1em;
 
   a {
     display: inline-block;
@@ -92,68 +94,25 @@ html.no-js .sort-more {
   }
 }
 
-
 #page-sort {
-  border-bottom: 1px solid $light-gray;
+  padding-bottom: 1em;
 
-  @include media($medium-screen) {
-    border-bottom: 1em solid $light-gray;
-  }
-
-  .page-sort-inner { 
-    @include outer-container;
-
-    @include media($medium-screen) {
-      padding-left: 1em;
-      padding-right: 1em;
-    }
-  }
-
-  .page-sort-inner > ul {
-    position: relative;
-    padding-bottom: 1em;
-
-    @include media($medium-screen) {
-      padding-top: 1em;
-    }
-
-    @include media($large-screen) {
-      @include span-columns(8.5);
-      background: white;
-      padding-right: 4em;
-    }
-  }
-
-  li, a {
-    display: inline-block;
-  }
+  li, a { display: inline-block; }
 
   a {
-    padding: .25em .6em;
-    font-size: $discovery-font-size;
-    color: $medium-gray;
     @include transition(all 0.25s ease-in-out);
-
-    &:hover {
-      color: $dark-gray;
-    }
-
-    @include media(max-width $medium-screen - 10em) {
-      padding: .25em .5em;
-    }
+    padding: .5em;
+    font-size: $discovery-font-size;
+    color: $blue;
+    border: 1px solid transparent;
   }
 
-  ul > li:first-child a {
-    padding-left: 0;
-  }
-
-  .selected > a,
-  .selected:first-child > a {
-    color: darken($blue, 10);
-    padding: .25em .6em;
-    background: darken($light-blue, 10);
-    border-radius: $base-border-radius; 
-    margin-right: 5px;
+  .selected > a {
+    color: $base-font-color;
+    border: $base-border;
+    padding: .5em 1em;
+    background: white; 
+    border-radius: $base-border-radius;
   }
 
   .sort-options .selected a {
@@ -164,20 +123,26 @@ html.no-js .sort-more {
     color: white;
     margin-right: 0;
   }
+}
 
+#page-sort.sort-tabs {
+  padding-bottom: 0;
+  position: relative;
+  bottom: -1px;
+
+  a { border-bottom: none; }
+
+  .selected > a {
+    border-radius: $base-border-radius $base-border-radius 0 0;
+    border-bottom: 0;
+  }
+}
+
+#page-sort {
   .sort-options { 
-    [data-sort="qld"],
-    [data-sort="sa"],
-    [data-sort="tas"],
-    [data-sort="vic"],
-    [data-sort="wa"],
-    [data-sort="no"],
-    [data-sort="nz"],
-    [data-sort="js"],
-    [data-sort="lrs"],
-    [data-sort="mt"] {
-      display: none;
-    }
+    [data-sort="qld"], [data-sort="sa"], [data-sort="tas"], [data-sort="vic"],
+    [data-sort="wa"], [data-sort="no"], [data-sort="nz"], [data-sort="js"],
+    [data-sort="lrs"], [data-sort="mt"] { display: none; }
   }
 
   .sort-accessed { display: inline; }
@@ -241,7 +206,7 @@ html.no-js .sort-more {
   .sort-more {
     & > a {
       @include transition(all 0.25s ease-in-out);
-      width: 60px;
+      width: 70px;
     }
 
     & > a:after {
@@ -251,9 +216,7 @@ html.no-js .sort-more {
       margin-left: .5em;
     }
 
-    &.selected > a:after {
-      color: $action-color;
-    }
+    &.selected > a:after { color: $action-color; }
   }
 
   .sort-options { 
@@ -270,12 +233,10 @@ html.no-js .sort-more {
 
     @include media(max-width $medium-screen) {
       border-radius: $base-border-radius 0 $base-border-radius $base-border-radius;
-      margin-left: -80px;
+      margin-left: -70px;
     }
 
-    li, a {
-      display: block;
-    }
+    li, a { display: block; }
 
     a {
       @include transition(all 0 ease-in-out);

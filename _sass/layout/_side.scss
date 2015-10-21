@@ -35,10 +35,6 @@
     position: absolute;
     top: 1em;
     right: 0;
-
-    .is-sortable & {
-      margin-top: -4em;
-    }
   }
 }
 
@@ -122,9 +118,13 @@
     border-top: none;
     padding-top: 0;
 
-    svg {
-      top: 0;
-    }
+    svg { top: 0; }
+  }
+
+  img {
+    background: white;
+    padding: .25em;
+    border: $base-border;
   }
 
   @include media(max-width $large-screen) { padding-left: 2.5em; }
