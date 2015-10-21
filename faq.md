@@ -320,6 +320,73 @@ database: About AustLII
 
 <article class="faq-answer">
   <h3 id="q7.2"><a href="#q7.2">7.2</a> Who is AustLII?</h3>
-  <p>See AustlII Personnel.</p>
+  <p>See <a href="#">AustlII Personnel</a>.</p>
   <p>Further details about the AustLII research group are also available there.</p>
+</article>
+
+<article class="faq-answer">
+  <h3 id="q7.3"><a href="#q7.3">7.3</a> How can I contact somebody from AustLII?</h3>
+  <ul>
+    <li><a href="#">AustLII Feedback</a> is the most closely monitored and preferred contact channel, used for making queries, reporting problems or asking for new features / databases. A reply can generally be expected the same day if made during normal business hours Monday-Friday (NSW public holidays excluded).</li>
+    <li><a href="#">Contact AustLII</a> provides telephone (answering machine), fax and (snail) mail details for when email is not appropriate. Note that all user assistance (help using the website, content queries etc) is handled by email only.</li>
+    <li>To contact individuals, see <a href="#">Personnel</a>.</li>
+  </ul>
+</article>
+
+<article class="faq-answer">
+  <h3 id="q7.4"><a href="#q7.4">7.4</a> How can I find out what AustLII is up to?</h3>
+  <p>Subscribe to the <a href="#">AustLII News</a> mailing list. This is used to provide news, announcements and updates regarding the AustLII service. Further details on subscribing and copies of all back issues are available here.</p>
+</article>
+
+<article class="faq-answer">
+  <h3 id="q7.5"><a href="#q7.5">7.5</a> How is AustLII funded?</h3>
+  <p>AustLII was established using funding from the ARC and the two host Universities (University of Technology, Sydney and the University of New South Wales). It is now predominately stake-holder funded.</p>
+  <p>Ongoing support comes from a variety of organisations. Acknowledgements are given on the <a href="#">Funding Sources</a> page.</p>
+</article>
+
+<article class="faq-answer">
+  <h3 id="q7.6"><a href="#q7.6">7.6</a> What is AustLII's public policy agenda?</h3>
+  <p>AustLII aims to improve access to justice through better access to legal information.</p>
+  <p>AustLII aims to put on the Net "public legal information": primary legal materials (legislation and decisions of courts and tribunals); and secondary materials that are (or ought to be) in the public domain or able to be licensed for free. AustLII's public policy agenda is to convince governments, courts, law reform bodies and other publicly-funded organisations to make legal materials they control available free via the Internet.</p>
+  <p>AustLII is one of many organisations aiming to ensure that some part of cyberspace is public space, where no one is denied use of resources because of financial considerations. Its aim is to create a public law library on the internet.</p>
+  <p>AustLII is involved in extensive policy development regarding these and related issues. In addition, AustLII's researchers and staff are involved in many other legal technology issues.</p>
+</article>
+
+<article class="faq-answer">
+  <h3 id="q7.7"><a href="#" id="q7.7">7.7</a> What hardware does AustLII use?</h3>
+  <p>See <a href="#">AustLII...some technical details</a>.</p>
+</article>
+
+<article class="faq-answer">
+  <h3 id="q7.8"><a href="#" id="q7.8">7.8</a> What software does AustLII use?</h3>
+  <p>See <a href="#">AustLII...some technical details</a>.</p>
+  <p>Most of the software used by AustLII to "mark up" our HTML documents has been written by Andrew Mowbray. He is also the author of the SINO search engine (see 2.4 above).</p>
+  <p>The CGI scripts are all written in Perl, with the help of a number of <a href="#">Perl</a> modules (especially the LWP and CGI libraries).</p>
+  <p>Our web server software is currently <a href="#">Apache</a>, a public domain Unix HTTP server.</p>
+</article>
+
+<article class="faq-answer">
+  <h3 id="q7.9"><a href="#" id="q7.9">7.9</a> How can I help?</h3>
+  <p>If you are a member of the public:</p>
+  <ul>
+    <li>Let someone know about us!</li>
+    <li>Send your thanks to our funding bodies!</li>
+    <li>Provide us with your <a href="#">feedback</a> on our service.</li>
+  </ul>
+  <p>If you are a legal practitioner:</p>
+  <ul>
+    <li>Don't take us for granted!</li>
+    <li>Help lobby governments and courts to make their materials available on AustLII.</li>
+    <li>Consider making a tax-deductible <a href="#">contribution</a> to AustLII if you use our service regularly.</li>
+  </ul>
+  <p>If you are a student or staff member in a University:</p>
+  <ul>
+    <li>Sympathise with our ongoing funding concerns!</li>
+  </ul>
+  <p>If you work for an organisation that produces "public legal information", <a href="#">contact us</a> so that we can co-operate!</p>
+</article>
+
+<article class="faq-answer">
+  <h3 id="q7.10"><a href="#" id="q7.10">7.10</a> Can I have a job with AustLII?</h3>
+  <p>From time to time we do have positions available to work with the AustLII team. For current positions available, and general information about employment with AustLII, see our <a href="#">employment page</a>. For ongoing updates, subscribe to <a href="#">News from AustLII</a>.</p>
 </article>
