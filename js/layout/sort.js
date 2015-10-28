@@ -60,36 +60,35 @@ $(function() {
     }
   });
 
-  // Select All / Select None toggle  
-  $('.select-all-none input').on('click', function() {
-    if (this.checked) {
-      $(this).parent().parent().parent().parent().find('.card input').prop('checked', true).parent().addClass('checked');     
+
+
+
+  $('.card-options--detail').on('click', function() {
+    if ($(this).hasClass('checked')) {
+      $(this).removeClass('checked').text('List View');
     } else {
-      $(this).parent().parent().parent().parent().find('.card input').prop('checked', false).parent().removeClass('checked');
-    }
+      $(this).addClass('checked').text('Detail View');
+    };
   });
 
-  // Overall Select All / Select None toggle  
-  $('.select-all-none-overall').on('click', function() {
-    var selector = $('.select-all-none-overall');
-    var input = $(selector).find('input');
-
+  // Card Options: Toggle (for 'select all' / 'select none')
+  $('.card-options--toggle').on('click', function() {
     if ($('body').hasClass('search')) {
       // Adv. Search functionality
-      if ($(selector).hasClass('checked') && $(input.checked)) {
-        $(selector).removeClass('checked').find('label').removeClass('checked').find('input').prop('checked', false);
+      if ($(this).hasClass('checked')) {
+        $(this).removeClass('checked');
         $('.card-checkboxes').addClass('is-collapsed');
       } else {
-        $(selector).addClass('checked').find('label').addClass('checked').find('input').prop('checked', true);
+        $(this).addClass('checked');
         $('.card-checkboxes.is-collapsed').removeClass('is-collapsed');
       }
     } else {
       // Non-Adv.Search functionality
-      if ($(selector).hasClass('checked') && $(input.checked)) {
-        $(selector).removeClass('checked').find('label').removeClass('checked').find('input').prop('checked', false);
+      if ($(this).hasClass('checked')) {
+        $(this).removeClass('checked');
         $('.checkbox input').prop('checked', false).parent().removeClass('checked');
       } else {
-        $(selector).addClass('checked').find('label').addClass('checked').find('input').prop('checked', true);
+        $(this).addClass('checked');
         $('.checkbox input').prop('checked', true).parent().addClass('checked');
       }
     };

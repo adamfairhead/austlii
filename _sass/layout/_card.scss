@@ -1,5 +1,11 @@
 // Card
 
+.home .card ul,
+.database .card ul,
+.results .card ul {
+  font-size: .9em;
+}
+
 .card {
   background: white;
   margin-bottom: 1.5em; 
@@ -61,9 +67,9 @@
   // Odd/Even row styles
   li:nth-child(2n) a,
   .multi:nth-child(2n) {
-    background: #fdfdfd;
-    border-top: $base-border;
-    border-bottom: $base-border;
+    background: #f7fbfd;
+    border-top: 1px solid #e5eff4;
+    border-bottom: 1px solid #e5eff4;
   }
 
   li:last-child,

@@ -15,11 +15,13 @@
 
   &.first-hovered,
   &.first-selected  {
-    @include linear-gradient(50deg, lighten($red, 10) 49%, $red 50%);
+    background: $red;
+    //@include linear-gradient(50deg, lighten($red, 10) 49%, $red 50%);
   }
 
   .inner {
-    @include linear-gradient(lighten($red, 3), $red);
+    background: $red;
+    //@include linear-gradient(lighten($red, 3), $red);
     max-width: 74em;
     margin: 0 auto;
   }

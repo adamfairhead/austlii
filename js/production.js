@@ -1,6 +1,3 @@
-// Add 'visible()' jQuery functionality
-;(function(e){e.fn.visible=function(t,n,r){var i=e(this).eq(0),s=i.get(0),o=e(window),u=o.scrollTop(),a=u+o.height(),f=o.scrollLeft(),l=f+o.width(),c=i.offset().top,h=c+i.height(),p=i.offset().left,d=p+i.width(),v=t===true?h:c,m=t===true?c:h,g=t===true?d:p,y=t===true?p:d,b=n===true?s.offsetWidth*s.offsetHeight:true,r=r?r:"both";if(r==="both")return!!b&&m<=a&&v>=u&&y<=l&&g>=f;else if(r==="vertical")return!!b&&m<=a&&v>=u;else if(r==="horizontal")return!!b&&y<=l&&g>=f}})(jQuery);
-
 $(function() {
   // Select a panel item
   $('#panels a').on('click', function() {
@@ -10,28 +7,43 @@ $(function() {
 
   // Select 'Specific Year' panel dropdown
   $('.year-specific-dropdown').on('click', function() {
-    $('.year-options').removeClass('is-visible');
-    $('.year-specific-options').addClass('is-visible');
-    $('.year-range-dropdown-1, .year-range-dropdown-2').removeClass('is-selected');
-    $(this).addClass('is-selected');
+    if ($(this).hasClass('is-selected')) {
+      $(this).removeClass('is-selected');
+      $('.year-options').removeClass('is-visible');
+    } else {
+      $('.year-options').removeClass('is-visible');
+      $('.year-specific-options').addClass('is-visible');
+      $('.year-range-dropdown-1, .year-range-dropdown-2').removeClass('is-selected');
+      $(this).addClass('is-selected');
+    }
     return false;
   });
 
   // Select 'Year Range #1' panel dropdown
   $('.year-range-dropdown-1').on('click', function() {
-    $('.year-options').removeClass('is-visible');
-    $('.year-range-1-options').addClass('is-visible');
-    $('#panel-year .panel-type-all .is-selected').removeClass('is-selected');
-    $(this).addClass('is-selected');
+    if ($(this).hasClass('is-selected')) {
+      $(this).removeClass('is-selected');
+      $('.year-options').removeClass('is-visible');
+    } else {
+      $('.year-options').removeClass('is-visible');
+      $('.year-range-1-options').addClass('is-visible');
+      $('#panel-year .panel-type-all .is-selected').removeClass('is-selected');
+      $(this).addClass('is-selected');
+    }
     return false;
   });
 
   // Select 'Year Range #2' panel dropdown
   $('.year-range-dropdown-2').on('click', function() {
-    $('.year-options').removeClass('is-visible');
-    $('.year-range-2-options').addClass('is-visible');
-    $('#panel-year .panel-type-all .is-selected').removeClass('is-selected');
-    $(this).addClass('is-selected');
+    if ($(this).hasClass('is-selected')) {
+      $(this).removeClass('is-selected');
+      $('.year-options').removeClass('is-visible');
+    } else {
+      $('.year-options').removeClass('is-visible');
+      $('.year-range-2-options').addClass('is-visible');
+      $('#panel-year .panel-type-all .is-selected').removeClass('is-selected');
+      $(this).addClass('is-selected');
+    }
     return false;
   });
 
@@ -77,22 +89,6 @@ $(function() {
   $(document).on('click', '.annual-reports-button', function() {
     $('.annual-reports').toggleClass('is-open');
   });
-
-
-
-
-
-  // If scroll…
-  $(window).scroll(function() {
-    // Fix Follower sidebar section to the side when scrolling down
-    if ($('.end-of-side').visible(true)) {
-    }
-  });
-
-
-
-
-
 });
 
 $(function() {
@@ -112,9 +108,16 @@ $(function() {
   });
 
   // Select a ribbon item
-  $('#ribbon li a').on('click', function() {
-    $('#ribbon li').removeClass('is-selected');
-    $(this).parent().addClass('is-selected');
+  $('#ribbon li a').on('click', function(e) {
+    if ($(this).parent().hasClass('is-selected')) {
+      $('#panels').removeClass().addClass('is-closed');
+      $('#ribbon li').removeClass('is-selected');
+      $('.year-options').removeClass('is-visible');
+      e.stopPropagation();
+    } else {
+      $('#ribbon li').removeClass('is-selected');
+      $(this).parent().addClass('is-selected');
+    };
   });
 
   // Select 'Type' ribbon item
@@ -240,36 +243,35 @@ $(function() {
     }
   });
 
-  // Select All / Select None toggle  
-  $('.select-all-none input').on('click', function() {
-    if (this.checked) {
-      $(this).parent().parent().parent().parent().find('.card input').prop('checked', true).parent().addClass('checked');     
+
+
+
+  $('.card-options--detail').on('click', function() {
+    if ($(this).hasClass('checked')) {
+      $(this).removeClass('checked').text('List View');
     } else {
-      $(this).parent().parent().parent().parent().find('.card input').prop('checked', false).parent().removeClass('checked');
-    }
+      $(this).addClass('checked').text('Detail View');
+    };
   });
 
-  // Overall Select All / Select None toggle  
-  $('.select-all-none-overall').on('click', function() {
-    var selector = $('.select-all-none-overall');
-    var input = $(selector).find('input');
-
+  // Card Options: Toggle (for 'select all' / 'select none')
+  $('.card-options--toggle').on('click', function() {
     if ($('body').hasClass('search')) {
       // Adv. Search functionality
-      if ($(selector).hasClass('checked') && $(input.checked)) {
-        $(selector).removeClass('checked').find('label').removeClass('checked').find('input').prop('checked', false);
+      if ($(this).hasClass('checked')) {
+        $(this).removeClass('checked');
         $('.card-checkboxes').addClass('is-collapsed');
       } else {
-        $(selector).addClass('checked').find('label').addClass('checked').find('input').prop('checked', true);
+        $(this).addClass('checked');
         $('.card-checkboxes.is-collapsed').removeClass('is-collapsed');
       }
     } else {
       // Non-Adv.Search functionality
-      if ($(selector).hasClass('checked') && $(input.checked)) {
-        $(selector).removeClass('checked').find('label').removeClass('checked').find('input').prop('checked', false);
+      if ($(this).hasClass('checked')) {
+        $(this).removeClass('checked');
         $('.checkbox input').prop('checked', false).parent().removeClass('checked');
       } else {
-        $(selector).addClass('checked').find('label').addClass('checked').find('input').prop('checked', true);
+        $(this).addClass('checked');
         $('.checkbox input').prop('checked', true).parent().addClass('checked');
       }
     };

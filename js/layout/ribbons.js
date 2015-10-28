@@ -15,9 +15,16 @@ $(function() {
   });
 
   // Select a ribbon item
-  $('#ribbon li a').on('click', function() {
-    $('#ribbon li').removeClass('is-selected');
-    $(this).parent().addClass('is-selected');
+  $('#ribbon li a').on('click', function(e) {
+    if ($(this).parent().hasClass('is-selected')) {
+      $('#panels').removeClass().addClass('is-closed');
+      $('#ribbon li').removeClass('is-selected');
+      $('.year-options').removeClass('is-visible');
+      e.stopPropagation();
+    } else {
+      $('#ribbon li').removeClass('is-selected');
+      $(this).parent().addClass('is-selected');
+    };
   });
 
   // Select 'Type' ribbon item

@@ -53,8 +53,9 @@
   background: url('../images/logo.svg') no-repeat;
 
   @include media($medium-screen) {
-    width: 80px;
-    height: 80px;
+    width: 65px;
+    height: 65px;
+    margin-top: 15px;
   }
 
   .home & {

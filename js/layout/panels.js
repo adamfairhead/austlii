@@ -7,28 +7,43 @@ $(function() {
 
   // Select 'Specific Year' panel dropdown
   $('.year-specific-dropdown').on('click', function() {
-    $('.year-options').removeClass('is-visible');
-    $('.year-specific-options').addClass('is-visible');
-    $('.year-range-dropdown-1, .year-range-dropdown-2').removeClass('is-selected');
-    $(this).addClass('is-selected');
+    if ($(this).hasClass('is-selected')) {
+      $(this).removeClass('is-selected');
+      $('.year-options').removeClass('is-visible');
+    } else {
+      $('.year-options').removeClass('is-visible');
+      $('.year-specific-options').addClass('is-visible');
+      $('.year-range-dropdown-1, .year-range-dropdown-2').removeClass('is-selected');
+      $(this).addClass('is-selected');
+    }
     return false;
   });
 
   // Select 'Year Range #1' panel dropdown
   $('.year-range-dropdown-1').on('click', function() {
-    $('.year-options').removeClass('is-visible');
-    $('.year-range-1-options').addClass('is-visible');
-    $('#panel-year .panel-type-all .is-selected').removeClass('is-selected');
-    $(this).addClass('is-selected');
+    if ($(this).hasClass('is-selected')) {
+      $(this).removeClass('is-selected');
+      $('.year-options').removeClass('is-visible');
+    } else {
+      $('.year-options').removeClass('is-visible');
+      $('.year-range-1-options').addClass('is-visible');
+      $('#panel-year .panel-type-all .is-selected').removeClass('is-selected');
+      $(this).addClass('is-selected');
+    }
     return false;
   });
 
   // Select 'Year Range #2' panel dropdown
   $('.year-range-dropdown-2').on('click', function() {
-    $('.year-options').removeClass('is-visible');
-    $('.year-range-2-options').addClass('is-visible');
-    $('#panel-year .panel-type-all .is-selected').removeClass('is-selected');
-    $(this).addClass('is-selected');
+    if ($(this).hasClass('is-selected')) {
+      $(this).removeClass('is-selected');
+      $('.year-options').removeClass('is-visible');
+    } else {
+      $('.year-options').removeClass('is-visible');
+      $('.year-range-2-options').addClass('is-visible');
+      $('#panel-year .panel-type-all .is-selected').removeClass('is-selected');
+      $(this).addClass('is-selected');
+    }
     return false;
   });
 

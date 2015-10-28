@@ -30,7 +30,7 @@
 }
 
 #page-main {
-  @include media(max-width $medium-screen) { padding: 0; }
+  padding-top: .5em;
 
   @include media($medium-screen) {
     min-height: 800px;
@@ -58,6 +58,7 @@
 html.no-js .sort-more { display: none !important; }
 
 #page-sort-2 {
+  font-size: .9em;
   background: white;
   padding-top: .5em;
   border: $base-border;
@@ -94,17 +95,53 @@ html.no-js .sort-more { display: none !important; }
   }
 }
 
-#page-sort {
+#page-sort.sort-solo {
+  display: inline-block;
+  font-size: .9em;
   padding-bottom: 1em;
+
+  @include media(max-width $medium-screen) {
+    padding: 0 1em 1em;
+  }
 
   li, a { display: inline-block; }
 
   a {
-    @include transition(all 0.25s ease-in-out);
+    font-size: $discovery-font-size;
+    color: $medium-gray;
+    margin-right: 1em;
+  }
+
+  .selected > a {
+    color: $red;
+    font-weight: bold;
+  }
+
+  .sort-options .selected a {
+    border-radius: 0;
+    padding: .5em .75em;
+    background: $blue;
+    border-bottom: darken($blue, 5) 1px solid;
+    color: white;
+    margin-right: 0;
+  }
+}
+
+#page-sort.sort-tabs {
+  font-size: .9em;
+  padding-bottom: 0;
+  position: relative;
+  bottom: -1px;
+
+  li, a { display: inline-block; }
+
+  a {
+    @include transition(all 0.2s ease-in-out);
     padding: .5em;
     font-size: $discovery-font-size;
-    color: $blue;
+    color: $medium-gray;
     border: 1px solid transparent;
+    border-bottom: 0;
   }
 
   .selected > a {
@@ -123,14 +160,6 @@ html.no-js .sort-more { display: none !important; }
     color: white;
     margin-right: 0;
   }
-}
-
-#page-sort.sort-tabs {
-  padding-bottom: 0;
-  position: relative;
-  bottom: -1px;
-
-  a { border-bottom: none; }
 
   .selected > a {
     border-radius: $base-border-radius $base-border-radius 0 0;
@@ -184,7 +213,16 @@ html.no-js .sort-more { display: none !important; }
 
   .database.all & {
     .second-row { display: none; }
-    @include media(min-width em(860)) { .sort-more { display: none; } .second-row { display: block; border-top: $base-border; margin-top: .75em; padding-top: .5em;}}
+    @include media(min-width em(860)) {
+      .sort-more { display: none; }
+
+      .second-row {
+        display: block;
+        border-top: $base-border;
+        margin-top: .75em;
+        padding-top: .5em;
+      }
+    }
   }
 
   .database.journals & {
@@ -205,7 +243,7 @@ html.no-js .sort-more { display: none !important; }
 
   .sort-more {
     & > a {
-      @include transition(all 0.25s ease-in-out);
+      @include transition(all 0.2s ease-in-out);
       width: 70px;
     }
 

@@ -2,6 +2,8 @@
 
 #panels {
   background: $panel-bg;
+  border-top: 1px solid darken($panel-bg, 5);
+  border-bottom: 1px solid darken($panel-bg, 5);
   position: relative;
   z-index: 1;
   overflow: scroll;
@@ -10,6 +12,10 @@
   min-height: 70px;
   @include transition(all 0.25s ease-in-out);
   letter-spacing: -0.01em;
+
+  &.is-closed {
+    border: none;
+  }
 
   .inner {
     max-width: 75em;
@@ -172,6 +178,7 @@
     .year-range-dropdown-1,
     .year-range-dropdown-2,
     .date-range {
+      @include font-feature-settings("tnum");
       padding: .2em .5em;
       margin-left: .7em;
       display: inline-block;
@@ -245,6 +252,7 @@
 
 .year-options-list {
   background: $panel-fg;
+  @include font-feature-settings("tnum");
 }
 
 .year-options {
@@ -264,6 +272,7 @@
   
   li {
     display: inline-block;
+    text-align: center;
 
     // Specific rows/columns for years at certain screen sizes
     @include media(max-width em(480)) {
