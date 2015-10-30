@@ -95,7 +95,7 @@ html.no-js .sort-more { display: none !important; }
   }
 }
 
-#page-sort.sort-solo {
+#page-sort.sort-solo, #pagination-sort.sort-solo {
   display: inline-block;
   font-size: .9em;
   padding-bottom: 1em;
@@ -127,7 +127,7 @@ html.no-js .sort-more { display: none !important; }
   }
 }
 
-#page-sort.sort-tabs {
+#page-sort.sort-tabs, #pagination-sort.sort-tabs {
   font-size: .9em;
   padding-bottom: 0;
   position: relative;
@@ -167,7 +167,46 @@ html.no-js .sort-more { display: none !important; }
   }
 }
 
-#page-sort {
+#pagination-sort { 
+  float: right; 
+  line-height: 2.5em;
+
+  ul {
+    display: inline;
+  }
+  .select-pages { 
+    position: relative;
+    float: right;
+    margin-left: .5em;
+
+    select { 
+      float: right; 
+      background: rgba(0,0,0,.05) !important;
+      border: none;
+      -moz-appearance: none;
+      -webkit-appearance: none;
+      appearance: none;
+      background: none;
+      width: 100%;
+      height:100%;
+      margin: 0;
+      padding: 0.5em 3em 0.5em 0.5em;
+      line-height: 1.5em;
+      text-indent: .5em;
+      outline: none;
+      border-radius: 3px;
+    }
+
+    &:after {
+      content: "▾";
+      color: $medium-gray;
+      position: absolute;
+      right: .5em;
+    }
+  }
+}
+
+#page-sort, #pagination-sort {
   .sort-options { 
     [data-sort="qld"], [data-sort="sa"], [data-sort="tas"], [data-sort="vic"],
     [data-sort="wa"], [data-sort="no"], [data-sort="nz"], [data-sort="js"],
