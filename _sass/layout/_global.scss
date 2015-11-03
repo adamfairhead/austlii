@@ -16,6 +16,29 @@ body {
 
 // Mixins
 
+@mixin list-numerals {
+  counter-increment: counter-numerals;
+  position: relative;
+
+  &:hover::before {
+    background: $medlight-gray;
+    border-radius: 25px;
+    color: $light-gray;
+    content: counter(counter-numerals, decimal) "\002E";
+    font-size: 0.8em;
+    height: 22px;
+    left: -2.2em;
+    line-height: 1.9em;
+    position: absolute;
+    text-align: center;
+    top: 0.7em;
+    width: 22px;
+  }
+
+}
+
+
+
 // Containers move content from the browser edges, so they don't
 // sit flush and awkward.
 %container {
