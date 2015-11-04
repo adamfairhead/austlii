@@ -112,6 +112,29 @@ html.no-js .sort-more { display: none !important; }
     margin-right: 1em;
   }
 
+  .sort-item {
+    &:not(.button) {
+      a {
+        border: 1px solid transparent;
+        border-radius: $base-border-radius;
+        line-height: 2.3;
+        margin-right: 0;
+        padding: 0 .9em;
+      }
+
+      + .button {
+      margin-left: 1em;
+      }
+
+    }
+
+    +.selected:not(.button) {
+      a {
+        border-color: $red;
+      }
+    }
+  }
+
   .selected > a {
     color: $red;
     font-weight: bold;
@@ -183,25 +206,41 @@ html.no-js .sort-more { display: none !important; }
 
       &:hover { background-color: rgba(0,0,0,.1); }
 
-      span {
+      &:last-child { padding-right: 1em; }
+
+      &:first-child::before {
       font-size: 1.5em;
       line-height: .5em;
-      margin: 0.2em 0.4em 0 0;
+      margin: 0.2em 0.4em 0 .2em;
       position: relative;
       top: .05em; 
+      content: "\2039";
+      color: $medium-gray;
       }
 
-      &:last-child {
-
-        span { margin: 0.2em 0 0 0.4em; }
-
+      &:last-child::after { 
+        margin: 0.2em 0 0;
+        content: "\203A";
+        font-size: 1.5em;
+        line-height: .5em;
+        position: relative;
+        top: .05em; 
+        color: $medium-gray;
       }
+
+      &.selected::before { color: $red; }
+      &.selected::after { color: $red; }
   }
 
   .select-pages { 
     position: relative;
     float: right;
     margin-left: .5em;
+
+    &:hover {
+      background: rgba(0,0,0,.05) !important;
+      border-radius: 3px;
+    }
 
     select { 
       float: right; 
@@ -214,7 +253,9 @@ html.no-js .sort-more { display: none !important; }
       width: 100%;
       height:100%;
       margin: 0;
-      padding: 0.55em 3em 0.55em 0.5em;
+      padding: 0.55em 2.2em 0.55em 0;
+      -webkit-padding-start: .3em;
+      -webkit-padding-end: 1.6em;
       line-height: 1.5em;
       text-indent: .5em;
       outline: none;
@@ -226,11 +267,11 @@ html.no-js .sort-more { display: none !important; }
       content: "\25bc";
       color: $medium-gray;
       position: absolute;
-      right: 2.5em;
+      right: 1.8em;
       top: .3em;
       font-size: .5em;
-      -webkit-transform: scaleX(1.5);
       transform: scaleX(1.5);
+      -webkit-transform: scaleX(1.5) translatex(-12%) translatey(4%);
       pointer-events: none;
     }
   }
