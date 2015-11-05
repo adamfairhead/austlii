@@ -18,9 +18,9 @@
       input,
       .month {
         margin-bottom: 0;
-        background: #f4f4f4;
+        background: $light-gray;
+        border: $base-border;
         box-shadow: none;
-        border: none;
         border-radius: $base-border-radius;
         -webkit-appearance: none;
         font-size: .9em;
@@ -73,7 +73,7 @@
 
       &:nth-child(2n) input,
       &:nth-child(2n) .month {
-        background: #EBEEF1;
+        border-color: darken($base-border-color, 3);
       }
 
       p {

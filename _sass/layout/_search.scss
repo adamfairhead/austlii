@@ -14,9 +14,7 @@
     margin: 0;
     padding: 0;
 
-    legend {
-      display: none;
-    }
+    legend { display: none; }
   }
 
   #page-sort & {
@@ -47,16 +45,9 @@
       padding-left: 135px
     }
   }
-
-  @include media($x-large-screen + 10em) {
-    &.is-fixed {
-      position: fixed;
-      z-index: 7;
-      top: 11px;
-    }
-  }
 }
 
+// The down arrow to open search dropdowns
 .search-dropdown {
   @include transition(all 0.25s ease-in-out);
   text-align: center;
@@ -65,34 +56,32 @@
   width: 15%;
   height: 33px;
   font-size: .8em;
-  background: #f4f4f4;
+  background: $light-gray;
+  border: $base-border;
+  border-right: none;
   border-radius: $base-border-radius 0 0 $base-border-radius;
   color: #a1a1a1;
   line-height: 2.7;
 
-  html.no-js & {
-    color: #f4f4f4;
-  }
+  // Gray this out when no JS is available
+  html.no-js & { color: #f4f4f4; }
 
+  // Enable hover states when JS is available
   html.js & {
-    border-right: 1px solid #e3e3e3;
-
-    &:hover {
-      color: black;
-    }
+    &:hover { color: black; }
   }
 
-  @include media(em(480)) {
-    width: 10%;
-  }
+  // Change width on larger screens (since it's % based)
+  @include media(em(480)) { width: 10%; }
 
+  // Change height on larger screens (to match width changes)
   @include media($medium-screen) {
     height: 40px;
     line-height: 3.2;
   }
 }
 
-
+// If no JS, list out these options underneath the search box
 html.no-js .search-options {
   position: absolute;
   top: 38px;
@@ -106,16 +95,15 @@ html.no-js .search-options {
     margin-left: .25em;
   }
 
-  input {
-    margin-left: .25em;
-  }
+  input { margin-left: .25em; }
 }
 
-
+// Reposition search options dropdown on homepage
 html.js .home .search-box .search-options {
   @include media($medium-screen) { left: 135px; }
 }
 
+// Create search options dropdown styles & hide them
 html.js .search-options {
   @include transition(all 0.25s ease-in-out);
   background: #e9e9e9;
@@ -141,18 +129,12 @@ html.js .search-options {
     border-bottom: #d4d4d4 1px solid;
     margin-left: .75em;
 
-    label {
-      padding-left: 0;
-    }
+    label { padding-left: 0; }
 
-    &:last-child {
-      border-bottom: none;
-    }
+    &:last-child { border-bottom: none; }
   }
 
-  label:first-child {
-    padding-top: .5em;
-  }
+  label:first-child { padding-top: .5em; }
 
   li.this-database,
   li.title-only {
@@ -177,18 +159,12 @@ html.js .search-options {
     margin: 4px 4px 0 10px;
   }
 
-  @include media($medium-screen) {
-    top: 40px;
-  }
+  @include media($medium-screen) { top: 40px; }
 
-  @include media($medium-screen + 20em) {
-    .home & {
-      left: 135px;
-    }
-  }
-
+  @include media($medium-screen + 20em) { .home & { left: 135px; }}
 }
 
+// Reveal search options dropdown when you tap .search-dropdown
 .search-box.options-visible {
   .search-options {
     opacity: 1;
@@ -201,6 +177,7 @@ html.js .search-options {
   }
 }
 
+// Make sure search options aren't visible when search is hidden, even if opened
 @include media(max-width $medium-screen + 20em) {
   .options-visible .search-options {
     opacity: 0 !important;
@@ -213,11 +190,12 @@ html.js .search-options {
   }
 }
 
+// The actual input field in the search section
 .search-box input[type="text"] {
   float: left; 
-  background: #f4f4f4;
+  background: $light-gray;
+  border: $base-border;
   box-shadow: none;
-  border: none;
   border-radius: 0 $base-border-radius $base-border-radius 0;
   -webkit-appearance: none;
   width: 85%;
@@ -226,20 +204,17 @@ html.js .search-options {
   padding-bottom: .6em;
   height: 33px;
 
-  @include media(em(480)) {
-    width: 90%;
-  }
+  @include media(em(480)) { width: 90%; }
 
   @include media($medium-screen) {
     height: 40px;
 
     &:hover,
-    &:focus {
-      background: darken(#f4f4f4, 2);
-    }
+    &:focus { background: darken(#f4f4f4, 2); }
   }
 }
 
+// The submit button
 .search-box input[type="submit"] {
   width: 10%;
   height: 27px;
@@ -256,13 +231,9 @@ html.js .search-options {
   top: 3px;
 
   &:hover,
-  &:focus {
-    background-color: darken($red, 10);
-  }
+  &:focus { background-color: darken($red, 10); }
 
-  @include media($medium-screen) {
-    height: 34px;
-  }
+  @include media($medium-screen) { height: 34px; }
 
   @include media($medium-screen + 20em) {
     right: 1.2em;
@@ -270,6 +241,7 @@ html.js .search-options {
   }
 }
 
+// The button that hides search again on mobiles
 .go-primary {
   position: absolute;
   right: 1em;
@@ -281,19 +253,14 @@ html.js .search-options {
   height: 40px;
   padding: 0;
 
-  @include media($medium-screen) {
-    top: -20px;
-  }
+  @include media($medium-screen) { top: -20px; }
 
-  @include media($medium-screen + 20em) {
-    display: none; 
-  }
+  @include media($medium-screen + 20em) { display: none;  }
 }
 
-.search-is-visible #page-search {
-  top: -38px;
-}
+.search-is-visible #page-search { top: -38px; }
 
+// The button that opens search on mobiles
 .go-search {
   width: 40px;
   height: 40px;
@@ -305,13 +272,9 @@ html.js .search-options {
   background: url('../images/search.svg') center right no-repeat;
   background-size: 20px auto;
 
-  @include media($medium-screen) {
-    margin-top: 26px;
-  }
+  @include media($medium-screen) { margin-top: 26px; }
 
-  @include media($medium-screen + 20em) {
-    display: none;
-  }
+  @include media($medium-screen + 20em) { display: none; }
 }
 
 .search #page-content #panels .date-range:first-child {
@@ -319,14 +282,7 @@ html.js .search-options {
   margin-bottom: 6px;
 }
 
-.search .card-checkboxes {
-  max-height: 5000px;
-  @include transition(all 0.5s ease-in-out);
-}
-
-html.no-js .extra-search {
-  display: none;
-}
+html.no-js .extra-search { display: none; }
 
 html.js .extra-search {
   display: none;

@@ -60,8 +60,22 @@ $(function() {
     }
   });
 
+  $(document).on('click', '.select-all-none input', function() {
+    $(this).parent().parent().parent().parent().find('.card-checkboxes .checkbox').toggleClass('checked');
+  });
 
 
+
+  $('.card-options--show').on('click', function() {
+    if ($(this).hasClass('checked')) {
+      $(this).removeClass('checked');
+      $('.card-checkboxes').removeClass('is-collapsed');
+    } else {
+      $(this).addClass('checked');
+      $('.card-checkboxes').addClass('is-collapsed');
+    };
+    return false;
+  });
 
   $('.card-options--detail').on('click', function() {
     if ($(this).hasClass('checked')) {
@@ -92,6 +106,7 @@ $(function() {
         $('.checkbox input').prop('checked', true).parent().addClass('checked');
       }
     };
+    return false;
   });
 
   // Sort alphabetically if Letter search
