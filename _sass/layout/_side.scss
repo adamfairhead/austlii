@@ -30,11 +30,12 @@
 
   @include media($large-screen) {
     @include span-columns(3);
-    margin-top: 1.4em;
+    margin-top: 2.4em;
     display: block;
-    position: absolute;
-    top: 1em;
-    right: 0;
+    position: relative;
+    float: right;
+    //compensate for footer
+    padding-bottom: 10em;
   }
 }
 
