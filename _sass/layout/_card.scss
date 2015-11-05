@@ -8,7 +8,7 @@
 
 
 .results .card ul {
-  @include media(min-width 76.6em) {
+  @include media(min-width 77.5em) {
     li { @include list-numerals; }
   }
 }
