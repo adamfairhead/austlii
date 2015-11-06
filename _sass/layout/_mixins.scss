@@ -1,0 +1,33 @@
+%dropdown {
+  color: $base-font-color;
+  border: $base-border;
+  background: white; 
+  box-shadow: 0 2px 2px rgba(0,0,0,.1);
+  @include transition(all 0.25s ease-in-out);
+  border-radius: $base-border-radius;
+  position: absolute;
+  z-index: 5;
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden; 
+  margin-top: -1px;
+
+  li, a { display: block; }
+
+  li:last-child a { border: none; }
+
+  li a, label {
+    @include transition(all 0 ease-in-out);
+    padding: .5em 1em;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: normal;
+    border-bottom: $base-border;
+    color: $base-font-color;
+  }
+
+  li a:hover {
+    color: $blue;
+    text-decoration: underline;
+  }
+}

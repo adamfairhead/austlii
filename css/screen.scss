@@ -1,7 +1,5 @@
 ---
 ---
-//@import url(http://fonts.googleapis.com/css?family=Noto+Sans:400,700);
-//@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700);
 @import 'source-sans-pro';
 @import 'normalize';
 @import 'bourbon/bourbon';
@@ -9,30 +7,25 @@
 @import 'base/base';
 @import 'neat/neat';
 
-@media screen {
-  @import 'layout/global';
-  @import 'layout/header';
-  @import 'layout/search';
-  @import 'layout/tertiary';
-  @import 'layout/ribbons';
-  @import 'layout/panels';
-  @import 'layout/main';
-  @import 'layout/card';
-  @import 'layout/side';
-  @import 'layout/document';
-  @import 'layout/closing';
+@import 'layout/mixins';
+@import 'layout/global';
+@import 'layout/header';
+@import 'layout/search';
+@import 'layout/tertiary';
+@import 'layout/ribbons';
+@import 'layout/panels';
+@import 'layout/main';
+@import 'layout/card';
+@import 'layout/side';
+@import 'layout/document';
+@import 'layout/closing';
 
-  @import 'layout/contributors';
-  @import 'pages/database_all';
-  @import 'pages/adv_search';
-  @import 'pages/personnel';
+@import 'layout/contributors';
+@import 'pages/database_all';
+@import 'pages/adv_search';
+@import 'pages/personnel';
 
-  @import 'video-js';
-}
-
-@media print {
-  @import 'layout/print';
-}
+@import 'video-js';
 
 // Things that can't live inside a @media
 

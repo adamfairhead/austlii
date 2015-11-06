@@ -18,23 +18,27 @@
     position: absolute;
     right: 0;
   }
-  
-  a {
-    display: inline-block;
-    border-radius: $base-border-radius;
-    background: darken($light-gray, 6);
-    padding: .5em .7em .3em .5em;
-    font-size: .8em;
-    font-weight: normal;
-    color: #888;
-    margin-left: .8em;
-    position: relative;
+}
 
-    &:hover { background: darken($light-gray, 10); }
+#page-content .card-options--detail,
+#page-content .card-options--toggle {
+  display: inline-block;
+  border-radius: $base-border-radius;
+  background: darken($light-gray, 6);
+  padding: .5em .7em .3em .5em;
+  font-size: .8em;
+  font-weight: normal;
+  color: #888;
+  margin-left: .8em;
+  position: relative;
+
+  &:hover {
+    background: darken($light-gray, 10);
+    text-decoration: none;
   }
 }
 
-.card-options .card-options--detail:before {
+.card-options--detail:before {
   background: url('../images/detail-off.svg');
   content: '';
   width: 17px;
@@ -44,11 +48,11 @@
   margin-right: .5em;
 }
 
-.card-options .card-options--detail.checked:before {
+.card-options--detail.checked:before {
   background: url('../images/detail-on.svg');
 }
 
-.card-options .card-options--toggle {
+#page-content .card-options--toggle {
   padding-left: 30px;
 
   &:before {
@@ -66,7 +70,9 @@
     outline: none; 
   }
 
-  &:hover:before { border-color: darken($base-border-color, 15); }
+  &:hover:before {
+    border-color: darken($base-border-color, 15);
+  }
 
   &.checked {
     &:before {

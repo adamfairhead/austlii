@@ -128,14 +128,6 @@ html.no-js .sort-more { display: none !important; }
     color: $red;
     font-weight: bold;
   }
-
-  .sort-options .selected a {
-    padding: .5em .75em;
-    background: $blue;
-    border-bottom: darken($blue, 5) 1px solid;
-    color: white;
-    margin-right: 0;
-  }
 }
 
 #page-sort.sort-tabs {
@@ -144,7 +136,8 @@ html.no-js .sort-more { display: none !important; }
   position: relative;
   bottom: -1px;
 
-  li, a { display: inline-block; }
+  & > ul > li,
+  & > ul > li > a { display: inline-block; }
 
   a {
     @include transition(all 0.2s ease-in-out);
@@ -155,27 +148,19 @@ html.no-js .sort-more { display: none !important; }
     border-bottom: 0;
   }
 
-  .selected > a {
+  & > ul > .selected > a {
     color: $base-font-color;
     border: $base-border;
     padding: .5em 1em;
     background: white; 
-    border-radius: $base-border-radius;
-  }
-
-  .sort-options .selected a {
-    border-radius: 0;
-    padding: .5em .75em;
-    background: $blue;
-    border-bottom: darken($blue, 5) 1px solid;
-    color: white;
-    margin-right: 0;
-  }
-
-  .selected > a {
     border-radius: $base-border-radius $base-border-radius 0 0;
     border-bottom: 0;
   }
+
+  .sort-options .selected a {
+    color: $blue;
+  }
+
 }
 
 #pagination-sort { 
@@ -333,41 +318,15 @@ html.no-js .sort-more { display: none !important; }
     &.selected > a:after { color: $action-color; }
   }
 
-  .sort-options { 
-    @include transition(all 0.25s ease-in-out);
+  .sort-options {
+    @extend %dropdown;
+    margin-top: -0.5px;
     width: 140px;
-    background: #f4f4f4;
-    box-shadow: 0 1px 1px rgba(0,0,0,.15);
     border-radius: 0 $base-border-radius $base-border-radius $base-border-radius;
-    position: absolute;
-    z-index: 5;
-    opacity: 0;
-    max-height: 0;
-    overflow: hidden;
 
     @include media(max-width $medium-screen) {
       border-radius: $base-border-radius 0 $base-border-radius $base-border-radius;
       margin-left: -70px;
-    }
-
-    li, a { display: block; }
-
-    a {
-      @include transition(all 0 ease-in-out);
-      padding: .5em .75em;
-      font-weight: normal;
-      border-bottom: #d4d4d4 1px solid;
-      color: #838383;
-
-      &:hover {
-        background: $blue;
-        border-color: darken($blue, 5);
-        color: white;
-      }
-    }
-
-    li:last-child a {
-      border: none;
     }
   }
 
@@ -378,9 +337,14 @@ html.no-js .sort-more { display: none !important; }
     }
 
     .sort-more > a {
-      background: #f4f4f4;
+      color: $base-font-color;
+      border: $base-border;
+      border-bottom: none;
+      padding: .5em 1em;
+      background: white; 
       border-radius: $base-border-radius $base-border-radius 0 0;
-      color: #838383;
+      position: relative;
+      z-index: 6;
     }
   }
 }

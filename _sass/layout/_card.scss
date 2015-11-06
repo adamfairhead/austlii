@@ -1,24 +1,18 @@
 // Card
 
-.home .card ul,
-.database .card ul,
-.results .card ul {
-  font-size: .9em;
-}
-
-
 .results .card ul {
   @include media(min-width 77.5em) {
     li { @include list-numerals; }
   }
 }
 
-
 .card {
   background: white;
   margin-bottom: 1.5em; 
   border-top: $base-border;
   border-bottom: $base-border;
+  border-radius: $base-border-radius;
+  box-shadow: 0 1px 2px rgba(0,0,0,.08);
 
   // For when cards have checkboxes in the rows
   &.card-checkboxes a { padding: .5em 1em .5em 3.5em; }
