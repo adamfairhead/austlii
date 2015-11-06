@@ -9,6 +9,13 @@
     bottom: 0;
     right: 1em;
     z-index: 3;
+
+    .database.all &,
+    .database.cases & {
+      position: relative;
+      padding-left: 1em;
+      width: 30em;
+    }
   }
 
   .inner {
