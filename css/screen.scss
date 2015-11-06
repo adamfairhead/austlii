@@ -40,7 +40,10 @@
 .hide { display: none; }
 
 // Buttons
-#page-content .button {
+#page-content .button,
+.select-pages select,
+.sort-item.prev a,
+.sort-item.next a {
   @extend button;
   font-weight: normal;
 }

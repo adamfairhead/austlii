@@ -95,44 +95,33 @@ html.no-js .sort-more { display: none !important; }
   }
 }
 
-#page-sort.sort-solo, #pagination-sort.sort-solo {
+#page-sort.sort-solo,
+#pagination-sort {
   display: inline-block;
-  font-size: .9em;
+  font-size: $side-font-size;
   padding-bottom: 1em;
 
-  @include media(max-width $medium-screen) {
-    padding: 0 1em 1em;
+  li, a {
+    float: left;
+    margin-right: .25em;
   }
 
-  li, a { display: inline-block; }
-
   a {
-    font-size: $discovery-font-size;
     color: $medium-gray;
     margin-right: 1em;
   }
 
-  .sort-item {
-    &:not(.button) {
-      a {
-        border: 1px solid transparent;
-        border-radius: $base-border-radius;
-        line-height: 2.3;
-        margin-right: 0;
-        padding: 0 .9em;
-      }
+  .sort-item a {
+    border: 1px solid transparent;
+    border-radius: $base-border-radius;
+    line-height: 2.3;
+    margin-right: 0;
+    padding: 0 .5em;
+  }
 
-      + .button {
-      margin-left: 1em;
-      }
-
-    }
-
-    +.selected:not(.button) {
-      a {
-        border-color: $red;
-      }
-    }
+  .sort-item.selected a {
+    border-color: $red;
+    padding: 0 .75em;
   }
 
   .selected > a {
@@ -141,7 +130,6 @@ html.no-js .sort-more { display: none !important; }
   }
 
   .sort-options .selected a {
-    border-radius: 0;
     padding: .5em .75em;
     background: $blue;
     border-bottom: darken($blue, 5) 1px solid;
@@ -150,7 +138,7 @@ html.no-js .sort-more { display: none !important; }
   }
 }
 
-#page-sort.sort-tabs, #pagination-sort.sort-tabs {
+#page-sort.sort-tabs {
   font-size: .9em;
   padding-bottom: 0;
   position: relative;
@@ -191,45 +179,43 @@ html.no-js .sort-more { display: none !important; }
 }
 
 #pagination-sort { 
-  @include fill-parent();
-  line-height: 2.5em;
+  width: 100%;
 
   ul {
-    display: inline;
+    display: inline-block;
   }
 
-  .button {
-      background-color: rgba(0,0,0,.05);
-      margin-right: 1em;
-      margin-bottom: .4em;
-      padding-right: 0;
+  .prev a:before {
+    font-size: 1.5em;
+    line-height: .5em;
+    margin: 0 .5em 0 0;
+    position: relative;
+    top: 1px; 
+    content: "\2039";
+    color: $medium-gray;
+  }
 
-      &:hover { background-color: rgba(0,0,0,.1); }
+  .next a:after {
+    margin: 0 0 0 .5em;
+    content: "\203A";
+    font-size: 1.5em;
+    line-height: .5em;
+    position: relative;
+    top: 1px; 
+    color: $medium-gray;
+  }
 
-      &:last-child { padding-right: 1em; }
+  .prev a,
+  .next a{
+    background: $base-border-color;
 
-      &:first-child::before {
-      font-size: 1.5em;
-      line-height: .5em;
-      margin: 0.2em 0.4em 0 .2em;
-      position: relative;
-      top: .05em; 
-      content: "\2039";
-      color: $medium-gray;
-      }
+    &:hover { background: darken($base-border-color, 5); }
+  }
 
-      &:last-child::after { 
-        margin: 0.2em 0 0;
-        content: "\203A";
-        font-size: 1.5em;
-        line-height: .5em;
-        position: relative;
-        top: .05em; 
-        color: $medium-gray;
-      }
-
-      &.selected::before { color: $red; }
-      &.selected::after { color: $red; }
+  .prev.selected a,
+  .next.selected a {
+    border: 1px solid transparent;
+    color: $medium-gray;
   }
 
   .select-pages { 
@@ -237,38 +223,20 @@ html.no-js .sort-more { display: none !important; }
     float: right;
     margin-left: .5em;
 
-    &:hover {
-      background: rgba(0,0,0,.05) !important;
-      border-radius: 3px;
-    }
-
     select { 
-      float: right; 
-      background: rgba(0,0,0,.05) !important;
-      border: none;
-      -moz-appearance: none;
-      -webkit-appearance: none;
-      appearance: none;
-      background: none;
-      width: 100%;
-      height:100%;
-      margin: 0;
-      padding: 0.55em 2.2em 0.55em 0;
-      -webkit-padding-start: .3em;
-      -webkit-padding-end: 1.6em;
-      line-height: 1.5em;
-      text-indent: .5em;
-      outline: none;
-      border-radius: 3px;
+      background: $base-border-color;
       color: $medium-gray;
+      padding-right: 1.8em;
+
+      &:hover { background: darken($base-border-color, 5); }
     }
 
     &:after {
       content: "\25bc";
       color: $medium-gray;
       position: absolute;
-      right: 1.8em;
-      top: .3em;
+      right: 1em;
+      top: 1.2em;
       font-size: .5em;
       transform: scaleX(1.5);
       -webkit-transform: scaleX(1.5) translatex(-12%) translatey(4%);
@@ -277,7 +245,7 @@ html.no-js .sort-more { display: none !important; }
   }
 }
 
-#page-sort, #pagination-sort {
+#page-sort {
   .sort-options { 
     [data-sort="qld"], [data-sort="sa"], [data-sort="tas"], [data-sort="vic"],
     [data-sort="wa"], [data-sort="no"], [data-sort="nz"], [data-sort="js"],
@@ -328,9 +296,7 @@ html.no-js .sort-more { display: none !important; }
 
       .second-row {
         display: block;
-        border-top: $base-border;
-        margin-top: .75em;
-        padding-top: .5em;
+        clear: both;
       }
     }
   }

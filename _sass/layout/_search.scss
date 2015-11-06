@@ -63,8 +63,7 @@
   color: #a1a1a1;
   line-height: 2.7;
 
-  // Gray this out when no JS is available
-  html.no-js & { color: #f4f4f4; }
+  html.no-js & { color: $light-gray; }
 
   // Enable hover states when JS is available
   html.js & {
@@ -210,7 +209,7 @@ html.js .search-options {
     height: 40px;
 
     &:hover,
-    &:focus { background: darken(#f4f4f4, 2); }
+    &:focus { background: darken($light-gray, 2);` }
   }
 }
 
