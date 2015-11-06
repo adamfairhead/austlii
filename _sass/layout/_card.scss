@@ -113,16 +113,11 @@
   padding-top: .55em;
   margin-bottom: 0;
 
-  &.title-checkbox {
-    padding-left: .9em;
-
-    .select-all-none {
-      padding-right: .75em;
-
-      @include media($medium-screen) {
-        padding-right: 1em;
-      }
-    }
+  .checkbox {
+    top: .5em;
+    margin-left: 1.5px;
+    margin-right: .95em;
+    position: relative;
   }
 
   // Increase padding of first title when small
@@ -145,19 +140,10 @@
     color: $base-font-color;
     font-weight: bold;
 
-    @media print {
-      padding: 0;
-      margin: 0;
+    .checkbox {
+      margin-right: .7em;
     }
   }
-}
-
-// All/None toggle switches
-.select-all-none {
-  display: inline;
-  padding: 0 .55em 0 0;
-
-  label { margin: 0 0 -2px; }
 }
 
 // Checkboxes

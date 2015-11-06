@@ -21,7 +21,9 @@
 }
 
 #page-content .card-options--detail,
-#page-content .card-options--toggle {
+#page-content .card-options--toggle,
+#page-content .card-options--solo,
+#page-content .card-options--expand {
   display: inline-block;
   border-radius: $base-border-radius;
   background: darken($light-gray, 6);
@@ -52,7 +54,9 @@
   background: url('../images/detail-on.svg');
 }
 
-#page-content .card-options--toggle {
+#page-content .card-options--toggle,
+#page-content .card-options--solo,
+#page-content .card-options--expand {
   padding-left: 30px;
 
   &:before {

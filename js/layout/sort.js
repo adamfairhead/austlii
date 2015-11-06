@@ -60,11 +60,13 @@ $(function() {
     }
   });
 
-  $(document).on('click', '.select-all-none input', function() {
-    $(this).parent().parent().parent().parent().find('.card-checkboxes .checkbox').toggleClass('checked');
+  $(document).on('click', '.card-title input', function() {
+    if ($(this).parent().hasClass('checked')) {
+      $(this).parent().parent().parent().find('.card-checkboxes .checkbox').addClass('checked');
+    } else {
+      $(this).parent().parent().parent().find('.card-checkboxes .checkbox').removeClass('checked');
+    };
   });
-
-
 
   $('.card-options--show').on('click', function() {
     if ($(this).hasClass('checked')) {
@@ -85,29 +87,41 @@ $(function() {
     };
   });
 
-  // Card Options: Toggle (for 'select all' / 'select none')
-  $('.card-options--toggle').on('click', function() {
-    if ($('body').hasClass('search')) {
-      // Adv. Search functionality
-      if ($(this).hasClass('checked')) {
-        $(this).removeClass('checked');
-        $('.card-checkboxes').addClass('is-collapsed');
-      } else {
-        $(this).addClass('checked');
-        $('.card-checkboxes.is-collapsed').removeClass('is-collapsed');
-      }
+  // Card Options: Solo (for non-visual changes)
+  $('.card-options--solo').on('click', function() {
+    if ($(this).hasClass('checked')) {
+      $(this).removeClass('checked');
     } else {
-      // Non-Adv.Search functionality
-      if ($(this).hasClass('checked')) {
-        $(this).removeClass('checked');
-        $('.checkbox input').prop('checked', false).parent().removeClass('checked');
-      } else {
-        $(this).addClass('checked');
-        $('.checkbox input').prop('checked', true).parent().addClass('checked');
-      }
-    };
+      $(this).addClass('checked');
+    }
     return false;
   });
+
+  // Narrow Results option for Adv. Search
+  $('.search #show-databases').on('click', function(e) {
+    if ($(this).hasClass('checked')) {
+      $(this).removeClass('checked');
+      $('.card-checkboxes').addClass('is-collapsed');
+    } else {
+      $(this).addClass('checked');
+      $('.card-checkboxes.is-collapsed').removeClass('is-collapsed');
+    }
+    e.stopPropagation();
+    return false;
+  });
+
+  // Card Options: Toggle (for 'select all' / 'select none')
+  $('.card-options--toggle').on('click', function() {
+    if ($(this).hasClass('checked')) {
+      $(this).removeClass('checked');
+      $('.checkbox input').prop('checked', false).parent().removeClass('checked');
+    } else {
+      $(this).addClass('checked');
+      $('.checkbox input').prop('checked', true).parent().addClass('checked');
+    }
+    return false;
+  });
+
 
   // Sort alphabetically if Letter search
   $('#panel-letter a').on('click', function() {
