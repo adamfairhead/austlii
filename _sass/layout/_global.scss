@@ -14,31 +14,6 @@ body {
   }
 }
 
-// Mixins
-
-@mixin list-numerals {
-  counter-increment: counter-numerals;
-  position: relative;
-
-  &:hover::before {
-    background: $medlight-gray;
-    border-radius: 25px;
-    color: $light-gray;
-    content: counter(counter-numerals, decimal);
-    font-size: .8em;
-    height: 18px;
-    left: -2.7em;
-    line-height: 18px;
-    position: absolute;
-    text-align: center;
-    top: .8em;
-    width: 18px;
-  }
-
-}
-
-
-
 // Containers move content from the browser edges, so they don't
 // sit flush and awkward.
 %container {

@@ -1,9 +1,21 @@
 // Card
 
-.results .card ul {
-  @include media(min-width 77.5em) {
-    li { @include list-numerals; }
+.results .card li:before {
+  @include media(min-width 80em) {
+    content: attr(data-count);
+    color: $medium-gray;
+    position: absolute;
+    padding: .5em 0;
+    font-size: $discovery-font-size;
+    left: -30px;
+    text-align: right;
+    width: 30px;
+    opacity: 0;
   }
+}
+
+.results .card li:hover:before {
+  opacity: .5;
 }
 
 .card {
