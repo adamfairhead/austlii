@@ -20,7 +20,6 @@
 
 // Main right-sidebar
 #page-side {
-  padding-right: 1em;
   font-size: $side-font-size;
   word-break: break-word;
 
@@ -30,6 +29,7 @@
 
   @include media($large-screen) {
     @include span-columns(3);
+    @include omega;
     margin-top: 2.4em;
     display: block;
     position: relative;
