@@ -97,36 +97,31 @@ html.no-js .sort-more { display: none !important; }
 
 #page-sort.sort-solo,
 #pagination-sort {
+  padding: .5em 1em 0;
   display: inline-block;
   font-size: $side-font-size;
-  padding-bottom: 1em;
+
+  @include media($medium-screen) {
+    padding: 0 1em 1em;
+  }
 
   li, a {
-    float: left;
-    margin-right: .25em;
+    display: inline-block;
   }
 
-  a {
+  & > ul > li a {
     color: $medium-gray;
-    margin-right: 1em;
-  }
-
-  .sort-item a {
     border: 1px solid transparent;
     border-radius: $base-border-radius;
     line-height: 2.3;
-    margin-right: 0;
     padding: 0 .5em;
   }
 
-  .sort-item.selected a {
-    border-color: $red;
-    padding: 0 .75em;
-  }
-
-  .selected > a {
+  & > ul > .selected > a {
     color: $red;
     font-weight: bold;
+    border-color: $red;
+    padding: 0 .75em;
   }
 }
 
@@ -156,11 +151,6 @@ html.no-js .sort-more { display: none !important; }
     border-radius: $base-border-radius $base-border-radius 0 0;
     border-bottom: 0;
   }
-
-  .sort-options .selected a {
-    color: $blue;
-  }
-
 }
 
 #pagination-sort { 
@@ -260,13 +250,13 @@ html.no-js .sort-more { display: none !important; }
   .database.all & ,
   .database.cases &,
   .database.status & {
-    @include media(max-width em(430)) { [data-sort="qld"] { display: none; } .sort-options [data-sort="qld"] { display: inline; }}
-    @include media(max-width em(470)) { [data-sort="sa"]  { display: none; } .sort-options [data-sort="sa"]  { display: inline; }}
-    @include media(max-width em(520)) { [data-sort="tas"] { display: none; } .sort-options [data-sort="tas"] { display: inline; }}
-    @include media(max-width em(560)) { [data-sort="vic"] { display: none; } .sort-options [data-sort="vic"] { display: inline; }}
-    @include media(max-width em(680)) { [data-sort="wa"]  { display: none; } .sort-options [data-sort="wa"]  { display: inline; }}
-    @include media(max-width em(790)) { [data-sort="no"]  { display: none; } .sort-options [data-sort="no"]  { display: inline; }}
-    @include media(max-width em(860)) { [data-sort="nz"]  { display: none; } .sort-options [data-sort="nz"]  { display: inline; }}
+    @include media(max-width em(430)) { [data-sort="qld"] { display: none; } .sort-options [data-sort="qld"] { display: block; }}
+    @include media(max-width em(470)) { [data-sort="sa"]  { display: none; } .sort-options [data-sort="sa"]  { display: block; }}
+    @include media(max-width em(520)) { [data-sort="tas"] { display: none; } .sort-options [data-sort="tas"] { display: block; }}
+    @include media(max-width em(560)) { [data-sort="vic"] { display: none; } .sort-options [data-sort="vic"] { display: block; }}
+    @include media(max-width em(680)) { [data-sort="wa"]  { display: none; } .sort-options [data-sort="wa"]  { display: block; }}
+    @include media(max-width em(790)) { [data-sort="no"]  { display: none; } .sort-options [data-sort="no"]  { display: block; }}
+    @include media(max-width em(860)) { [data-sort="nz"]  { display: none; } .sort-options [data-sort="nz"]  { display: block; }}
     @include media(min-width em(860)) { .sort-more { display: none; }}
   }
 
@@ -318,6 +308,8 @@ html.no-js .sort-more { display: none !important; }
     &.selected > a:after { color: $action-color; }
   }
 
+  &.sort-solo .sort-more.selected > a:after { color: $red; }
+
   .sort-options {
     @extend %dropdown;
     margin-top: -0.5px;
@@ -328,6 +320,8 @@ html.no-js .sort-more { display: none !important; }
       border-radius: $base-border-radius 0 $base-border-radius $base-border-radius;
       margin-left: -70px;
     }
+
+    .selected a { color: $blue; }
   }
 
   &.options-visible {

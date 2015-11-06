@@ -135,10 +135,14 @@
   // Larger black titles above cards
   &.card-title-large {
     font-size: 1.2em;
-    padding: .5em .8em;
-    margin-bottom: .3em;
+    padding: .5em .8em 0;
     color: $base-font-color;
     font-weight: bold;
+
+    @include media($medium-screen) {
+      padding: .5em .8em;
+      margin-bottom: .3em;
+    }
 
     .checkbox {
       margin-right: .7em;
