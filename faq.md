@@ -5,12 +5,35 @@ class: about document
 database: About AustLII
 ---
 <div id="page-index">
-  <div class="side-element side-authors">
-    {% include svg/icon-index.svg %}
+  <div class="side-element side-toc">
+    <!--{% include svg/icon-index.svg %}-->
     <a class="index-expand" href="javascript:void(0);">Show</a>
     <h4>Table of Contents</h4>
     <ul>
-      <li><a href="#q1">1. Content, Databases and Markup</a></li>
+      <li>
+        <a href="#q1">1. Content, Databases and Markup</a>
+        <ul>
+          <li><a href="#q1.1">I have found a wrong (or acontextual) link!</a></li>
+          <li><a href="#q1.2">I have found a broken link!</a></li>
+          <li><a href="#q1.3">How do you do the hypertext markup?</a></li>
+          <li><a href="#q1.4">Why is the alphabetic list of cases wrong?</a></li>
+          <li>
+            <a href="#q1.5">How do I find the XYZ Act or Regulation?</a>
+            <ul>
+              <li><a href="#q1.5.1">Using Autosearch</a></li>
+              <li><a href="#q1.5.2">Browsing</a></li>
+              <li><a href="#q1.5.3">Searching</a></li>
+            </ul>
+          </li>
+          <li><a href="#q1.6">How up to date is the XYZ database?</a></li>
+          <li><a href="#q1.7">Does AustLII publish an authorised version of XYZ?</a></li>
+          <li><a href="#q1.8">When will materials from XYZ be added to AustLII?</a></li>
+          <li><a href="#q1.9">How do you choose the cases which will be reported?</a></li>
+          <li><a href="#q1.10">The publication of the XYZ case is a breach of my privacy. Will you remove it?</a></li>
+          <li><a href="#q1.11">When are you going to provide transcripts of cases?</a></li>
+          <li><a href="#q1.12">Who inserts medium neutral citations in Court and Tribunal decisions?</a></li>
+        </ul>
+      </li>
       <li><a href="#q2">2. Searching and SINO</a></li>
       <li><a href="#q3">3. Network Access, Speed and Reliability</a></li>
       <li><a href="#q4">4. Browsers, Viewing, Downloading and Printing</a></li>
@@ -52,9 +75,9 @@ database: About AustLII
 <article class="faq-answer">
   <h3 id="q1.5"><a href="#q1.5">1.5</a> How do I find the XYZ Act or Regulation?</h3>
   <ul>
-    <li><strong>Using Autosearch:</strong> The simplest way to find an Act or a section an Act is to just type the name and or section reference into the search box on the AustLII opening page. Austsearch will detect this and will diplay a list of matching legislation from all jurisdictions.</li>
-    <li><strong>Browsing:</strong> If you know the jurisdiction (ie Commnwealth, NSW etc) name of the Act or Regulation for which you are looking, the best approach may be to browse for it by clicking on the relevant jurisdiction from the AustLII Databases page, choosing the appropriate act or regulation database, and then selecting from the alphabetical list.</li>
-    <li><strong>Searching:</strong> If you do not know the jurisdiction (ie Commonwealth, NSW etc), but know the name of the Act or Regulation for which you are looking, go to the Search AustLII page, set your find type to this legislation name and select "All Legislation Databases" for the databases to search. If you do know the name of the jurisdiction, then select the appropriate database (eg "NSW: All Legislation").</li>
+    <li id="q1.5.1"><strong>Using Autosearch:</strong> The simplest way to find an Act or a section an Act is to just type the name and or section reference into the search box on the AustLII opening page. Austsearch will detect this and will diplay a list of matching legislation from all jurisdictions.</li>
+    <li id="q1.5.2"><strong>Browsing:</strong> If you know the jurisdiction (ie Commnwealth, NSW etc) name of the Act or Regulation for which you are looking, the best approach may be to browse for it by clicking on the relevant jurisdiction from the AustLII Databases page, choosing the appropriate act or regulation database, and then selecting from the alphabetical list.</li>
+    <li id="q1.5.3"><strong>Searching:</strong> If you do not know the jurisdiction (ie Commonwealth, NSW etc), but know the name of the Act or Regulation for which you are looking, go to the Search AustLII page, set your find type to this legislation name and select "All Legislation Databases" for the databases to search. If you do know the name of the jurisdiction, then select the appropriate database (eg "NSW: All Legislation").</li>
   </ul>
 </article>
 

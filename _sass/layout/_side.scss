@@ -5,6 +5,7 @@
   padding-right: 1em;
   word-break: break-word;
   font-size: $side-font-size;
+  background: white;
 
   @include media($medium-screen) {
     float: right;
@@ -128,6 +129,10 @@
     border: $base-border;
   }
 
+  &.side-toc {
+    padding-left: 1em;
+  }
+
   @include media(max-width $large-screen) { padding-left: 2.5em; }
 
   // Sidebar link lists
@@ -154,10 +159,11 @@
     padding-left: .5em;
 
     &:before {
-      content: '• ';
+      content: '\2022 ';
       padding-right: .5em;
       float: left;
       color: #b6b6b6;
+      line-height: 1.2em;
     }
   }
 
