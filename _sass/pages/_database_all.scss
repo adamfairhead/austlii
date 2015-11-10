@@ -20,9 +20,9 @@
   }
 }
 
-#page-content .card-options--detail,
 #page-content .card-options--toggle,
 #page-content .card-options--solo,
+#page-content .card-options--link,
 #page-content .card-options--expand {
   display: inline-block;
   border-radius: $base-border-radius;
@@ -40,22 +40,9 @@
   }
 }
 
-.card-options--detail:before {
-  background: url('../images/detail-off.svg');
-  content: '';
-  width: 17px;
-  height: 17px;
-  display: block;
-  float: left;
-  margin-right: .5em;
-}
-
-.card-options--detail.checked:before {
-  background: url('../images/detail-on.svg');
-}
-
 #page-content .card-options--toggle,
 #page-content .card-options--solo,
+#page-content .card-options--link,
 #page-content .card-options--expand {
   padding-left: 30px;
 
