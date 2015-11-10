@@ -153,6 +153,37 @@ $(function() {
     $('#page-header').toggleClass('search-is-visible');
   });
 
+  // Hovering on the search box
+  $(document).on('mouseover', '.search-box', function() {
+    $('.search-box').addClass('hover');
+  });
+  $(document).on('mouseout', '.search-box', function() {
+    $('.search-box').removeClass('hover');
+  });
+  $(document).on('focus', '#search-box', function() {
+    $('.search-box').addClass('focus');
+  });
+  $(document).on('focusout', '#search-box', function() {
+    $('.search-box').removeClass('focus');
+  });
+
+  // Clear search box
+  if( $('#search-box').val().length === 0 ) {}else{
+    $('.search-box-clear').removeClass('hide');
+  };
+  $('#search-box').keyup(function() {
+    if( $(this).val().length === 0 ) {
+      $('.search-box-clear').addClass('hide');
+    } else {
+      $('.search-box-clear').removeClass('hide');
+    };
+  });
+
+  $(document).on('click', '.search-box-clear', function() {
+    $('#search-box').val('');
+    $(this).addClass('hide');
+  });
+
   // Close search options when you click on the page
   $(document).on('click', function() {
     $('.search-box').removeClass('options-visible');
@@ -250,8 +281,6 @@ $(function() {
       $(this).parent().parent().parent().find('.card-checkboxes .checkbox').removeClass('checked');
     };
   });
-
-
 
   $('.card-options--show').on('click', function() {
     if ($(this).hasClass('checked')) {

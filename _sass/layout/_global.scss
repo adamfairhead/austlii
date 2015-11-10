@@ -12,6 +12,9 @@ body {
       @include background-image(linear-gradient(left, white 49%, $light-gray 50%));
     }
   }
+
+  @include media($xx-large-screen) { font-size: 1.1em; }
+  @include media($xxx-large-screen) { font-size: 1.2em; }
 }
 
 // Containers move content from the browser edges, so they don't

@@ -57,9 +57,18 @@
       display: inline;
     }
 
-    @media print {
-      padding: 0;
-      margin: 0;
+    p a {
+    }
+
+    .meta {
+      font-size: $side-font-size;
+
+      span, a {
+        margin: .4em 0 0 0;
+        display: inline-block;
+        margin-right: 1em;
+        color: $medium-gray; 
+      }
     }
   }
 
