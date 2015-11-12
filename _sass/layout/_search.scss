@@ -80,6 +80,16 @@
     height: 40px;
     line-height: 3.2;
   }
+  // Change height on x-larger screens (to match width changes)
+  @include media($xx-large-screen) {
+    height: 40px;
+    line-height: 2.8;
+  }
+  // Change height on xx-larger screens (to match width changes)
+  @include media($xxx-large-screen) {
+    height: 40px;
+    line-height: 2.5;
+  }
 }
 
 // If no JS, list out these options underneath the search box

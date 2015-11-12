@@ -202,20 +202,26 @@ html.no-js .sort-more { display: none !important; }
       background: $base-border-color;
       color: $medium-gray;
       padding-right: 1.8em;
+      -moz-appearance: none;
+      appearance: none;
 
       &:hover { background: darken($base-border-color, 5); }
     }
 
     &:after {
-      content: "\25bc";
-      color: $medium-gray;
+      border: solid transparent;
+      content: " ";
+      height: 0;
+      width: 0;
       position: absolute;
-      right: 1em;
-      top: 1.2em;
-      font-size: .5em;
-      transform: scaleX(1.5);
-      -webkit-transform: scaleX(1.5) translatex(-12%) translatey(4%);
       pointer-events: none;
+      border-color: rgba(136, 136, 136, 0);
+      border-top-color: $medium-gray;
+      border-width: 4px;
+      margin-left: -4px;
+      right: 1.2em;
+      top: 1.4em;
+      -webkit-transform: translatey(-25%);
     }
   }
 }
