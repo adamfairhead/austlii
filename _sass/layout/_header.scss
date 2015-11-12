@@ -99,6 +99,7 @@
   display: table-cell;
   vertical-align: middle;
 
+  @include media(em(420)) { width: 250px; }
   @include media(em(480)) { width: 350px; }
   @include media(em(530)) { width: 410px; }
   @include media($medium-screen + 20em) { width: 360px; }
@@ -123,11 +124,12 @@
       text-overflow: ellipsis;
       overflow: hidden;
       white-space: nowrap;
-      width: 450px;
+      width: 200px;
     }
+ 
+    @include media(em(360)) { width: 250px; }
 
-    @include media(max-width em(560)) { width: 350px; }
-    @include media(max-width em(480)) { width: 200px; }
+    @include media(em(560)) { width: 450px; }
   }
 
   .home & {

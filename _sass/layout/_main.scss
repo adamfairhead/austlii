@@ -57,6 +57,7 @@
 
 html.no-js .sort-more { display: none !important; }
 
+// Search results sort row for joining sort-tabs
 #page-sort-2 {
   font-size: .9em;
   background: white;
@@ -105,9 +106,7 @@ html.no-js .sort-more { display: none !important; }
     padding: 0 1em 1em;
   }
 
-  li, a {
-    display: inline-block;
-  }
+  li, a { display: inline-block; }
 
   & > ul > li a {
     color: $medium-gray;
@@ -277,6 +276,7 @@ html.no-js .sort-more { display: none !important; }
 
   .database.all & {
     .second-row { display: none; }
+
     @include media(min-width em(860)) {
       .sort-more { display: none; }
 

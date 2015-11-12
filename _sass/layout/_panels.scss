@@ -37,6 +37,10 @@
     vertical-align: top;
   }
 
+  li:first-child {
+    margin-left: .4em;
+  }
+
   & li > a {
     min-height: 44px;
   }
@@ -93,11 +97,7 @@
   }
 
   &.is-type {
-    height: 90px;
-
-    ul {
-      min-width: 1550px;
-    }
+    ul { min-width: 1550px; }
 
     @include media($medium-screen) {
       height: 105px;
@@ -111,9 +111,7 @@
   }
 
   &.is-jurisdiction {
-    ul {
-      min-width: 850px;
-    }
+    ul { min-width: 850px; }
 
     #panel-jurisdiction {
       max-height: 100px;
@@ -134,11 +132,7 @@
   }
 
   &.is-year {
-    height: 83px;
-
-    ul {
-      min-width: 500px;
-    }
+    ul { min-width: 500px; }
 
     #panel-year {
       max-height: 100px;
@@ -148,15 +142,7 @@
   }
 
   &.is-letter {
-    height: 70px;
-
-    @include media($medium-screen) {
-      height: 80px;
-    }
-
-    ul {
-      min-width: 1400px;
-    }
+    ul { min-width: 1400px; }
 
     #panel-letter {
       max-height: 100px;
@@ -166,13 +152,9 @@
   }
 
   #panel-year {
-    h5 {
-      display: inline-block;
-    }
+    h5 { display: inline-block; }
 
-    select {
-      display: none;
-    }
+    select { display: none; }
 
     .year-specific-dropdown,
     .year-range-dropdown-1,
@@ -263,8 +245,8 @@
   @include transition(all 0.5s ease-in-out);
 
   &.is-visible {
+    max-height: 3000px;
     opacity: 1;
-    max-height: 700px;
     padding-top: .5em;
     padding-bottom: .5em;
   }

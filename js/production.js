@@ -168,8 +168,10 @@ $(function() {
   });
 
   // Clear search box
-  if( $('#search-box').val().length === 0 ) {}else{
-    $('.search-box-clear').removeClass('hide');
+  if($('#search-box').length > 0) {
+    if( $('#search-box').val().length === 0 ) {}else{
+      $('.search-box-clear').removeClass('hide');
+    };
   };
   $('#search-box').keyup(function() {
     if( $(this).val().length === 0 ) {
