@@ -197,8 +197,6 @@ html.no-js .sort-more { display: none !important; }
     position: relative;
     float: right;
     margin-left: .5em;
-    -moz-appearance: none;
-    appearance: none;
 
     select { 
       background: $base-border-color;
@@ -208,6 +206,11 @@ html.no-js .sort-more { display: none !important; }
       appearance: none;
 
       &:hover { background: darken($base-border-color, 5); }
+
+      option { 
+      -moz-appearance: none;
+      appearance: none;
+      }
     }
 
     &:after {
