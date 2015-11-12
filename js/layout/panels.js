@@ -27,7 +27,7 @@ $(function() {
     } else {
       $('.year-options').removeClass('is-visible');
       $('.year-range-1-options').addClass('is-visible');
-      $('#panel-year .panel-type-all .is-selected').removeClass('is-selected');
+      $('#panel-year .is-selected').removeClass('is-selected');
       $(this).addClass('is-selected');
     }
     return false;
@@ -41,7 +41,7 @@ $(function() {
     } else {
       $('.year-options').removeClass('is-visible');
       $('.year-range-2-options').addClass('is-visible');
-      $('#panel-year .panel-type-all .is-selected').removeClass('is-selected');
+      $('#panel-year .is-selected').removeClass('is-selected');
       $(this).addClass('is-selected');
     }
     return false;
