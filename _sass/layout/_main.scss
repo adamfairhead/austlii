@@ -62,9 +62,14 @@ html.no-js .sort-more { display: none !important; }
   font-size: .9em;
   background: white;
   padding-top: .5em;
-  border: $base-border;
-  border-radius: $base-border-radius;
+  border-top: $base-border;
+  border-bottom: $base-border;
   margin-bottom: 1em;
+
+  @include media($medium-screen) {
+    border-radius: $base-border-radius;
+    border: $base-border;
+  }
 
   a {
     display: inline-block;
@@ -86,9 +91,21 @@ html.no-js .sort-more { display: none !important; }
     margin-bottom: .25em;
     padding-bottom: .25em;
     display: inline-block;
-    border-right: $base-border;
-    margin-right: .75em;
-    padding-right: .25em;
+
+    @include media(max-width $medium-screen) {
+      display: block;
+      border-bottom: $base-border;
+
+      &:last-child {
+        border: none;
+      }
+    }
+
+    @include media($medium-screen) {
+      border-right: $base-border;
+      padding-right: .25em;
+      margin-right: .75em;
+    }
 
     &:last-child {
       border: none;
@@ -98,7 +115,7 @@ html.no-js .sort-more { display: none !important; }
 
 #page-sort.sort-solo,
 #pagination-sort {
-  padding: .5em 1em 0;
+  padding: .5em 1em .1em;
   display: inline-block;
   font-size: $side-font-size;
 
@@ -110,17 +127,35 @@ html.no-js .sort-more { display: none !important; }
 
   & > ul > li a {
     color: $medium-gray;
-    border: 1px solid transparent;
+    border: 1px solid #ddd;
+    background: #ddd;
     border-radius: $base-border-radius;
-    line-height: 2.3;
+    line-height: 2.2;
     padding: 0 .5em;
+
+    @include media($medium-screen) {
+      border: 1px solid #eee;
+      background: #eee;
+    }
   }
 
   & > ul > .selected > a {
     color: $red;
-    font-weight: bold;
     border-color: $red;
+    background: transparent;
     padding: 0 .75em;
+  }
+}
+
+#page-sort.sort-solo {
+  .second-row {
+    margin-top: .25em;
+  }
+
+  @include media(max-width $medium-screen) {
+    padding: .6em 1em .6em;
+    background: #eee;
+    margin-top: -0.6em; 
   }
 }
 
@@ -129,9 +164,15 @@ html.no-js .sort-more { display: none !important; }
   padding-bottom: 0;
   position: relative;
   bottom: -1px;
+  margin-top: .2em;
 
-  & > ul > li,
-  & > ul > li > a { display: inline-block; }
+  li, li > a { display: inline-block; }
+
+  // Move the tabs away from the side on small screens
+  @include media(max-width $medium-screen) {
+    li:first-child { margin-left: .5em; }
+    li:first-child.selected { margin-left: 1em; }
+  }
 
   a {
     @include transition(all 0.2s ease-in-out);
@@ -231,127 +272,15 @@ html.no-js .sort-more { display: none !important; }
 }
 
 #page-sort {
-  .sort-options { 
-    [data-sort="qld"], [data-sort="sa"], [data-sort="tas"], [data-sort="vic"],
-    [data-sort="wa"], [data-sort="no"], [data-sort="nz"], [data-sort="js"],
-    [data-sort="lrs"], [data-sort="mt"] { display: none; }
+  width: 100%;
+
+  @include media(max-width $medium-screen) {
+    overflow: hidden;
+    overflow-x: scroll;
+    -webkit-overflow-scrolling: touch;
   }
 
-  .sort-accessed { display: inline; }
-  .sort-options .more-cited { display: none; }
-  .sort-options .more-accessed { display: none; }
-
-  &.has-special {
-    .sort-accessed { display: none; }
-    .sort-options .more-accessed { display: inline; }
-  }
-
-  @include media(max-width em(560)) {
-    .sort-accessed { display: none; }
-    .sort-options .more-cited { display: none; }
-    .sort-options .more-accessed { display: inline; }
-
-    &.has-special {
-      .sort-cited { display: none; }
-      .sort-options .more-cited { display: inline; }
-    }
-  }
-
-  .database.all & ,
-  .database.cases &,
-  .database.status & {
-    @include media(max-width em(430)) { [data-sort="qld"] { display: none; } .sort-options [data-sort="qld"] { display: block; }}
-    @include media(max-width em(470)) { [data-sort="sa"]  { display: none; } .sort-options [data-sort="sa"]  { display: block; }}
-    @include media(max-width em(520)) { [data-sort="tas"] { display: none; } .sort-options [data-sort="tas"] { display: block; }}
-    @include media(max-width em(560)) { [data-sort="vic"] { display: none; } .sort-options [data-sort="vic"] { display: block; }}
-    @include media(max-width em(680)) { [data-sort="wa"]  { display: none; } .sort-options [data-sort="wa"]  { display: block; }}
-    @include media(max-width em(790)) { [data-sort="no"]  { display: none; } .sort-options [data-sort="no"]  { display: block; }}
-    @include media(max-width em(860)) { [data-sort="nz"]  { display: none; } .sort-options [data-sort="nz"]  { display: block; }}
-    @include media(min-width em(860)) { .sort-more { display: none; }}
-  }
-
-  .database.status & {
-    @include media(min-width em(680)) { .sort-more { display: none; }}
-  }
-
-  .database.all & {
-    .second-row { display: none; }
-
-    @include media(min-width em(860)) {
-      .sort-more { display: none; }
-
-      .second-row {
-        display: block;
-        clear: both;
-      }
-    }
-  }
-
-  .database.journals & {
-    @include media(max-width em(400)) { [data-sort="nz"]  { display: none; } .sort-options [data-sort="nz"]  { display: inline; }}
-    @include media(max-width em(590)) { [data-sort="js"]  { display: none; } .sort-options [data-sort="js"]  { display: inline; }}
-    @include media(max-width em(900)) { [data-sort="lrs"] { display: none; } .sort-options [data-sort="lrs"] { display: inline; }}
-    @include media(max-width em(900)) { [data-sort="mt"]  { display: none; } .sort-options [data-sort="mt"]  { display: inline; }}
-    @include media(min-width em(900)) { .sort-more { display: none; }}
-  }
-
-  .results.search & {
-    @include media(max-width em(400)) { .sort-date      { display: none; } .more-date      { display: inline; }}
-    @include media(max-width em(590)) { .sort-title     { display: none; } .more-title     { display: inline; }}
-    @include media(max-width em(900)) { .sort-database  { display: none; } .more-database  { display: inline; }}
-    @include media(max-width em(900)) { .sort-citations { display: none; } .more-citations { display: inline; }}
-    @include media(min-width em(900)) { .sort-more { display: none; }}
-  }
-
-  .sort-more {
-    & > a {
-      @include transition(all 0.2s ease-in-out);
-      width: 70px;
-    }
-
-    & > a:after {
-      content: '\25bc';
-      font-size: .6em;
-      color: #aaa;
-      margin-left: .5em;
-    }
-
-    &.selected > a:after { color: $action-color; }
-  }
-
-  &.sort-solo .sort-more.selected > a:after { color: $red; }
-
-  .sort-options {
-    @extend %dropdown;
-    margin-top: -0.5px;
-    width: 140px;
-    border-radius: 0 $base-border-radius $base-border-radius $base-border-radius;
-
-    @include media(max-width $medium-screen) {
-      border-radius: $base-border-radius 0 $base-border-radius $base-border-radius;
-      margin-left: -70px;
-    }
-
-    .selected a { color: $blue; }
-  }
-
-  &.options-visible {
-    .sort-options {
-      opacity: 1;
-      max-height: 500px;
-    }
-
-    .sort-more > a {
-      color: $base-font-color;
-      border: $base-border;
-      border-bottom: none;
-      padding: .5em 1em;
-      background: white; 
-      border-radius: $base-border-radius $base-border-radius 0 0;
-      position: relative;
-      z-index: 6;
-    }
-  }
+  ul { white-space: nowrap; }
 }
 
 .search #page-main .button {

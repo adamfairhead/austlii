@@ -1,22 +1,31 @@
 // Page: All Databases
 
 .card-options {
-  text-align: right;
   position: relative;
   z-index: 5;
+  margin-left: 1em;
 
-  @include media(max-width $medium-screen) {
-    margin-right: 1em;
+  @include media($medium-screen) {
+    text-align: right;
+    margin-left: 0;
   }
 
   .search.results & {
-    position: absolute;
-    right: 0;
+    @include media($medium-screen) {
+      position: absolute;
+      right: 0;
+    }
   }
 
   @include media($medium-screen) {
     position: absolute;
     right: 0;
+  }
+
+  a {
+    position: relative;
+    top: .4em;
+    margin-bottom: 0 !important;
   }
 }
 
@@ -32,6 +41,7 @@
   font-weight: normal;
   color: #888;
   margin-right: .8em;
+  margin-bottom: .4em;
   position: relative;
 
   &:last-child {

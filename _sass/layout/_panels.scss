@@ -67,7 +67,7 @@
 
   h5 {
     color: white;
-    margin-bottom: .45em;
+    margin-top: .05em;
   }
 
   p {
@@ -99,10 +99,6 @@
   &.is-type {
     ul { min-width: 1550px; }
 
-    @include media($medium-screen) {
-      height: 105px;
-    }
-    
     #panel-type {
       max-height: 100px;
       opacity: 1;
@@ -152,6 +148,8 @@
   }
 
   #panel-year {
+    min-width: 550px;
+
     h5 { display: inline-block; }
 
     select { display: none; }

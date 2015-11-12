@@ -214,29 +214,6 @@ $(function() {
 });
 
 $(function() {
-  // Close sort options when you click on the page
-  $(document).on('click', function() {
-    $('#page-sort').removeClass('options-visible');
-  });
-
-  // Show 'more' sort option
-  $(document).on('click', '.sort-more', function(e) {
-    $('#page-sort').toggleClass('options-visible');
-    e.stopPropagation();
-  });
-
-  // Select a sort item
-  $(document).on('click', '.sort-item', function() {
-    $('.sort-item').removeClass('selected');
-    $(this).addClass('selected');
-
-    if ($(this).parent('.sort-options').length > 0) {
-      $('.sort-more').addClass('selected');
-    } else {
-      $('.sort-more').removeClass('selected');
-    };
-  });
-
   // Sort item filtering
   $('.sort-item').each(function() {
     var $sortItem = 0;

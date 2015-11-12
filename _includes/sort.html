@@ -1,6 +1,4 @@
 {% if page.sort == true %}
-
-
 {% if page.class contains 'contributors' %}
 <div id="page-sort" class="sort-solo">
   <ul>
@@ -9,12 +7,10 @@
     <li class="sort-item{% if page.class contains 'type' %} selected{% endif %}"><a href="contributor-type.html">By Type</a></li>
   </ul>
 </div>
-
 {% elsif page.class contains 'database' %}
 <div id="page-sort" class="sort-solo">
   <ul>
     <li class="sort-item sort-all selected"><a href="#">All</a></li>
-
     {% if page.class contains 'all' or page.class contains 'cases' %}
     <li class="sort-item" data-sort="cth"><a href="#">Cth</a></li>
     <li class="sort-item" data-sort="act"><a href="#">ACT</a></li>
@@ -46,41 +42,6 @@
     <li class="sort-item" data-sort="lrs"><a href="#">Research</a></li>
     <li class="sort-item" data-sort="mt"><a href="#">Monographs</a></li>
     {% endif %}
-
-    <li class="sort-more">
-      <a href="#">More</a>
-      <ul class="sort-options">
-        {% if page.class contains 'all' or page.class contains 'cases' %}
-        <li class="sort-item" data-sort="qld"><a href="#">Qld</a></li>
-        <li class="sort-item" data-sort="sa"><a href="#">SA</a></li>
-        <li class="sort-item" data-sort="tas"><a href="#">Tas</a></li>
-        <li class="sort-item" data-sort="vic"><a href="#">Vic</a></li>
-        <li class="sort-item" data-sort="wa"><a href="#">WA</a></li>
-        <li class="sort-item" data-sort="no"><a href="#">Norfolk Island</a></li>
-        <li class="sort-item" data-sort="nz"><a href="#">New Zealand</a></li>
-        {% endif %}
-        {% if page.class contains 'status' %}
-        <li class="sort-item" data-sort="qld"><a href="#">Qld</a></li>
-        <li class="sort-item" data-sort="sa"><a href="#">SA</a></li>
-        <li class="sort-item" data-sort="tas"><a href="#">Tas</a></li>
-        <li class="sort-item" data-sort="vic"><a href="#">Vic</a></li>
-        <li class="sort-item" data-sort="wa"><a href="#">WA</a></li>
-        {% endif %}
-        {% if page.class contains 'all' %}
-        <li class="sort-item" data-sort="journals"><a href="#">Journals</a></li>
-        <li class="sort-item" data-sort="law-reform"><a href="#">Law Reform</a></li>
-        <li class="sort-item" data-sort="treaties"><a href="#">Australian Treaties</a></li>
-        <li class="sort-item" data-sort="libraries"><a href="#">Libraries</a></li>
-        <li class="sort-item" data-sort="pages"><a href="#">Hosted Home Pages</a></li>
-        {% endif %}
-        {% if page.class contains 'journals' %}
-        <li class="sort-item" data-sort="nz"><a href="#">New Zealand</a></li>
-        <li class="sort-item" data-sort="js"><a href="#">Judicial Scholarship</a></li>
-        <li class="sort-item" data-sort="lrs"><a href="#">Research</a></li>
-        <li class="sort-item" data-sort="mt"><a href="#">Monographs</a></li>
-        {% endif %}
-      </ul>
-    </li>
   </ul>
   {% if page.class contains 'all' %}
   <ul class="second-row">
@@ -104,15 +65,6 @@
     <li class="sort-item sort-title{% if page.class contains 'results search search-2' %} selected{% endif %}"><a href="results-search-2.html">By Title</a></li>
     <li class="sort-item sort-database{% if page.class contains 'results search search-4' %} selected{% endif %}"><a href="results-search-4.html">By&nbsp;Database</a></li>
     <li class="sort-item sort-citations{% if page.class contains 'results search search-5' %} selected{% endif %}"><a href="results-search-5.html">By Citation Frequency</a></li>
-    <li class="sort-more">
-      <a href="#">More</a>
-      <ul class="sort-options">
-        <li class="sort-item more-date"><a href="#">By Date</a></li>
-        <li class="sort-item more-title"><a href="#">By Title</a></li>
-        <li class="sort-item more-database"><a href="#">By Database</a></li>
-        <li class="sort-item more-citations"><a href="#">By Citation Frequency</a></li>
-      </ul>
-    </li>
   </ul>
 </div>
 {% else %}
@@ -121,16 +73,7 @@
     <li class="sort-item sort-recent selected"><a href="#">Most Recent</a></li>
     <li class="sort-item sort-cited"><a href="#">Most Cited</a></li>
     <li class="sort-item sort-accessed"><a href="#">Most Accessed</a></li>
-    <li class="sort-more">
-      <a href="#">More</a>
-      <ul class="sort-options">
-        <li class="sort-item more-cited"><a href="#">Most Cited</a></li>
-        <li class="sort-item more-accessed"><a href="#">Most Accessed</a></li>
-        <li class="sort-item more-earliest"><a href="#">Earliest First</a></li>
-        <li class="sort-item more-leastcited"><a href="#">Least Cited</a></li>
-        <li class="sort-item more-leastaccessed"><a href="#">Least Accessed</a></li>
-      </ul>
-    </li>
+    <li class="sort-item sort-earliest"><a href="#">Earliest First</a></li>
   </ul>
 </div>
 {% endif %}

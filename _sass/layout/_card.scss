@@ -20,17 +20,20 @@
 
 .card {
   background: white;
-  margin-bottom: 1.5em; 
+  margin-bottom: .5em; 
   border-top: $base-border;
   border-bottom: $base-border;
-  border-radius: $base-border-radius;
-  box-shadow: 0 1px 2px rgba(0,0,0,.08);
 
   // For when cards have checkboxes in the rows
   &.card-checkboxes a { padding: .5em 1em .5em 3.5em; }
 
   // Give sides etc. when larger
-  @include media($medium-screen) { border: $base-border; }
+  @include media($medium-screen) {
+    margin-bottom: 1.5em; 
+    border: $base-border;
+    border-bottom-color: darken($base-border-color, 5);
+    border-radius: $base-border-radius;
+  }
 
   a {
     padding: .5em 1em;
@@ -116,7 +119,7 @@
 .card-title {
   font-size: 1em;
   font-weight: 400;
-  padding: .25em 1em;
+  padding: .25em 1em .5em;
   clear: both;
   color: $medium-gray;
   display: block;
@@ -130,13 +133,6 @@
     position: relative;
   }
 
-  // Increase padding of first title when small
-  @include media(max-width $medium-screen) {
-    &:first-child {
-      padding-top: 1.2em;
-    }
-  }
-
   @media print {
     padding: 0;
     margin: 0;
@@ -145,7 +141,7 @@
   // Larger black titles above cards
   &.card-title-large {
     font-size: 1.2em;
-    padding: .5em .8em .5em;
+    padding: 1em .8em .5em;
     color: $base-font-color;
     font-weight: bold;
 

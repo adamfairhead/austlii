@@ -184,6 +184,12 @@ html.js .search-options {
   text-indent: -999em;
   background: url('../images/search.svg') center no-repeat;
   background-size: 15px auto;
+
+  @include media(max-width $medium-screen) {
+    background: $red url('../images/search-2.svg') center no-repeat;
+    background-size: 15px auto;
+  }
+
   float: left;
   box-shadow: none;
   border: none;
@@ -212,21 +218,22 @@ html.js .search-options {
 
 // Clear search button
 .search-box-clear {
-  position: absolute;
-  top: 4px;
-  right: 115px;
-  height: 34px;
-  line-height: 1.4;
-  font-size: 1.5em;
-  color: darken($light-gray, 15);
+  display: none;
 
-  &.hide { display: none; }
+  @include media($medium-screen + 20em) {
+    display: block;
+    position: absolute;
+    top: 4px;
+    right: 65px;
+    height: 34px;
+    line-height: 1.4;
+    font-size: 1.5em;
+    color: darken($light-gray, 15);
 
-  &:hover { color: black; }
+    &.hide { display: none; }
 
-  @include media($medium-screen) { right: 145px; }
-
-  @include media($medium-screen + 20em) { right: 65px; }
+    &:hover { color: black; }
+  }
 }
 
 // The button that hides search again on mobiles
