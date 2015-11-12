@@ -18,6 +18,10 @@ td {
   padding: $small-spacing 0;
 }
 
+tr:last-child td {
+  border: none;
+}
+
 tr,
 td,
 th {

@@ -2,7 +2,7 @@
   {% include svg/icon-updates.svg %}
   <h4>Update Status</h4>
   <ul>
-    <li><a href="updates-cases.html">Case Law Updates</a></li>
+    <li{% if page.class contains 'updates-case' %} class="selected"{% endif %}><a href="updates-cases.html">Case Law Updates</a></li>
     <li><a href="#">Journal Updates</a></li>
     <li><a href="#">Legislation Updates</a></li>
   </ul>

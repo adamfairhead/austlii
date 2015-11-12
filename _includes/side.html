@@ -79,13 +79,15 @@
 {% endif %}
 
 {% if page.class contains 'about' %}
+{% unless page.class contains 'contributors' %}
 <!-- About Sidebar -->
 <div id="page-side">
   {% include side/side-about.html %}
 </div> 
+{% endunless %}
 {% endif %}
 
-{% if page.class contains 'home' or page.class contains 'status' %}
+{% if page.class contains 'home' or page.class contains 'status' or page.class contains 'contributors' %}
 <!-- Home Sidebar -->
 <div id="page-side">
   {% include side/side-contributors.html %}

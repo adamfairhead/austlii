@@ -2,9 +2,9 @@
   {% include svg/icon-contributors.svg %}
   <h4>Contributors</h4>
   <ul>
-    <li><a href="contributor-list.html">All Contributors</a></li>
-    <li><a href="contributor-jurisdiction.html">By Jurisdiction</a></li>
-    <li><a href="contributor-type.html">By Type</a></li> 
+    <li{% if page.class contains 'contributors all' %} class="selected"{% endif %}><a href="contributor-list.html">All Contributors</a></li>
+    <li{% if page.class contains 'contributors jurisdiction' %} class="selected"{% endif %}><a href="contributor-jurisdiction.html">By Jurisdiction</a></li>
+    <li{% if page.class contains 'contributors type' %} class="selected"{% endif %}><a href="contributor-type.html">By Type</a></li> 
     <li class="contribute-now">
       <a href="#" class="button">Contribute Now</a>
 
