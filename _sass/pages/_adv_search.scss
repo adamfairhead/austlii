@@ -79,11 +79,7 @@
   }
 
   .card-checkboxes.is-collapsed {
-    max-height: 162px;
+    max-height: 9.65em;
     overflow: hidden;
-
-    @include media($medium-screen) {
-      max-height: 152px;
-    }
   }
 }
