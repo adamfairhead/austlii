@@ -4,6 +4,8 @@ $(function() {
     var $sortItem = 0;
 
     $(this).on('click', function() {
+      $('#page-sort .selected').removeClass('selected');
+      $(this).addClass('selected');
       $sortItem = $(this).attr('data-sort');
       $('.all-section').addClass('is-hidden');
       $('#' + $sortItem).removeClass('is-hidden');
