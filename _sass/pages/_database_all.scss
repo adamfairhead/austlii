@@ -4,6 +4,7 @@
   position: relative;
   z-index: 5;
   margin-left: 1em;
+  margin-bottom: 1em;
 
   @include media($medium-screen) {
     text-align: right;
