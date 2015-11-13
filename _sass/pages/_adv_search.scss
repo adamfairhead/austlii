@@ -1,6 +1,6 @@
 // Advanced Search
 
-.search {
+.search, .lawcite {
   .card {
     .multi {
       @include row;
@@ -74,6 +74,42 @@
 
       p {
         margin-bottom: 0;
+        font-size: .9em;
+        opacity: .7;
+      }
+
+      // LawCite search grid mods
+
+      div.input-sm {
+        width: 34.361%;
+      }
+
+      div.input-xs {
+        width: 11.6159%;
+        margin-bottom: .25em;
+
+        .year {
+          @include fill-parent;
+        }
+      }
+
+      div.input-push {
+        float: left;
+        margin-left: 25.58945%;
+        margin-right: 2.58765%;
+        width: auto;
+
+        .checkbox {
+          margin-left: 0;
+        }
+      }
+
+      h6.gutter-text {
+        width: 0.9729%;
+      }
+
+      h6.mid-text {
+        width: auto;
       }
     }
   }
@@ -81,5 +117,9 @@
   .card-checkboxes.is-collapsed {
     max-height: 9.65em;
     overflow: hidden;
+  }
+
+  #page-main .button {
+    margin: 0 0 2em 1em;
   }
 }

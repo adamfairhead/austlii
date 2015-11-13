@@ -7,6 +7,18 @@
 </div>
 {% endif %}
 
+{% if page.class contains 'lawcite' %}
+<div class="side-element">
+  <img src="images/lawcite.gif">
+</div>
+<div class="side-element side-about">
+  {% include svg/icon-about.svg %}
+  <h4>About LawCite</h4>
+  <p>The copy that goes here will explain advanced search, how it works, what the types of options are, etc.</p>
+  <p>Fairly succinctly, mind you.</p>
+</div>
+{% endif %}
+
 {% if page.class contains 'about' %}
 <div class="side-element side-about">
   {% include svg/icon-about.svg %}
@@ -14,7 +26,7 @@
   <h6>General Info</h6>
   <ul>
     <li class="{% if page.url == '/about.html' %}selected{% endif %}"><a href="about.html">Overview</a></li>
-    <li><a href="document-report">Annual Report</a></li>
+    <li><a href="document-report.html">Annual Report</a></li>
     <li class="{% if page.url == '/publications.html' %}selected{% endif %}"><a href="publications.html">Published papers</a></li>
     <li class="{% if page.url == '/contact.html' %}selected{% endif %}"><a href="contact.html">Contact us</a></li>
   </ul>

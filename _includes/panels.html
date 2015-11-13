@@ -1,9 +1,9 @@
-{% unless page.class contains 'about' or page.class == 'search' %}
+{% unless page.class contains 'about' or page.class == 'search' or page.class == 'lawcite' %}
 {% if page.class contains 'database' or page.class contains 'subject' or page.class contains 'country' %}
 <div id="panels" class="is-closed">
 {% elsif page.class contains 'home' %}
 <div id="panels" class="is-jurisdiction">
-{% elsif page.class contains 'document' or page.class contains 'search' %}
+{% elsif page.class contains 'document' or page.class contains 'search' or page.class contains 'lawcite' %}
 <div id="panels" class="is-closed">
 {% elsif page.class contains 'legislation' %}
 <div id="panels" class="is-letter">
@@ -103,6 +103,6 @@
   </div>
 </div>
 {% endunless %}
-{% unless page.class == 'database' or page.class == 'search' %}
+{% unless page.class == 'database' or page.class == 'search' or page.class == 'lawcite' %}
 {% include panels-years.html %}
 {% endunless %}
