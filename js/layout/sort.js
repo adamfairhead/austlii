@@ -4,11 +4,13 @@ $(function() {
     var $sortItem = 0;
 
     $(this).on('click', function() {
+      var allSection = $('.all-section');
       $('#page-sort .selected').removeClass('selected');
       $(this).addClass('selected');
       $sortItem = $(this).attr('data-sort');
-      $('.all-section').addClass('is-hidden');
+      allSection.addClass('is-hidden').find(".checkbox").removeClass('checked');
       $('#' + $sortItem).removeClass('is-hidden');
+      $('#' + $sortItem).find(".checkbox").addClass('checked');
     });
 
   });
@@ -16,6 +18,9 @@ $(function() {
   // Sort item "all"
   $('.sort-all').on('click', function() {
     $('.all-section').removeClass('is-hidden');
+    if($('.card-options--toggle').hasClass('checked')) {
+    $('.all-section').find(".checkbox").addClass('checked');   
+    }
   });
 
   // Show 'more' sidebar items
@@ -39,11 +44,13 @@ $(function() {
     }
   });
 
-  $(document).on('click', '.card-title input', function() {
+  $(document).on('click', '.card-title input', function(e) {
+    var traverse = $(this).parent().parent().parent().parent();
     if ($(this).parent().hasClass('checked')) {
-      $(this).parent().parent().parent().find('.card-checkboxes .checkbox').addClass('checked');
+      traverse.find('.card-checkboxes .checkbox').removeClass('checked');
+      traverse.find('.card-checkboxes .checkbox input').removeAttr('checked');
     } else {
-      $(this).parent().parent().parent().find('.card-checkboxes .checkbox').removeClass('checked');
+      traverse.find('.card-checkboxes .checkbox').addClass('checked');
     };
   });
 
