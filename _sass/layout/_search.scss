@@ -173,7 +173,9 @@ html.js .search-options {
     height: 40px;
 
     &:hover,
-    &:focus { background: darken($light-gray, 2); }
+    &:focus,
+    &:focus + .search-box-clear,
+    &:hover + .search-box-clear { background: darken($light-gray, 2); }
   }
 }
 
@@ -182,7 +184,7 @@ html.js .search-options {
   width: 10%;
   height: 27px;
   text-indent: -999em;
-  background: url('../images/search.svg') center no-repeat;
+  background: $light-gray url('../images/search.svg') center no-repeat;
   background-size: 15px auto;
 
   @include media(max-width $medium-screen) {
@@ -224,15 +226,26 @@ html.js .search-options {
     display: block;
     position: absolute;
     top: 4px;
-    right: 65px;
+    right: 54px;
+    padding: 0 3px;
     height: 34px;
     line-height: 1.4;
     font-size: 1.5em;
     color: darken($light-gray, 15);
+    background: $light-gray;
 
     &.hide { display: none; }
 
     &:hover { color: black; }
+  }
+  @include media($xx-large-screen) {
+    font-size: 1.4em;
+    right: 56px;
+  }
+  @include media($xxx-large-screen) {
+    font-size: 1.5em;
+    line-height: 1.15;
+    right: 61px;
   }
 }
 
