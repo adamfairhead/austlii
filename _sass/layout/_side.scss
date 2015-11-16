@@ -27,6 +27,7 @@
   .selected a { text-decoration: underline; }
 
   @include media(max-width $large-screen) { padding-left: 1em; }
+  @include media(max-width $medium-screen) { padding: 0 1em; }
 
   @include media($large-screen) {
     @include span-columns(3);
