@@ -42,6 +42,19 @@
     <li class="sort-item" data-sort="lrs"><a href="#">Research</a></li>
     <li class="sort-item" data-sort="mt"><a href="#">Monographs</a></li>
     {% endif %}
+    {% if page.class contains 'journal-alt' %}
+    <li class="sort-item" data-sort="au-ad"><a href="#">Australian (A-D)</a></li>
+    <li class="sort-item" data-sort="au-eh"><a href="#">(E-H)</a></li>
+    <li class="sort-item" data-sort="au-il"><a href="#">(I-L)</a></li>
+    <li class="sort-item" data-sort="au-mp"><a href="#">(M-P)</a></li>
+    <li class="sort-item" data-sort="au-qt"><a href="#">(Q-T)</a></li>
+    <li class="sort-item" data-sort="au-uz"><a href="#">(U-Z)</a></li>
+    <br>
+    <li class="sort-item" data-sort="nz"><a href="#">New Zealand</a></li>
+    <li class="sort-item" data-sort="js"><a href="#">Judicial Scholarship</a></li>
+    <li class="sort-item" data-sort="lrs"><a href="#">Research</a></li>
+    <li class="sort-item" data-sort="mt"><a href="#">Monographs</a></li>
+    {% endif %}
   </ul>
   {% if page.class contains 'all' %}
   <ul class="second-row">
