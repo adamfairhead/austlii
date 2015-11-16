@@ -8,8 +8,12 @@ layout: compress
   <meta http-equiv="X-UA-Compatible" content="IE=Edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>{% if page.class == 'home' %}Australasian Legal Information Institute{% else %}{% if page.title %}{{ page.title }}{% endif %}{% endif %}</title>
+  {% if page.class == 'home' %}
+  <link media="all" rel="stylesheet" href="css/screen.css" />
+  {% else %}
   <link media="screen" rel="stylesheet" href="css/screen.css" />
   <link media="print" rel="stylesheet" href="css/print.css" />
+  {% endif %}
 
   <meta name="theme-color" content="#ee3224">
   <meta name="description" content="Australasian Legal Information Institute, a joint facility of UTY & NUSW Faculties of Law.">
