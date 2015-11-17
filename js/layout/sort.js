@@ -48,9 +48,10 @@ $(function() {
     var traverse = $(this).parent().parent().parent().parent();
     if ($(this).parent().hasClass('checked')) {
       traverse.find('.card-checkboxes .checkbox').removeClass('checked');
-      traverse.find('.card-checkboxes .checkbox input').removeAttr('checked');
+      traverse.find('.card-checkboxes .checkbox input').prop('checked', false);
     } else {
       traverse.find('.card-checkboxes .checkbox').addClass('checked');
+      traverse.find('.card-checkboxes .checkbox input').prop('checked', true);
     };
   });
 

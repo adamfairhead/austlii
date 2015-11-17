@@ -98,13 +98,6 @@ $(function() {
 });
 
 $(function() {
-  // Make fill in left-space on ribbon if first is highlighted
-  $('.ribbon-type').hover(function() {
-    $('#ribbon').addClass('first-hovered');
-  }, function() {
-    $('#ribbon').removeClass('first-hovered');
-  });
-
   // Make fill in left-space on ribbon if first is selected
   $('#ribbon a').on('click', function() {
     $('#ribbon').removeClass('first-selected');
@@ -269,9 +262,10 @@ $(function() {
     var traverse = $(this).parent().parent().parent().parent();
     if ($(this).parent().hasClass('checked')) {
       traverse.find('.card-checkboxes .checkbox').removeClass('checked');
-      traverse.find('.card-checkboxes .checkbox input').removeAttr('checked');
+      traverse.find('.card-checkboxes .checkbox input').prop('checked', false);
     } else {
       traverse.find('.card-checkboxes .checkbox').addClass('checked');
+      traverse.find('.card-checkboxes .checkbox input').prop('checked', true);
     };
   });
 
