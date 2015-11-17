@@ -135,7 +135,7 @@
 
   .home & {
     @include media($medium-screen + 20em) {
-      font-size: 1.6em;
+      font-size: 1.5em;
       width: 460px;
       padding-top: 0;
     }

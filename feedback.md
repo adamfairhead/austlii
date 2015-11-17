@@ -3,6 +3,8 @@ layout: layout
 title: Feedback
 class: about document
 database: About AustLII
+ribbon: basic
+panel: none
 ---
 We always welcome feedback about how we can improve AustLII (and particularly appreciate any words of encouragement). Although AustLII is a free service, we aim to run it on a professional basis.
 

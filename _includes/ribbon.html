@@ -1,4 +1,12 @@
-{% if page.class contains 'home' %}
+<!-- Ribbons
+
+These are the red bars along the top of each page.
+
+Ribbon is a variable set on most pages; it defaults to an expanded view,
+and can be simplified using variables 'intro' (for home) and 'basic' (for
+search, about pages, etc.)
+-->
+{% if page.ribbon == 'intro' %}
 <nav id="ribbon">
   <div class="inner">
     <ul>
@@ -11,7 +19,7 @@
     </ul>
   </div>
 </nav>
-{% elsif page.class contains 'about' or page.class contains 'search' or page.class contains 'lawcite' %}
+{% elsif page.ribbon == 'basic' %}
 <div class="home about">
   <nav id="ribbon">
     <div class="inner">

@@ -3,6 +3,8 @@ layout: layout
 title: AustLII Publications
 class: about document
 database: About AustLII
+ribbon: basic
+panel: none
 ---
 ## AustLII publications which are updated periodically
 

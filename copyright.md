@@ -3,6 +3,8 @@ layout: layout
 title: AustLII Usage Policy
 class: about document
 database: About AustLII
+ribbon: basic
+panel: none
 ---
 ## 1. General principles
 

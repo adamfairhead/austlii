@@ -3,6 +3,8 @@ layout: layout
 title: Linking Policy
 class: about document
 database: About AustLII
+ribbon: basic
+panel: none
 ---
 ## Linking
 

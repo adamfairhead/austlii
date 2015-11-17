@@ -3,6 +3,8 @@ layout: layout
 title: Thanks
 class: thanks document
 database: About AustLII
+ribbon: basic
+panel: none
 ---
 <div id="page-index">
   <div class="side-element side-authors">

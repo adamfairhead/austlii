@@ -1,11 +1,4 @@
 $(function() {
-  // Make fill in left-space on ribbon if first is highlighted
-  $('.ribbon-type').hover(function() {
-    $('#ribbon').addClass('first-hovered');
-  }, function() {
-    $('#ribbon').removeClass('first-hovered');
-  });
-
   // Make fill in left-space on ribbon if first is selected
   $('#ribbon a').on('click', function() {
     $('#ribbon').removeClass('first-selected');

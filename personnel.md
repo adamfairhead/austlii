@@ -3,6 +3,8 @@ layout: layout
 title: Who's Who at AustLII
 class: about document
 database: About AustLII
+ribbon: basic
+panel: none
 ---
 <div class="personnel-list">
   <div class="person">

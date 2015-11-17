@@ -3,6 +3,8 @@ layout: layout
 title: Privacy Policy
 class: about document
 database: About AustLII
+ribbon: basic
+panel: none
 ---
 _Last updated: 31 July 2003_
 

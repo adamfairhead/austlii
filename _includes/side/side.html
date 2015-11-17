@@ -1,33 +1,20 @@
 {% if page.class == 'search' %}
-<!-- Advanded Search Sidebar -->
+<!-- Libraries Sidebar -->
 <div id="page-side">
-  <div class="side-element side-about">
-    {% include svg/icon-about.svg %}
-    <h4>About Advanced Search</h4>
-    <p>The copy that goes here will explain advanced search, how it works, what the types of options are, etc.</p>
-    <p>Fairly succinctly, mind you.</p>
-  </div>
-
-  {% include side/side-tools.html %}
+{% include side/side-about.html %}
+{% include side/side-tools.html %}
 </div>
 {% endif %}
 
 {% if page.class == 'lawcite' %}
-<!-- LawCite Sidebar -->
+<!-- Libraries Sidebar -->
 <div id="page-side">
-  <div class="side-element">
-    <img src="images/lawcite.gif">
-  </div>
-  <div class="side-element side-about">
-    {% include svg/icon-about.svg %}
-    <h4>About LawCite</h4>
-    <p>There are currently <strong>4,731,531</strong> indexed cases, law reform documents and journal articles included in the system. Last updated: <strong>04 August 2015</strong>.</p>
-  </div>
+{% include side/side-about.html %}
 </div>
 {% endif %}
 
 {% if page.class == 'database' %}
-<!-- Database List Sidebar -->
+<!-- Libraries Sidebar -->
 <div id="page-side">
 {% include side/side-partner.html %}
 {% include side/side-contributors-sm.html %}
@@ -45,13 +32,13 @@
 {% endif %}
 
 {% if page.class == 'database treaties' %}
-<!-- Treaties Sidebar -->
+<!-- Libraries Sidebar -->
 <div id="page-side">
 {% include side/side-treaties.html %}
 </div>
 {% endif %}
 
-{% if page.class == 'database journals' %}
+{% if page.class == 'database journals' or page.class == 'database journal-alt' %}
 <!-- Journals Sidebar -->
 <div id="page-side">
 {% include side/side-journals.html %}
@@ -81,7 +68,8 @@
   {% include side/side-cited-by.html %}
   {% include side/side-social.html %}
 </div> 
-{% elsif page.class contains 'document cases' or page.class contains 'document legislation' %}
+{% elsif page.class contains 'document' %}
+{% unless page.class contains 'about' %}
 <!-- Document Sidebar -->
 <div id="page-side">
   {% include side/side-partner.html %}
@@ -92,11 +80,13 @@
   {% include side/side-cited-by.html %}
   {% include side/side-authors.html %}
   {% include side/side-social.html %}
+  <div class="end-of-side"></div>
 </div> 
+{% endunless %}
 {% endif %}
 
 {% if page.class contains 'about' %}
-{% unless page.class contains 'contributors' or page.class contains 'announcement' %}
+{% unless page.class contains 'contributors' %}
 <!-- About Sidebar -->
 <div id="page-side">
   {% include side/side-about.html %}
@@ -104,7 +94,7 @@
 {% endunless %}
 {% endif %}
 
-{% if page.class contains 'home' or page.class contains 'status' or page.class contains 'contributors' or page.class contains 'announcement' %}
+{% if page.class contains 'home' or page.class contains 'status' or page.class contains 'contributors' %}
 <!-- Home Sidebar -->
 <div id="page-side">
   {% include side/side-contributors.html %}
@@ -116,17 +106,19 @@
 </div>
 {% endif %}
 
-{% if page.class contains 'results search' %}
+{% if page.class contains 'results' %}
+{% if page.class contains 'search' %}
 <!-- Search Results Sidebar -->
 <div id="page-side">
   {% include side/side-search-results.html %}
 </div>
-{% endif %}
-
-{% if page.class contains 'results' %}
+{% else %}
 <!-- Results Sidebar -->
 <div id="page-side">
   {% include side/side-partner.html %}
   {% include side/side-about.html %} 
+  <!-- Small Contribute box -->
+  <!-- Subscribe box -->
 </div>
+{% endif %}
 {% endif %}

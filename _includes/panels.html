@@ -1,11 +1,22 @@
-{% unless page.class contains 'about' or page.class == 'search' or page.class == 'lawcite' %}
-{% if page.class contains 'database' or page.class contains 'subject' or page.class contains 'country' %}
+<!-- Panels
+
+The Panel defaults to 'year' view, which is what the database pages all have,
+it's what search results have, etc.
+
+The selections within if statements below are to visualize the 'is-selected'
+class across the various mock pages in the prototype.
+
+When implementing this, pull out the if statements and simply apply 'is-selected'
+when it's appropriate to that particular page.
+-->
+{% unless page.panel == 'none' %}
+{% if page.panel == 'closed' %}
 <div id="panels" class="is-closed">
-{% elsif page.class contains 'home' %}
+{% elsif page.panel == 'jurisdiction' %}
 <div id="panels" class="is-jurisdiction">
-{% elsif page.class contains 'document' or page.class contains 'search' or page.class contains 'lawcite' %}
+{% elsif page.panel == 'closed' %}
 <div id="panels" class="is-closed">
-{% elsif page.class contains 'legislation' %}
+{% elsif page.panel == 'letter' %}
 <div id="panels" class="is-letter">
 {% else %}
 <div id="panels" class="is-year">
@@ -38,68 +49,66 @@
       </ul>
     </div>
 
-    {% unless page.class contains 'database' %}
-      <div id="panel-year">
-        <ul>
-          <li class="panel-type-specific">
-            <div>
-              <h5>Specific Year</h5>
-              <a href="#" class="year-specific-dropdown type-specific">2015</a>
-              <select class="type-specific">
-                <option>2015</option>
-              </select>
-            </div>
-          </li>
-          <li class="panel-type-range">
-            <div>
-              <h5>Year Range</h5>
-              <a href="#" class="year-range-dropdown-1 type-range-1">1970</a>
-              <select class="type-range-1">
-                <option>2015</option>
-              </select>
-              <a href="#" class="year-range-dropdown-2 type-range-2">2015</a>
-              <select class="type-range-2">
-                <option>2015</option>
-              </select>
-              <a href="results.html" class="button">Apply</a>
-            </div>
-          </li>
-        </ul>
-      </div>
+    <div id="panel-year">
+      <ul>
+        <li class="panel-type-specific">
+          <div>
+            <h5>Specific Year</h5>
+            <a href="#" class="year-specific-dropdown type-specific">2015</a>
+            <select class="type-specific">
+              <option>2015</option>
+            </select>
+          </div>
+        </li>
+        <li class="panel-type-range">
+          <div>
+            <h5>Year Range</h5>
+            <a href="#" class="year-range-dropdown-1 type-range-1">1970</a>
+            <select class="type-range-1">
+              <option>2015</option>
+            </select>
+            <a href="#" class="year-range-dropdown-2 type-range-2">2015</a>
+            <select class="type-range-2">
+              <option>2015</option>
+            </select>
+            <a href="results.html" class="button">Apply</a>
+          </div>
+        </li>
+      </ul>
+    </div>
 
-      <div id="panel-letter">
-        <ul>
-          <li class="panel-letter-any"><a href="#"><h5>Any</h5></a></li>
-          <li class="panel-letter-0"><a href="#"><h5>0</h5></a></li>
-          <li class="panel-letter-a"><a href="#"><h5>A</h5></a></li>
-          <li class="panel-letter-b"><a href="#"><h5>B</h5></a></li>
-          <li class="panel-letter-c"><a href="#"><h5>C</h5></a></li>
-          <li class="panel-letter-b"><a href="#"><h5>D</h5></a></li>
-          <li class="panel-letter-b"><a href="#"><h5>E</h5></a></li>
-          <li class="panel-letter-b"><a href="#"><h5>F</h5></a></li>
-          <li class="panel-letter-b"><a href="#"><h5>G</h5></a></li>
-          <li class="panel-letter-b"><a href="#"><h5>H</h5></a></li>
-          <li class="panel-letter-b"><a href="#"><h5>I</h5></a></li>
-          <li class="panel-letter-b"><a href="#"><h5>J</h5></a></li>
-          <li class="panel-letter-b"><a href="#"><h5>K</h5></a></li>
-          <li class="panel-letter-b"><a href="#"><h5>L</h5></a></li>
-          <li class="panel-letter-b"><a href="#"><h5>M</h5></a></li>
-          <li class="panel-letter-b"><a href="#"><h5>N</h5></a></li>
-          <li class="panel-letter-b"><a href="#"><h5>O</h5></a></li>
-          <li class="panel-letter-b"><a href="#"><h5>P</h5></a></li>
-          <li class="panel-letter-b"><a href="#"><h5>Q</h5></a></li>
-          <li class="panel-letter-b"><a href="#"><h5>R</h5></a></li>
-          <li class="panel-letter-b"><a href="#"><h5>S</h5></a></li>
-          <li class="panel-letter-b"><a href="#"><h5>T</h5></a></li>
-          <li class="panel-letter-b"><a href="#"><h5>U</h5></a></li>
-          <li class="panel-letter-b"><a href="#"><h5>V</h5></a></li>
-          <li class="panel-letter-b"><a href="#"><h5>W</h5></a></li>
-          <li class="panel-letter-b"><a href="#"><h5>X</h5></a></li>
-          <li class="panel-letter-b"><a href="#"><h5>Y</h5></a></li>
-          <li class="panel-letter-b"><a href="#"><h5>Z</h5></a></li>
-        </ul>
-      </div>
-    {% endunless %}
+    <div id="panel-letter">
+      <ul>
+        <li class="panel-letter-any"><a href="#"><h5>Any</h5></a></li>
+        <li><a href="#"><h5>0</h5></a></li>
+        <li><a href="#"><h5>A</h5></a></li>
+        <li><a href="#"><h5>B</h5></a></li>
+        <li><a href="#"><h5>C</h5></a></li>
+        <li><a href="#"><h5>D</h5></a></li>
+        <li><a href="#"><h5>E</h5></a></li>
+        <li><a href="#"><h5>F</h5></a></li>
+        <li><a href="#"><h5>G</h5></a></li>
+        <li><a href="#"><h5>H</h5></a></li>
+        <li><a href="#"><h5>I</h5></a></li>
+        <li><a href="#"><h5>J</h5></a></li>
+        <li><a href="#"><h5>K</h5></a></li>
+        <li><a href="#"><h5>L</h5></a></li>
+        <li><a href="#"><h5>M</h5></a></li>
+        <li><a href="#"><h5>N</h5></a></li>
+        <li><a href="#"><h5>O</h5></a></li>
+        <li><a href="#"><h5>P</h5></a></li>
+        <li><a href="#"><h5>Q</h5></a></li>
+        <li><a href="#"><h5>R</h5></a></li>
+        <li><a href="#"><h5>S</h5></a></li>
+        <li><a href="#"><h5>T</h5></a></li>
+        <li><a href="#"><h5>U</h5></a></li>
+        <li><a href="#"><h5>V</h5></a></li>
+        <li><a href="#"><h5>W</h5></a></li>
+        <li><a href="#"><h5>X</h5></a></li>
+        <li><a href="#"><h5>Y</h5></a></li>
+        <li><a href="#"><h5>Z</h5></a></li>
+      </ul>
+    </div>
   </div>
 </div>
 {% endunless %}

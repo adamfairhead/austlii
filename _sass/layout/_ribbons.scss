@@ -13,11 +13,6 @@
   z-index: 4;
   letter-spacing: -0.01em;
 
-  &.first-hovered,
-  &.first-selected  {
-    @include linear-gradient(50deg, lighten($red, 10) 49%, $red 50%);
-  }
-
   .inner {
     max-width: 74em;
     margin: 0 auto;
@@ -116,15 +111,16 @@
     position: relative;
   }
 
+  li:first-child.is-selected a,
+  li:first-child a:hover,
+  li:first-child a:focus {
+    @include linear-gradient(90deg, $red 0%, lighten($red, 10) 50%);
+  }
+
   li:last-child.is-selected a,
   li:last-child a:hover,
   li:last-child a:focus {
     @include linear-gradient(90deg, lighten($red, 10) 50%, $red 100%);
-  }
-  .ribbon-home-lawcite a:hover,
-  .ribbon-home-lawcite a:focus {
-    cursor: pointer !important;
-    background: lighten($red, 10) !important;
   }
 
   li:first-child a {

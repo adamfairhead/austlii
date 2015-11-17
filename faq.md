@@ -3,6 +3,8 @@ layout: layout
 title: Frequently Asked Questions
 class: about document
 database: About AustLII
+ribbon: basic
+panel: none
 ---
 <div id="page-index">
   <div class="side-element side-toc">

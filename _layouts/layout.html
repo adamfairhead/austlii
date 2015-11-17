@@ -7,7 +7,8 @@ layout: compress
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=Edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>{% if page.class == 'home' %}Australasian Legal Information Institute{% else %}{% if page.title %}{{ page.title }}{% endif %}{% endif %}</title>
+  <title>{{ page.title }}</title>
+
   {% if page.class == 'home' %}
   <link media="all" rel="stylesheet" href="css/screen.css" />
   {% else %}
@@ -21,78 +22,29 @@ layout: compress
   <link rel="apple-touch-icon-precomposed" href="images/icon-shortcut.png">
   <meta name="msapplication-TileColor" content="#ee3224">
   <meta name="msapplication-TileImage" content="images/icon/ms.png">
-
   <script src="js/modernizr.min.js"></script>
 </head>
-<body class="{{ page.class }}{% if page.hero %} has-hero{% endif %}">
+<body class="{{ page.class }}">
   <header id="page-header">
     <div id="primary">
-      <a id="page-logo" href="index.html" tabindex="1">AustLII</a>
+      <a id="page-logo" href="/" tabindex="1">AustLII</a>
       {% unless page.search == false %}
       <a class="go-search" href="#">Search</a>
       {% endunless %}
+
       {% if page.class contains 'document' %}
       <h2 id="page-title"><span>{{ page.database }}</span></h2>
+      {% elsif page.class contains 'home' %}
+      <h1 id="page-title">
+        <span>Australasian Legal Information Institute</span> 
+        <span class="page-subheader">A joint facility of UTS & UNSW Faculties of Law.</span>
+      </h1>
       {% else %}
-      <h1 id="page-title"><span>{% if page.class contains 'home' %}Australasian Legal Information Institute{% elsif page.class == 'document' %}{{ page.database }}{% else %}{{ page.title }}{% endif %}</span>{% if page.class contains 'home' %} <span class="page-subheader">A joint facility of UTS & UNSW Faculties of Law.</span>{% endif %}</h1>
+      <h1 id="page-title"><span>{{ page.title }}</span></h1>
       {% endif %}
     </div>
 
-    {% unless page.search == false %}
-    <form action="results-search.html">
-      <div id="page-search">
-        <h2 class="hide">Search AustLII</h2>
-        <div class="search-box">
-          <a class="search-dropdown" href="javascript:void(0);">&#9660;</a> 
-
-          <fieldset>
-            <legend>Search Options</legend>
-            <ul class="search-options">
-              {% if page.class contains 'results' %}
-              {% unless page.class contains 'search' %}
-                <li class="all-databases"><label for="database-all">All databases <input type="radio" name="search-database" id="database-all" checked tabindex="2"></label></li>
-                <li class="this-database"><label for="database-this">This database only <input type="radio" name="search-database" id="database-this" tabindex="3"></label></li>
-              {% endunless %}
-              {% endif %}
-              {% if page.searchable == true %}
-                <li class="selected-databases"><label for="database-selected">Selected databases <input type="radio" name="search-filter" checked tabindex="4"></label></li>
-                <li class="or-all-databases"><label for="database-all">All databases <input type="radio" name="search-filter" id="database-all" tabindex="5"></label></li>
-              {% endif %}
-              <li class="full-text"><label for="database-full">Full text <input type="radio" name="search-text" id="database-full" checked tabindex="6"></label></li>
-              <li class="title-only"><label for="database-title">Titles only <input type="radio" name="search-text" id="database-title" tabindex="7"></label></li>
-              {% if page.extra-search == true %}
-                <li class="extra-search-1"><label for="database-database">Databases <input type="radio" name="extrasearch" id="database-database" checked></label></li>
-                <li class="extra-search-2"><label for="database-catalog">Catalog &amp; Websearch <input type="radio" name="extrasearch" id="database-catalog"></label></li>
-                <li class="extra-search-3"><label for="database-google">Law on Google <input type="radio" name="extrasearch" id="database-google"></label></li>
-              {% endif %}
-              <li class="advanced-search"><a href="search.html" tabindex="8">Advanced Search…</a></li>
-            </ul>
-          </fieldset>
-
-          <label for="search-box" class="hide">Search term:</label>
-          {% if page.class contains 'home' %} 
-          <input id="search-box" type="text" placeholder="Search all databases" tabindex="9">
-          {% elsif page.searchable == true %}
-          <input id="search-box" type="text" placeholder="Search selected databases" tabindex="9">
-          {% elsif page.class contains 'results search' %}
-          <input id="search-box" type="text" placeholder="Search AustLII" value="Test" tabindex="9">
-          {% else %}
-          <input id="search-box" type="text" placeholder="Search AustLII" tabindex="9">
-          {% endif %}
-          <a href="javascript:void(0);" class="search-box-clear hide">&times;</a>
-          <input type="submit" value="Search" tabindex="9">
-
-          {% if page.extra-search == true %}
-          <div class="extra-search">
-            <label for="extra-database"><input type="radio" name="extrasearch2" id="extra-database" checked>Databases</input></label> 
-            <label for="extra-catalog"><input type="radio" name="extrasearch2" id="extra-catalog">Catalog &amp; Websearch</label> 
-            <label for="extra-google"><input type="radio" name="extrasearch2" id="extra-google">Law on Google</label></div>
-          {% endif %}
-        </div>
-        <a class="go-primary" href="#">Close</a>
-      </div>
-    </form>
-    {% endunless %}
+    {% include search.html %}
 
     <ul id="page-tertiary">
       <li><a href="about.html">About</a></li>
@@ -108,82 +60,27 @@ layout: compress
   {% include ribbon.html %}
   {% include panels.html %}
 
-  {% if page.hero %}
-  <div class="page-hero" style="background-image: url('{{ page.hero }}');">
-    <header>
-      <h1>{{ page.title }}</h1>
-    </header>
-  </div>
-  {% endif %}
-
-  <div id="page-content"{% if page.searchable == true %} class="is-searchable"{% endif %}{% if page.sort == true %} class="is-sortable"{% endif %}>
+  <div id="page-content">
 
     <div id="page-main"> 
       {% include sort.html %}
+
       {% if page.class contains 'document' %}
-
       <article class="the-document">
-        {% unless page.hero %}<header><h1>{{ page.title }}</h1></header>{% endunless %}
-
-        {% if page.class == 'document' %}
-        <div id="page-index">
-          <div class="side-element side-authors">
-            {% include svg/icon-index.svg %}
-            <a class="index-expand" href="javascript:void(0);">Show</a>
-            <h4>Table of Contents</h4>
-            <ul>
-              <li><a href="#">Chapter 1</a></li>
-              <li><a href="#">Chapter 2</a></li>
-              <li><a href="#">Chapter 3</a></li>
-              <li><a href="#">Chapter 4</a></li>
-            </ul>
-          </div>
-        </div> 
-        {% endif %}
-
+        <h1>{{ page.title }}</h1>
         {{ content }}
       </article>
       {% else %}
       {{ content }}
       {% endif %}
 
-      {% if page.class contains 'results' %}
-      {% unless page.class contains 'country' or page.class contains 'subject' %}
-        <div id="pagination-sort">
-          <ul>
-            <li class="prev"><a href="javascript:void(0)">Previous</a></li>
-            <li class="selected"><a href="javascript:void(0)">3</a></li>
-            <li><a href="javascript:void(0)">4</a></li>
-            <li><a href="javascript:void(0)">5</a></li>
-            <li><a href="javascript:void(0)">6</a></li>
-            <li><a href="javascript:void(0)">7</a></li>
-            <li><a href="javascript:void(0)">8</a></li>
-            <li class="next"><a href="javascript:void(0)">Next</a></li>
-          </ul>
-
-          <div class="select-pages">
-            <select>
-              <option>50 results per page</option>
-              <option>100 results per page</option>
-              <option>250 results per page</option>
-              <option>500 results per page</option>
-            </select>
-          </div>
-        </div>
-      {% endunless %}
-      {% endif %}
+      {% include pagination.html %}
     </div>
     
     {% include side.html %}
-
-  {% include closing.html %}
+    {% include closing.html %}
   </div>
 
-  <script src="js/jquery.min.js"></script>
   <script src="js/production.min.js"></script>
-
-  <!-- For Video -->
-  <script src="http://vjs.zencdn.net/5.0.0/video.js"></script>
-  <!-- END For Video -->
 </body>
 </html>
