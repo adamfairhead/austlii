@@ -92,7 +92,7 @@
   }
 
   // Odd/Even row styles
-  li:nth-child(2n) a,
+  li:nth-child(2n),
   .multi:nth-child(2n) {
     background: #f7fbfd;
     border-top: 1px solid #e5eff4;
@@ -113,6 +113,59 @@
     margin: 0.55em .5em 0 1em;
     float: left;
   }
+
+  //search results
+  .search-details {
+    padding: 0 1em;
+    color: $medium-gray;
+  }
+
+  .search-info {
+    display: inline-block;
+    padding: 0 1.2em .5em;
+    width: 100%;
+    color: $medium-gray;
+    font-size: .8em;
+
+    > a {
+      display: inline;
+      float: left;
+      font-size: 1em;
+      padding: 0;
+    }
+
+    > span {
+      float: left;
+    }
+
+    > span:last-child {
+      float: right;
+      color: $medlight-gray;
+    }
+
+  .text-bulleted::before, 
+  .text-bulleted + a::before {
+      background: #bbb none repeat scroll 0 0;
+      content: "";
+      display: inline-block;
+      height: 3px;
+      margin: 0 0.5em 0.2em;
+      width: 3px;
+    }
+
+    .stars {
+      margin-left: .3em;
+
+      img {
+        margin: 0 0.02em;
+
+        &.star-off {
+          opacity: 0.3;
+        }
+      }
+    }
+  }
+
 }
 
 // Gray titles above cards
