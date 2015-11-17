@@ -4,7 +4,6 @@
   .card {
     .multi {
       @include row;
-      padding: 1em;
 
       h6 {
         @include span-columns(3);
@@ -70,12 +69,6 @@
 
       .year {
         margin-right: 0;
-      }
-
-      p {
-        margin-bottom: 0;
-        font-size: .9em;
-        opacity: .7;
       }
 
       // LawCite search grid mods

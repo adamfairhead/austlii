@@ -50,7 +50,7 @@
 
   // Rows that have multiple links in them
   .multi {
-    padding: .5em 1em;
+    padding: 1em;
     display: block;
     font-size: $discovery-font-size;
 
@@ -60,18 +60,45 @@
       display: inline;
     }
 
-    p:last-child {
+    p {
       margin-bottom: 0;
+      font-size: .9em;
+      opacity: .7;
     }
 
     .meta {
       font-size: $side-font-size;
+      margin-top: .4em;
 
       span, a {
         margin: .4em 0 0 0;
         display: inline-block;
-        margin-right: 1em;
-        color: $medium-gray; 
+      }
+
+      span { color: $medium-gray; }
+
+      .right { float: right; }
+
+      .break:before {
+        background: darken($base-border-color, 2) none repeat scroll 0 0;
+        content: '';
+        display: inline-block;
+        height: 3px;
+        width: 3px;
+        margin: 0 0.5em 0.2em;
+      }
+
+      .stars {
+        margin: .4em 0 0 .3em;
+        opacity: .5;
+
+        img {
+          float: left;
+          width: 9px;
+          margin: 0 0 0 .025em;
+
+          &.star-off { opacity: .3; }
+        }
       }
     }
   }
@@ -113,59 +140,6 @@
     margin: 0.55em .5em 0 1em;
     float: left;
   }
-
-  //search results
-  .search-details {
-    padding: 0 1em;
-    color: $medium-gray;
-  }
-
-  .search-info {
-    display: inline-block;
-    padding: 0 1.2em .5em;
-    width: 100%;
-    color: $medium-gray;
-    font-size: .8em;
-
-    > a {
-      display: inline;
-      float: left;
-      font-size: 1em;
-      padding: 0;
-    }
-
-    > span {
-      float: left;
-    }
-
-    > span:last-child {
-      float: right;
-      color: $medlight-gray;
-    }
-
-  .text-bulleted::before, 
-  .text-bulleted + a::before {
-      background: #bbb none repeat scroll 0 0;
-      content: "";
-      display: inline-block;
-      height: 3px;
-      margin: 0 0.5em 0.2em;
-      width: 3px;
-    }
-
-    .stars {
-      margin-left: .3em;
-
-      img {
-        margin: 0 0.02em;
-
-        &.star-off {
-          opacity: 0.3;
-        }
-      }
-    }
-  }
-
 }
 
 // Gray titles above cards

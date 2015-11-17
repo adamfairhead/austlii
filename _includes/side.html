@@ -123,10 +123,10 @@
 </div>
 {% endif %}
 
-{% if page.class contains 'results' %}
+{% if page.class contains 'results' %}{% unless page.class contains 'search' %}
 <!-- Results Sidebar -->
 <div id="page-side">
   {% include side/side-partner.html %}
   {% include side/side-about.html %} 
 </div>
-{% endif %}
+{% endunless %}{% endif %}
