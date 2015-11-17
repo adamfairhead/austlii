@@ -86,7 +86,6 @@
 
       div.input-xs {
         width: 11.6159%;
-        margin-bottom: .25em;
 
         .year {
           @include fill-parent;
@@ -104,12 +103,28 @@
         }
       }
 
+      h6.mid-text,
       h6.gutter-text {
-        width: 0.9729%;
+        background: rgba(55, 150, 204, .2) none repeat scroll 0 0;
+        border-radius: 3px;
+        display: inline-block;
+        font-size: 0.75em;
+        margin-top: 0.6em;
+        opacity: 0.7;
+        padding: 2px 5px;
+        width: auto;
+        color: $blue;
       }
 
-      h6.mid-text {
-        width: auto;
+      h6.gutter-text {
+          margin-left: -2.56823%;
+          margin-right: 0.76823%;
+
+        @include media($medium-screen){
+        margin-left: -0.42941%;
+        margin-right: 1.76823%;
+        width: 1.95%;
+        }
       }
     }
   }
