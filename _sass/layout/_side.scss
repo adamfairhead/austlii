@@ -49,14 +49,14 @@
 }
 
 #page-content .annual-reports {
-  display: inline-block;
+  display: block;
 
   .button {
     background: #ddd;
     color: #888;
-    width: 90px;
     position: relative;
     z-index: 2; 
+    margin-top: .5em;
 
     &:hover {
       background: #ccc;

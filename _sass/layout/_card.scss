@@ -50,7 +50,7 @@
 
   // Rows that have multiple links in them
   .multi {
-    padding: 1em;
+    padding: .5em 1em;
     display: block;
     font-size: $discovery-font-size;
 
@@ -68,29 +68,39 @@
 
     .meta {
       font-size: $side-font-size;
-      margin-top: .4em;
 
       span, a {
         margin: .4em 0 0 0;
         display: inline-block;
+
+        @include media(max-width $medium-screen) {
+          display: block;
+          clear: both;
+        }
       }
 
       span { color: $medium-gray; }
 
-      .right { float: right; }
+      @include media($medium-screen) {
+        .right { float: right; }
 
-      .break:before {
-        background: darken($base-border-color, 2) none repeat scroll 0 0;
-        content: '';
-        display: inline-block;
-        height: 3px;
-        width: 3px;
-        margin: 0 0.5em 0.2em;
+        .break:before {
+          background: darken($base-border-color, 2) none repeat scroll 0 0;
+          content: '';
+          display: inline-block;
+          height: 3px;
+          width: 3px;
+          margin: 0 0.5em 0.2em;
+        }
       }
 
       .stars {
-        margin: .4em 0 0 .3em;
+        margin: 0 0 1.5em;
         opacity: .5;
+
+        @include media($medium-screen) {
+          margin: .4em 0 0 .3em;
+        }
 
         img {
           float: left;
