@@ -27,15 +27,8 @@
     color: #737373;
   }
 
-  .contrib-logo {
-    float: left;
-    width: 20%;
-  }
-
   .contrib-desc {
-    float: left;
     width: 50%;
-    padding-left: 1em;
   }
 
   .contrib-funds {
@@ -59,4 +52,31 @@
     width: 10%;
     letter-spacing: 0; 
   }
+}
+
+.contrib-desc {
+  float: left;
+  width: 60%;
+  padding-left: 1em;
+
+  @include media(max-width $large-screen - .0625em) {
+    width: 80%;
+  }
+}
+
+.contrib-funds {
+  float: left;
+  width: 10%;
+  padding-left: 1em;
+
+  @include media(max-width $large-screen - .0625em) {
+    clear: both;
+    margin-left: 20%;
+    width: auto;
+  }
+}
+
+.contrib-logo {
+  float: left;
+  width: 20%;
 }
