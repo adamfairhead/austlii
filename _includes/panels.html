@@ -8,6 +8,12 @@ class across the various mock pages in the prototype.
 
 When implementing this, pull out the if statements and simply apply 'is-selected'
 when it's appropriate to that particular page.
+
+The options for the panel include:
+* none: the panel doesn't render
+* closed: the panel is present, but closed, adds 'is-closed' class
+* jurisdiction: jurisdiction is open at page load, adds 'is-jurisdiction' class
+* letter: 'starts with' is open at page load, adds 'is-letter' class
 -->
 {% unless page.panel == 'none' %}
 {% if page.panel == 'closed' %}
