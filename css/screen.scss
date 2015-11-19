@@ -145,12 +145,22 @@ code {
   float: left;
   width: 60%;
   padding-left: 1em;
+
+  @include media(max-width $large-screen - .0625em) {
+    width: 80%;
+  }
 }
 
 .contrib-funds {
   float: left;
   width: 10%;
   padding-left: 1em;
+
+  @include media(max-width $large-screen - .0625em) {
+    clear: both;
+    margin-left: 20%;
+    width: auto;
+  }
 }
 
 
