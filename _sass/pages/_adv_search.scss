@@ -60,11 +60,14 @@
         }
 
         &:after {
-          content: "▾";
+          content: "\25bc";
           color: $medium-gray;
           position: absolute;
-          top: 6px;
-          right: .5em;
+          top: .5em;
+          right: 1em;
+          font-size: .75em;
+          -webkit-transform: translateY(25%);
+          pointer-events: none;
         }
       }
 

@@ -1,17 +1,23 @@
 // Card
 
-.results .card li:before {
-  @include media(min-width 80em) {
-    content: attr(data-count);
-    color: $medium-gray;
-    position: absolute;
-    padding: .5em 0;
-    font-size: $discovery-font-size;
-    left: -52px;
-    text-align: right;
-    width: 50px;
-    opacity: 0;
+.results .card li {
+  padding: .5em 1em;
+  position: relative;
+
+  &:before {
+    @include media(min-width 80em) {
+      content: attr(data-count);
+      color: $medium-gray;
+      position: absolute;
+      font-size: $discovery-font-size;
+      left: -72px;
+      text-align: right;
+      width: 50px;
+      opacity: 0;
+    }
   }
+
+  a { padding: 0; }
 }
 
 .results .card li:hover:before {
