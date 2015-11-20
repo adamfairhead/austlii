@@ -73,10 +73,17 @@
         margin: .4em 0 0 0;
         display: inline-block;
 
-        @include media(max-width $medium-screen) {
-          display: block;
-          clear: both;
+          @include media(max-width $medium-screen) {
+            display: block;
+            float: left;
+            margin: .4em .4em 0 0;
+          }  
         }
+
+        a.break {
+          @include media(max-width $medium-screen) {
+            clear: both;
+          }
       }
 
       span { color: $medium-gray; }
@@ -95,7 +102,6 @@
       }
 
       .stars {
-        margin: 0 0 1.5em;
         opacity: .5;
 
         @include media($medium-screen) {
@@ -103,9 +109,7 @@
         }
 
         img {
-          float: left;
           width: 9px;
-          margin: 0 0 0 .025em;
 
           &.star-off { opacity: .3; }
         }
