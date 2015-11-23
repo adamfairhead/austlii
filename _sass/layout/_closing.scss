@@ -6,7 +6,7 @@
   @include media($large-screen) {
     @include span-columns(3);
     position: absolute;
-    bottom: 0;
+    bottom: 4em;
     right: 1em;
     z-index: 3;
 
@@ -46,8 +46,8 @@
 .home .closing {
   .inner {
     background: url('../images/falm.png') left 10px no-repeat;
-    background-size: 148px;
-    padding-top: 118px;
+    background-size: 120px;
+    padding-top: 100px;
   }
 
   p {
