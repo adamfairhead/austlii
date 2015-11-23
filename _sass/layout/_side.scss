@@ -144,16 +144,6 @@
     &:hover { text-decoration: underline; }
   }
 
-  .learn-more {
-    float: right;
-    padding-top: .55em;
-    letter-spacing: .75px;
-    text-transform: uppercase;
-    font-size: .95em;
-    color: #bbb;
-    font-weight: 600;
-  }
-
   // Sidebar sub-lists
   ul >  li > ul > li {
     padding-left: .5em;
@@ -222,6 +212,10 @@
         opacity: 1;
         max-height: 1000px;
       }
+    }
+
+    p a {
+      display: inline;
     }
   }
 }
