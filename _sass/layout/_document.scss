@@ -33,6 +33,17 @@
       li { margin-bottom: 1em; }
     }
 
+    @include media(min-width 76em) {
+      ol li::before {
+            content: attr(value) ".";
+            left: -1.5em;
+            position: absolute;
+            text-align: right;
+            width: 2em;
+            color: $medium-gray;
+      }
+    }
+
     // Hyperlink styles within documents
     a { text-decoration: underline; }
 
