@@ -3,6 +3,7 @@
   #page-content { 
     padding-left: 1em;
     padding-right: 1em;
+    overflow: hidden;
 
     @include media($medium-screen) { padding-top: 0; }
   }
@@ -12,37 +13,13 @@
     @include media($large-screen) {
       @include span-columns(8.5);
       background: white;
-      //padding-right: 4em;
-      position: relative;
-      border-right: none;
-
-      &::after {
-      border-right: $base-border;
-      content: "";
-      display: block;
-      height: 100%;
-      position: absolute;
-      right: 0;
-      top: 0;
-      }
+      padding-bottom: 10000px;
+      margin-bottom: -10000px;
     }
   } 
 
   // Shrink the right sidebar on large screens
-  #page-side { 
-    margin-top: 2.5em;
-
-    @include media($large-screen) {
-        &::before {
-          border-left: $base-border;
-          content: "";
-          display: block;
-          height: 100%;
-          left: -28.9%;
-          position: absolute;
-        }
-      } 
-    }
+  #page-side { margin-top: 2.5em; }
 
   // Main document section of the page
   .the-document { 
@@ -62,13 +39,6 @@
             content: attr(value) ".";
             margin-right: .5em;
             color: $medium-gray;
-
-        @include media(min-width 76em) {
-            left: -2.5em;
-            width: 2em;
-            position: absolute;
-            text-align: right;
-      }
     }
 
     // Hyperlink styles within documents
