@@ -3,7 +3,7 @@
   #page-content { 
     padding-left: 1em;
     padding-right: 1em;
-    overflow: hidden;
+    padding-bottom: 0;
 
     @include media($medium-screen) { padding-top: 0; }
   }
@@ -13,8 +13,7 @@
     @include media($large-screen) {
       @include span-columns(8.5);
       background: white;
-      padding-bottom: 10000px;
-      margin-bottom: -10000px;
+      min-height: 1500px;
     }
   } 
 
@@ -39,6 +38,13 @@
             content: attr(value) ".";
             margin-right: .5em;
             color: $medium-gray;
+
+        @include media(min-width 76em) {
+            left: -2.5em;
+            width: 2em;
+            position: absolute;
+            text-align: right;
+      }
     }
 
     // Hyperlink styles within documents
