@@ -12,12 +12,37 @@
     @include media($large-screen) {
       @include span-columns(8.5);
       background: white;
-      padding-right: 4em;
+      //padding-right: 4em;
+      position: relative;
+      border-right: none;
+
+      &::after {
+      border-right: $base-border;
+      content: "";
+      display: block;
+      height: 100%;
+      position: absolute;
+      right: 0;
+      top: 0;
+      }
     }
   } 
 
   // Shrink the right sidebar on large screens
-  #page-side { margin-top: 2.5em; }
+  #page-side { 
+    margin-top: 2.5em;
+
+    @include media($large-screen) {
+        &::before {
+          border-left: $base-border;
+          content: "";
+          display: block;
+          height: 100%;
+          left: -28.9%;
+          position: absolute;
+        }
+      } 
+    }
 
   // Main document section of the page
   .the-document { 
@@ -39,7 +64,7 @@
             color: $medium-gray;
 
         @include media(min-width 76em) {
-            left: -1.5em;
+            left: -2.5em;
             width: 2em;
             position: absolute;
             text-align: right;
