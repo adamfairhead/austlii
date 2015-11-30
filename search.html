@@ -8,76 +8,77 @@ ribbon: basic
 panel: none
 ---
 <h2 class="card-title card-title-large">Find content with…</h2>
-
-<div class="card">
-  <ul>
-    <li class="multi"><h6>Auto Search:</h6><div class="input"><input type="text" placeholder="e.g. Give an example here"><p class="meta">Some copy goes here to explain how this search box works.</p></div></li>
-    <li class="multi"><h6>Boolean Query:</h6><div class="input"><input type="text" placeholder="e.g. Give an example here"><p class="meta">Some copy goes here to explain how this search box works.</p></div></li>
-    <li class="multi"><h6>Any of these words:</h6><div class="input"><input type="text" placeholder="e.g. Give an example here"><p class="meta">Some copy goes here to explain how this search box works.</p></div></li>
-    <li class="multi"><h6>All of these words:</h6><div class="input"><input type="text" placeholder="e.g. Give an example here"><p class="meta">Some copy goes here to explain how this search box works.</p></div></li>
-    <li class="multi"><h6>This phrase:</h6><div class="input"><input type="text" placeholder="e.g. Give an example here"><p class="meta">Some copy goes here to explain how this search box works.</p></div></li>
-    <li class="multi"><h6>This legislation title:</h6><div class="input"><input type="text" placeholder="e.g. Give an example here"><p class="meta">Some copy goes here to explain how this search box works.</p></div></li>
-    <li class="multi"><h6>This case title:</h6><div class="input"><input type="text" placeholder="e.g. Give an example here"><p class="meta">Some copy goes here to explain how this search box works.</p></div></li>
-    <li class="multi"><h6>This document title:</h6><div class="input"><input type="text" placeholder="e.g. Give an example here"><p class="meta">Some copy goes here to explain how this search box works.</p></div></li>
-    <li class="multi">
-      <h6>Search options:</h6>
-      <a href="#" class="card-options--solo">Include synonyms</a>
-      <a href="#" class="card-options--solo">Include word derivatives</a>
-    </li>
-  </ul>
-</div>
-
-<h2 class="card-title card-title-large">Choose a date range…</h2>
-
-<div class="card">
-  <ul>
-    <li class="multi"><h6>From:</h6><div class="input"><input type="text" class="day" value="1"><div class="month"><select><option>January</option><option>February</option></select></div> <input type="text" class="year" value="1970"></div></li>
-    <li class="multi"><h6>Until:</h6><div class="input"><input type="text" class="day" value="21"><div class="month"><select><option>January</option><option>February</option></select></div> <input type="text" class="year" value="2015"></div></li>
-  </ul>
-</div>
-
-<div class="row">
-  <div class="card-options">
-    <a href="#" class="card-options--expand" id="show-databases">Show all</a>
-  </div>
-
-  <h2 class="card-title card-title-large">
-    <label><input type="checkbox" checked></label> Then narrow results by database…
-  </h2>
-
-  <div class="card card-checkboxes is-collapsed">
+<form action="results-search.html">
+  <div class="card">
     <ul>
-      <li><label><input type="checkbox" checked></label><a href="javascript:void(0);">All AustLII Databases</a></li>
-      <li><label><input type="checkbox" checked></label><a href="javascript:void(0);">All Legislation Databases</a></li>
-      <li><label><input type="checkbox" checked></label><a href="javascript:void(0);">All Case Law Databases</a></li>
-      <li><label><input type="checkbox" checked></label><a href="javascript:void(0);">All Journals Databases</a></li>
-      <li><label><input type="checkbox" checked></label><a href="javascript:void(0);">All Secondary Materials Databases (includes journals)</a></li>
-      <li><label><input type="checkbox" checked></label><a href="javascript:void(0);">Commonwealth: All Primary Materials</a></li>
-      <li><label><input type="checkbox" checked></label><a href="javascript:void(0);">Commonwealth: All Legislation</a></li>
-      <li><label><input type="checkbox" checked></label><a href="javascript:void(0);">Commonwealth: All Cases</a></li>
-      <li><label><input type="checkbox" checked></label><a href="javascript:void(0);">Commonwealth: Bills</a></li>
-      <li><label><input type="checkbox" checked></label><a href="javascript:void(0);">Commonwealth: Bills Explanatory Memoranda</a></li>
-      <li><label><input type="checkbox" checked></label><a href="javascript:void(0);">Commonwealth: Bills Digests</a></li>
-      <li><label><input type="checkbox" checked></label><a href="javascript:void(0);">Commonwealth: Consolidated Acts</a></li>
-      <li><label><input type="checkbox" checked></label><a href="javascript:void(0);">Commonwealth: Consolidated Regulations</a></li>
-      <li><label><input type="checkbox" checked></label><a href="javascript:void(0);">Commonwealth: Legislation Tables</a></li>
-      <li><label><input type="checkbox" checked></label><a href="javascript:void(0);">Commonwealth: Numbered Acts</a></li>
-      <li><label><input type="checkbox" checked></label><a href="javascript:void(0);">Commonwealth: Numbered Regulations</a></li>
-      <li><label><input type="checkbox" checked></label><a href="javascript:void(0);">Commonwealth: Numbered Regulations Explanatory Statements</a></li>
-      <li><label><input type="checkbox" checked></label><a href="javascript:void(0);">Commonwealth: All Primary Materials</a></li>
-      <li><label><input type="checkbox" checked></label><a href="javascript:void(0);">Commonwealth: All Legislation</a></li>
-      <li><label><input type="checkbox" checked></label><a href="javascript:void(0);">Commonwealth: All Cases</a></li>
-      <li><label><input type="checkbox" checked></label><a href="javascript:void(0);">Commonwealth: Bills</a></li>
-      <li><label><input type="checkbox" checked></label><a href="javascript:void(0);">Commonwealth: Bills Explanatory Memoranda</a></li>
-      <li><label><input type="checkbox" checked></label><a href="javascript:void(0);">Commonwealth: Bills Digests</a></li>
-      <li><label><input type="checkbox" checked></label><a href="javascript:void(0);">Commonwealth: Consolidated Acts</a></li>
-      <li><label><input type="checkbox" checked></label><a href="javascript:void(0);">Commonwealth: Consolidated Regulations</a></li>
-      <li><label><input type="checkbox" checked></label><a href="javascript:void(0);">Commonwealth: Legislation Tables</a></li>
-      <li><label><input type="checkbox" checked></label><a href="javascript:void(0);">Commonwealth: Numbered Acts</a></li>
-      <li><label><input type="checkbox" checked></label><a href="javascript:void(0);">Commonwealth: Numbered Regulations</a></li>
-      <li><label><input type="checkbox" checked></label><a href="javascript:void(0);">Commonwealth: Numbered Regulations Explanatory Statements</a></li>
+      <li class="multi"><h6>Auto Search:</h6><div class="input"><input type="text" placeholder="e.g. Give an example here"><p class="meta">Some copy goes here to explain how this search box works.</p></div></li>
+      <li class="multi"><h6>Boolean Query:</h6><div class="input"><input type="text" placeholder="e.g. Give an example here"><p class="meta">Some copy goes here to explain how this search box works.</p></div></li>
+      <li class="multi"><h6>Any of these words:</h6><div class="input"><input type="text" placeholder="e.g. Give an example here"><p class="meta">Some copy goes here to explain how this search box works.</p></div></li>
+      <li class="multi"><h6>All of these words:</h6><div class="input"><input type="text" placeholder="e.g. Give an example here"><p class="meta">Some copy goes here to explain how this search box works.</p></div></li>
+      <li class="multi"><h6>This phrase:</h6><div class="input"><input type="text" placeholder="e.g. Give an example here"><p class="meta">Some copy goes here to explain how this search box works.</p></div></li>
+      <li class="multi"><h6>This legislation title:</h6><div class="input"><input type="text" placeholder="e.g. Give an example here"><p class="meta">Some copy goes here to explain how this search box works.</p></div></li>
+      <li class="multi"><h6>This case title:</h6><div class="input"><input type="text" placeholder="e.g. Give an example here"><p class="meta">Some copy goes here to explain how this search box works.</p></div></li>
+      <li class="multi"><h6>This document title:</h6><div class="input"><input type="text" placeholder="e.g. Give an example here"><p class="meta">Some copy goes here to explain how this search box works.</p></div></li>
+      <li class="multi">
+        <h6>Search options:</h6>
+        <a href="#" class="card-options--solo">Include synonyms</a>
+        <a href="#" class="card-options--solo">Include word derivatives</a>
+      </li>
     </ul>
   </div>
-</div>
 
-<a class="button" href="results.html">Advanced Search</a>
+  <h2 class="card-title card-title-large">Choose a date range…</h2>
+
+  <div class="card">
+    <ul>
+      <li class="multi"><h6>From:</h6><div class="input"><input type="text" class="day" value="1"><div class="month"><select><option>January</option><option>February</option></select></div> <input type="text" class="year" value="1970"></div></li>
+      <li class="multi"><h6>Until:</h6><div class="input"><input type="text" class="day" value="21"><div class="month"><select><option>January</option><option>February</option></select></div> <input type="text" class="year" value="2015"></div></li>
+    </ul>
+  </div>
+
+  <div class="row">
+    <div class="card-options">
+      <a href="#" class="card-options--expand" id="show-databases">Show all</a>
+    </div>
+
+    <h2 class="card-title card-title-large">
+      <label><input type="checkbox" checked></label> Then narrow results by database…
+    </h2>
+
+    <div class="card card-checkboxes is-collapsed">
+      <ul>
+        <li><label><input type="checkbox" checked></label><a href="javascript:void(0);">All AustLII Databases</a></li>
+        <li><label><input type="checkbox" checked></label><a href="javascript:void(0);">All Legislation Databases</a></li>
+        <li><label><input type="checkbox" checked></label><a href="javascript:void(0);">All Case Law Databases</a></li>
+        <li><label><input type="checkbox" checked></label><a href="javascript:void(0);">All Journals Databases</a></li>
+        <li><label><input type="checkbox" checked></label><a href="javascript:void(0);">All Secondary Materials Databases (includes journals)</a></li>
+        <li><label><input type="checkbox" checked></label><a href="javascript:void(0);">Commonwealth: All Primary Materials</a></li>
+        <li><label><input type="checkbox" checked></label><a href="javascript:void(0);">Commonwealth: All Legislation</a></li>
+        <li><label><input type="checkbox" checked></label><a href="javascript:void(0);">Commonwealth: All Cases</a></li>
+        <li><label><input type="checkbox" checked></label><a href="javascript:void(0);">Commonwealth: Bills</a></li>
+        <li><label><input type="checkbox" checked></label><a href="javascript:void(0);">Commonwealth: Bills Explanatory Memoranda</a></li>
+        <li><label><input type="checkbox" checked></label><a href="javascript:void(0);">Commonwealth: Bills Digests</a></li>
+        <li><label><input type="checkbox" checked></label><a href="javascript:void(0);">Commonwealth: Consolidated Acts</a></li>
+        <li><label><input type="checkbox" checked></label><a href="javascript:void(0);">Commonwealth: Consolidated Regulations</a></li>
+        <li><label><input type="checkbox" checked></label><a href="javascript:void(0);">Commonwealth: Legislation Tables</a></li>
+        <li><label><input type="checkbox" checked></label><a href="javascript:void(0);">Commonwealth: Numbered Acts</a></li>
+        <li><label><input type="checkbox" checked></label><a href="javascript:void(0);">Commonwealth: Numbered Regulations</a></li>
+        <li><label><input type="checkbox" checked></label><a href="javascript:void(0);">Commonwealth: Numbered Regulations Explanatory Statements</a></li>
+        <li><label><input type="checkbox" checked></label><a href="javascript:void(0);">Commonwealth: All Primary Materials</a></li>
+        <li><label><input type="checkbox" checked></label><a href="javascript:void(0);">Commonwealth: All Legislation</a></li>
+        <li><label><input type="checkbox" checked></label><a href="javascript:void(0);">Commonwealth: All Cases</a></li>
+        <li><label><input type="checkbox" checked></label><a href="javascript:void(0);">Commonwealth: Bills</a></li>
+        <li><label><input type="checkbox" checked></label><a href="javascript:void(0);">Commonwealth: Bills Explanatory Memoranda</a></li>
+        <li><label><input type="checkbox" checked></label><a href="javascript:void(0);">Commonwealth: Bills Digests</a></li>
+        <li><label><input type="checkbox" checked></label><a href="javascript:void(0);">Commonwealth: Consolidated Acts</a></li>
+        <li><label><input type="checkbox" checked></label><a href="javascript:void(0);">Commonwealth: Consolidated Regulations</a></li>
+        <li><label><input type="checkbox" checked></label><a href="javascript:void(0);">Commonwealth: Legislation Tables</a></li>
+        <li><label><input type="checkbox" checked></label><a href="javascript:void(0);">Commonwealth: Numbered Acts</a></li>
+        <li><label><input type="checkbox" checked></label><a href="javascript:void(0);">Commonwealth: Numbered Regulations</a></li>
+        <li><label><input type="checkbox" checked></label><a href="javascript:void(0);">Commonwealth: Numbered Regulations Explanatory Statements</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <a class="button" href="results.html">Advanced Search</a>
+</form>
