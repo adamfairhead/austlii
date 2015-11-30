@@ -101,6 +101,8 @@
 
     #panel-type {
       max-height: 100px;
+       @include media($xx-large-screen) { max-height: 110px; }
+       @include media($xxx-large-screen) { max-height: 118px; }
       opacity: 1;
       z-index: 10;
     }
