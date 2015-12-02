@@ -286,3 +286,40 @@ html.no-js .sort-more { display: none !important; }
 
   ul { white-space: nowrap; }
 }
+
+//rules for printing homepage
+
+@media print {
+
+.home {
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+
+      #page-side {
+        float: right;
+        margin-right: 0;
+        margin-top: 2.4em;
+        width: 23.2318%;
+      }
+      #page-main {
+        float: left;
+        margin-right: 2.35765%;
+        width: 70.1457%;
+      }
+      .closing {
+        bottom: 0;
+        float: right;
+        margin-right: 2.35765%;
+        position: relative;
+        clear: both;
+        width: 23.2318%;
+        top: -12.5em;
+      }
+      header {
+        .go-search,
+        #page-search { display: none; }
+        #page-title { white-space: nowrap; }
+      }
+      .card li { padding: .5em 1em; }
+   }
+}
