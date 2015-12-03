@@ -155,6 +155,8 @@
       color: #b6b6b6;
       line-height: 1.2em;
     }
+
+    ul > li:before { content: '-'; }
   }
 
   // Sidebar icons
