@@ -241,7 +241,7 @@ $(function() {
   $('.side-about-more-link').on('click', function() {
     if ($('.side-about').hasClass('has-more')) {
       $('.side-about').removeClass('has-more');
-      $(this).text('More');
+      $(this).text('More...');
     } else {
       $('.side-about').addClass('has-more');
       $(this).text('Less');
