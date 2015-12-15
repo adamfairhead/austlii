@@ -296,8 +296,8 @@ html.no-js .sort-more { display: none !important; }
       print-color-adjust: exact;
 
       #page-side {
-        float: right;
-        margin-right: 0;
+        float: left;
+        margin-left: 1em;
         margin-top: 2.4em;
         width: 23.2318%;
       }
@@ -321,5 +321,10 @@ html.no-js .sort-more { display: none !important; }
         #page-title { white-space: nowrap; }
       }
       .card li { padding: .5em 1em; }
+      #panels > div > div { font-size: 0.75em; }
+      #panels li { padding: 1em 0 1em 0.65em; }
+      .card-title { padding: 0.55em 1em 0.5em; }
+      #ribbon,
+      #panels { overflow: hidden; }
    }
 }
