@@ -119,6 +119,7 @@
     line-height: normal;
     display: inline-block; 
     vertical-align: middle;
+    white-space: nowrap;
 
     @include media(max-width $medium-screen) {
       overflow-y: hidden;
@@ -159,7 +160,6 @@
     font-weight: normal;
     float: left;
     color: #727272;
-    white-space: nowrap;
   }
 }
 
