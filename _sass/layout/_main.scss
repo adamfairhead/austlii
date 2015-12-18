@@ -324,16 +324,39 @@ html.no-js .sort-more { display: none !important; }
         #page-title { white-space: nowrap; }
       }
 
-      .card li { padding: .5em 1em; }
+      .card {
+        border: 1px solid #ebebeb;
+        border-radius: 3px;
 
-      #panels > div > div { font-size: 0.75em; }
+        li { padding: .5em 1em; }
+      } 
 
-      #panels li { padding: 1em 0 1em 0.65em; }
+      #panels > div > div { 
+        font-size: 0.75em;
+        //height: 65px;
+      }
 
       .card-title { padding: 0.55em 1em 0.5em; }
 
       #ribbon,
       #panels { overflow: hidden; }
+
+      #panels {
+        min-height: auto;
+
+        li { padding: 1em 0 1em 0.65em; }
+
+        li > a {
+          min-height: auto;
+          height: 30px;
+          padding: 0.5em 1em 0.5em;
+        }
+
+        #panels h5 {
+          line-height: 1;
+          margin: 0;
+        }
+      }
 
       .card-group {
         margin-left: 1em;
@@ -354,6 +377,16 @@ html.no-js .sort-more { display: none !important; }
         .side-statistics {
           display: none;
         }
+
+        .side-element svg {
+          height: 20px;
+          width: 20px;
+          top: 1.3em;
+        }
+        .side-element:first-child svg {
+          top: 3px;
+        }
+
       }
 
       .closing { 
