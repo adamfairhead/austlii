@@ -301,11 +301,13 @@ html.no-js .sort-more { display: none !important; }
         margin-top: 2.4em;
         width: 23.2318%;
       }
+
       #page-main {
         float: left;
         margin-right: 2.35765%;
         width: 70.1457%;
       }
+
       .closing {
         bottom: 0;
         float: right;
@@ -315,16 +317,68 @@ html.no-js .sort-more { display: none !important; }
         width: 23.2318%;
         top: -12.5em;
       }
-      header {
+
+      header { 
         .go-search,
         #page-search { display: none; }
         #page-title { white-space: nowrap; }
       }
+
       .card li { padding: .5em 1em; }
+
       #panels > div > div { font-size: 0.75em; }
+
       #panels li { padding: 1em 0 1em 0.65em; }
+
       .card-title { padding: 0.55em 1em 0.5em; }
+
       #ribbon,
       #panels { overflow: hidden; }
+
+      .card-group {
+        margin-left: 1em;
+
+        :first-child {
+          .multi:nth-of-type(n+4) { display: none; }
+        }
+
+        :nth-child(2) {
+          li:nth-of-type(n+20) { display: none; }
+        }
+      }
+
+      #page-side {
+        padding-bottom: 0;
+
+        .side-tools,
+        .side-statistics {
+          display: none;
+        }
+      }
+
+      .closing { 
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        height: 100%;
+
+        .inner {
+          position: absolute;
+          height: 100px;
+          bottom: -100px;
+
+          img { width: 100px; }
+        }
+      }
+
+      #ribbon,
+      #page-header { width: 100%; clear: both; } 
+
+      #page-logo {
+        background-image: url("../images/logo-print-special.png");
+        background-size: cover;
+        display: block; 
+      } 
+
    }
 }
