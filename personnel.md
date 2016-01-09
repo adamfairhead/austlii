@@ -155,6 +155,13 @@ panel: none
   <h2>Former Staff</h2>
 
   <table width="100%" border="0" cellspacing="0" cellpadding="0" class="staff-former">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Period</th>
+          <th>Position</th>
+        </tr>
+      </thead>
       <tbody><tr>
         <td width="20%" valign="top" align="left"><b>Russell Allen</b></td>
         <td width="40%" align="left" valign="top">1998-2003</td>
@@ -163,13 +170,13 @@ panel: none
 
       <tr>
         <td width="18%" valign="top" align="left"><b>Daniel Austin</b></td>
-  <td width="40%" align="left" valign="top">21 April 1997 - 17 May 2002<p></p></td>
+        <td width="40%" align="left" valign="top">21 April 1997 - 17 May 2002</td>
         <td width="40%" align="left" valign="top">Software Developer / System Administration</td>
       </tr>
 
       <tr>
         <td width="18%" valign="top" align="left"><b>David Bramston</b></td>
-  <td width="40%" align="left" valign="top">5 February 2006 - 9 March 2007<p></p></td>
+        <td width="40%" align="left" valign="top">5 February 2006 - 9 March 2007</td>
         <td width="40%" align="left" valign="top">Project Officer</td>
       </tr>
 
@@ -181,25 +188,25 @@ panel: none
 
       <tr>
         <td width="20%" valign="top" align="left"><b>Simon Cant</b></td>
-  <td width="40%" align="left" valign="top"></td>
+        <td width="40%" align="left" valign="top"> </td>
         <td width="40%" align="left" valign="top">Project Officer</td>
       </tr>
 
       <tr>
         <td width="20%" valign="top" align="left"><b>Raul Carrizo</b></td>
-  <td width="40%" align="left" valign="top">5 September 2011 - 11 October 2011</td>
+        <td width="40%" align="left" valign="top">5 September 2011 - 11 October 2011</td>
         <td width="40%" align="left" valign="top">Systems Developer (Intersect)</td>
       </tr>
 
       <tr>
         <td width="20%" valign="top" align="left"><b>Yi Re Chen</b></td>
-  <td width="40%" align="left" valign="top">23 March 2015 - 22 May 2015</td>
+        <td width="40%" align="left" valign="top">23 March 2015 - 22 May 2015</td>
         <td width="40%" align="left" valign="top">Project Officer</td>
       </tr>
 
       <tr>
         <td width="20%" valign="top" align="left"><b>Chris Connley</b></td>
-  <td width="40%" align="left" valign="top">18 November 2013 - 1 July 2014</td>
+        <td width="40%" align="left" valign="top">18 November 2013 - 1 July 2014</td>
         <td width="40%" align="left" valign="top">Project Officer</td>
       </tr>
 
@@ -355,13 +362,13 @@ panel: none
       <tr>
         <td width="20%" valign="top" align="left"><b>Jill Matthews</b></td>
         <td width="40%" align="left" valign="top">1997 - 2004,<br>18 April 2005 to 1 July 2005 (part time)<br>16 July 2007 - 15 January 2008 (part time)</td>
-  <td width="40%" align="left" valign="top">Project Officer</td>
+        <td width="40%" align="left" valign="top">Project Officer</td>
       </tr>
 
       <tr>
         <td width="20%" valign="top" align="left"><b>Stephen Matulewicz</b></td>
         <td width="40%" align="left" valign="top">22 March 2010 - 28 April 2010</td>
-  <td width="40%" align="left" valign="top">Project Officer</td>
+        <td width="40%" align="left" valign="top">Project Officer</td>
       </tr>
 
       <tr>
@@ -572,7 +579,8 @@ panel: none
         <td width="20%" valign="top" align="left"><b>Shomaice Zowghi</b></td>
         <td width="40%" align="left" valign="top">1 September 2008 - 17 November 2009</td>
         <td width="40%" align="left" valign="top">Project Officer</td>
-      </tr><tr>
-    </tr></tbody></table>
+      </tr>
+    </tbody>
+  </table>
 
 </div>

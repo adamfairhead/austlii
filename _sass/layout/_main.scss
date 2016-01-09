@@ -287,6 +287,64 @@ html.no-js .sort-more { display: none !important; }
   ul { white-space: nowrap; }
 }
 
+//make tables work on smaller screens
+
+table {
+  @include media(max-width $medium-screen) { 
+    border-bottom: 1px solid $base-border-color;
+    border-left: 1px solid $base-border-color;
+    font-size: $base-font-size/1.25;
+
+    thead {
+      display: block;
+      float: left;
+
+      tr {
+        display: block;
+
+        th {
+          display: block;
+          text-align: left;
+          background-color: darken($base-border-color, 50%);
+          color: white;
+          padding: $small-spacing;
+          border-top: 1px solid;
+          border-bottom: none;
+        }
+      }
+    }
+
+    tbody {
+      display: block;
+      overflow-x: auto;
+      position: relative;
+      white-space: nowrap;
+      width: auto;
+
+      tr,
+      tr:last-child {
+        display: inline-block;
+        vertical-align: top;
+        border-right: 1px solid $base-border-color;
+
+        td {
+          display: block;
+          border-top: 1px solid $base-border-color;
+          border-bottom: none;
+          width: auto;
+          padding: $small-spacing;
+
+          br {
+            display: none;
+
+            &:after { content: " | "; }
+          }
+        }
+      }
+    }
+  }
+}
+
 //rules for printing homepage
 
 @media print {
