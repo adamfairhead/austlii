@@ -57,8 +57,18 @@
   // Rows that have multiple links in them
   .multi {
     padding: .5em 1em;
-    display: block;
+    display: table;
     font-size: $discovery-font-size;
+    overflow: auto;
+
+    .image {
+      display: table-cell;
+      height: 100%;
+      vertical-align: top;
+      padding-right: $small-spacing/2;
+
+      img { max-width: initial; }
+    }
 
     a {
       font-size: $base-font-size;
