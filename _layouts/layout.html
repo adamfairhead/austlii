@@ -9,7 +9,7 @@ layout: compress
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>{{ page.title }}</title>
 
-  {% if page.class == 'home' %}
+  {% if page.class == 'home' or page.class contains 'database' or page.class contains 'results' or page.class contains 'about' or page.class contains 'search' or page.class contains 'lawcite' %}
   <link media="all" rel="stylesheet" href="css/screen.css" />
   {% else %}
   <link media="screen" rel="stylesheet" href="css/screen.css" />

@@ -1,7 +1,7 @@
 ---
 layout: layout
 title: Who's Who at AustLII
-class: about document
+class: about document personnel
 database: About AustLII
 ribbon: basic
 panel: none

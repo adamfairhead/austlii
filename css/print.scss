@@ -14,7 +14,11 @@
 .year-options-list,
 #page-index,
 #page-side,
-.closing {
+.closing,
+input[type="checkbox"],
+input[type="button"],
+input[type="radio"],
+input[type="submit"] {
   display: none;
 }
 

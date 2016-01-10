@@ -1,7 +1,7 @@
 ---
 layout: layout
 title: Thanks
-class: thanks document
+class: thanks about document
 database: About AustLII
 ribbon: basic
 panel: none
