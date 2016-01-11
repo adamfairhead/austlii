@@ -349,6 +349,13 @@ table {
 
 @media print {
 
+  .home {
+    .card {
+    
+      img { display: none; }
+    }
+  }
+
   .home,
   .database,
   .results,
