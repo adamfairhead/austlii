@@ -171,7 +171,7 @@
       &.is-selected {
         background: white;
         color: $base-font-color;
-        border-color: #ddd;
+        border-color: $border-light-gray;
       }
 
       &:after {
@@ -200,7 +200,7 @@
         &.is-selected {
           background: white;
           color: #333;
-          border-color: #ddd;
+          border-color: $border-light-gray;
         }
 
         &:after {

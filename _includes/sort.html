@@ -36,7 +36,18 @@
     <li class="sort-item" data-sort="wa"><a href="#">WA</a></li>
     {% endif %}
     {% if page.class contains 'journals' %}
-    <li class="sort-item" data-sort="au"><a href="#">Australian</a></li>
+    <li class="sort-item sort-options" data-sort="au">
+      <a href="#">Australian</a>
+      <div>
+        <ul>
+          <li><a href="#">All</a></li>
+          <li><a href="#">A-C</a></li>
+          <li><a href="#">D-F</a></li>
+          <li><a href="#">G-I</a></li>
+          <li><a href="#">J-L</a></li>
+        </ul>
+      </div>
+    </li>
     <li class="sort-item" data-sort="nz"><a href="#">New Zealand</a></li>
     <li class="sort-item" data-sort="js"><a href="#">Judicial Scholarship</a></li>
     <li class="sort-item" data-sort="lrs"><a href="#">Research</a></li>

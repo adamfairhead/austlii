@@ -129,10 +129,11 @@ html.no-js .sort-more { display: none !important; }
     margin-bottom: .1em;
   }
 
-  & > ul > li a {
+  & > ul > li a,
+  & > ul > .sort-options {
     color: $medium-gray;
-    border: 1px solid #ddd;
-    background: #ddd;
+    border: 1px solid $border-light-gray;
+    background: $border-light-gray;
     border-radius: $base-border-radius;
     line-height: 2.2;
     padding: 0 .5em;
@@ -143,11 +144,76 @@ html.no-js .sort-more { display: none !important; }
     }
   }
 
-  & > ul > .selected > a {
+  & > ul > .selected > a,
+  & > ul > .selected.sort-options {
     color: $red;
     border-color: $red;
     background: transparent;
     padding: 0 .75em;
+  }
+
+  & > ul > .sort-options {
+    position: relative;
+
+    a {
+      border: none;
+      background: transparent;
+    }
+
+    div { 
+      position: absolute;
+      top: .13em;
+      right: 2.2em;
+
+    ul { 
+      display: none; 
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    }
+
+  }
+
+  & > ul > .selected.sort-options {
+    padding: 0 1.75em 0 0.75em;
+
+    ul { 
+      background: $red;
+      border: 1px solid $red;
+      border-radius: $base-border-radius;
+      display: block;
+      height: 2em;
+      overflow: hidden;
+
+      li { 
+        display: block;
+        line-height: 1.9;
+        padding: 0 0.25em;
+        text-align: center;
+
+        a { 
+          color: white;
+          padding: 0;
+          line-height: 1.9;
+        }
+      
+        }
+
+      &:hover { 
+        height: auto;
+        background: $border-light-gray;
+        border: 1px solid $medium-gray;
+        color: $dark-gray;
+        
+
+        a { 
+          color: $medium-gray;
+          padding: 0 2em; 
+        }
+      }
+    }
   }
 }
 
