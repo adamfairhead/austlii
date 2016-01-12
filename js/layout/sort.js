@@ -20,12 +20,17 @@ $(function() {
     e.stopPropagation();
     var siblings = $('.range-options li').removeClass('active'),
         range = $(this).attr('data-range'),
-        parent = $(this).closest('.sort-item').attr('data-sort');
+        parent = $(this).closest('.sort-item').attr('data-sort'),
+        parentId = $('#' + parent);
     $(this).addClass('active');
-    $('#' + parent).find('.checkbox').removeClass('checked');
-    $('#' + parent).find('.checkbox input').prop('checked', false);
-    $('#' + parent).find('.' + range + ' .checkbox').addClass('checked');
-    $('#' + parent).find('.' + range + ' .checkbox input').prop('checked', true);
+    parentId.find('.checkbox').removeClass('checked');
+    parentId.find('.checkbox input').prop('checked', false);
+    parentId.find('.' + range + ' .checkbox').addClass('checked');
+    parentId.find('.' + range + ' .checkbox input').prop('checked', true);
+    if(range == 'all'){
+      parentId.find('.checkbox').addClass('checked');
+      parentId.find('.checkbox input').prop('checked', true);
+    }
   });
 
   // Sort item "all"
