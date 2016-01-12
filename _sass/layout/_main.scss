@@ -162,8 +162,9 @@ html.no-js .sort-more { display: none !important; }
 
     div { 
       position: absolute;
-      top: .13em;
-      right: 2.2em;
+      top: .3em;
+      right: 2.1em;
+      cursor: pointer;
 
     ul { 
       display: none; 
@@ -184,32 +185,56 @@ html.no-js .sort-more { display: none !important; }
       border: 1px solid $red;
       border-radius: $base-border-radius;
       display: block;
-      height: 2em;
+      height: 1.6em;
       overflow: hidden;
 
       li { 
         display: block;
         line-height: 1.9;
-        padding: 0 0.25em;
+        font-size: .85em;
+        padding: 0 .25em;
         text-align: center;
+        position: relative;
+
+        &.active {
+          position: absolute;
+          top: 0;
+          width: 100%;
+          z-index: 10;
+          background: $red;
+        }
+
+        &:hover {
+          &:before {
+            content: '\2713';
+            display: inline-block;
+            position: absolute;
+            left: .5em;
+          }
+        }
 
         a { 
           color: white;
           padding: 0;
-          line-height: 1.9;
+          line-height: 1;
         }
       
         }
 
       &:hover { 
         height: auto;
-        background: $border-light-gray;
-        border: 1px solid $medium-gray;
+        background: #eee;
+        border: 1px solid $border-light-gray;
         color: $dark-gray;
         
+        li.active {
+          position: relative;
+
+          a { color: white; }
+        }
 
         a { 
-          color: $medium-gray;
+          color: $dark-gray;
           padding: 0 2em; 
         }
       }

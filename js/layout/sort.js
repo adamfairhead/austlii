@@ -8,11 +8,24 @@ $(function() {
       $('#page-sort .selected').removeClass('selected');
       $(this).addClass('selected');
       $sortItem = $(this).attr('data-sort');
-      allSection.addClass('is-hidden').find(".checkbox").removeClass('checked');
+      allSection.addClass('is-hidden').find('.checkbox').removeClass('checked');
+      $('.sort-item').find('.range-options li').removeClass('active')
       $('#' + $sortItem).removeClass('is-hidden');
       $('#' + $sortItem).find(".checkbox").addClass('checked');
     });
 
+  });
+
+  $('.range-options li').on('click', function(e){
+    e.stopPropagation();
+    var siblings = $('.range-options li').removeClass('active'),
+        range = $(this).attr('data-range'),
+        parent = $(this).closest('.sort-item').attr('data-sort');
+    $(this).addClass('active');
+    $('#' + parent).find('.checkbox').removeClass('checked');
+    $('#' + parent).find('.checkbox input').prop('checked', false);
+    $('#' + parent).find('.' + range + ' .checkbox').addClass('checked');
+    $('#' + parent).find('.' + range + ' .checkbox input').prop('checked', true);
   });
 
   // Sort item "all"
