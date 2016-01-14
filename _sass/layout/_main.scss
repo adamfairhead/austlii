@@ -23,6 +23,16 @@
 .search #page-main { position: relative; }
 
 .document #page-main {
+
+  @include media(max-width $large-screen) {
+    background: white;
+    margin-left: -1em;
+    margin-right: -0.1em;
+    padding-left: 1em;
+    padding-right: 1em;
+    border-bottom: $base-border;
+  }
+
   @include media($large-screen) {
     background: white;
     padding-right: 4em;
