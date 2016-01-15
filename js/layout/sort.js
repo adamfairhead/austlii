@@ -5,31 +5,36 @@ $(function() {
 
     $(this).on('click', function() {
       var allSection = $('.all-section');
-      $('#page-sort .selected').removeClass('selected');
+      $('#page-sort .selected').removeClass('selected').removeClass('disabled');
       $(this).addClass('selected');
       $sortItem = $(this).attr('data-sort');
       allSection.addClass('is-hidden').find('.checkbox').removeClass('checked');
-      $('.sort-item').find('.range-options li').removeClass('active')
+      $('.sort-item').find('.range-options option').removeClass('active');
       $('#' + $sortItem).removeClass('is-hidden');
       $('#' + $sortItem).find(".checkbox").addClass('checked');
     });
 
   });
 
-  $('.range-options li').on('click', function(e){
+  $('.range-options option').on('click', function(e){
     e.stopPropagation();
-    var siblings = $('.range-options li').removeClass('active'),
+    var siblings = $('.range-options option').removeClass('active'),
         range = $(this).attr('data-range'),
         parent = $(this).closest('.sort-item').attr('data-sort'),
         parentId = $('#' + parent);
     $(this).addClass('active');
+    parentId.find('li').hide();
     parentId.find('.checkbox').removeClass('checked');
     parentId.find('.checkbox input').prop('checked', false);
+    parentId.find('h2 .checkbox').addClass('disabled');
+    parentId.find('.' + range).show();
     parentId.find('.' + range + ' .checkbox').addClass('checked');
     parentId.find('.' + range + ' .checkbox input').prop('checked', true);
     if(range == 'all'){
+      parentId.find('li').show();
       parentId.find('.checkbox').addClass('checked');
       parentId.find('.checkbox input').prop('checked', true);
+      parentId.find('h2 .checkbox').removeClass('disabled');
     }
   });
 
