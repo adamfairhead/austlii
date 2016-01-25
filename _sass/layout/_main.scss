@@ -148,6 +148,7 @@ html.no-js .sort-more { display: none !important; }
     border-radius: $base-border-radius;
     line-height: 2.2;
     padding: 0 .5em;
+    max-height: 2.2em;
 
     @include media($medium-screen) {
       border: 1px solid #eee;
@@ -201,7 +202,7 @@ html.no-js .sort-more { display: none !important; }
       font-size: .85em;
       margin-bottom: 0;
       line-height: 1.5;
-      padding: 0 0 0 .125em;
+      padding: 0 .125em;
 
       option { 
         display: block;
