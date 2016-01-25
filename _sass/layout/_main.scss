@@ -174,9 +174,15 @@ html.no-js .sort-more { display: none !important; }
 
     div { 
       position: absolute;
-      top: .3em;
-      right: .3em;
+      top: .2em;
+      right: .25em;
       cursor: pointer;
+      background: $red;
+      border: 1px solid $red;
+      border-radius: $base-border-radius;
+      display: none;
+      width: 2em;
+      height: 1.7em;
 
     select { 
       display: none; 
@@ -192,9 +198,18 @@ html.no-js .sort-more { display: none !important; }
   & > ul > .selected.sort-options {
     padding: 0 1.75em 0 0;
 
+    div { 
+      display: block;
+
+      &:hover {
+        border-color: $medlight-gray;
+        background: transparent;
+      }
+    }
+
     select { 
-      background: $red;
-      border: 1px solid $red;
+      background: transparent;
+      border: 1px solid transparent;
       border-radius: $base-border-radius;
       display: block;
       color: white;
@@ -202,14 +217,12 @@ html.no-js .sort-more { display: none !important; }
       font-size: .85em;
       margin-bottom: 0;
       line-height: 1.5;
-      padding: 0 .125em;
+      position: absolute;
+      left: 50%;
+      transform: translatex(-50%);
 
       option { 
-        display: block;
-        line-height: 1.9;
-        padding: 0 .25em;
         text-align: center;
-        position: relative;
         background: #eee;
         color: $dark-gray;
 
@@ -220,21 +233,10 @@ html.no-js .sort-more { display: none !important; }
           z-index: 10;
           background: $red;
         }
-
-        &:hover {
-          &:before {
-            content: '\2713';
-            display: inline-block;
-            position: absolute;
-            left: .5em;
-          }
-        }
       
         }
 
       &:hover { 
-        background: #eee;
-        border: 1px solid $border-light-gray;
         color: $dark-gray;
         
         option.active {
