@@ -218,20 +218,29 @@ $(function() {
     var $sortItem = 0;
 
     $(this).on('click', function() {
-      var allSection = $('.all-section')
+      var allSection = $('.all-section'),
           tagged = $('.all-section.tag'),
           taggedInput = $('.all-section.tag .card-title input');
       $('#page-sort .selected').removeClass('selected').removeClass('disabled');
       $(this).addClass('selected');
       $sortItem = $(this).attr('data-sort');
       allSection.addClass('is-hidden').find('.checkbox').removeClass('checked');
-      $('.sort-item').find('.range-options option').removeClass('active');
+      //$('.sort-item').find('.range-options option').removeClass('active');
       $('#' + $sortItem).removeClass('is-hidden');
       $('#' + $sortItem).find(".checkbox").addClass('checked');
       $('.card-title input').removeClass('range-selected');
       taggedInput.addClass('range-selected');
       //$('.range-options option').removeClass('active');
-      //if ($('#' + $sortItem).hasClass('tag')) {  }
+      if ($('#' + $sortItem).hasClass('tag')) { 
+        var range = $('[data-sort="'+ $sortItem +'"] .range-options .active').attr('data-range'),
+            tag = $('#' + $sortItem + '.tag');
+        tag.find('.checkbox').removeClass('checked');
+        tag.find('.checkbox input').prop('checked', false);
+        tag.find('.' + range + ' .checkbox').addClass('checked');
+        tag.find('.' + range + ' .checkbox input').prop('checked', true);
+        tag.find('.card-title input').addClass('range-selected').prop('checked', true);
+        tag.find('.card-title label').addClass('checked');
+      }
     });
 
   });
