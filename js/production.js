@@ -70,6 +70,16 @@ $(function() {
     };
   });
 
+  //hide year options when clicking outside
+  $(document).click(function(event) { 
+    var dropdown = $('.year-options');
+    if(!$(event.target).closest('.year-options').length) {
+      if(dropdown.hasClass("is-visible")) {
+          dropdown.removeClass("is-visible");
+      }
+    }        
+  });
+
   // Open option if closed and tab focus
   $(document).keyup(function() {
     if ($('.search-options input').is(":focus")) {
