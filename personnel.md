@@ -154,7 +154,7 @@ panel: none
 
   <h2>Former Staff</h2>
 
-  <table width="100%" border="0" cellspacing="0" cellpadding="0" class="staff-former">
+  <table width="100%" border="0" cellspacing="0" cellpadding="0" class="staff-former local">
       <thead>
         <tr>
           <th>Name</th>

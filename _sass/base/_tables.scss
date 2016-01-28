@@ -4,6 +4,14 @@ table {
   margin: $small-spacing 0;
   table-layout: fixed;
   width: 100%;
+
+  &.local {
+
+    td {
+      border-bottom: $base-border;
+      padding: $small-spacing;
+    }
+  }
 }
 
 th {
@@ -13,9 +21,9 @@ th {
   text-align: left;
 }
 
+
 td {
-  border-bottom: $base-border;
-  padding: $small-spacing 0;
+  padding: $small-spacing/4 $small-spacing $small-spacing/4 0;
 }
 
 tr:last-child td {
@@ -25,5 +33,5 @@ tr:last-child td {
 tr,
 td,
 th {
-  vertical-align: middle;
+  vertical-align: top;
 }
