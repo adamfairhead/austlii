@@ -26,6 +26,11 @@
     @include media($large-screen) {
       margin: 0;
     }
+
+    p + a {
+      display: inline-block;
+      margin-top: -.5em;
+    }
   }
 
   li {
