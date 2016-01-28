@@ -7,10 +7,25 @@
     <li class="sort-item{% if page.class contains 'type' %} selected{% endif %}"><a href="contributor-type.html">By Type</a></li>
   </ul>
 </div>
-{% elsif page.class contains 'database' %}
+{% elsif page.class contains 'database' or page.class contains 'results year' %}
 <div id="page-sort" class="sort-solo">
   <ul>
     <li class="sort-item sort-all selected"><a href="#">All</a></li>
+    {% if page.class contains 'year' %}
+    <li class="sort-item" data-sort="2016jan"><a href="#">January 2016</a></li>
+    <li class="sort-item" data-sort="2015dec"><a href="#">December 2015</a></li>
+    <li class="sort-item" data-sort="2015nov"><a href="#">November 2015</a></li>
+    <li class="sort-item" data-sort="2015oct"><a href="#">October 2015</a></li>
+    <li class="sort-item" data-sort="2015sep"><a href="#">September 2015</a></li>
+    <li class="sort-item" data-sort="2015aug"><a href="#">August 2015</a></li>
+    <li class="sort-item" data-sort="2015jul"><a href="#">July 2015</a></li>
+    <li class="sort-item" data-sort="2015jun"><a href="#">June 2015</a></li>
+    <li class="sort-item" data-sort="2015may"><a href="#">May 2015</a></li>
+    <li class="sort-item" data-sort="2015apr"><a href="#">April 2015</a></li>
+    <li class="sort-item" data-sort="2015mar"><a href="#">March 2015</a></li>
+    <li class="sort-item" data-sort="2015feb"><a href="#">February 2015</a></li>
+    <li class="sort-item" data-sort="2015jan"><a href="#">January 2015</a></li>
+    {% endif %}
     {% if page.class contains 'all' or page.class contains 'cases' %}
     <li class="sort-item" data-sort="cth"><a href="#">Cth</a></li>
     <li class="sort-item" data-sort="act"><a href="#">ACT</a></li>
