@@ -446,20 +446,20 @@ table {
 
 @media print {
 
-  .home {
+  .home.print-exact {
     .card {
     
       img { display: none; }
     }
   }
 
-  .home,
-  .database,
-  .results,
-  .about,
-  .search,
-  .lawcite,
-  .contributors {
+  .home.print-exact,
+  .database.print-exact,
+  .results.print-exact,
+  .about.print-exact,
+  .search.print-exact,
+  .lawcite.print-exact,
+  .contributors.print-exact {
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
 
@@ -588,7 +588,8 @@ table {
       padding-bottom: 0;
 
       .side-tools,
-      .side-statistics {
+      .side-statistics, 
+      .side-download {
         display: none !important;
       }
 

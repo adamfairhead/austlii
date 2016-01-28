@@ -1,4 +1,7 @@
 $(function() {
+
+  var body = $('body');
+  
   // Select a panel item
   $('#panels a').on('click', function() {
     $('#panels li').removeClass('is-selected');
@@ -84,12 +87,17 @@ $(function() {
 
   // Set print layout
   $(document).on('click', '.print-special', function() {
-    $('body').addClass('special');
+    body.addClass('special').removeClass('print-exact');
+    window.print();
+    return false;
+  });
+  $(document).on('click', '.print-webview', function() {
+    body.addClass('print-exact').removeClass('special');
     window.print();
     return false;
   });
   $(document).on('click', '.print-minimal', function() {
-    $('body').removeClass('special');
+    body.removeClass('special').removeClass('print-exact');
     window.print();
     return false;
   });

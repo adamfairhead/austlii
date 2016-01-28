@@ -29,6 +29,10 @@ body {
 .special {
   font-size: 1em;
 
+  .hide { display: none; }
+
+  .document .the-document ol li::before { left: -1.2em; }
+
   #page-main { text-align: justify; }
 
   #page-logo {
