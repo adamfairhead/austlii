@@ -18,7 +18,7 @@ $(function() {
       taggedInput.addClass('range-selected');
       //$('.range-options option').removeClass('active');
       if ($('#' + $sortItem).hasClass('tag')) { 
-        var range = $('[data-sort="'+ $sortItem +'"] .range-options .active').attr('data-range'),
+        var range = $('[data-sort="'+ $sortItem +'"] .range-options').val(),
             tag = $('#' + $sortItem + '.tag');
         tag.find('.checkbox').removeClass('checked');
         tag.find('.checkbox input').prop('checked', false);
@@ -31,13 +31,13 @@ $(function() {
 
   });
 
-  $('.range-options option').on('click', function(e){
+  $('.range-options').change(function(e){
     e.stopPropagation();
-    var siblings = $('.range-options option').removeClass('active'),
-        range = $(this).attr('data-range'),
+    //siblings = $('.range-options option').removeClass('active'),
+    var range = $(this).val(),
         parentId = $(this).closest('.sort-item').attr('data-sort'),
         parent = $('#' + parentId);
-    $(this).addClass('active');
+    //$(this).addClass('active');
     parent.addClass('tag');
     parent.find('li').hide();
     parent.find('.checkbox').removeClass('checked');
@@ -47,7 +47,7 @@ $(function() {
     parent.find('.' + range).show();
     parent.find('.' + range + ' .checkbox').addClass('checked');
     parent.find('.' + range + ' .checkbox input').prop('checked', true);
-    if(range == 'all'){
+    if(range == 'All'){
       parent.find('li').show();
       parent.find('.checkbox').addClass('checked');
       parent.find('.checkbox input').prop('checked', true);
@@ -58,10 +58,16 @@ $(function() {
   // Sort item "all"
   $('.sort-all').on('click', function() {
     $('.all-section').removeClass('is-hidden');
+    $('.all-section.tag').removeClass('tag').find('li').show();
+    $('.range-options').val('All');
     if($('.card-options--toggle').hasClass('checked')) {
-    $('.all-section').find(".checkbox").addClass('checked');   
+    $('.all-section').find(".checkbox").addClass('checked');
+    $('.all-section').find(".checkbox input").prop('checked', true);   
     }
   });
+
+  //reset select range value on reload
+  $('.range-options').val('All');
 
   // Show 'more' sidebar items
   $('.side-about-more-link').on('click', function() {
@@ -88,7 +94,7 @@ $(function() {
     var traverse = $(this).parent().parent().parent().parent(),
         parentId = $(this).closest('.all-section').attr('id'),
         parent = $('#' + parentId),
-        range = $('[data-sort="' + parentId + '"] option.active').attr('data-range');
+        range = $('[data-sort="' + parentId + '"] .range-options').val();
     if ($(this).parent().hasClass('checked')) {
       traverse.find('.card-checkboxes .checkbox').removeClass('checked');
       traverse.find('.card-checkboxes .checkbox input').prop('checked', false);
