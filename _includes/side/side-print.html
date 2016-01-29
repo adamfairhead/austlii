@@ -2,10 +2,8 @@
   {% include svg/icon-print.svg %}
   <h4>Print</h4>
   <ul>
-  	{% if page.class contains 'home' or page.class contains 'database' or page.class contains 'results' or page.class contains 'about' or page.class contains 'search' or page.class contains 'contributors' or page.class contains 'lawcite' %}
-    <li><a class="print-webview" href="javascript:void(0);">Print (web view)</a></li>
-    {% endif %}
-    <li><a class="print-special" href="javascript:void(0);">Print (pretty)</a></li>
+    {% unless page.class contains 'document' %}<li><a class="print-webview" href="javascript:void(0);">Print (web view)</a></li>{% endunless %}
+    {% if page.class contains 'document' %}<li><a class="print-special" href="javascript:void(0);">Print (pretty)</a></li>{% endif %}
     <li><a class="print-minimal" href="javascript:void(0);">Print (eco-friendly)</a></li>
   </ul>
 </div>

@@ -26,6 +26,12 @@ body {
   font-size: .9em;
 }
 
+.document .the-document ol li:before {
+  content: attr(value) ".";
+  margin-right: .5em;
+  color: #888;
+}
+
 .special {
   font-size: 1em;
 
@@ -60,11 +66,11 @@ body {
     background: $red;
     box-shadow: inset 0 0 0 1000px $red;
     color: white;
-    color: rgba(0,0,0,0);
     text-shadow: 0 0 0 #fff;
+    -webkit-print-color-adjust: exact;
     font-size: 1em;
     font-weight: 600;
-    padding: 1em 0 .75em 2em;
+    padding: 1em 0 .75em 1.5em;
     border-bottom: 2px solid darken($red, 15);
     margin-bottom: 0 !important;
   }
@@ -72,23 +78,25 @@ body {
   .the-document {
     margin: 1.5em;
 
-    p, dl, li {
+    p, dl, li, blockquote {
       max-width: 45em;
     }
 
-    header {
-      background: $red;
-      box-shadow: inset 0 0 0 1000px $red;
-      margin: -1.5em -1.5em 0 -1.5em;
+    blockquote {
+      margin-left: 0;
     }
 
-    header h1 {
+    h1 {
+      background: $red;
+      box-shadow: 0px 0px 0px 1000px $red inset;
       color: white;
-      color: rgba(0,0,0,0);
       text-shadow: 0 0 0 #fff;
-      font-size: 2em;
+      -webkit-print-color-adjust: exact;
+      font-size: 1.5em;
       font-weight: 600;
-      padding: 1em .95em 1.5em .95em;
+      padding: 1em;
+      border-bottom: 2px solid #C40C0B;
+      margin: -24px -1em 1em;
 
       &:after {
         content: url(https://chart.googleapis.com/chart?cht=qr&chs=150x150&chl=http://austlii.edu.au&choe=UTF-8);

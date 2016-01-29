@@ -443,13 +443,30 @@ table {
   }
 }
 
-//rules for printing homepage
+// Rules for printing homepage
 
 @media print {
+  .home:not(.print-exact) {
+    .go-search,
+    .go-primary,
+    .search-box,
+    #page-tertiary,
+    #ribbon,
+    #panels,
+    .year-options-list,
+    #page-index,
+    #page-side,
+    .closing,
+    input[type="checkbox"],
+    input[type="button"],
+    input[type="radio"],
+    input[type="submit"] {
+      display: none;
+    }
+  }
 
   .home.print-exact {
     .card {
-    
       img { display: none; }
     }
   }
