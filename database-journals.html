@@ -1,7 +1,8 @@
 ---
 layout: layout
 title: Journals & Scholarship
-class: database journals
+class: database journals checklist
+search: false
 searchable: true
 sort: true
 panel: closed
@@ -11,106 +12,110 @@ panel: closed
   <a href="#" class="card-options--toggle checked">Select / Clear All</a>
 </div>
 
-<div class="all-section" id="au">
-  <h2 class="card-title card-title-large"><span class="select-all-none"><label><input type="checkbox" checked></label></span> Australian Law Journals</h2>
-  
-  <div class="card card-checkboxes">
-    <ul>
-      <li class="A-C"><label><input type="checkbox" checked></label><a href="results-journal.html">Aboriginal Law Bulletin (AboriginalLawB) 1981-1997 (AustLII)</a></li>
-      <li class="A-C"><label><input type="checkbox" checked></label><a href="results-journal.html">Adelaide Law Review (AdelLawRw) 1960- (AustLII)</a></li>
-      <li class="A-C"><label><input type="checkbox" checked></label><a href="results-journal.html">ALRC Reform Journal 1995- (AustLII)</a></li>
-      <li class="A-C"><label><input type="checkbox" checked></label><a href="results-journal.html">Asia Pacific Journal of Environmental Law 2004- (AustLII)</a></li>
-      <li class="A-C"><label><input type="checkbox" checked></label><a href="results-journal.html">Alternative Criminology Journal (AltCrimJl) 1975-1983 (AustLII)</a></li>
-      <li class="A-C"><label><input type="checkbox" checked></label><a href="results-journal.html">Alternative Law Journal (AltLawJl) 1999- (AustLII)</a></li>
-      <li class="A-C"><label><input type="checkbox" checked></label><a href="results-journal.html">Australian Construction Law Newsletter (AUConstrLawNlr) 1988- (AustLII)</a></li>
-      <li class="A-C"><label><input type="checkbox" checked></label><a href="results-journal.html">Australian Crime Prevention, Correction and After-Care Council National Newsletter (AUCrimPCACCNNlr) 1970-1973 (AustLII)</a></li>
-      <li class="A-C"><label><input type="checkbox" checked></label><a href="results-journal.html">Bar News: The Journal of the New South Wales Bar Association 1985- (AustLII)</a></li>
-      <li class="A-C"><label><input type="checkbox" checked></label><a href="results-journal.html">Bond Dispute Resolution Newsletter 1999- (AustLII)</a></li>
-      <li class="A-C"><label><input type="checkbox" checked></label><a href="results-journal.html">CLC Communications Update 1993-2005 (AustLII)</a></li>
-      <li class="D-F"><label><input type="checkbox" checked></label><a href="results-journal.html">Deakin Law Review 1994- (AustLII)</a></li>
-      <li class="D-F"><label><input type="checkbox" checked></label><a href="results-journal.html">DICTUM: Victoria Law School Journal 2011-2012 (AustLII)</a></li>
-      <li class="D-F"><label><input type="checkbox" checked></label><a href="results-journal.html">Digital Technology Law Journal 1999-  (AustLII)</a></li>
-      <li class="D-F"><label><input type="checkbox" checked></label><a href="results-journal.html">eJournal of Tax Reseach 2003-  (AustLII)</a></li>
-      <li class="D-F"><label><input type="checkbox" checked></label><a href="results-journal.html">Federal Judicial Scholarship 1980 (AustLII)</a></li>
-      <li class="D-F"><label><input type="checkbox" checked></label><a href="results-journal.html">Flinders Journal of Law Reform 1995- (AustLII)</a></li>
-      <li class="G-I"><label><input type="checkbox" checked></label><a href="results-journal.html">GovNet eJournal 2007-  (AustLII)</a></li>
-      <li class="G-I"><label><input type="checkbox" checked></label><a href="results-journal.html">High Court Review 1995-2000 (AustLII)</a></li>
-      <li class="G-I"><label><input type="checkbox" checked></label><a href="results-journal.html">Human Rights Defender 1994- (AustLII)</a></li>
-      <li class="G-I"><label><input type="checkbox" checked></label><a href="results-journal.html">inCite: Magazine of the Australian Library and Information Association 1990- (AustLII)</a></li>
-      <li class="G-I"><label><input type="checkbox" checked></label><a href="results-journal.html">Indigenous Law Bulletin 1997- (AustLII)</a></li>
-      <li class="G-I"><label><input type="checkbox" checked></label><a href="results-journal.html">International Journal of Law and Education 2009- (AustLII)</a></li>
-      <li class="J-L"><label><input type="checkbox" checked></label><a href="results-journal.html">James Cook University Law Review 2002- (AustLII)</a></li>
-      <li class="J-L"><label><input type="checkbox" checked></label><a href="results-journal.html">Journal of Applied Law and Policy 2008- (AustLII)</a></li>
-      <li class="J-L"><label><input type="checkbox" checked></label><a href="results-journal.html">Journal of Australian Taxation 2005- (AustLII)</a></li>
-      <li class="J-L"><label><input type="checkbox" checked></label><a href="results-journal.html">Journal of the Australasian Law Teachers Association 2008- (AustLII)</a></li>
-      <li class="J-L"><label><input type="checkbox" checked></label><a href="results-journal.html">Journal of the Australasian Tax Teachers Association 2005- (AustLII)</a></li>
-      <li class="J-L"><label><input type="checkbox" checked></label><a href="results-journal.html">Land, Rights, Laws: Issues of Native Title 2000- (AustLII)</a></li>
-      <li class="J-L"><label><input type="checkbox" checked></label><a href="results-journal.html">Law Institute Journal Victoria 1928- (AustLII)</a></li>
-      <li class="J-L"><label><input type="checkbox" checked></label><a href="results-journal.html">Legal Education Digest 1992- (AustLII)</a></li>
-    </ul>
+<form action="results-search.html">
+  {% include filters-search.html %}
+
+  <div class="all-section" id="au">
+    <h2 class="card-title card-title-large"><span class="select-all-none"><label><input type="checkbox" checked></label></span> Australian Law Journals</h2>
+    
+    <div class="card card-checkboxes">
+      <ul>
+        <li class="A-C"><label><input type="checkbox" name="journal" value="au_AboriginalLawB" checked></label><a href="results-journal.html">Aboriginal Law Bulletin (AboriginalLawB) 1981-1997 (AustLII)</a></li>
+        <li class="A-C"><label><input type="checkbox" name="journal" value="au_AdelLawRw" checked></label><a href="results-journal.html">Adelaide Law Review (AdelLawRw) 1960- (AustLII)</a></li>
+        <li class="A-C"><label><input type="checkbox" name="journal" value="au_ALRC" checked></label><a href="results-journal.html">ALRC Reform Journal 1995- (AustLII)</a></li>
+        <li class="A-C"><label><input type="checkbox" name="journal" value="au_APJEL" checked></label><a href="results-journal.html">Asia Pacific Journal of Environmental Law 2004- (AustLII)</a></li>
+        <li class="A-C"><label><input type="checkbox" name="journal" value="au_AltCrimJl" checked></label><a href="results-journal.html">Alternative Criminology Journal (AltCrimJl) 1975-1983 (AustLII)</a></li>
+        <li class="A-C"><label><input type="checkbox" name="journal" value="au_AltLawJl" checked></label><a href="results-journal.html">Alternative Law Journal (AltLawJl) 1999- (AustLII)</a></li>
+        <li class="A-C"><label><input type="checkbox" name="journal" value="au_AUConstrLawNlr" checked></label><a href="results-journal.html">Australian Construction Law Newsletter (AUConstrLawNlr) 1988- (AustLII)</a></li>
+        <li class="A-C"><label><input type="checkbox" name="journal" value="au_AUCrimPCACCNNlr" checked></label><a href="results-journal.html">Australian Crime Prevention, Correction and After-Care Council National Newsletter (AUCrimPCACCNNlr) 1970-1973 (AustLII)</a></li>
+        <li class="A-C"><label><input type="checkbox" name="journal" value="" checked></label><a href="results-journal.html">Bar News: The Journal of the New South Wales Bar Association 1985- (AustLII)</a></li>
+        <li class="A-C"><label><input type="checkbox" name="journal" value="au_BDRN" checked></label><a href="results-journal.html">Bond Dispute Resolution Newsletter 1999- (AustLII)</a></li>
+        <li class="A-C"><label><input type="checkbox" name="journal" value="au_CCLCU" checked></label><a href="results-journal.html">CLC Communications Update 1993-2005 (AustLII)</a></li>
+        <li class="D-F"><label><input type="checkbox" name="journal" value="au_DDLR" checked></label><a href="results-journal.html">Deakin Law Review 1994- (AustLII)</a></li>
+        <li class="D-F"><label><input type="checkbox" name="journal" value="au_DVLSJ" checked></label><a href="results-journal.html">DICTUM: Victoria Law School Journal 2011-2012 (AustLII)</a></li>
+        <li class="D-F"><label><input type="checkbox" name="journal" value="au_DTLJ" checked></label><a href="results-journal.html">Digital Technology Law Journal 1999-  (AustLII)</a></li>
+        <li class="D-F"><label><input type="checkbox" name="journal" value="au_JTR" checked></label><a href="results-journal.html">eJournal of Tax Reseach 2003-  (AustLII)</a></li>
+        <li class="D-F"><label><input type="checkbox" name="journal" value="au_FJS" checked></label><a href="results-journal.html">Federal Judicial Scholarship 1980 (AustLII)</a></li>
+        <li class="D-F"><label><input type="checkbox" name="journal" value="au_FJLR" checked></label><a href="results-journal.html">Flinders Journal of Law Reform 1995- (AustLII)</a></li>
+        <li class="G-I"><label><input type="checkbox" name="journal" value="au_GNJ" checked></label><a href="results-journal.html">GovNet eJournal 2007-  (AustLII)</a></li>
+        <li class="G-I"><label><input type="checkbox" name="journal" value="au_HCR" checked></label><a href="results-journal.html">High Court Review 1995-2000 (AustLII)</a></li>
+        <li class="G-I"><label><input type="checkbox" name="journal" value="au_HRD" checked></label><a href="results-journal.html">Human Rights Defender 1994- (AustLII)</a></li>
+        <li class="G-I"><label><input type="checkbox" name="journal" value="au_MALIA" checked></label><a href="results-journal.html">inCite: Magazine of the Australian Library and Information Association 1990- (AustLII)</a></li>
+        <li class="G-I"><label><input type="checkbox" name="journal" value="au_ILB" checked></label><a href="results-journal.html">Indigenous Law Bulletin 1997- (AustLII)</a></li>
+        <li class="G-I"><label><input type="checkbox" name="journal" value="au_IJLE" checked></label><a href="results-journal.html">International Journal of Law and Education 2009- (AustLII)</a></li>
+        <li class="J-L"><label><input type="checkbox" name="journal" value="au_JCULR" checked></label><a href="results-journal.html">James Cook University Law Review 2002- (AustLII)</a></li>
+        <li class="J-L"><label><input type="checkbox" name="journal" value="au_JALP" checked></label><a href="results-journal.html">Journal of Applied Law and Policy 2008- (AustLII)</a></li>
+        <li class="J-L"><label><input type="checkbox" name="journal" value="au_JAT" checked></label><a href="results-journal.html">Journal of Australian Taxation 2005- (AustLII)</a></li>
+        <li class="J-L"><label><input type="checkbox" name="journal" value="au_JALTA" checked></label><a href="results-journal.html">Journal of the Australasian Law Teachers Association 2008- (AustLII)</a></li>
+        <li class="J-L"><label><input type="checkbox" name="journal" value="au_JATTA" checked></label><a href="results-journal.html">Journal of the Australasian Tax Teachers Association 2005- (AustLII)</a></li>
+        <li class="J-L"><label><input type="checkbox" name="journal" value="au_LRLINT" checked></label><a href="results-journal.html">Land, Rights, Laws: Issues of Native Title 2000- (AustLII)</a></li>
+        <li class="J-L"><label><input type="checkbox" name="journal" value="au_LIJV" checked></label><a href="results-journal.html">Law Institute Journal Victoria 1928- (AustLII)</a></li>
+        <li class="J-L"><label><input type="checkbox" name="journal" value="au_LED" checked></label><a href="results-journal.html">Legal Education Digest 1992- (AustLII)</a></li>
+      </ul>
+    </div>
   </div>
-</div>
 
-<div class="all-section" id="nz">
-  <h2 class="card-title card-title-large"><span class="select-all-none"><label><input type="checkbox" checked></label></span> New Zealand Law Journals</h2>
+  <div class="all-section" id="nz">
+    <h2 class="card-title card-title-large"><span class="select-all-none"><label><input type="checkbox" checked></label></span> New Zealand Law Journals</h2>
 
-  <div class="card card-checkboxes">
-    <ul>
-      <li><label><input type="checkbox" checked></label><a href="results-journal.html">Aboriginal Law Bulletin (AboriginalLawB) 1981-1997 (AustLII)</a></li>
-      <li><label><input type="checkbox" checked></label><a href="results-journal.html">Adelaide Law Review (AdelLawRw) 1960- (AustLII)</a></li>
-      <li><label><input type="checkbox" checked></label><a href="results-journal.html">ALRC Reform Journal 1995- (AustLII)</a></li>
-      <li><label><input type="checkbox" checked></label><a href="results-journal.html">Asia Pacific Journal of Environmental Law 2004- (AustLII)</a></li>
-      <li><label><input type="checkbox" checked></label><a href="results-journal.html">Alternative Criminology Journal (AltCrimJl) 1975-1983 (AustLII)</a></li>
-      <li><label><input type="checkbox" checked></label><a href="results-journal.html">Alternative Law Journal (AltLawJl) 1999- (AustLII)</a></li>
-      <li><label><input type="checkbox" checked></label><a href="results-journal.html">Australian Construction Law Newsletter (AUConstrLawNlr) 1988- (AustLII)</a></li>
-    </ul>
+    <div class="card card-checkboxes">
+      <ul>
+        <li><label><input type="checkbox" name="journal" value="nz_AboriginalLawB" checked></label><a href="results-journal.html">Aboriginal Law Bulletin (AboriginalLawB) 1981-1997 (AustLII)</a></li>
+        <li><label><input type="checkbox" name="journal" value="nz_AdelLawRw" checked></label><a href="results-journal.html">Adelaide Law Review (AdelLawRw) 1960- (AustLII)</a></li>
+        <li><label><input type="checkbox" name="journal" value="nz_ALRC" checked></label><a href="results-journal.html">ALRC Reform Journal 1995- (AustLII)</a></li>
+        <li><label><input type="checkbox" name="journal" value="nz_APJEL" checked></label><a href="results-journal.html">Asia Pacific Journal of Environmental Law 2004- (AustLII)</a></li>
+        <li><label><input type="checkbox" name="journal" value="nz_AltCrimJl" checked></label><a href="results-journal.html">Alternative Criminology Journal (AltCrimJl) 1975-1983 (AustLII)</a></li>
+        <li><label><input type="checkbox" name="journal" value="nz_AltLawJl" checked></label><a href="results-journal.html">Alternative Law Journal (AltLawJl) 1999- (AustLII)</a></li>
+        <li><label><input type="checkbox" name="journal" value="nz_AUConstrLawNlr" checked></label><a href="results-journal.html">Australian Construction Law Newsletter (AUConstrLawNlr) 1988- (AustLII)</a></li>
+      </ul>
+    </div>
   </div>
-</div>
 
-<div class="all-section" id="js">
-  <h2 class="card-title card-title-large"><span class="select-all-none"><label><input type="checkbox" checked></label></span> Judicial Scholarship</h2>
+  <div class="all-section" id="js">
+    <h2 class="card-title card-title-large"><span class="select-all-none"><label><input type="checkbox" checked></label></span> Judicial Scholarship</h2>
 
-  <div class="card card-checkboxes">
-    <ul>
-      <li><label><input type="checkbox" checked></label><a href="results-journal.html">Aboriginal Law Bulletin (AboriginalLawB) 1981-1997 (AustLII)</a></li>
-      <li><label><input type="checkbox" checked></label><a href="results-journal.html">Adelaide Law Review (AdelLawRw) 1960- (AustLII)</a></li>
-      <li><label><input type="checkbox" checked></label><a href="results-journal.html">ALRC Reform Journal 1995- (AustLII)</a></li>
-      <li><label><input type="checkbox" checked></label><a href="results-journal.html">Asia Pacific Journal of Environmental Law 2004- (AustLII)</a></li>
-      <li><label><input type="checkbox" checked></label><a href="results-journal.html">Alternative Criminology Journal (AltCrimJl) 1975-1983 (AustLII)</a></li>
-      <li><label><input type="checkbox" checked></label><a href="results-journal.html">Alternative Law Journal (AltLawJl) 1999- (AustLII)</a></li>
-      <li><label><input type="checkbox" checked></label><a href="results-journal.html">Australian Construction Law Newsletter (AUConstrLawNlr) 1988- (AustLII)</a></li>
-    </ul>
+    <div class="card card-checkboxes">
+      <ul>
+        <li><label><input type="checkbox" name="journal" value="js_AboriginalLawB" checked></label><a href="results-journal.html">Aboriginal Law Bulletin (AboriginalLawB) 1981-1997 (AustLII)</a></li>
+        <li><label><input type="checkbox" name="journal" value="js_AdelLawRw" checked></label><a href="results-journal.html">Adelaide Law Review (AdelLawRw) 1960- (AustLII)</a></li>
+        <li><label><input type="checkbox" name="journal" value="js_ALRC" checked></label><a href="results-journal.html">ALRC Reform Journal 1995- (AustLII)</a></li>
+        <li><label><input type="checkbox" name="journal" value="js_APJEL" checked></label><a href="results-journal.html">Asia Pacific Journal of Environmental Law 2004- (AustLII)</a></li>
+        <li><label><input type="checkbox" name="journal" value="js_AltCrimJl" checked></label><a href="results-journal.html">Alternative Criminology Journal (AltCrimJl) 1975-1983 (AustLII)</a></li>
+        <li><label><input type="checkbox" name="journal" value="js_AltLawJl" checked></label><a href="results-journal.html">Alternative Law Journal (AltLawJl) 1999- (AustLII)</a></li>
+        <li><label><input type="checkbox" name="journal" value="js_AUConstrLawNlr" checked></label><a href="results-journal.html">Australian Construction Law Newsletter (AUConstrLawNlr) 1988- (AustLII)</a></li>
+      </ul>
+    </div>
   </div>
-</div>
 
-<div class="all-section" id="lrs">
-  <h2 class="card-title card-title-large"><span class="select-all-none"><label><input type="checkbox" checked></label></span> Law Research Series</h2>
+  <div class="all-section" id="lrs">
+    <h2 class="card-title card-title-large"><span class="select-all-none"><label><input type="checkbox" checked></label></span> Law Research Series</h2>
 
-  <div class="card card-checkboxes">
-    <ul>
-      <li><label><input type="checkbox" checked></label><a href="results-journal.html">Aboriginal Law Bulletin (AboriginalLawB) 1981-1997 (AustLII)</a></li>
-      <li><label><input type="checkbox" checked></label><a href="results-journal.html">Adelaide Law Review (AdelLawRw) 1960- (AustLII)</a></li>
-      <li><label><input type="checkbox" checked></label><a href="results-journal.html">ALRC Reform Journal 1995- (AustLII)</a></li>
-      <li><label><input type="checkbox" checked></label><a href="results-journal.html">Asia Pacific Journal of Environmental Law 2004- (AustLII)</a></li>
-      <li><label><input type="checkbox" checked></label><a href="results-journal.html">Alternative Criminology Journal (AltCrimJl) 1975-1983 (AustLII)</a></li>
-      <li><label><input type="checkbox" checked></label><a href="results-journal.html">Alternative Law Journal (AltLawJl) 1999- (AustLII)</a></li>
-      <li><label><input type="checkbox" checked></label><a href="results.html">Australian Construction Law Newsletter (AUConstrLawNlr) 1988- (AustLII)</a></li>
-    </ul>
+    <div class="card card-checkboxes">
+      <ul>
+        <li><label><input type="checkbox" name="journal" value="lrs_AboriginalLawB" checked></label><a href="results-journal.html">Aboriginal Law Bulletin (AboriginalLawB) 1981-1997 (AustLII)</a></li>
+        <li><label><input type="checkbox" name="journal" value="lrs_AdelLawRw" checked></label><a href="results-journal.html">Adelaide Law Review (AdelLawRw) 1960- (AustLII)</a></li>
+        <li><label><input type="checkbox" name="journal" value="lrs_ALRC" checked></label><a href="results-journal.html">ALRC Reform Journal 1995- (AustLII)</a></li>
+        <li><label><input type="checkbox" name="journal" value="lrs_APJEL" checked></label><a href="results-journal.html">Asia Pacific Journal of Environmental Law 2004- (AustLII)</a></li>
+        <li><label><input type="checkbox" name="journal" value="lrs_AltCrimJl" checked></label><a href="results-journal.html">Alternative Criminology Journal (AltCrimJl) 1975-1983 (AustLII)</a></li>
+        <li><label><input type="checkbox" name="journal" value="lrs_AltLawJl" checked></label><a href="results-journal.html">Alternative Law Journal (AltLawJl) 1999- (AustLII)</a></li>
+        <li><label><input type="checkbox" name="journal" value="lrs_AUConstrLawNlr" checked></label><a href="results.html">Australian Construction Law Newsletter (AUConstrLawNlr) 1988- (AustLII)</a></li>
+      </ul>
+    </div>
   </div>
-</div>
 
-<div class="all-section" id="mt">
-  <h2 class="card-title card-title-large"><span class="select-all-none"><label><input type="checkbox" checked></label></span> Monographs & Theses</h2>
+  <div class="all-section" id="mt">
+    <h2 class="card-title card-title-large"><span class="select-all-none"><label><input type="checkbox" checked></label></span> Monographs & Theses</h2>
 
-  <div class="card card-checkboxes">
-    <ul>
-      <li><label><input type="checkbox" checked></label><a href="results-journal.html">Aboriginal Law Bulletin (AboriginalLawB) 1981-1997 (AustLII)</a></li>
-      <li><label><input type="checkbox" checked></label><a href="results-journal.html">Adelaide Law Review (AdelLawRw) 1960- (AustLII)</a></li>
-      <li><label><input type="checkbox" checked></label><a href="results-journal.html">ALRC Reform Journal 1995- (AustLII)</a></li>
-      <li><label><input type="checkbox" checked></label><a href="results-journal.html">Asia Pacific Journal of Environmental Law 2004- (AustLII)</a></li>
-      <li><label><input type="checkbox" checked></label><a href="results-journal.html">Alternative Criminology Journal (AltCrimJl) 1975-1983 (AustLII)</a></li>
-      <li><label><input type="checkbox" checked></label><a href="results-journal.html">Alternative Law Journal (AltLawJl) 1999- (AustLII)</a></li>
-      <li><label><input type="checkbox" checked></label><a href="results-journal.html">Australian Construction Law Newsletter (AUConstrLawNlr) 1988- (AustLII)</a></li>
-    </ul>
+    <div class="card card-checkboxes">
+      <ul>
+        <li><label><input type="checkbox" name="journal" value="mt_AboriginalLawB" checked></label><a href="results-journal.html">Aboriginal Law Bulletin (AboriginalLawB) 1981-1997 (AustLII)</a></li>
+        <li><label><input type="checkbox" name="journal" value="mt_AdelLawRw" checked></label><a href="results-journal.html">Adelaide Law Review (AdelLawRw) 1960- (AustLII)</a></li>
+        <li><label><input type="checkbox" name="journal" value="mt_ALRC" checked></label><a href="results-journal.html">ALRC Reform Journal 1995- (AustLII)</a></li>
+        <li><label><input type="checkbox" name="journal" value="mt_APJEL" checked></label><a href="results-journal.html">Asia Pacific Journal of Environmental Law 2004- (AustLII)</a></li>
+        <li><label><input type="checkbox" name="journal" value="mt_AltCrimJl" checked></label><a href="results-journal.html">Alternative Criminology Journal (AltCrimJl) 1975-1983 (AustLII)</a></li>
+        <li><label><input type="checkbox" name="journal" value="mt_AltLawJl" checked></label><a href="results-journal.html">Alternative Law Journal (AltLawJl) 1999- (AustLII)</a></li>
+        <li><label><input type="checkbox" name="journal" value="mt_AUConstrLawNlr" checked></label><a href="results-journal.html">Australian Construction Law Newsletter (AUConstrLawNlr) 1988- (AustLII)</a></li>
+      </ul>
+    </div>
   </div>
-</div>
+</form>

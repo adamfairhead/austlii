@@ -1,7 +1,8 @@
 ---
 layout: layout
 title: Australian Treaties
-class: database treaties
+class: database treaties checklist
+search: false
 searchable: true
 panel: closed
 ---
@@ -9,21 +10,25 @@ panel: closed
   <a href="#" class="card-options--toggle checked">Select / Clear All</a>
 </div>
 
-<div class="all-section" id="treaties">
-  <h2 class="card-title"><label><input type="checkbox" checked></label> All Australian Treaties</h2>
+<form action="results-search.html">
+  {% include filters-search.html %}
 
-  <div class="card card-checkboxes">
-    <ul>
-      <li><label><input type="checkbox" checked></label><a href="results-treaty.html">Australian Treaty Action - Monthly Updates (AustLII)</a></li>
-      <li><label><input type="checkbox" checked></label><a href="results-treaty.html">Australian Treaty Series (ATS) (AustLII)</a></li>
-      <li><label><input type="checkbox" checked></label><a href="results-treaty.html">Australian Minor Treaty Actions - Explanatory Statements (AMTAES) (AustLII)</a></li>
-      <li><label><input type="checkbox" checked></label><a href="results-treaty.html">Australian Treaties Not Yet In Force (ATNIF) (AustLII)</a></li>
-      <li><label><input type="checkbox" checked></label><a href="results-treaty.html">Joint Standing Committee on Treaties (JSCOT) Reports (AustLII)</a></li>
-      <li><label><input type="checkbox" checked></label><a href="results-treaty.html">Select Documents on International Affairs (ATSD) (AustLII)</a></li>
-      <li><label><input type="checkbox" checked></label><a href="results-treaty.html">Australian Treaty National Interest Analyses (ATNIA) (AustLII)</a></li>
-      <li><label><input type="checkbox" checked></label><a href="results-treaty.html">List of Multilateral Treaty Actions Under Negotiation or Consideration (AustLII)</a></li>
-      <li><label><input type="checkbox" checked></label><a href="results-treaty.html">Status Lists for Multilateral Treaties (AustLII)</a></li>
-      <li><label><input type="checkbox" checked></label><a href="results-treaty.html">Treaty Law Resources (AustLII)</a></li>
-    </ul>
+  <div class="all-section" id="treaties">
+    <h2 class="card-title"><label><input type="checkbox" checked></label> All Australian Treaties</h2>
+
+    <div class="card card-checkboxes">
+      <ul>
+        <li><label><input type="checkbox" name="treaty" value="ATAMU" checked></label><a href="results-treaty.html">Australian Treaty Action - Monthly Updates (AustLII)</a></li>
+        <li><label><input type="checkbox" name="treaty" value="ATS" checked></label><a href="results-treaty.html">Australian Treaty Series (ATS) (AustLII)</a></li>
+        <li><label><input type="checkbox" name="treaty" value="AMTAES" checked></label><a href="results-treaty.html">Australian Minor Treaty Actions - Explanatory Statements (AMTAES) (AustLII)</a></li>
+        <li><label><input type="checkbox" name="treaty" value="ATNIF" checked></label><a href="results-treaty.html">Australian Treaties Not Yet In Force (ATNIF) (AustLII)</a></li>
+        <li><label><input type="checkbox" name="treaty" value="JSCOT" checked></label><a href="results-treaty.html">Joint Standing Committee on Treaties (JSCOT) Reports (AustLII)</a></li>
+        <li><label><input type="checkbox" name="treaty" value="ATSD" checked></label><a href="results-treaty.html">Select Documents on International Affairs (ATSD) (AustLII)</a></li>
+        <li><label><input type="checkbox" name="treaty" value="ATNIA" checked></label><a href="results-treaty.html">Australian Treaty National Interest Analyses (ATNIA) (AustLII)</a></li>
+        <li><label><input type="checkbox" name="treaty" value="LMTAUNC" checked></label><a href="results-treaty.html">List of Multilateral Treaty Actions Under Negotiation or Consideration (AustLII)</a></li>
+        <li><label><input type="checkbox" name="treaty" value="SLMT" checked></label><a href="results-treaty.html">Status Lists for Multilateral Treaties (AustLII)</a></li>
+        <li><label><input type="checkbox" name="treaty" value="TLR" checked></label><a href="results-treaty.html">Treaty Law Resources (AustLII)</a></li>
+      </ul>
+    </div>
   </div>
-</div>
+</form>

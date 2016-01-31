@@ -255,7 +255,7 @@ html.js .search-options {
   text-indent: -999em;
   background: url('../images/close.svg') right 10px no-repeat;
   background-size: 15px auto;
-  width: 10%;
+  width: 2em;
   height: 40px;
   padding: 0;
 
@@ -264,7 +264,25 @@ html.js .search-options {
   @include media($medium-screen + 20em) { display: none;  }
 }
 
-.search-is-visible #page-search { top: -38px; }
+.search-is-visible {
+  #page-search { top: -38px; }
+
+  #page-search.filters-search {
+    top: 0;
+
+    .go-primary {
+      top: 2em;
+
+      @include media(max-width $medium-screen) {
+        top: 1.8em;
+      }
+    }
+
+    @include media(max-width $medium-screen) {
+      top: -20px;
+    }
+  }
+}
 
 // The button that opens search on mobiles
 .go-search {
@@ -278,6 +296,18 @@ html.js .search-options {
   background: url('../images/search.svg') center right no-repeat;
   background-size: 20px auto;
 
+  &.filters {
+    position: absolute;
+    right: .75em;
+    top: 2em;
+    margin-top: 0;
+    z-index: 2;
+
+    @include media(max-width $medium-screen) {
+      top: .65em;
+    }
+  }
+
   @include media($medium-screen) { margin-top: 26px; }
 
   @include media($medium-screen + 20em) { display: none; }
@@ -286,6 +316,41 @@ html.js .search-options {
 .search #page-content #panels .date-range:first-child {
   margin-left: 0;
   margin-bottom: 6px;
+}
+
+.checklist #page-content {
+  position: static;
+
+  #page-main {
+    position: static;
+
+    .card-options {
+      bottom: -2.5em;
+      margin-top: -2.5em;
+      position: relative;
+      text-align: right;
+      z-index: 0;
+
+      @include media(max-width $medium-screen) {
+        margin-bottom: 2.5em;
+        text-align: left;
+      }
+    }
+  }
+
+  .filters-search {
+    position: absolute;
+    right: 0;
+    width: 100%;
+
+    @include media($medium-screen + 20em) {
+      top: 0;
+    }
+
+    .search-box {
+      top: 31px;
+    }
+  }
 }
 
 html.no-js .extra-search { display: none; }

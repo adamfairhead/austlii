@@ -24,13 +24,16 @@ layout: compress
   <meta name="msapplication-TileImage" content="images/icon/ms.png">
   <script src="js/modernizr.min.js"></script>
 </head>
-<body class="{{ page.class }}">
+<body class="{{ page.class }}"> 
   <header id="page-header">
     <div id="primary">
       <a id="page-logo" href="/" tabindex="1">AustLII</a>
       {% unless page.search == false %}
       <a class="go-search" href="#">Search</a>
       {% endunless %}
+      {% if page.class contains 'checklist' %}
+      <a class="go-search filters" href="#">Search</a>
+      {% endif %}
 
       {% if page.class contains 'document' %}
       <h2 id="page-title"><span>{{ page.database }}</span></h2>

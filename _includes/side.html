@@ -44,14 +44,14 @@
 </div>
 {% endif %}
 
-{% if page.class == 'database treaties' %}
+{% if page.class contains 'database treaties' %}
 <!-- Treaties Sidebar -->
 <div id="page-side">
 {% include side/side-treaties.html %}
 </div>
 {% endif %}
 
-{% if page.class == 'database journals' %}
+{% if page.class contains 'database journals' %}
 <!-- Journals Sidebar -->
 <div id="page-side">
 {% include side/side-journals.html %}
