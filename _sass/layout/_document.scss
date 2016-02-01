@@ -40,12 +40,12 @@
             color: $medium-gray;
 
         @include media(min-width 76em) {
-            left: -2.5em;
+            left: -1.15em;
             width: 2em;
             position: absolute;
             text-align: right;
+        }
       }
-    }
 
     // Hyperlink styles within documents
     a { text-decoration: underline; }
