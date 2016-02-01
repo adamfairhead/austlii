@@ -140,14 +140,15 @@ html.no-js .sort-more { display: none !important; }
     margin-bottom: .1em;
   }
 
+  & > ul > li a { padding: 0 .5em; }
+
   & > ul > li a,
   & > ul > .sort-options {
     color: $medium-gray;
     border: 1px solid $border-light-gray;
     background: $border-light-gray;
     border-radius: $base-border-radius;
-    line-height: 2.2;
-    padding: 0 .5em;
+    line-height: 2.2;   
     height: 2.3em;
 
     @include media($medium-screen) {
