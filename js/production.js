@@ -244,6 +244,9 @@ $(function() {
 });
 
 $(function() {
+
+  //globals
+  var switchAll = $('.card-options--toggle');
   // Sort item filtering
   $('.sort-item').each(function() {
     var $sortItem = 0;
@@ -254,7 +257,7 @@ $(function() {
           taggedInput = $('.all-section.tag .card-title input');
       $('#page-sort .selected').removeClass('selected').removeClass('disabled');
       $(this).addClass('selected');
-      $('.card-options--toggle').addClass('checked');
+      switchAll.addClass('checked');
       $sortItem = $(this).attr('data-sort');
       allSection.addClass('is-hidden').find('.checkbox').removeClass('checked');
       allSection.find('.checkbox input').prop('checked', false);
@@ -306,7 +309,7 @@ $(function() {
     $('.all-section').removeClass('is-hidden');
     $('.all-section.tag').removeClass('tag').find('li').show();
     $('.range-options').val('All');
-    if($('.card-options--toggle').hasClass('checked')) {
+    if(switchAll.hasClass('checked')) {
     $('.all-section').find(".checkbox").addClass('checked');
     $('.all-section').find(".checkbox input").prop('checked', true);   
     }
@@ -341,9 +344,11 @@ $(function() {
         parentId = $(this).closest('.all-section').attr('id'),
         parent = $('#' + parentId),
         range = $('[data-sort="' + parentId + '"] .range-options').val();
+    switchAll.removeClass('checked');
     if ($(this).parent().hasClass('checked')) {
       traverse.find('.card-checkboxes .checkbox').removeClass('checked');
       traverse.find('.card-checkboxes .checkbox input').prop('checked', false);
+      switchAll.removeClass('checked');
     } else if ($(this).hasClass('range-selected')){
       parent.find('.checkbox').removeClass('checked');
       parent.find('.checkbox input').prop('checked', false);
@@ -351,9 +356,11 @@ $(function() {
       parent.find('.' + range + ' .checkbox input').prop('checked', true);
       parent.find('.card-title input').prop('checked', true);
       parent.find('.card-title label').addClass('checked');
+      switchAll.addClass('checked');
     }else {
       traverse.find('.card-checkboxes .checkbox').addClass('checked');
       traverse.find('.card-checkboxes .checkbox input').prop('checked', true);
+      switchAll.addClass('checked');
     };
   });
 
@@ -400,7 +407,7 @@ $(function() {
   });
 
   // Card Options: Toggle (for 'select all' / 'select none')
-  $('.card-options--toggle').on('click', function() {
+  switchAll.on('click', function() {
     if ($(this).hasClass('checked')) {
       $(this).removeClass('checked');
       $('.checkbox input').prop('checked', false).parent().removeClass('checked');
