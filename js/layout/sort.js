@@ -158,9 +158,15 @@ $(function() {
     if ($(this).hasClass('checked')) {
       $(this).removeClass('checked');
       $('.checkbox input').prop('checked', false).parent().removeClass('checked');
+    } else if ($('.all-section:not(.is-hidden)').hasClass('tag')){
+      var sortItem = $('.all-section:not(.is-hidden)').attr('id')
+          range = $('[data-sort="'+ sortItem +'"] .range-options').val();
+          //alert(range);
+      $(this).addClass('checked');
+      $('.all-section:not(.is-hidden)' + ' .' + range + ' .checkbox input').prop('checked', true).parent().addClass('checked');
     } else {
       $(this).addClass('checked');
-      $('.checkbox input').prop('checked', true).parent().addClass('checked');
+      $('.all-section:not(.is-hidden) .checkbox input').prop('checked', true).parent().addClass('checked');
     }
     return false;
   });
