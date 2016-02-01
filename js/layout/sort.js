@@ -9,6 +9,7 @@ $(function() {
           taggedInput = $('.all-section.tag .card-title input');
       $('#page-sort .selected').removeClass('selected').removeClass('disabled');
       $(this).addClass('selected');
+      $('.card-options--toggle').addClass('checked');
       $sortItem = $(this).attr('data-sort');
       allSection.addClass('is-hidden').find('.checkbox').removeClass('checked');
       allSection.find('.checkbox input').prop('checked', false);
