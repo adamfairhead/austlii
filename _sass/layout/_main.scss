@@ -66,7 +66,10 @@
   }
 }
 
-html.no-js .sort-more { display: none !important; }
+html.no-js .sort-more,
+.no-js #page-sort,
+.no-js .card-options,
+.no-js .select-all-none { display: none !important; }
 
 // Search results sort row for joining sort-tabs
 #page-sort-2 {
