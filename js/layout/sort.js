@@ -11,12 +11,12 @@ $(function() {
       $(this).addClass('selected');
       $sortItem = $(this).attr('data-sort');
       allSection.addClass('is-hidden').find('.checkbox').removeClass('checked');
-      //$('.sort-item').find('.range-options option').removeClass('active');
+      allSection.find('.checkbox input').prop('checked', false);
       $('#' + $sortItem).removeClass('is-hidden');
-      $('#' + $sortItem).find(".checkbox").addClass('checked');
+      $('#' + $sortItem).find('.checkbox').addClass('checked');
+      $('#' + $sortItem).find('.checkbox input').prop('checked', true);
       $('.card-title input').removeClass('range-selected');
       taggedInput.addClass('range-selected');
-      //$('.range-options option').removeClass('active');
       if ($('#' + $sortItem).hasClass('tag')) { 
         var range = $('[data-sort="'+ $sortItem +'"] .range-options').val(),
             tag = $('#' + $sortItem + '.tag');
