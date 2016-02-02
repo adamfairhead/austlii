@@ -166,18 +166,6 @@ $(function() {
 
 $(function() {
 
-  //journals search box follows right edge
-  if($(window).width() > 959) {
-    var right = ($(window).width() - ($('#page-tertiary').offset().left + $('#page-tertiary').outerWidth()));
-    $('.checklist .search-box').css('right', right);
-    $(window).resize(function(){
-      var right = ($(window).width() - ($('#page-tertiary').offset().left + $('#page-tertiary').outerWidth()));
-      $('.database.journals .search-box').css('right', right);
-    }); 
-  }else{
-    $('.search-box').css('right', 0);
-  }
-
   // Show search on mobile
   $('.go-search, .go-primary').on('click', function() {
     $('body').toggleClass('search-is-visible');

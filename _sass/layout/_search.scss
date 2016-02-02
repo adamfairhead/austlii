@@ -341,7 +341,7 @@ html.js .search-options {
   .filters-search {
     position: absolute;
     right: 0;
-    width: 100%;
+    left: 0;
 
     @include media($medium-screen + 20em) {
       top: 0;
