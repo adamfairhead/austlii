@@ -2,7 +2,6 @@
   {% include svg/icon-print.svg %}
   <h4>Print</h4>
   <ul>
-    {% unless page.class contains 'document' %}<li><a class="print-webview" href="javascript:void(0);">Print (web view)</a></li>{% endunless %}
     {% if page.class contains 'document' %}<li><a class="print-special" href="javascript:void(0);">Print (pretty)</a></li>{% endif %}
     <li><a class="print-minimal" href="javascript:void(0);">Print (eco-friendly)</a></li>
   </ul>

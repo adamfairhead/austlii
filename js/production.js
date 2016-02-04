@@ -93,19 +93,39 @@ $(function() {
 
   // Set print layout
   $(document).on('click', '.print-special', function() {
-    body.addClass('special').removeClass('print-exact');
-    window.print();
-    return false;
+    body.addClass('special');
+    $('head').append('<link rel="stylesheet" type="text/css" href="css/screen.css?print" media="screen" />');
+    setTimeout(function(){
+      $('[href="css/screen.css"]').remove();
+      $('head').append('<link rel="stylesheet" type="text/css" href="css/print.css" media="print" />');
+      setTimeout(function(){
+        window.print();
+        $('head').append('<link rel="stylesheet" type="text/css" href="css/screen.css" media="all" />');
+        setTimeout(function(){
+          body.removeClass('special');
+          $('[href="css/print.css"]').remove();
+          $('[href="css/screen.css?print"]').remove();
+          return false;
+        }, 300);
+      }, 300);
+    }, 500);
   });
-  $(document).on('click', '.print-webview', function() {
-    body.addClass('print-exact').removeClass('special');
-    window.print();
-    return false;
-  });
+
   $(document).on('click', '.print-minimal', function() {
-    body.removeClass('special').removeClass('print-exact');
-    window.print();
-    return false;
+    $('head').append('<link rel="stylesheet" type="text/css" href="css/screen.css?print" media="screen" />');
+    setTimeout(function(){
+      $('[href="css/screen.css"]').remove();
+      $('head').append('<link rel="stylesheet" type="text/css" href="css/print.css" media="print" />');
+      setTimeout(function(){
+        window.print();
+        $('head').append('<link rel="stylesheet" type="text/css" href="css/screen.css" media="all" />');
+        setTimeout(function(){
+          $('[href="css/print.css"]').remove();
+          $('[href="css/screen.css?print"]').remove();
+          return false;
+        }, 300);
+      }, 300);
+    }, 500);
   });
 
   // Annual reports dropdown

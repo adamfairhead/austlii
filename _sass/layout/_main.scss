@@ -450,7 +450,9 @@ table {
 
 // Rules for printing homepage
 
+
 @media print {
+/*
   .home:not(.print-exact) {
     .go-search,
     .go-primary,
@@ -469,22 +471,15 @@ table {
       display: none;
     }
   }
+*/
 
-  .home.print-exact {
+  body {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+
     .card {
       img { display: none; }
     }
-  }
-
-  .home.print-exact,
-  .database.print-exact,
-  .results.print-exact,
-  .about.print-exact,
-  .search.print-exact,
-  .lawcite.print-exact,
-  .contributors.print-exact {
-    -webkit-print-color-adjust: exact;
-    print-color-adjust: exact;
 
     #page-side {
       float: left;
