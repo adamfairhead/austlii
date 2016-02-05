@@ -8,6 +8,7 @@
     <p>Fairly succinctly, mind you.</p>
   </div>
 
+  {% include side/side-print.html %}
   {% include side/side-tools.html %}
 </div>
 {% endif %}
@@ -23,6 +24,7 @@
     <h4>About LawCite</h4>
     <p>There are currently <strong>4,731,531</strong> indexed cases, law reform documents and journal articles included in the system. Last updated: <strong>04 August 2015</strong>.</p>
   </div>
+  {% include side/side-print.html %}
 </div>
 {% endif %}
 
@@ -31,6 +33,7 @@
 <div id="page-side">
 {% include side/side-partner.html %}
 {% include side/side-contributors-sm.html %}
+{% include side/side-print.html %}
 {% include side/side-tools.html %}
 </div>
 {% endif %}
@@ -40,6 +43,7 @@
 <div id="page-side">
 {% include side/side-libraries.html %}
 {% include side/side-contributors-sm.html %}
+{% include side/side-print.html %}
 {% include side/side-tools.html %}
 </div>
 {% endif %}
@@ -48,6 +52,7 @@
 <!-- Treaties Sidebar -->
 <div id="page-side">
 {% include side/side-treaties.html %}
+{% include side/side-print.html %}
 </div>
 {% endif %}
 
@@ -56,6 +61,7 @@
 <div id="page-side">
 {% include side/side-journals.html %}
 {% include side/side-contributors-sm.html %}
+{% include side/side-print.html %}
 {% include side/side-tools.html %}
 </div>
 {% endif %}
@@ -66,6 +72,7 @@
 {% include side/side-partner.html %}
 {% include side/side-libraries.html %} 
 {% include side/side-contributors-sm.html %}
+{% include side/side-print.html %}
 {% include side/side-tools.html %}
 </div>
 {% endif %}
@@ -100,6 +107,7 @@
 <!-- About Sidebar -->
 <div id="page-side">
   {% include side/side-about.html %}
+  {% include side/side-print.html %}
 </div> 
 {% endunless %}
 {% endif %}
@@ -121,6 +129,7 @@
 <!-- Search Results Sidebar -->
 <div id="page-side">
   {% include side/side-search-results.html %}
+  {% include side/side-print.html %}
 </div>
 {% endif %}
 
@@ -129,5 +138,6 @@
 <div id="page-side">
   {% include side/side-partner.html %}
   {% include side/side-about.html %} 
+  {% include side/side-print.html %}
 </div>
 {% endunless %}{% endif %}

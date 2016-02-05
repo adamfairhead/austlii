@@ -452,26 +452,6 @@ table {
 
 
 @media print {
-/*
-  .home:not(.print-exact) {
-    .go-search,
-    .go-primary,
-    .search-box,
-    #page-tertiary,
-    #ribbon,
-    #panels,
-    .year-options-list,
-    #page-index,
-    #page-side,
-    .closing,
-    input[type="checkbox"],
-    input[type="button"],
-    input[type="radio"],
-    input[type="submit"] {
-      display: none;
-    }
-  }
-*/
 
   body {
     -webkit-print-color-adjust: exact;
@@ -639,13 +619,22 @@ table {
     }
 
     #ribbon,
-    #page-header { width: 100%; clear: both; } 
+    #page-header { 
+      width: 100%; 
+      clear: both; 
+    } 
+
+    #page-header { padding-bottom: 1em; }
 
     #page-logo {
       background-image: url("../images/logo-print-special.png");
       background-size: cover;
       display: block; 
     } 
+
+    &.checklist {
+      .filters-search { display: none; }
+    }
   }
 
   .database,

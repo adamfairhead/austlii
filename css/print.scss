@@ -11,9 +11,11 @@
 #page-tertiary,
 #ribbon,
 #panels,
+#page-sort,
 .year-options-list,
 #page-index,
 #page-side,
+.hide,
 .closing,
 input[type="checkbox"],
 input[type="button"],
@@ -31,6 +33,13 @@ body {
   margin-right: .5em;
   color: #888;
 }
+
+.page-subheader { 
+  display: block;
+  margin-bottom: 1em; 
+}
+
+.card-title { padding-top: 1.5em; }
 
 .special {
   font-size: 1em;

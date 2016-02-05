@@ -7,6 +7,9 @@ return new Za.prototype.init(a,b,c,d,e)}m.Tween=Za,Za.prototype={constructor:Za,
 $(function() {
 
   var body = $('body');
+  //let browser cache the print version of screen.css to avoid screen flicker
+  $('head').append('<link rel="stylesheet" type="text/css" href="css/screen.css?print" media="screen" />');
+  $('[href="css/screen.css?print"]').remove();
   
   // Select a panel item
   $('#panels a').on('click', function() {
@@ -107,7 +110,7 @@ $(function() {
           $('[href="css/screen.css?print"]').remove();
           return false;
         }, 300);
-      }, 300);
+      }, 500);
     }, 500);
   });
 
@@ -124,8 +127,12 @@ $(function() {
           $('[href="css/screen.css?print"]').remove();
           return false;
         }, 300);
-      }, 300);
+      }, 500);
     }, 500);
+  });
+
+  $(document).on('click', '.print-webview', function() {
+    window.print();
   });
 
   // Annual reports dropdown
