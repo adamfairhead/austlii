@@ -22,7 +22,10 @@ layout: compress
 <body class="{{ page.class }}"> 
   <header id="page-header">
     <div id="primary">
-      <a id="page-logo" href="/" tabindex="1">AustLII</a>
+      <a id="page-logo" href="/" tabindex="1">
+        <img src="images/logo.svg" alt="AustLII">
+        <span class="title-main">AustLII</span>
+      </a>
       {% unless page.search == false %}
       <a class="go-search" href="#">Search</a>
       {% endunless %}
