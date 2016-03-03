@@ -16,7 +16,10 @@
 #page-index,
 #page-side,
 .hide,
-.closing,
+body:not(.document) .closing,
+.closing-tertiary,
+.closing small,
+.qrcode,
 input[type="checkbox"],
 input[type="button"],
 input[type="radio"],
@@ -40,6 +43,10 @@ body {
 }
 
 .card-title { padding-top: 1.5em; }
+
+
+
+
 
 .special {
   font-size: 1em;
@@ -106,7 +113,7 @@ body {
       padding: 1em;
       border-bottom: 2px solid #C40C0B;
       margin: -24px -1em 1em;
-
+/*
       &:after {
         content: url(https://chart.googleapis.com/chart?cht=qr&chs=150x150&chl=http://austlii.edu.au&choe=UTF-8);
         position: absolute;
@@ -114,7 +121,21 @@ body {
         top: -20px;
         -webkit-transform: scale(0.7);
         -moz-transform: scale(0.7);
-     }
+}*/
+
+    }
+  }
+
+  .closing {
+
+    .inner {
+
+      .qrcode { 
+        display: block;        
+        position: fixed;
+        right: .25em;
+        top: .5em;
+      }
     }
   }
 
