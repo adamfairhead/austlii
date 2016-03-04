@@ -627,9 +627,7 @@ table {
     #page-header { padding-bottom: 1em; }
 
     #page-logo {
-      background-image: url("../images/logo-print-special.png");
-      background-size: cover;
-      display: block; 
+      padding: 0;
     } 
 
     &.checklist {
