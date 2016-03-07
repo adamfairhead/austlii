@@ -6,6 +6,7 @@ Ribbon is a variable set on most pages; it defaults to an expanded view,
 and can be simplified using variables 'intro' (for home) and 'basic' (for
 search, about pages, etc.)
 -->
+{% unless page.class contains 'contribute' %}
 {% if page.ribbon == 'intro' %}
 <nav id="ribbon">
   <div class="inner">
@@ -106,3 +107,4 @@ search, about pages, etc.)
   </div>
 </nav>
 {% endif %}
+{% endunless %}

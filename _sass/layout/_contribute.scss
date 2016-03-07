@@ -1,0 +1,80 @@
+// Advanced Search
+
+.contribute {
+  .card {
+    li {
+      @include row;
+      padding: 1em;
+
+      &:nth-child(2n) { background: transparent; }
+
+      h6 {
+        @include span-columns(3);
+        font-weight: normal;
+      }
+
+      .input {
+        @include span-columns(6);
+      }
+
+      .set {
+        @include span-columns(9);
+
+        .input {
+          @include span-columns(6 of 9);
+          margin-bottom: $small-spacing/2;
+
+          select {
+            width: 100%;
+            border: none;
+            border-radius: $base-border-radius;
+            background: darken($light-gray, 5);
+            margin-bottom: 0;
+            padding: 3px;
+          }
+        }
+
+        .input-sm {
+          @include span-columns(3 of 9);
+        }
+      }
+
+      input {
+        margin-bottom: 0;
+        background: darken($light-gray, 5);
+        border: none;
+        border-color: darken($base-border-color, 5);
+        box-shadow: none;
+        border-radius: $base-border-radius;
+        -webkit-appearance: none;
+        font-size: .9em;
+        height: 33px;
+      }
+
+      .input-sm {
+        @include span-columns(3);
+      }
+
+      .push {
+        float: left;
+        margin-left: 25.58945%;
+        margin-right: 2.58765%;
+        width: auto;
+
+        .checkbox {
+          margin-left: 0;
+        }
+      }
+    }
+  }
+
+  .multi.is-collapsed {
+    max-height: 0;
+    overflow: hidden;
+  }
+}
+
+button.push { 
+  margin-left: 25.58945%;
+  margin-left: calc(25.58945% + .5em);
+}

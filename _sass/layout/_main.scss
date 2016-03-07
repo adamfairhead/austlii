@@ -64,6 +64,11 @@
       margin-right: 0;
     }
   }
+
+  .contribute & { 
+    float: none;
+    margin: 0 auto;
+  }
 }
 
 html.no-js .sort-more,

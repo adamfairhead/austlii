@@ -40,11 +40,16 @@ layout: compress
         <span>Australasian Legal Information Institute</span> 
         <span class="page-subheader">Free, comprehensive and independent access to Australasian law</span>
       </h1>
+      {% elsif page.class contains 'contribute' %}
+      <div class="title-block">
+        <h1 id="page-title"> Without you, we wouldn't exist. </h1>
+        <p>We rely on the generosity of our donors to operate.<br>Thank you for making AustLII possible.</p>
+      </div>
       {% else %}
       <h1 id="page-title"><span>{{ page.title }}</span></h1>
       {% endif %}
     </div>
-
+  {% unless page.class contains 'contribute' %}
     {% include search.html %}
 
     <ul id="page-tertiary">
@@ -56,6 +61,7 @@ layout: compress
       <li><a href="feedback.html">Feedback</a></li>
       <li><a href="help.html">Help</a></li>
     </ul>
+  {% endunless %}
   </header>
 
   {% include ribbon.html %}
@@ -77,9 +83,10 @@ layout: compress
 
       {% include pagination.html %}
     </div>
-    
+    {% unless page.class contains 'contribute' %}
     {% include side.html %}
     {% include closing.html %}
+    {% endunless %}
   </div>
 
   <script src="js/production.min.js"></script>
