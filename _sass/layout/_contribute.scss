@@ -2,6 +2,11 @@
 
 .contribute {
   .card {
+
+    @include media(max-width $medium-screen) {
+      font-size: $base-font-size/1.15;
+    }
+
     li {
       @include row;
       padding: 1em;
@@ -15,6 +20,10 @@
 
       .input {
         @include span-columns(6);
+
+        @include media(max-width $medium-screen) {
+          @include span-columns(9);
+        }
       }
 
       .set {
@@ -23,6 +32,10 @@
         .input {
           @include span-columns(6 of 9);
           margin-bottom: $small-spacing/2;
+
+          @include media(max-width $medium-screen) {
+            @include span-columns(9 of 9);
+          }
 
           select {
             width: 100%;
@@ -36,6 +49,12 @@
 
         .input-sm {
           @include span-columns(3 of 9);
+
+          @include media(max-width $medium-screen) {
+            @include span-columns(4.5 of 9);
+
+            &:nth-of-type(4) { margin-right: 0; }
+          }
         }
       }
 
@@ -53,6 +72,10 @@
 
       .input-sm {
         @include span-columns(3);
+
+        @include media(max-width $medium-screen) {
+          @include span-columns(4.5);
+        }
       }
 
       .push {

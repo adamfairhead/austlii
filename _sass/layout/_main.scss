@@ -6,6 +6,10 @@
   min-height: 700px;
   @include outer-container;
 
+  .contribute & {
+    padding-bottom: $base-spacing;
+  }
+
   @include media(max-width $medium-screen) { font-size: 1.05em; }
 
   @include media($medium-screen) {
