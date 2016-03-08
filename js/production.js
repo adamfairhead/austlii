@@ -453,4 +453,32 @@ $(function() {
     }
   });
 
+  //show/hide switchers
+  $('[data-target]').each(function() {
+    $(this).hide();
+  });
+
+  $('[data-switch]').each(function() {
+    var switchTarget = $(this).attr('data-switch');
+
+    $(this).on('click', function(){
+      if($('[data-target="'+switchTarget+'"]').hasClass('opened')) {
+          $('[data-target="'+switchTarget+'"]').slideUp('fast').removeClass('opened');
+      }else{
+          $('[data-target="'+switchTarget+'"]').slideDown('fast').addClass('opened');
+        } 
+    });
+  });
+
+  $('[data-close]').each(function() {
+    var closeTarget = $(this).attr('data-close');
+
+    $(this).on('click', function(){
+      if($('[data-target="'+closeTarget+'"]').hasClass('opened')) {
+          $('[data-target="'+closeTarget+'"]').slideUp('fast').removeClass('opened');
+          $(this).siblings().removeClass('checked');
+      }
+    });
+  });
+
 });

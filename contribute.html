@@ -17,17 +17,17 @@ panel: none
       </li>
       <li class="multi">
         <h6>Email</h6>
-        <div class="input"><input type="text" placeholder="e.g. Give an example here"></div>
+        <div class="input"><input type="text"></div>
       </li>
       <li class="multi">
         <div class="push">
-          <a class="card-options--solo" href="#">Individual</a>
-          <a class="card-options--solo" href="#">Organization</a>
-          <a class="card-options--solo" href="#">Anonymous</a>
+          <a class="card-options--solo" href="#" data-close="organization">Individual</a>
+          <a class="card-options--solo" href="#" data-switch="organization">Organization</a>
+          <a class="card-options--solo" href="#" data-close="organization">Anonymous</a>
           <p class="meta">AustLII will publicly acknowledge your contribution unless you select 'Anonymous'.</p>          
         </div>
       </li>
-      <li class="multi">
+      <li class="multi" data-target="organization">
         <h6>Organization:</h6><div class="input"><input type="text"></div>
       </li>
     </ul>
@@ -64,11 +64,11 @@ panel: none
     <ul>
       <li class="multi">
         <h6>Method:</h6>
-        <a class="card-options--solo" href="#">Online</a>
-        <a class="card-options--solo" href="#">Cheque</a>
-        <a class="card-options--solo" href="#">Invoice</a>
+        <a class="card-options--solo" href="#" data-close="address">Online</a>
+        <a class="card-options--solo" href="#" data-switch="address">Cheque</a>
+        <a class="card-options--solo" href="#" data-switch="address">Invoice</a>
       </li>
-      <li class="multi">
+      <li class="multi" data-target="address">
         <h6>Address:</h6>
         <div class="set">
           <div class="input"><input type="text" placeholder="Address Line 1"></div>
