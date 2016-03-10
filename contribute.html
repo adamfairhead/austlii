@@ -7,28 +7,35 @@ search: false
 panel: none
 ---
 <h2 class="card-title card-title-large">Your details</h2>
+<a class="button contribute-download" href="#">Download PDF Version</a>
 <form action="index.html">
   <div class="card">
     <ul>
       <li class="multi">
         <h6>Name:</h6>
-        <div class="input input-sm"><input type="text" placeholder="First name"></div>
-        <div class="input input-sm"><input type="text" placeholder="Last Name"></div>
+        <div class="input input-sm"><input type="text" name="firstname" placeholder="First name"></div>
+        <div class="input input-sm"><input type="text" name="lastname" placeholder="Last Name"></div>
       </li>
       <li class="multi">
         <h6>Email</h6>
-        <div class="input"><input type="text"></div>
+        <div class="input"><input type="text" name="email"></div>
       </li>
       <li class="multi">
         <div class="push">
-          <a class="card-options--solo" href="#" data-close="organization">Individual</a>
-          <a class="card-options--solo" href="#" data-switch="organization">Organization</a>
-          <a class="card-options--solo" href="#" data-close="organization">Anonymous</a>
+          <label for="individual" class="radio-options" data-name="public">
+            <input type="radio" value="individual" id="individual" name="public"> Individual 
+          </label>
+          <label for="organization" class="radio-options" data-name="public">
+            <input type="radio" value="organization" id="organization" name="public"> Organization 
+          </label>
+          <label for="anonymous" class="radio-options" data-name="public">
+            <input type="radio" value="anonymous" id="anonymous" name="public"> Anonymous 
+          </label>
           <p class="meta">AustLII will publicly acknowledge your contribution unless you select 'Anonymous'.</p>          
         </div>
       </li>
-      <li class="multi" data-target="organization">
-        <h6>Organization:</h6><div class="input"><input type="text"></div>
+      <li class="multi">
+        <h6>Organization:</h6><div class="input"><input type="text" name="organization"></div>
       </li>
     </ul>
   </div>
@@ -40,20 +47,37 @@ panel: none
       <li class="multi">
         <h6>Frequency:</h6>
         <div class="set">
-          <a class="card-options--solo" href="#">One time</a>
-          <a class="card-options--solo" href="#">Monthly</a>
-          <a class="card-options--solo" href="#">Annually</a>
+          <label for="onetime" class="radio-options" data-name="frequency">
+            <input type="radio" value="onetime" id="onetime" name="frequency"> One time 
+          </label>
+          <label for="monthly" class="radio-options" data-name="frequency">
+            <input type="radio" value="monthly" id="monthly" name="frequency"> Monthly 
+          </label>
+          <label for="annually" class="radio-options" data-name="frequency">
+            <input type="radio" value="annually" id="annually" name="frequency"> Annually 
+          </label>
         </div>
       </li>
       <li class="multi">
         <h6>Amount:</h6>
         <div class="set">
-          <a class="card-options--solo" href="#">$500</a>
-          <a class="card-options--solo" href="#">$1,000</a>
-          <a class="card-options--solo" href="#">$2,500</a>
-          <a class="card-options--solo" href="#">$5,000</a>
-          <a class="card-options--solo" href="#">$10,00</a>
-          <a class="card-options--solo" href="#">$Other</a>
+          <label for="500" class="radio-options" data-name="amount">
+            <input type="radio" value="500" id="500" name="amount"> $500 
+          </label>
+          <label for="1000" class="radio-options" data-name="amount">
+            <input type="radio" value="1000" id="1000" name="amount"> $1,000 
+          </label>
+          <label for="2500" class="radio-options" data-name="amount">
+            <input type="radio" value="2500" id="2500" name="amount"> $2,500 
+          </label>
+          <label for="5000" class="radio-options" data-name="amount">
+            <input type="radio" value="5000" id="5000" name="amount"> $5,000 
+          </label>
+          <label for="10000" class="radio-options" data-name="amount">
+            <input type="radio" value="10000" id="10000" name="amount"> $10,000 
+          </label>
+          <span class="radio-options text-toggler" data-name="amount">$<span class="text-placeholder">other</span><input type="text" name="amount"></span>
+            
           <p class="meta">Contributions are tax deductable. AustLII recognises contributions in the calendar year for which they are received. Please consider contributing on annual recurring basis.</p>  
         </div>
       </li>
@@ -67,35 +91,41 @@ panel: none
       <li class="multi">
         <h6>Method:</h6>
         <div class="set">
-          <a class="card-options--solo" href="#" data-close="address">Online</a>
-          <a class="card-options--solo" href="#" data-switch="address">Cheque</a>
-          <a class="card-options--solo" href="#" data-switch="address">Invoice</a>
+          <label for="online" class="radio-options" data-name="method">
+            <input type="radio" value="online" id="online" name="method"> Online 
+          </label>
+          <label for="cheque" class="radio-options" data-name="method">
+            <input type="radio" value="cheque" id="cheque" name="method"> Cheque 
+          </label>
+          <label for="invoice" class="radio-options" data-name="method">
+            <input type="radio" value="invoice" id="invoice" name="method"> Invoice 
+          </label>
         </div>
       </li>
-      <li class="multi" data-target="address">
+      <li class="multi">
         <h6>Address:</h6>
         <div class="set">
-          <div class="input"><input type="text" placeholder="Address Line 1"></div>
-          <div class="input"><input type="text" placeholder="Address Line 2"></div>
-          <div class="input input-sm">
-            <select name="" id="">
+          <div class="input"><input type="text" name="address1" placeholder="Address Line 1"></div>
+          <div class="input"><input type="text" name="address2" placeholder="Address Line 2"></div>
+          <div class="input input-sm select-wrapper">
+            <select name="state">
               <option value="">State</option>
-              <option value="">State</option>
-              <option value="">State</option>
+              <option value="wa">Western Australia</option>
+              <option value="sa">South Australia</option>
             </select>
           </div>
-          <div class="input input-sm">
-            <select name="" id="">
+          <div class="input input-sm select-wrapper">
+            <select name="postcode">
               <option value="">Postcode</option>
-              <option value="">Postcode</option>
-              <option value="">Postcode</option>
+              <option value="6281">6281</option>
+              <option value="6282">6282</option>
             </select>
           </div>
-          <div class="input">
-            <select name="" id="">
+          <div class="input select-wrapper">
+            <select name="country">
               <option value="">Country</option>
-              <option value="">Country</option>
-              <option value="">Country</option>
+              <option value="au">Australia</option>
+              <option value="nz">New Zealand</option>
             </select>
           </div>
         </div>

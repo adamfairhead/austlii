@@ -458,27 +458,45 @@ $(function() {
     $(this).hide();
   });
 
-  $('[data-switch]').each(function() {
+  $('[data-switch]').on('click', function(){
     var switchTarget = $(this).attr('data-switch');
 
-    $(this).on('click', function(){
-      if($('[data-target="'+switchTarget+'"]').hasClass('opened')) {
-          $('[data-target="'+switchTarget+'"]').slideUp('fast').removeClass('opened');
-      }else{
-          $('[data-target="'+switchTarget+'"]').slideDown('fast').addClass('opened');
-        } 
-    });
+    $('[data-target="'+switchTarget+'"]').slideDown('fast').addClass('opened');
+    $(this).addClass('checked');
+    $(this).siblings().removeClass('checked');
   });
 
-  $('[data-close]').each(function() {
+  $('[data-close]').on('click', function() {
     var closeTarget = $(this).attr('data-close');
 
-    $(this).on('click', function(){
-      if($('[data-target="'+closeTarget+'"]').hasClass('opened')) {
-          $('[data-target="'+closeTarget+'"]').slideUp('fast').removeClass('opened');
-          $(this).siblings().removeClass('checked');
-      }
-    });
+    $(this).addClass('checked');
+    $(this).siblings().removeClass('checked');
+    if($('[data-target="'+closeTarget+'"]').hasClass('opened')) {
+        $('[data-target="'+closeTarget+'"]').slideUp('fast').removeClass('opened');
+    }
+
+  });
+
+  // radio elements
+  var radioLabel = $('.radio-options');
+      radioLabel.parent().find('input[type="text"]').val('');
+
+  radioLabel.on('click', function() {
+    var nameTarget = $(this).attr('data-name'),
+        siblings = $('[data-name="'+nameTarget+'"]')
+        parent = $(this).parent(),
+        textField = $(this).find('input[type="text"]'),
+        placeholder = $(this).find('.text-placeholder');
+
+    siblings.removeClass('checked');
+    $(this).addClass('checked');
+    parent.find('input').prop('checked', false);
+    $(this).find('input').prop('checked', true);
+    parent.find('input[type="text"]').val('');
+    textField.focus();
+    parent.find('.text-placeholder').css('display', 'inline');
+    placeholder.css('display', 'none');
+
   });
 
 });
