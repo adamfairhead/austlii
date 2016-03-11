@@ -13,11 +13,9 @@
   }
 }
 
-// Contribute gets a different version with background image.
+// Contribute gets a different version.
 .contribute #page-header {
-  background: url(../images/contribute.jpg) no-repeat center 0 / cover;
-  min-height: 350px;
-  position: relative;
+  background: transparent;
 }
 
 // Primary is the header content, not including the search box or the tertiary links.
@@ -30,15 +28,21 @@
 
   .contribute & { 
     text-align: center;
-    position: static;
+    max-width: 100%;
+    padding-top: $base-spacing*6;
+    margin-bottom: $base-spacing;
+
+    .logo-contribute {
+      background: white;
+      border-bottom: 2px solid $base-border-color;
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+    }
 
     .title-block {
-      position: absolute;
-      left: 50%;
-      top: 50%;
       width: 100%;
-      -webkit-transform: translateX(-50%);
-      transform: translateX(-50%);
 
       p {
         font-size: $base-font-size*1.3;
