@@ -218,8 +218,10 @@ $(function() {
   });
 
   // radio elements
-  var radioLabel = $('.radio-options');
+  var radioLabel = $('.radio-options'),
+      radioFirst = $('.radio-options:first-child');
       radioLabel.parent().find('input[type="text"]').val('');
+      radioFirst.find('input').prop('checked', true);
 
   radioLabel.on('click', function() {
     var nameTarget = $(this).attr('data-name'),
