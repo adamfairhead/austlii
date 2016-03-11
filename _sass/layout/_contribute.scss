@@ -237,9 +237,44 @@
     max-height: 0;
     overflow: hidden;
   }
+
+  img { vertical-align: middle; }
+
+  .no-js & {
+
+    .card {
+      
+      li {
+
+        .radio-options {
+          padding: .5em .7em .55em;
+
+          &.checked:after { display: none; }
+
+          &:before {
+            display: none;
+          }
+
+          input[type="radio"] {
+              display: inline;
+              height: auto;
+          }
+        }
+
+        .text-toggler {
+
+          input { 
+            background: #e9e9e9;
+            width: 6.6em;
+          }
+        }
+      }
+    }
+  }
 }
 
 button.push { 
   margin-left: 25.58945%;
   margin-left: calc(25.58945% + .5em);
+  margin-right: 0.55em;
 }
