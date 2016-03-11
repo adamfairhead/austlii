@@ -12,6 +12,12 @@
       background: $border-light-gray;
       color: #888;
       font-size: .8em;
+
+
+        @include media(max-width $medium-screen) {
+          top: 3em;
+          right: 1em;
+        }
     }
   }
 
@@ -20,7 +26,7 @@
   .card {
 
     @include media(max-width $medium-screen) {
-      font-size: $base-font-size/1.15;
+      font-size: $base-font-size;
     }
 
     li {
@@ -85,6 +91,7 @@
             background: $base-border-color;
             color: $medium-gray;
             padding-right: 1.8em;
+            -webkit-appearance: none;
             -moz-appearance: none;
             appearance: none;
 
@@ -238,8 +245,12 @@
     overflow: hidden;
   }
 
-  img { vertical-align: middle; }
+  .contribute-cards {
+    float: left; 
 
+    img { vertical-align: middle; }
+  }
+  
   .no-js & {
 
     .card {
@@ -271,10 +282,15 @@
       }
     }
   }
-}
 
-button.push { 
-  margin-left: 25.58945%;
-  margin-left: calc(25.58945% + .5em);
-  margin-right: 0.55em;
+  .push { 
+    margin-left: 25.58945%;
+    margin-left: calc(25.58945% + .5em);
+
+    .button { 
+      float: left;
+      margin-right: 0.55em !important;
+    }
+  }
+
 }
