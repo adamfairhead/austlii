@@ -8,15 +8,21 @@
     .contribute-download {
       position: absolute;
       right: 0;
-      top: 2em;
-      background: $border-light-gray;
-      color: #888;
-      font-size: .8em;
+      top: $base-spacing;
 
+      .button {
+        background: $border-light-gray;
+        color: #888;
+        font-size: .8em;
+
+        &:hover { background: darken($border-light-gray, 5); }
+      }
 
         @include media(max-width $medium-screen) {
-          top: 3em;
+          top: $base-spacing + $small-spacing;
           right: 1em;
+
+          .desktop { display: none; }
         }
     }
   }
