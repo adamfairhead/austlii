@@ -1,5 +1,5 @@
 baseurl: /
-permalink: /:title/
+permalink: /:title
 markdown: kramdown
 relative_permalinks: false
 excerpt_separator: <!--more-->
