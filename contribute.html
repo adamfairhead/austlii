@@ -24,7 +24,8 @@ panel: none
         <div class="input"><input type="text" name="email"></div>
       </li>
       <li class="multi">
-        <div class="push">
+        <h6>Acknowledgement:</h6><!-- added title -->
+        <div class="set"><!-- changed class from "push" to "set" -->
           <label for="individual" class="radio-options checked" data-name="public">
             <input type="radio" value="individual" checked id="individual" name="public"> Individual 
           </label>
@@ -117,12 +118,8 @@ panel: none
               <option value="sa">South Australia</option>
             </select>
           </div>
-          <div class="input input-sm select-wrapper">
-            <select name="postcode">
-              <option value="">Postcode</option>
-              <option value="6281">6281</option>
-              <option value="6282">6282</option>
-            </select>
+          <div class="input input-sm"><!-- removed class "select-wrapper" -->
+            <input type="number" placeholder="Postcode" name="postcode"><!-- replaced select tag with input -->
           </div>
           <div class="input select-wrapper">
             <select name="country">
