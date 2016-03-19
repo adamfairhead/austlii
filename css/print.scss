@@ -46,6 +46,11 @@ body {
 
 #page-logo img { display: none; }
 
+blockquote {
+  border-left: 2px solid #ccc;
+  padding-left: .5em;
+}
+
 .special {
   font-size: 1em;
 
@@ -67,11 +72,11 @@ body {
       text-align: left;
       content: "Australasian Legal Information Institute";
       display: block;
-      text-indent: 96px !important;
+      text-indent: 76px !important;
       width: 620px;
       height: 40px;
       color: #222;
-      font-size: 1.3em;
+      font-size: 1.2em;
       font-weight: 600;
       letter-spacing: -0.01em;
       position: absolute;
@@ -111,14 +116,10 @@ body {
       max-width: 45em;
     }
 
-    blockquote {
-      margin-left: 0;
-    }
-
     h1 {
       background: $red;
       box-shadow: 0px 0px 0px 1000px $red inset;
-      color: white;
+      color: #fff !important;
       text-shadow: 0 0 0 #fff;
       -webkit-print-color-adjust: exact;
       font-size: 1.5em;
@@ -126,15 +127,6 @@ body {
       padding: 1em;
       border-bottom: 2px solid #C40C0B;
       margin: -24px -1em 1em;
-/*
-      &:after {
-        content: url(https://chart.googleapis.com/chart?cht=qr&chs=150x150&chl=http://austlii.edu.au&choe=UTF-8);
-        position: absolute;
-        right: -10px;
-        top: -20px;
-        -webkit-transform: scale(0.7);
-        -moz-transform: scale(0.7);
-}*/
 
     }
   }
@@ -145,7 +137,7 @@ body {
 
       .qrcode { 
         display: block;        
-        position: fixed;
+        position: absolute;
         right: .25em;
         top: .5em;
       }

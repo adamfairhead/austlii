@@ -399,6 +399,11 @@ html.no-js .sort-more,
   }
 }
 
+blockquote {
+  border-left: 2px solid #ccc;
+  padding-left: .5em;
+}
+
 //make tables work on smaller screens
 
 table {
@@ -462,9 +467,17 @@ table {
 
 @media print {
 
+  html { background: white; }
+
   body {
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
+    background-repeat: repeat-y;
+    
+    
+    #page-content {
+      padding-left: 0;
+    }
 
     .card {
       img { display: none; }
@@ -487,8 +500,7 @@ table {
     #page-main {
       float: left;
       margin-right: 2.35765%;
-      width: 70.1457%;
-
+      width: 70.1457%;     
 
       #page-sort {
 
@@ -501,6 +513,22 @@ table {
 
       .the-document {
         h1 { display: block; }
+
+        ol li::before {
+          color: #333333;
+        }
+      }
+    }
+
+    &.document {
+      background-color: #f8f8f8;
+
+      #page-main {
+        background: white;
+        border-right: 1px solid #ebebeb;
+        padding-left: 1em;
+        padding-right: 1em;
+        margin-left: -1em;
       }
     }
 
