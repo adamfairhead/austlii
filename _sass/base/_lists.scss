@@ -17,6 +17,10 @@ ol {
   }
 }
 
+ol { 
+  margin-bottom: $base-spacing !important;
+}
+
 dl {
   margin-bottom: $small-spacing;
 

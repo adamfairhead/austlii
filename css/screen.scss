@@ -108,9 +108,12 @@ code {
 }
 
 .document .the-document h3 {
-  color: $red-type;
   margin-top: 0;
   padding-top: 0;
+}
+
+.document.legislation .the-document h3 {
+  color: $red-type;
 }
 
 .document .faq-title a,
