@@ -2,6 +2,25 @@
 
 .contribute {
 
+//START IMAGE SWITCH DEMO
+
+  #page-header {
+    &.image-on {
+      background: url(../images/contribute.jpg) no-repeat 0 0;
+      background-size: cover;
+      padding-bottom: $base-spacing*2;
+
+      #primary {
+        .logo-contribute {
+          background: transparent;
+          border: none;
+        }
+      }
+    }
+  }
+
+//END IMAGE SWITCH DEMO
+
   #page-main {
     position: relative;
 
