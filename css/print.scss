@@ -37,9 +37,9 @@ body {
   color: #888;
 }
 
-.page-subheader { 
+.page-subheader {
   display: block;
-  margin-bottom: 1em; 
+  margin-bottom: 1em;
 }
 
 .card-title { padding-top: 1.5em; }
@@ -47,7 +47,6 @@ body {
 #page-logo img { display: none; }
 
 blockquote {
-  border-left: 2px solid #ccc;
   padding-left: .5em;
 }
 
@@ -89,7 +88,7 @@ blockquote {
       width: 80px;
       height: 80px;
       top: 14px;
-      left: 14px; 
+      left: 14px;
     }
 
     .title-main { display: none; }
@@ -135,8 +134,8 @@ blockquote {
 
     .inner {
 
-      .qrcode { 
-        display: block;        
+      .qrcode {
+        display: block;
         position: absolute;
         right: .25em;
         top: .5em;

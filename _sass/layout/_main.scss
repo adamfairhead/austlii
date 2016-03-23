@@ -1,8 +1,8 @@
 // Page Content
 
-#page-content { 
+#page-content {
   position: relative;
-  z-index: 1; 
+  z-index: 1;
   min-height: 700px;
   @include outer-container;
 
@@ -69,7 +69,7 @@
     }
   }
 
-  .contribute & { 
+  .contribute & {
     float: none;
     margin: 0 auto;
   }
@@ -97,14 +97,14 @@ html.no-js .sort-more,
   a {
     display: inline-block;
     font-size: $side-font-size;
-    @include transition(all 0.25s ease-in-out); 
+    @include transition(all 0.25s ease-in-out);
     margin-right: 1em;
-    color: $medium-gray; 
+    color: $medium-gray;
 
     &.selected { text-decoration: underline; }
   }
 
-  .page-sort-inner { 
+  .page-sort-inner {
     @include outer-container;
     padding-left: 1em;
     padding-right: 1em;
@@ -146,8 +146,8 @@ html.no-js .sort-more,
     padding: 0 1em 1em;
   }
 
-  li, 
-  a { 
+  li,
+  a {
     display: inline-block;
     margin-bottom: .1em;
   }
@@ -160,7 +160,7 @@ html.no-js .sort-more,
     border: 1px solid $border-light-gray;
     background: $border-light-gray;
     border-radius: $base-border-radius;
-    line-height: 2.2;   
+    line-height: 2.2;
     height: 2.3em;
 
     @include media($medium-screen) {
@@ -186,7 +186,7 @@ html.no-js .sort-more,
       padding: 0 .7em 0 .75em;
     }
 
-    div { 
+    div {
       position: absolute;
       top: .2em;
       right: .25em;
@@ -198,8 +198,8 @@ html.no-js .sort-more,
       width: 2em;
       height: 1.7em;
 
-    select { 
-      display: none; 
+    select {
+      display: none;
       appearance: none;
       -moz-appearance: none;
       -webkit-appearance: none;
@@ -212,7 +212,7 @@ html.no-js .sort-more,
   & > ul > .selected.sort-options {
     padding: 0 2.2em 0 0;
 
-    div { 
+    div {
       display: block;
 
       &:hover {
@@ -221,7 +221,7 @@ html.no-js .sort-more,
       }
     }
 
-    select { 
+    select {
       background: transparent;
       border: 1px solid transparent;
       border-radius: $base-border-radius;
@@ -236,7 +236,7 @@ html.no-js .sort-more,
       transform: translatex(-50%);
       outline: none;
 
-      option { 
+      option {
         text-align: center;
         background: #eee;
         color: $dark-gray;
@@ -248,12 +248,12 @@ html.no-js .sort-more,
           z-index: 10;
           background: $red;
         }
-      
+
         }
 
-      &:hover { 
+      &:hover {
         color: $dark-gray;
-        
+
         option.active {
           position: relative;
           color: white;
@@ -271,7 +271,7 @@ html.no-js .sort-more,
   @include media(max-width $medium-screen) {
     padding: .6em 1em .6em;
     background: #eee;
-    margin-top: -0.6em; 
+    margin-top: -0.6em;
   }
 }
 
@@ -303,13 +303,13 @@ html.no-js .sort-more,
     color: $base-font-color;
     border: $base-border;
     padding: .5em 1em;
-    background: white; 
+    background: white;
     border-radius: $base-border-radius $base-border-radius 0 0;
     border-bottom: 0;
   }
 }
 
-#pagination-sort { 
+#pagination-sort {
   width: 100%;
 
   ul {
@@ -321,7 +321,7 @@ html.no-js .sort-more,
     line-height: .5em;
     margin: 0 .5em 0 0;
     position: relative;
-    top: 1px; 
+    top: 1px;
     content: "\2039";
     color: $medium-gray;
   }
@@ -332,7 +332,7 @@ html.no-js .sort-more,
     font-size: 1.5em;
     line-height: .5em;
     position: relative;
-    top: 1px; 
+    top: 1px;
     color: $medium-gray;
   }
 
@@ -349,12 +349,12 @@ html.no-js .sort-more,
     color: $medium-gray;
   }
 
-  .select-pages { 
+  .select-pages {
     position: relative;
     float: right;
     margin-left: .5em;
 
-    select { 
+    select {
       background: $base-border-color;
       color: $medium-gray;
       padding-right: 1.8em;
@@ -363,7 +363,7 @@ html.no-js .sort-more,
 
       &:hover { background: darken($base-border-color, 5); }
 
-      option { 
+      option {
       -moz-appearance: none;
       appearance: none;
       }
@@ -400,14 +400,13 @@ html.no-js .sort-more,
 }
 
 blockquote {
-  border-left: 2px solid #ccc;
   padding-left: .5em;
 }
 
 //make tables work on smaller screens
 
 table {
-  @include media(max-width $medium-screen) { 
+  @include media(max-width $medium-screen) {
     border-bottom: 1px solid $base-border-color;
     border-left: 1px solid $base-border-color;
     font-size: $base-font-size/1.25;
@@ -473,8 +472,8 @@ table {
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
     background-repeat: repeat-y;
-    
-    
+
+
     #page-content {
       padding-left: 0;
     }
@@ -491,8 +490,8 @@ table {
     }
 
     table {
-      max-width: 560px !important; 
-      
+      max-width: 560px !important;
+
       colgoup col{ width: auto; }
       td { border-bottom: none; }
     }
@@ -500,11 +499,11 @@ table {
     #page-main {
       float: left;
       margin-right: 2.35765%;
-      width: 70.1457%;     
+      width: 70.1457%;
 
       #page-sort {
 
-        &.sort-tabs a { 
+        &.sort-tabs a {
           line-height: .5;
         }
 
@@ -542,7 +541,7 @@ table {
       top: -12.5em;
     }
 
-    header { 
+    header {
       .go-search,
       #page-search { display: none; }
       #page-title { white-space: nowrap; }
@@ -571,7 +570,7 @@ table {
       }
     }
 
-    #panels > div > div { 
+    #panels > div > div {
       font-size: 0.75em;
       //height: 65px;
     }
@@ -623,7 +622,7 @@ table {
       padding-bottom: 0;
 
       .side-tools,
-      .side-statistics, 
+      .side-statistics,
       .side-download {
         display: none !important;
       }
@@ -640,7 +639,7 @@ table {
 
     #pagination-sort, .side-about, .side-about > h6 + ul:last-child, .side-about > h6:nth-last-child(2) { display: none; }
 
-    .closing { 
+    .closing {
       position: absolute;
       right: 0;
       bottom: 0;
@@ -656,16 +655,16 @@ table {
     }
 
     #ribbon,
-    #page-header { 
-      width: 100%; 
-      clear: both; 
-    } 
+    #page-header {
+      width: 100%;
+      clear: both;
+    }
 
     #page-header { padding-bottom: 1em; }
 
     #page-logo {
       padding: 0;
-    } 
+    }
 
     &.checklist {
       .filters-search { display: none; }
