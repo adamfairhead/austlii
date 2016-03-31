@@ -34,18 +34,20 @@
       li { margin-bottom: 1em; }
     }
 
-      ol li::before {
-            content: attr(value) ".";
-            margin-right: .5em;
-            color: $medium-gray;
+    ol li { margin-bottom: 1em; }
 
-        @include media(min-width 76em) {
-            left: -1.3em;
-            width: 2em;
-            position: absolute;
-            text-align: right;
-        }
+    ol li::before {
+      content: attr(value) ".";
+      margin-right: .5em;
+      color: $medium-gray;
+
+      @include media(min-width 76em) {
+        left: -1.3em;
+        width: 2em;
+        position: absolute;
+        text-align: right;
       }
+    }
 
     // Hyperlink styles within documents
     a { text-decoration: underline; }
