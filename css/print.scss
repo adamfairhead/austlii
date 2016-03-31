@@ -27,9 +27,10 @@ input[type="submit"] {
   display: none;
 }
 
-body {
-  font-size: .9em;
-}
+body { font-size: .9em; }
+.card-title { padding-top: 1.5em; }
+#page-logo img { display: none; }
+blockquote { padding-left: .5em; }
 
 .document .the-document ol li:before {
   content: attr(value) ".";
@@ -42,28 +43,17 @@ body {
   margin-bottom: 1em;
 }
 
-.card-title { padding-top: 1.5em; }
-
-#page-logo img { display: none; }
-
-blockquote {
-  padding-left: .5em;
-}
-
 .special {
   font-size: 1em;
 
   .hide { display: none; }
-
-  .document .the-document ol li::before { left: -1.2em; }
-
+  .the-document ol li:before { color: #222; }
   #page-main { text-align: justify; }
 
   #page-logo {
     width: 76px;
     height: 80px;
     display: block;
-    //text-indent: -999em;
     margin: 1em 0 1em 2em !important;
     background: none;
 
@@ -111,9 +101,7 @@ blockquote {
   .the-document {
     margin: 1.5em;
 
-    p, dl, li, blockquote {
-      max-width: 45em;
-    }
+    p, dl, li, blockquote { max-width: 45em; }
 
     h1 {
       background: $red;
@@ -130,25 +118,10 @@ blockquote {
     }
   }
 
-  .closing {
-
-    .inner {
-
-      .qrcode {
-        display: block;
-        position: absolute;
-        right: .25em;
-        top: .5em;
-      }
-    }
-  }
-
-  /*&:before {
-    content:url('../images/logo-print-special.png');
-    -webkit-transform: scale(1);
-    -moz-transform: scale(1);
+  .closing .inner .qrcode {
+    display: block;
     position: absolute;
-    top: 14px;
-    left: 30px;
-  }*/
+    right: .25em;
+    top: .5em;
+  }
 }
