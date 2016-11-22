@@ -59,6 +59,34 @@
     background: $panel-fg;
     border-radius: $base-border-radius; 
   }
+  
+  #panel-letter {
+    
+    a {
+      padding: 0;
+      
+      h5 {
+        background: transparent;
+        color: white;
+        min-height: initial;
+      }
+    }
+    
+    h5 {
+      padding: 1em 1em 0;
+      background: lighten($panel-fg, 5);
+      color: $medlight-gray;
+      min-height: 44px;
+      border-radius: $base-border-radius;
+      margin-bottom: 0;
+    }
+    
+    .is-selected {
+      a h5 {
+        color: $panel-bg;
+      }
+    }
+  }
 
   #panel-year li > div {
     padding: 1em 1em .7em;
