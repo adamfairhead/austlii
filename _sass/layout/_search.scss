@@ -374,3 +374,39 @@ html.js .extra-search {
     }
   }
 }
+
+//suggestions dropdown
+.suggestions {
+  position: absolute;
+  z-index: 100;
+  width: 67%;
+  box-shadow: 0px 3px 3px 0px rgba(0,0,0,.05);
+  
+  @include media($tiny-screen) { width: 62%; }  
+  @include media($small-screen) { width: 69%; }
+  @include media(em(960)) { width: em(360); }
+}
+
+.suggestions > div {
+  padding: .35em 1em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  border-left: 1px solid $border-light-gray;
+  border-right: 1px solid $border-light-gray;
+  background: white;
+  transition: all .3s;
+  cursor: pointer;
+
+  &:nth-child(2n) {
+    background: #f7fbfd;
+    border-top: 1px solid #e5eff4;
+    border-bottom: 1px solid #e5eff4;
+  }
+  &:last-child {
+    border-radius: 0 0 $base-border-radius $base-border-radius;
+  }
+  &.current {
+    background: #e5eff4;
+  }
+}
