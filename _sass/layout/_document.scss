@@ -38,7 +38,7 @@
 
     ol li::before {
       content: attr(value) ".";
-      margin-right: .1em;
+      margin-right: .5em;
       color: $medium-gray;
 
       @include media(min-width 77em) {
@@ -158,26 +158,12 @@
   }
 }
 
-ul,
-ol {
-  
-  &[type="a"] {
-    list-style-type: lower-latin;
-  }
-  
-  &[type="i"] {
-    list-style-type: lower-roman;
-  }
+.document .the-document ol {
   
   &[type="a"] li, &[type="i"] li {
-    list-style-position: inside;
-    
-    @include media(min-width 77em) {
-      list-style-position: outside;
-    }
     
     &:before {
-      content: none !important;
+      content: attr(data-value) ".";
     }
   }
 }
