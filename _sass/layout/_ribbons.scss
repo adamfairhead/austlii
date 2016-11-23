@@ -27,6 +27,10 @@
   .ribbon-citation { z-index: 2; }
   .ribbon-country { z-index: 1; }
   .ribbon-subject { z-index: 0; }
+  
+  [class^="ribbon-"] {
+    margin-right: 1px;
+  }
 
   .ribbon-type a {
     padding-left: .5em;
