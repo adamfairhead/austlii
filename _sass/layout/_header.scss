@@ -195,6 +195,30 @@
       font-size: 1.3em;
     }
   }
+  
+  body:not(.home) & {
+    span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 57vw;
+ 
+    @include media($tiny-screen) { width: 60vw; }
+
+    @include media($small-screen) { width: 70vw; }
+
+    @include media($large-screen) { width: 75vw; }
+
+    @include media($desktop-screen) { width: calc(90vw - 500px); }
+
+    @include media(em(1230)) { width: calc(80vw - 500px); }
+
+    @include media($xx-large-screen) { width: calc(75vw - 500px); }
+
+    @include media($xxx-large-screen) { width: calc(70vw - 500px); }
+
+    @include media(em(1920)) { width: 850px; }
+  }
+  }
 }
 
 // The 'subheader' is the gray additional text on the homepage below the main title.
