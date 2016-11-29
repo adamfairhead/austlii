@@ -136,12 +136,20 @@
   @include media(max-width $large-screen) { padding-left: 2.5em; }
 
   // Sidebar link lists
-  a {
+  a,
+  [data-show] {
     margin-bottom: .6em;
     display: block;
     line-height: 1.3;
 
     &:hover { text-decoration: underline; }
+  }
+  
+  [data-show] {
+    cursor: pointer;
+    color: $blue;
+    text-decoration: none;
+    transition: color 0.1s linear;
   }
 
   // Sidebar sub-lists

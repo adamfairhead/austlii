@@ -114,6 +114,33 @@ $(function () {
       $(this).text('Less');
     }
   });
+  
+  //Hide and Show more sidebar list elements
+  var sideList = $('.side-element ul'),
+    sideListEl = $('.side-element ul li'),
+    sideListElOver = $('.side-element ul li:nth-child(n+6)');
+  sideListElOver.addClass('hide');
+  
+  sideList.each(function () {
+    var sideListElThis = $(this).find(sideListEl);
+    if (sideListElThis.length > 5) {
+      $(this).after( '<span data-show="Less" class="hide">Less</span>' );
+      $(this).after( '<span data-show="More">More</span>' );
+    }
+  
+    $(this).next($('[data-show="More"]')).on('click', function () {
+      $(this).parent().find('ul li.hide').removeClass('hide');
+      $(this).addClass('hide');
+      $(this).next($('[data-show="Less"]')).removeClass('hide');
+    });
+
+    $(this).next().next($('[data-show="Less"]')).on('click', function () {
+      $(this).parent().find('ul li:nth-child(n+6)').addClass('hide');
+      $(this).addClass('hide');
+      $(this).parent().find($('[data-show="More"]')).removeClass('hide');
+    });   
+  });
+
 
   // Card checkboxes using JS so Firefox etc. can see the custom styles
   $('input[type="checkbox"]').parent().addClass('checkbox checked');
