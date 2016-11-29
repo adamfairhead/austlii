@@ -319,6 +319,7 @@ var switchAll = $('.card-options--toggle'),
   allSection = $('.all-section'),
   tagged = $('.all-section.tag'),
   taggedInput = $('.all-section.tag .card-title input'),
+  sortTarget = $('.sort-url'),
   sortSelect = {
     activate: function (getEl) {
       'use strict';
@@ -333,8 +334,14 @@ var switchAll = $('.card-options--toggle'),
       $('#' + $sortItem).find('.checkbox input').prop('checked', true);
       $('.card-title input').removeClass('range-selected');
       taggedInput.addClass('range-selected');
-      //setTimeout(function () {   }, 3);
       $(window).scrollTop(0);
+    },
+    targetTab: function (getEl) {
+      'use strict';
+      if (sortTarget.length) {
+        sortItemElement.removeClass('is-loading');
+        getEl.addClass('is-loading');
+      }
     }
   };
 
@@ -354,6 +361,7 @@ $(function () {
     $(this).on('click', function (e) {
       e.preventDefault();
       sortSelect.activate($(this));
+      sortSelect.targetTab($(this));
       if ($('#' + $sortItem).hasClass('tag')) {
         var range = $('[data-sort="' + $sortItem + '"] .range-options').val(),
           tag = $('#' + $sortItem + '.tag');
@@ -375,7 +383,6 @@ $(function () {
   
   $('.range-options').change(function (e) {
     e.stopPropagation();
-    //siblings = $('.range-options option').removeClass('active'),
     var range = $(this).val(),
       parentId = $(this).closest('.sort-item').attr('data-sort'),
       parent = $('#' + parentId);
