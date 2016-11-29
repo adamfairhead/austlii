@@ -5,6 +5,13 @@
   z-index: 1;
   min-height: 700px;
   @include outer-container;
+  
+  body:not(.no-js) & {
+    &.hidden {
+      opacity: 0;
+      transition: opacity .3s;
+    }
+  }
 
   .contribute & {
     padding-bottom: $base-spacing;
@@ -80,6 +87,19 @@ html.no-js .sort-more,
 .no-js .card-options,
 .no-js .select-all-none { display: none !important; }
 
+body {  
+  transition: opacity .1s;
+}
+
+.is-hidden {
+  opacity: 0;
+  transition: opacity .1s;
+  
+  &.no-js {
+    opacity: 1;
+  }
+}
+
 // Search results sort row for joining sort-tabs
 #page-sort-2 {
   font-size: .9em;
@@ -147,14 +167,17 @@ html.no-js .sort-more,
   }
 
   li,
-  a {
+  a,
+  span.sort-button {
     display: inline-block;
     margin-bottom: .1em;
   }
 
-  & > ul > li a { padding: 0 .5em; }
+  & > ul > li a,
+  & > ul > li span.sort-button { padding: 0 .5em; }
 
   & > ul > li a,
+  & > ul > li span.sort-button,
   & > ul > .sort-options {
     color: $medium-gray;
     border: 1px solid $border-light-gray;
@@ -170,6 +193,7 @@ html.no-js .sort-more,
   }
 
   & > ul > .selected > a,
+  & > ul > .selected > span.sort-button,
   & > ul > .selected.sort-options {
     color: $red;
     border-color: $red;
@@ -261,6 +285,10 @@ html.no-js .sort-more,
       }
     }
   }
+}
+
+.sort-button {
+  cursor: pointer;
 }
 
 #page-sort.sort-solo {
