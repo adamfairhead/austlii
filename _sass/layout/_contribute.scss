@@ -82,7 +82,7 @@
           @include span-columns(6 of 9);
           margin-bottom: $small-spacing/2;
 
-          &:not(.input-sm) { clear: both; }
+          &:not(.input-sm):not(.input-med) { clear: both; }
 
           &.select-wrapper {
             position: relative;
@@ -142,6 +142,29 @@
             @include span-columns(4.5 of 9);
 
             &:nth-of-type(4) { margin-right: 0; }
+          }
+        }
+
+        .input-tn {
+          @include span-columns(1.25 of 9);
+          line-height: 1.2;
+
+          @include media(max-width $medium-screen) {
+            @include span-columns(2 of 9);
+
+            &:nth-of-type(4) { margin-right: 0; }
+          }
+
+          label {
+            white-space: nowrap;
+          }
+        }
+
+        .input-med {
+          @include span-columns(4.75 of 9);
+
+          @include media(max-width $medium-screen) {
+            @include span-columns(5 of 9);
           }
         }
       }
