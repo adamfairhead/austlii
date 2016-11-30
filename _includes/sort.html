@@ -99,11 +99,11 @@
 
 <div id="page-sort" class="sort-tabs">
   <ul>
-    <li class="sort-item sort-relevance{% if page.class == 'results search' or page.class contains 'results search detail' %} selected{% endif %}"><a href="results-search.html" class="sort-url">By Relevance</a></li>
-    <li class="sort-item sort-citations{% if page.class contains 'results search search-5' %} selected{% endif %}"><a href="results-search-5.html" class="sort-url">By Citation Frequency</a></li>
-    <li class="sort-item sort-database{% if page.class contains 'results search search-4' %} selected{% endif %}"><a href="results-search-4.html" class="sort-url">By&nbsp;Database</a></li>
-    <li class="sort-item sort-date{% if page.class contains 'results search search-3' %} selected{% endif %}"><a href="results-search-3.html" class="sort-url">By Date</a></li>
-    <li class="sort-item sort-title{% if page.class contains 'results search search-2' %} selected{% endif %}"><a href="results-search-2.html" class="sort-url">By Title</a></li>
+    <li class="sort-item sort-relevance{% if page.class == 'results search' or page.class contains 'results search detail' %} selected{% endif %}"><a href="results-search.html" class="sort-url">By Relevance<span class="sort-spinner"></span></a></li>
+    <li class="sort-item sort-citations{% if page.class contains 'results search search-5' %} selected{% endif %}"><a href="results-search-5.html" class="sort-url">By Citation Frequency<span class="sort-spinner"></span></a></li>
+    <li class="sort-item sort-database{% if page.class contains 'results search search-4' %} selected{% endif %}"><a href="results-search-4.html" class="sort-url">By&nbsp;Database<span class="sort-spinner"></span></a></li>
+    <li class="sort-item sort-date{% if page.class contains 'results search search-3' %} selected{% endif %}"><a href="results-search-3.html" class="sort-url">By Date<span class="sort-spinner"></span></a></li>
+    <li class="sort-item sort-title{% if page.class contains 'results search search-2' %} selected{% endif %}"><a href="results-search-2.html" class="sort-url">By Title<span class="sort-spinner"></span></a></li>
   </ul>
 </div>
 {% else %}
