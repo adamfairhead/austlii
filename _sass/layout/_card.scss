@@ -36,6 +36,30 @@
 
   // For when cards have checkboxes in the rows
   &.card-checkboxes a { padding: .5em 1em .5em 3.5em; }
+      
+  &.card-checkboxes .content-inline a {
+    display: inline-block;
+  }
+      
+  &.card-checkboxes .content-inline {
+    
+    li {
+      padding: .4em 1em .4em 3.5em;
+      position: relative;
+    }
+    
+    .checkbox {
+      position: absolute;
+      left: 1em;
+      top: .55em;
+      margin: 0;
+    }
+    
+    a {
+      display: inline;
+      padding: 0;
+    }
+  } 
 
   // Give sides etc. when larger
   @include media($medium-screen) {
