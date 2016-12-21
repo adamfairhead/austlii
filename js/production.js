@@ -429,16 +429,16 @@ $(function () {
   });
   
   //Hide and Show more sidebar list elements
-  var sideList = $('.side-element ul'),
-    sideListEl = $('.side-element ul li'),
-    sideListElOver = $('.side-element ul li:nth-child(n+6)');
-  sideListElOver.addClass('hide');
+  var sideList = $('[data-expand-after]');
   
   sideList.each(function () {
-    var sideListElThis = $(this).find(sideListEl);
-    if (sideListElThis.length > 5) {
-      $(this).after( '<span data-show="Less" class="hide">Less</span>' );
-      $(this).after( '<span data-show="More">More</span>' );
+    var sideListElThis = $(this).find('li'),
+      sideListShowLength = parseInt($(this).attr('data-expand-after'), 10) + 1,
+      sideListElOver = $(this).find('li:nth-child(n+' + sideListShowLength + ')');
+    sideListElOver.addClass('hide');
+    if (sideListElThis.length > sideListShowLength - 1) {
+      $(this).after('<span data-show="Less" class="hide">Less</span>');
+      $(this).after('<span data-show="More">More</span>');
     }
   
     $(this).next($('[data-show="More"]')).on('click', function () {
@@ -448,10 +448,10 @@ $(function () {
     });
 
     $(this).next().next($('[data-show="Less"]')).on('click', function () {
-      $(this).parent().find('ul li:nth-child(n+6)').addClass('hide');
+      $(this).parent().find('ul li:nth-child(n+' + sideListShowLength + ')').addClass('hide');
       $(this).addClass('hide');
       $(this).parent().find($('[data-show="More"]')).removeClass('hide');
-    });   
+    });
   });
 
 
