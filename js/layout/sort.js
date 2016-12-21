@@ -21,7 +21,6 @@ var switchAll = $('.card-options--toggle'),
       $('#' + $sortItem).find('.checkbox input').prop('checked', true);
       $('.card-title input').removeClass('range-selected');
       taggedInput.addClass('range-selected');
-      $(window).scrollTop(0);
     },
     targetTab: function (getEl) {
       'use strict';
@@ -34,8 +33,9 @@ var switchAll = $('.card-options--toggle'),
 
 $(function () {
   
-  if (sortItemElement.length) {
-    $(window).scrollTop(0);
+  if(sortItemElement.length === 0 && window.location.hash) {
+    var scrollTo = window.location.hash;
+    $('html,body').animate({scrollTop:$('' + scrollTo + '').offset().top}, 600);
   }
   
   // Sort item filtering
