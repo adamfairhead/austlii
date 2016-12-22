@@ -38,6 +38,9 @@ $(function () {
     $('html,body').animate({scrollTop:$('' + scrollTo + '').offset().top}, 600);
   }
   
+  //cleanup on page load
+  sortItemElement.removeClass('is-loading');
+  
   // Sort item filtering
   sortItemElement.each(function () {
     
