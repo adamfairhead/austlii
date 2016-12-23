@@ -168,12 +168,22 @@
   }
 
   &.is-letter {
-    ul { min-width: 1400px; }
 
     #panel-letter {
       max-height: 100px;
       opacity: 1;
       z-index: 10;
+      white-space: nowrap;
+      
+      li {
+        padding-left: .35em;
+        
+        @include media(em(1600)){
+          h5 {
+            padding: .75em 1em 0;
+          }
+        }
+      }
     }
   }
 
