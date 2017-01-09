@@ -360,7 +360,7 @@ $(function () {
     if ($(this).attr('data-sort') === type) {
       sortSelect.activate($(this));
     }
-    
+
     $(this).on('click', function (e) {
       e.preventDefault();
       sortSelect.activate($(this));
@@ -375,10 +375,17 @@ $(function () {
         tag.find('.card-title input').addClass('range-selected').prop('checked', true);
         tag.find('.card-title label').addClass('checked');
       }
-      document.location.hash = $sortItem;
+      // document.location.hash = $sortItem;
+      // if ($sortItem === undefined) {
+      //   document.location.hash = "";
+      // }
+      var pathname = window.location.pathname;
       if ($sortItem === undefined) {
-        document.location.hash = "";
+        var historyHash = pathname;
+      } else {
+        var historyHash = pathname + '#' + $sortItem;
       }
+      history.pushState(null, null, historyHash);
       $(window).scrollTop(0);
     });
 
