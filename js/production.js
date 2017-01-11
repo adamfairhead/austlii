@@ -368,17 +368,16 @@ $(function () {
       if ($('#' + $sortItem).hasClass('tag')) {
         var range = $('[data-sort="' + $sortItem + '"] .range-options').val(),
           tag = $('#' + $sortItem + '.tag');
-        tag.find('.checkbox').removeClass('checked');
-        tag.find('.checkbox input').prop('checked', false);
-        tag.find('.' + range + ' .checkbox').addClass('checked');
-        tag.find('.' + range + ' .checkbox input').prop('checked', true);
-        tag.find('.card-title input').addClass('range-selected').prop('checked', true);
-        tag.find('.card-title label').addClass('checked');
+        var allSelect = $('.range-options').val();
+        if ( allSelect !== 'All') {
+          tag.find('.checkbox').toggleClass('checked');
+          tag.find('.checkbox input').prop('checked', false);
+          tag.find('.' + range + ' .checkbox').addClass('checked');
+          tag.find('.' + range + ' .checkbox input').prop('checked', true);
+          tag.find('.card-title input').addClass('range-selected').prop('checked', true);
+          tag.find('.card-title label').addClass('checked');
+        }      
       }
-      // document.location.hash = $sortItem;
-      // if ($sortItem === undefined) {
-      //   document.location.hash = "";
-      // }
       var pathname = window.location.pathname;
       if ($sortItem === undefined) {
         var historyHash = pathname;
@@ -488,7 +487,7 @@ $(function () {
     } else if ($(this).hasClass('range-selected')) {
       parent.find('.checkbox').removeClass('checked');
       parent.find('.checkbox input').prop('checked', false);
-      parent.find('.' + range + ' .checkbox').addClass('checked');
+      parent.find(' .checkbox').addClass('checked');
       parent.find('.' + range + ' .checkbox input').prop('checked', true);
       parent.find('.card-title input').prop('checked', true);
       parent.find('.card-title label').addClass('checked');
@@ -544,6 +543,8 @@ $(function () {
 
   // Card Options: Toggle (for 'select all' / 'select none')
   switchAll.on('click', function () {
+    tag = $('#' + $sortItem + '.tag');
+    
     if ($(this).hasClass('checked')) {
       $(this).removeClass('checked');
       $('.checkbox input').prop('checked', false).parent().removeClass('checked');
@@ -551,10 +552,14 @@ $(function () {
       var sortItem = $('.all-section:not(.is-hidden)').attr('id'),
         range = $('[data-sort="' + sortItem + '"] .range-options').val();
       $(this).addClass('checked');
-      $('.all-section:not(.is-hidden)' + ' .' + range + ' .checkbox input').prop('checked', true).parent().addClass('checked');
+      $('.all-section:not(.is-hidden)' + ' .checkbox input').prop('checked', true).parent().addClass('checked');
+      tag.find('.card-title input').addClass('range-selected').prop('checked', true);
+      tag.find('.card-title label').addClass('checked');
     } else {
       $(this).addClass('checked');
       $('.all-section:not(.is-hidden) .checkbox input').prop('checked', true).parent().addClass('checked');
+      tag.find('.card-title input').addClass('range-selected').prop('checked', true);
+      tag.find('.card-title label').addClass('checked');
     }
     return false;
   });
