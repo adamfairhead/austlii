@@ -126,6 +126,7 @@ $(function() {
   });
 
   $(document).on('click', '.print-webview', function() {
+    console.log('blah');
     window.print();
   });
 

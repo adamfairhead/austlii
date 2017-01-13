@@ -7,6 +7,7 @@ module.exports = function(grunt) {
       dist: {
         src: [
           'js/libs/jquery.min.js',
+          'js/libs/pdf.js',
           'js/layout/*.js'
         ],
         dest: 'js/production.js',
