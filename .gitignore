@@ -1,4 +1,5 @@
 .DS_store
+_site
 .sass-cache
 *.ai
 Gemfile.lock
