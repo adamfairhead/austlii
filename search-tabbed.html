@@ -1,0 +1,107 @@
+---
+layout: layout
+title: Advanced Search
+sort: false
+class: search
+search: false
+ribbon: basic
+panel: none
+---
+
+<form action="results-search.html">
+
+  <div id="page-sort"  class="tabs-block sort-tabs">
+    <ul>
+      <li class="sort-item query-type selected" data-type-name="autoSearch">Auto Search</li>
+      <li class="sort-item query-type" data-type-name="booleanQuery">Boolean Query</li>
+      <li class="sort-item query-type" data-type-name="anyWords">Any of these words</li>
+      <li class="sort-item query-type" data-type-name="allWords">All of these words</li>
+      <li class="sort-item query-type" data-type-name="exactPhrase">Exact Phrase</li>
+      <li class="sort-item query-type" data-type-name="caseTitle">Case Title</li>
+      <li class="sort-item query-type" data-type-name="docTitle">Document Title</li>
+    </ul>
+  </div>
+ 
+  <div class="card">
+    <ul>
+      <li class="multi">
+        <h6>Enter your search term</h6>
+        <div class="input">
+          <input type="text" data-type-target="name" name="autoSearch" placeholder="e.g. Give an example here">
+        </div>
+      </li>
+      <li class="multi">
+        <h6>Select your From date</h6>
+          <div class="input">
+            <input type="text" name="dayFrom" class="day" value="1">
+            <div class="month">
+              <select name="monthFrom">
+                <option value="January">January</option>
+                <option value="February">February</option>
+              </select>
+            </div>
+            <input type="text" class="year" name="yearFrom" value="1970">
+          </div>
+        </li>
+      <li class="multi">
+        <h6>Select your To date</h6>
+        <div class="input">
+          <input type="text" class="day" name="dayTo" value="21">
+          <div class="month">
+            <select name="monthTo">
+              <option value="January">January</option>
+              <option value="February">February</option>
+            </select>
+          </div>
+          <input type="text" class="year" name="yearTo" value="2015">
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <div class="row">
+    <div class="card-options">
+      <a href="#" class="card-options--expand" id="show-databases">Show all</a>
+    </div>
+
+    <h2 class="card-title card-title-large">
+      <label><input type="checkbox" checked></label> Narrow results by database…
+    </h2>
+
+    <div class="card card-checkboxes is-collapsed">
+      <ul>
+        <li><label><input type="checkbox" name="database" value="AllAustLII" checked></label><a href="javascript:void(0);">All AustLII Databases</a></li>
+        <li><label><input type="checkbox" name="database" value="AllLegislation" checked></label><a href="javascript:void(0);">All Legislation Databases</a></li>
+        <li><label><input type="checkbox" name="database" value="AllCaseLaw" checked></label><a href="javascript:void(0);">All Case Law Databases</a></li>
+        <li><label><input type="checkbox" name="database" value="AllJournals" checked></label><a href="javascript:void(0);">All Journals Databases</a></li>
+        <li><label><input type="checkbox" name="database" value="AllSecondaryMaterials" checked></label><a href="javascript:void(0);">All Secondary Materials Databases (includes journals)</a></li>
+        <li><label><input type="checkbox" name="database" value="CommonwealthAllPrimaryMaterials" checked></label><a href="javascript:void(0);">Commonwealth: All Primary Materials</a></li>
+        <li><label><input type="checkbox" name="database" value="CommonwealthAllLegislation" checked></label><a href="javascript:void(0);">Commonwealth: All Legislation</a></li>
+        <li><label><input type="checkbox" name="database" value="CommonwealthAllCases" checked></label><a href="javascript:void(0);">Commonwealth: All Cases</a></li>
+        <li><label><input type="checkbox" name="database" value="CommonwealthBills" checked></label><a href="javascript:void(0);">Commonwealth: Bills</a></li>
+        <li><label><input type="checkbox" name="database" value="CommonwealthBillsExplanatoryMemoranda" checked></label><a href="javascript:void(0);">Commonwealth: Bills Explanatory Memoranda</a></li>
+        <li><label><input type="checkbox" name="database" value="CommonwealthBillsDigests" checked></label><a href="javascript:void(0);">Commonwealth: Bills Digests</a></li>
+        <li><label><input type="checkbox" name="database" value="CommonwealthConsolidatedActs" checked></label><a href="javascript:void(0);">Commonwealth: Consolidated Acts</a></li>
+        <li><label><input type="checkbox" name="database" value="CommonwealthConsolidatedRegulations" checked></label><a href="javascript:void(0);">Commonwealth: Consolidated Regulations</a></li>
+        <li><label><input type="checkbox" name="database" value="CommonwealthLegislationTables" checked></label><a href="javascript:void(0);">Commonwealth: Legislation Tables</a></li>
+        <li><label><input type="checkbox" name="database" value="CommonwealthNumberedActs" checked></label><a href="javascript:void(0);">Commonwealth: Numbered Acts</a></li>
+        <li><label><input type="checkbox" name="database" value="CommonwealthNumberedRegulations" checked></label><a href="javascript:void(0);">Commonwealth: Numbered Regulations</a></li>
+        <li><label><input type="checkbox" name="database" value="CommonwealthNumberedRegulationsExplanatoryStatements" checked></label><a href="javascript:void(0);">Commonwealth: Numbered Regulations Explanatory Statements</a></li>
+        <li><label><input type="checkbox" name="database" value="CommonwealthAllPrimaryMaterials" checked></label><a href="javascript:void(0);">Commonwealth: All Primary Materials</a></li>
+        <li><label><input type="checkbox" name="database" value="CommonwealthAllLegislation" checked></label><a href="javascript:void(0);">Commonwealth: All Legislation</a></li>
+        <li><label><input type="checkbox" name="database" value="CommonwealthAllCases" checked></label><a href="javascript:void(0);">Commonwealth: All Cases</a></li>
+        <li><label><input type="checkbox" name="database" value="CommonwealthBills" checked></label><a href="javascript:void(0);">Commonwealth: Bills</a></li>
+        <li><label><input type="checkbox" name="database" value="CommonwealthBillsExplanatoryMemoranda" checked></label><a href="javascript:void(0);">Commonwealth: Bills Explanatory Memoranda</a></li>
+        <li><label><input type="checkbox" name="database" value="CommonwealthBillsDigests" checked></label><a href="javascript:void(0);">Commonwealth: Bills Digests</a></li>
+        <li><label><input type="checkbox" name="database" value="CommonwealthConsolidatedActs" checked></label><a href="javascript:void(0);">Commonwealth: Consolidated Acts</a></li>
+        <li><label><input type="checkbox" name="database" value="CommonwealthConsolidatedRegulations" checked></label><a href="javascript:void(0);">Commonwealth: Consolidated Regulations</a></li>
+        <li><label><input type="checkbox" name="database" value="CommonwealthLegislationTables" checked></label><a href="javascript:void(0);">Commonwealth: Legislation Tables</a></li>
+        <li><label><input type="checkbox" name="database" value="CommonwealthNumberedActs" checked></label><a href="javascript:void(0);">Commonwealth: Numbered Acts</a></li>
+        <li><label><input type="checkbox" name="database" value="CommonwealthNumberedRegulations" checked></label><a href="javascript:void(0);">Commonwealth: Numbered Regulations</a></li>
+        <li><label><input type="checkbox" name="database" value="CommonwealthNumberedRegulationsExplanatoryStatements" checked></label><a href="javascript:void(0);">Commonwealth: Numbered Regulations Explanatory Statements</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <input type="submit" class="button" value="Advanced Search">
+</form>

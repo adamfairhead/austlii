@@ -309,6 +309,13 @@ $(function() {
       $(this).text('Show');
     };
   });
+  
+  //advanced search textfield 
+  $('[data-type-name]').on('click', function () {
+    var nameValue = $(this).data('type-name');
+    
+    $('[data-type-target="name"]').attr('name', nameValue);
+  });
 });
 
 //globals
