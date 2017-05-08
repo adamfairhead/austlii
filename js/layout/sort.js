@@ -291,7 +291,8 @@ $(function () {
 
   // radio elements
   var radioLabel = $('.radio-options'),
-    radioFirst = $('.radio-options:first-child');
+    radioFirst = $('.radio-options:first-child'),
+    identifier = $('[data-open-trigger]').data('open-trigger');
   radioLabel.parent().find('input[type="text"]').val('');
   radioFirst.find('input').prop('checked', true);
 
@@ -310,7 +311,12 @@ $(function () {
     textField.focus();
     parent.find('.text-placeholder').css('display', 'inline');
     placeholder.css('display', 'none');
-
+    
+    if ($('[data-open-trigger="' + identifier + '"]').hasClass('checked')) {
+      $('[data-open-target="' + identifier + '"]').addClass('is-opened');
+    } else {
+      $('[data-open-target="' + identifier + '"]').removeClass('is-opened');
+    }
   });
 
 });

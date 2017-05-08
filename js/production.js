@@ -611,7 +611,8 @@ $(function () {
 
   // radio elements
   var radioLabel = $('.radio-options'),
-    radioFirst = $('.radio-options:first-child');
+    radioFirst = $('.radio-options:first-child'),
+    identifier = $('[data-open-trigger]').data('open-trigger');
   radioLabel.parent().find('input[type="text"]').val('');
   radioFirst.find('input').prop('checked', true);
 
@@ -630,7 +631,12 @@ $(function () {
     textField.focus();
     parent.find('.text-placeholder').css('display', 'inline');
     placeholder.css('display', 'none');
-
+    
+    if ($('[data-open-trigger="' + identifier + '"]').hasClass('checked')) {
+      $('[data-open-target="' + identifier + '"]').addClass('is-opened');
+    } else {
+      $('[data-open-target="' + identifier + '"]').removeClass('is-opened');
+    }
   });
 
 });
@@ -638,19 +644,31 @@ $(function () {
 $(function () {
   
   if (location.hash) {
-    setTimeout(function() {
+    setTimeout(function () {
       window.scrollTo(0, 0);
     }, 0);
   }
   
-   setTimeout(function() {
+  setTimeout(function () {
       //$('body').removeClass('is-hidden');
-    }, 30);
+  }, 30);
   
   $('body').removeClass('no-js');
 
   $('.contribute header').on('click', function () {
     $(this).toggleClass('image-on');
+  });
+  
+  $('[data-method="method1"]').on('click', function () {
+    $('.meta-method').text('Pressing continue will take you to an online payment gateway.');
+  });
+  
+  $('[data-method="method2"]').on('click', function () {
+    $('.meta-method').text('Payable to "AustLII Foundation Limited" (ABN 41 134 717 972).');
+  });
+  
+  $('[data-method="method3"]').on('click', function () {
+    $('.meta-method').text('An invoice will be sent to the above adress.');
   });
 
 });

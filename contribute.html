@@ -16,12 +16,110 @@ panel: none
     <ul>
       <li class="multi">
         <h6>Name:</h6>
+        <div class="set">
+          <div class="input input-tn"><input type="text" name="title" placeholder="Title"></div>
           <div class="input input-sm"><input type="text" name="firstname" placeholder="First name"></div>
           <div class="input input-sm"><input type="text" name="lastname" placeholder="Last Name"></div>
+        </div>
       </li>
       <li class="multi">
-        <h6>Email</h6>
-        <div class="input"><input type="text" name="email"></div>
+        <h6>Email:</h6>
+        <div class="input input-med"><input type="text" name="email"></div>
+      </li>
+      <li class="multi">
+        <h6>Address 1:</h6>
+        <div class="input"><input type="text" name="address1" placeholder="Street and number"></div>
+      </li>
+      <li class="multi">
+        <h6>Address 2:</h6>
+        <div class="input"><input type="text" name="address2" placeholder="Apartment, suite, building, floor, etc."></div>
+      </li>
+      <li class="multi">
+        <h6>City:</h6>
+        <div class="input input-med"><input type="text" name="city"></div>
+      </li>
+      <li class="multi">
+        <h6>State/County:</h6>
+        <div class="input input-med"><input type="text" name="state"></div>
+      </li>
+      <li class="multi">
+        <h6>Country:</h6>
+        <div class="input input-med select-wrapper">
+          <select name="country">
+            <option value="">Country</option>
+            <option value="au">Australia</option>
+            <option value="nz">New Zealand</option>
+          </select>
+        </div>
+      </li>
+      <li class="multi">
+        <h6>Phone:</h6>
+        <div class="input input-xs"><input type="tel" name="tel"></div>
+      </li>
+      <li class="multi">
+        <h6>Fax:</h6>
+        <div class="input input-xs"><input type="tel" name="fax"></div>
+      </li>
+      <li class="multi">
+        <h6>Organization:</h6><div class="input"><input type="text" name="organization"></div>
+      </li>
+    </ul>
+  </div>
+
+  <h2 class="card-title card-title-large">Your contribution</h2>
+
+  <div class="card">
+    <ul>
+      <li class="multi">
+        <h6>Frequency:</h6>
+        <div class="set">
+          <label for="onetime" class="radio-options checked" data-name="frequency">
+            <input type="radio" value="onetime" checked id="onetime" name="frequency"> One time
+          </label>
+          <label for="annually" class="radio-options" data-name="frequency" data-open-trigger="recurring">
+            <input type="radio" value="annually" id="annually" name="frequency"> Annually
+          </label>
+          <div class="set-extend input-med" data-open-target="recurring">
+            <div class="field-extend">
+              <span class="extend-text">Repeat for:</span>
+              <select name="recurring">
+                <option value="2">2</option>
+                <option value="1">1</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+              </select>
+              <span class="extend-text">years</span>
+            </div>
+            <div class="field-extend">
+              <label for="annualinvoice" class="checkbox" data-name="annualinvoice">
+                <input type="checkbox" value="annualinvoice" id="annualinvoice" name="annualinvoice">
+              </label>
+              <span class="extend-text"> Send Annual Invoice</span>
+            </div>
+            <p class="meta">For annual contributions I will commit to repeat this same contribution for the number of selected years.</p>
+          </div>
+        </div>
+      </li>
+      <li class="multi">
+        <h6>Amount:</h6>
+        <div class="set">
+          <label for="10000" class="radio-options" data-name="amount">
+            <input type="radio" value="10000" checked id="10000" name="amount"> $10,000
+          </label>
+          <label for="5000" class="radio-options" data-name="amount">
+            <input type="radio" value="5000" id="5000" name="amount"> $5,000
+          </label>
+          <label for="1000" class="radio-options" data-name="amount">
+            <input type="radio" value="1000" id="1000" name="amount"> $1,000
+          </label>
+          <label for="500" class="radio-options checked" data-name="amount">
+            <input type="radio" value="500" id="500" name="amount"> $500
+          </label>
+          <span class="radio-options text-toggler" data-name="amount">$<span class="text-placeholder">other</span><input type="text" name="amount"></span>
+
+          <p class="meta">Contributions are tax deductable. AustLII publically recognises all contributions unless requested not to do so. AustLII recognises contributions in the calendar year for which they are received. Please consider contributing on annual recurring basis.</p>
+        </div>
       </li>
       <li class="multi">
         <h6>Acknowledgement:</h6><!-- added title -->
@@ -38,60 +136,6 @@ panel: none
           <p class="meta">AustLII will publicly acknowledge your contribution unless you select 'Anonymous'.</p>
         </div>
       </li>
-      <li class="multi">
-        <h6>Organization:</h6><div class="input"><input type="text" name="organization"></div>
-      </li>
-      <li class="multi">
-        <h6>Are you human:</h6>
-        <div class="set">
-        <div class="input input-tn"><label for="human">10 + 4 = </label></div>
-        <div class="input input-med"><input class="input-text" id="human" name="vpc_human" value="" type="text"></div>
-        </div>
-      </li>
-    </ul>
-  </div>
-
-  <h2 class="card-title card-title-large">Your contribution</h2>
-
-  <div class="card">
-    <ul>
-      <li class="multi">
-        <h6>Frequency:</h6>
-        <div class="set">
-          <label for="onetime" class="radio-options checked" data-name="frequency">
-            <input type="radio" value="onetime" checked id="onetime" name="frequency"> One time
-          </label>
-          <label for="monthly" class="radio-options" data-name="frequency">
-            <input type="radio" value="monthly" id="monthly" name="frequency"> Monthly
-          </label>
-          <label for="annually" class="radio-options" data-name="frequency">
-            <input type="radio" value="annually" id="annually" name="frequency"> Annually
-          </label>
-        </div>
-      </li>
-      <li class="multi">
-        <h6>Amount:</h6>
-        <div class="set">
-          <label for="500" class="radio-options checked" data-name="amount">
-            <input type="radio" value="500" checked id="500" name="amount"> $500
-          </label>
-          <label for="1000" class="radio-options" data-name="amount">
-            <input type="radio" value="1000" id="1000" name="amount"> $1,000
-          </label>
-          <label for="2500" class="radio-options" data-name="amount">
-            <input type="radio" value="2500" id="2500" name="amount"> $2,500
-          </label>
-          <label for="5000" class="radio-options" data-name="amount">
-            <input type="radio" value="5000" id="5000" name="amount"> $5,000
-          </label>
-          <label for="10000" class="radio-options" data-name="amount">
-            <input type="radio" value="10000" id="10000" name="amount"> $10,000
-          </label>
-          <span class="radio-options text-toggler" data-name="amount">$<span class="text-placeholder">other</span><input type="text" name="amount"></span>
-
-          <p class="meta">Contributions are tax deductable. AustLII publically recognises all contributions unless requested not to do so. AustLII recognises contributions in the calendar year for which they are received. Please consider contributing on annual recurring basis.</p>
-        </div>
-      </li>
     </ul>
   </div>
 
@@ -102,39 +146,22 @@ panel: none
       <li class="multi">
         <h6>Method:</h6>
         <div class="set">
-          <label for="online" class="radio-options checked" data-name="method">
+          <label for="online" class="radio-options checked" data-name="method" data-method="method1">
             <input type="radio" value="online" checked id="online" name="method"> Online
           </label>
-          <label for="cheque" class="radio-options" data-name="method">
+          <label for="cheque" class="radio-options" data-name="method" data-method="method2">
             <input type="radio" value="cheque" id="cheque" name="method"> Cheque
           </label>
-          <label for="invoice" class="radio-options" data-name="method">
+          <label for="invoice" class="radio-options" data-name="method" data-method="method3">
             <input type="radio" value="invoice" id="invoice" name="method"> Invoice
           </label>
+          <p class="meta meta-method">Pressing continue will take you to an online payment gateway.</p>
         </div>
       </li>
       <li class="multi">
         <h6>Address:</h6>
         <div class="set">
-          <div class="input"><input type="text" name="address1" placeholder="Address Line 1"></div>
-          <div class="input"><input type="text" name="address2" placeholder="Address Line 2"></div>
-          <div class="input input-sm select-wrapper">
-            <select name="state">
-              <option value="">State</option>
-              <option value="wa">Western Australia</option>
-              <option value="sa">South Australia</option>
-            </select>
-          </div>
-          <div class="input input-sm"><!-- removed class "select-wrapper" -->
-            <input type="number" placeholder="Postcode" name="postcode"><!-- replaced select tag with input -->
-          </div>
-          <div class="input select-wrapper">
-            <select name="country">
-              <option value="">Country</option>
-              <option value="au">Australia</option>
-              <option value="nz">New Zealand</option>
-            </select>
-          </div>
+          <div class="g-recaptcha" data-sitekey="6LcOaCAUAAAAADN40zMzvrPjqfQtIcacVMzb4Ape"></div>
         </div>
       </li>
     </ul>
