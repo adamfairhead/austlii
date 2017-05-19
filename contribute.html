@@ -80,7 +80,7 @@ panel: none
             <input type="radio" value="onetime" checked id="onetime" name="frequency"> One time
           </label>
           <label for="annually" class="radio-options" data-name="frequency" data-open-trigger="recurring">
-            <input type="radio" value="annually" id="annually" name="frequency"> Annually
+            <input type="radio" value="annually" id="annually" name="frequency"> Annually <span class="arrow-down"></span>
           </label>
           <div class="set-extend input-med" data-open-target="recurring">
             <div class="field-extend">
@@ -119,7 +119,7 @@ panel: none
           <label for="500" class="radio-options" data-name="amount">
             <input type="radio" value="500" id="500" name="amount"> $500
           </label>
-          <span class="radio-options text-toggler" data-name="amount">$<span class="text-placeholder"> Other</span><input type="text" name="amount"></span>
+          <span class="radio-options text-toggler" data-name="amount">$<span class="text-placeholder"> Other</span><input  type="number" step="any" name="amount"></span>
 
           <p class="meta">Contributions are tax deductable. AustLII publically recognises all contributions unless requested not to do so. AustLII recognises contributions in the calendar year for which they are received. Please consider contributing on annual recurring basis.</p>
         </div>
@@ -158,27 +158,20 @@ panel: none
           <label for="invoice" class="radio-options" data-name="method" data-method="method3">
             <input type="radio" value="invoice" id="invoice" name="method"> Invoice
           </label>
-          <p class="meta meta-method">Pressing continue will take you to an online payment gateway.</p>
+          <p class="meta meta-method">Online payment gateway.</p>
         </div>
       </li>
       <li class="multi">
-        <h6>Confirm:</h6>
+        <h6>Are you human:</h6>
         <div class="set">
-          <div class="g-recaptcha" data-sitekey="6LcOaCAUAAAAADN40zMzvrPjqfQtIcacVMzb4Ape"></div>
+          <div class="input input-tn"><label for="human">10 + 4 = </label></div>
+          <div class="input input-med"><input class="input-text" id="human" name="vpc_human" value="" type="text"></div>
         </div>
       </li>
     </ul>
   </div>
   <div class="push">
     <input type="submit" class="button" value="Continue">
-    <div class="contribute-cards">
-      <img src="images/icon-contribute-lock.png" alt="">
-      <img src="images/icon-contribute-visa.png" alt="">
-      <img src="images/icon-contribute-master.png" alt="">
-      <img src="images/icon-contribute-amex.png" alt="">
-      <img src="images/icon-contribute-anz.png" alt="">
-    </div>
-
   </div>
 
 </form>

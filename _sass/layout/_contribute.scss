@@ -3,25 +3,6 @@
 .contribute {
   padding-bottom: 8em;
 
-//START IMAGE SWITCH DEMO
-
-  #page-header {
-    &.image-on {
-      background: url(../images/contribute.jpg) no-repeat 0 0;
-      background-size: cover;
-      padding-bottom: $base-spacing*2;
-
-      #primary {
-        .logo-contribute {
-          background: transparent;
-          border: none;
-        }
-      }
-    }
-  }
-
-//END IMAGE SWITCH DEMO
-
   #page-main {
     position: relative;
 
@@ -395,6 +376,13 @@
             transform: rotate(45deg);
             display: table;
           }
+        
+          .arrow-down {
+
+            &::after {
+              transform: scale(1.25, -1);
+            }
+          }
         }
 
         &:before {
@@ -411,7 +399,20 @@
           text-align: center;
           width: 18px;
         }
+        
+        .arrow-down {
 
+          &::after {
+            content: '\25bc';
+            color: #858585;
+            font-size: .65em;
+            margin-left: .5em;
+            transform: scale(1.25, 1);
+            display: inline-block;
+            transition: all .15s;
+          }
+        }
+        
         input[type="radio"] {
           display: none;
         }

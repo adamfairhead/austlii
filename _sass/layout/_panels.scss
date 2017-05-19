@@ -212,7 +212,7 @@
         border-color: $border-light-gray;
       }
 
-      &:after {
+      &::after {
         content: '\25bc';
         color: #858585;
         font-size: .65em;

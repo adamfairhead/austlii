@@ -654,10 +654,6 @@ $(function () {
   }, 30);
   
   $('body').removeClass('no-js');
-
-  $('.contribute header').on('click', function () {
-    $(this).toggleClass('image-on');
-  });
   
   $('[data-method="method1"]').on('click', function () {
     $('.meta-method').text('Pressing continue will take you to an online payment gateway.');
