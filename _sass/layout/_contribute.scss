@@ -378,7 +378,7 @@
           }
         
           .arrow-down {
-            transform: scale(1, -.75);
+            transform: scale(.9, -.5);
           }
         }
 
@@ -401,7 +401,7 @@
           color: #858585;
           //font-size: .65em;
           //margin-left: .5em;
-          transform: scale(1, .75);
+          transform: scale(.9, .5);
           display: inline-block;
           transition: all .15s;
         }
