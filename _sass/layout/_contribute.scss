@@ -378,10 +378,7 @@
           }
         
           .arrow-down {
-
-            &::after {
-              transform: scale(1.25, -1);
-            }
+            transform: scale(1, -.75);
           }
         }
 
@@ -401,16 +398,12 @@
         }
         
         .arrow-down {
-
-          &::after {
-            content: '\25bc';
-            color: #858585;
-            font-size: .65em;
-            margin-left: .5em;
-            transform: scale(1.25, 1);
-            display: inline-block;
-            transition: all .15s;
-          }
+          color: #858585;
+          //font-size: .65em;
+          //margin-left: .5em;
+          transform: scale(1, .75);
+          display: inline-block;
+          transition: all .15s;
         }
         
         input[type="radio"] {
@@ -649,7 +642,8 @@
   }
 
   .arrow-down {
-    display: none;
+    display: none !important;
+    color: white;
   }
 
   span.text-placeholder {
