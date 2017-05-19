@@ -497,5 +497,185 @@
       margin-right: 0.55em !important;
     }
   }
+}
 
+.page-break	{ 
+  display: none; 
+}
+
+.field-box {
+  display: none;
+}
+
+@media print {
+  
+  .page-break	{ 
+    display: block; 
+    page-break-before: always; 
+  }
+  
+  .contribute-download {
+    display: none;
+  }
+  
+  .contribute .card li input, .contribute .document embed li input, .document .contribute embed li input {
+    margin-bottom: 0;
+    background: white;
+    border: 1px solid #dfdfdf;
+    box-shadow: none;
+    border-radius: 3px;
+    -webkit-appearance: none;
+    font-size: .9em;
+    height: 33px;
+  }
+
+  .input {
+    position: relative;
+    display: inline-block;
+
+    &::before {
+      content: "";
+      display: block;
+      position: absolute;
+      background: white;
+      top: 3px;
+      left: 3px;
+      right: 3px;
+      bottom: 3px;
+    }
+  }
+  
+  .contribute .card li .input select, .contribute .document embed li .input select, .document .contribute embed li .input select {
+    border: 1px solid #dfdfdf;
+    background: white;
+    color: white;
+    
+    &::after {
+      display: none !important;
+      content: "";
+    }
+  }
+  .contribute .card li .radio-options.checked:before, .contribute .document embed li .radio-options.checked:before, .document .contribute embed li .radio-options.checked:before {
+    background: white;
+    border: 1px solid #d2d2d2 !important;
+  }
+
+  .contribute .card li .radio-options:before, .contribute .document embed li .radio-options:before, .document .contribute embed li .radio-options:before {
+      border: 1px solid #d2d2d2;
+  }
+  
+  .contribute .card li .radio-options.checked:after, .contribute .document embed li .radio-options.checked:after, .document .contribute embed li .radio-options.checked:after {
+    display: none;
+  }
+
+  .checkbox.checked, .checked.faux-checkbox {
+    background: white !important;
+    border: 1px solid #d2d2d2 !important;
+  }
+
+  .checkbox.checked:before, .checked.faux-checkbox:before {
+    display: none !important;
+  }
+
+  .contribute .card li input[type=number], .contribute .document embed li input[type=number], .document .contribute embed li input[type=number] {
+    border: none;
+  }
+  
+  .contribute .card li .radio-options, .contribute .document embed li .radio-options, .document .contribute embed li .radio-options {
+    border: none;
+    background: white;
+  }
+
+  .contribute .card li .set .set-extend, .contribute .document embed li .set .set-extend, .document .contribute embed li .set .set-extend {
+    background: white;
+    border: none;
+    padding: 0;
+    float: left;
+    width: 100%;
+  }
+
+  .contribute .card li .set .set-extend .field-extend, .contribute .document embed li .set .set-extend .field-extend, .document .contribute embed li .set .set-extend .field-extend {
+    background: white;
+    border: none;
+    margin: 0;
+    padding: .5em 0;
+  }
+  
+  .contribute .card li .set .set-extend, .contribute .document embed li .set .set-extend, .document .contribute embed li .set .set-extend {
+    max-height: 150px !important;
+    opacity: 1 !important;
+  }
+  
+  .contribute .card li .set .set-extend .field-extend select, .contribute .document embed li .set .set-extend .field-extend select, .document .contribute embed li .set .set-extend .field-extend select {
+    border: 1px solid #d2d2d2;
+    color: white;
+  }
+
+  .contribute .card li .radio-options:before, .contribute .document embed li .radio-options:before, .document .contribute embed li .radio-options:before {
+    left: 0;
+  }
+
+  .contribute .card li .set .set-extend>p, .contribute .document embed li .set .set-extend>p, .document .contribute embed li .set .set-extend>p {
+    margin: 1em 0;
+  }
+
+  .contribute .card li .input.select-wrapper:after, .contribute .document embed li .input.select-wrapper:after, .document .contribute embed li .input.select-wrapper:after {
+    display: none;
+  }
+
+  .field-box {
+    display: inline-block;
+    height: 1.5em;
+    width: 1.5em;
+    border: 1px solid #d2d2d2;
+    margin: -5px .5em;
+    border-radius: 3px;
+  }
+
+  .contribute .card li .set .set-extend .field-extend select, .contribute .document embed li .set .set-extend .field-extend select, .document .contribute embed li .set .set-extend .field-extend select, .contribute .document embed li .set .set-extend .field-extend select, .document .contribute embed li .set .set-extend .field-extend select {
+    display: none;
+  }
+  
+  .meta-method {
+    display: none;
+  }
+  
+  .card:nth-last-child(2) ul .multi:last-child {
+    display: none;
+  }
+    
+  form > .push:last-child {
+    display: none;
+  }
+
+  .arrow-down {
+    display: none;
+  }
+
+  span.text-placeholder {
+    display: none;
+  }
+
+  ::-webkit-input-placeholder { 
+    color: white !important;
+  }
+  ::-moz-placeholder { 
+    color: white !important;
+  }
+  :-ms-input-placeholder { 
+    color: white !important;
+  }
+  :-moz-placeholder { 
+    color: white !important;
+  }
+
+  .contribute #page-logo {
+    margin-top: 2.5em;
+    width: 3em;
+    height: 3em;
+  }
+  
+  body {
+    background: white;
+  }
 }
