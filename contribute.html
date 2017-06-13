@@ -27,26 +27,26 @@ panel: none
         <div class="input input-med"><input type="text" name="email"></div>
       </li>
       <li class="multi">
-        <h6>Organization:</h6><div class="input"><input type="text" name="organization"></div>
+        <h6>Organisation:</h6><div class="input"><input type="text" name="organisation"></div>
       </li>
       <li class="multi">
-        <h6>Job Title:</h6><div class="input"><input type="text" name="role"></div>
+        <h6>Position:</h6><div class="input"><input type="text" name="role"></div>
       </li>
       <li class="multi">
         <h6>Address 1:</h6>
         <div class="input"><input type="text" name="address1" placeholder="Street and number"></div>
       </li>
       <li class="multi">
-        <h6>Address 2:</h6>
-        <div class="input"><input type="text" name="address2" placeholder="Apartment, suite, building, floor, etc."></div>
-      </li>
-      <li class="multi">
         <h6>City:</h6>
         <div class="input input-med"><input type="text" name="city"></div>
       </li>
       <li class="multi">
-        <h6>State/County:</h6>
+        <h6>State:</h6>
         <div class="input input-med"><input type="text" name="state"></div>
+      </li>
+      <li class="multi">
+        <h6>Postcode:</h6>
+        <div class="input input-med"><input type="text" name="postcode"></div>
       </li>
       <li class="multi">
         <h6>Country:</h6>
@@ -60,7 +60,7 @@ panel: none
       </li>
       <li class="multi">
         <h6>Phone:</h6>
-        <div class="input input-xs"><input type="tel" name="tel"></div>
+        <div class="input input-xs"><input type="tel" name="telcountry" Placeholder="Coutry code"></div><div class="input input-xs"><input type="tel" name="tel" Placeholder="Phone Number"></div>
       </li>
       <li class="multi">
         <h6>Fax:</h6>
@@ -124,14 +124,14 @@ panel: none
           </label>
           <span class="radio-options text-toggler" data-name="amount">$<span class="text-placeholder"> Other</span><input  type="number" step="any" name="amount"></span>
 
-          <p class="meta">Contributions are tax deductable. AustLII publically recognises all contributions unless requested not to do so. AustLII recognises contributions in the calendar year for which they are received. Please consider contributing on annual recurring basis.</p>
+          <p class="meta">Contributions of $2 or more are tax deductible.  AustLII publicly recognises all contributions unless requested not to do so. AustLII recognises contributions in the calendar year for which they are received. Please consider contributing on an annual recurring basis.</p>
         </div>
       </li>
       <li class="multi">
         <h6>Acknowledgement:</h6><!-- added title -->
         <div class="set"><!-- changed class from "push" to "set" -->
-          <label for="organization" class="radio-options checked" data-name="public">
-            <input type="radio" value="organization" checked id="organization" name="public"> Organization
+          <label for="organisation" class="radio-options checked" data-name="public">
+            <input type="radio" value="organisation" checked id="organisation" name="public"> Organisation
           </label>
           <label for="individual" class="radio-options" data-name="public">
             <input type="radio" value="individual" id="individual" name="public"> Individual

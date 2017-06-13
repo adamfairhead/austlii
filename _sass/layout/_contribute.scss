@@ -2,6 +2,27 @@
 
 .contribute {
   padding-bottom: 8em;
+  
+  &.contribute-request,
+  &.contribute-checkout {
+
+    .contribute-download {
+
+      @include media(max-width $large-screen) {
+        display: none;
+      }
+    }
+    
+    @include media(max-width $medium-screen) {
+      .card {
+        li {
+          h6 {
+            @include span-columns(6);
+          }
+        }
+      }
+    }
+  }
 
   #page-main {
     position: relative;
@@ -19,12 +40,12 @@
         &:hover { background: darken($blue, 5); }
       }
 
-        @include media(max-width $medium-screen) {
-          top: $base-spacing + $small-spacing;
-          right: 1em;
+      @include media(max-width $medium-screen) {
+        top: $base-spacing + $small-spacing;
+        right: 1em;
 
-          .desktop { display: none; }
-        }
+        .desktop { display: none; }
+      }
     }
   }
 
@@ -47,6 +68,10 @@
         font-weight: normal;
         word-wrap: break-word;
         hyphens: auto;
+      }
+      
+      p {
+        float: left;
       }
 
       .input {
@@ -487,7 +512,18 @@
 
     .button { 
       float: left;
-      margin-right: 0.55em !important;
+      margin-right: .55em !important;
+      margin-bottom: .5em !important;
+      
+      &:first-child {
+        background-color: #ddd !important;
+        color: #888 !important;
+        
+        &:hover {
+          background-color: #ccc !important;
+          color: #777 !important;
+        }
+      }
     }
   }
 }

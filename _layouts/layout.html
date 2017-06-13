@@ -49,11 +49,25 @@ layout: compress
         <span>Australasian Legal Information Institute</span> 
         <span class="page-subheader">Free, comprehensive and independent access to Australasian law</span>
       </h1>
-      {% elsif page.class contains 'contribute' %}
+      {% elsif page.class == 'contribute' %}
       <!--start contribute tagline-->
       <div class="title-block">
         <h1 id="page-title"> Without you, we wouldn't exist. </h1>
         <p>We rely on the generosity of our donors to operate.<br>Thank you for making AustLII possible.</p>
+      </div>
+      <!--end contribute tagline-->
+      {% elsif page.class contains 'contribute-request' %}
+      <!--start contribute tagline-->
+      <div class="title-block">
+        <h1 id="page-title">Thanks for your interest in supporting AustLII. </h1>
+        <p>Your request for an invoice has been sent to our staff,<br> who will be contacting you shortly.</p>
+      </div>
+      <!--end contribute tagline-->
+      {% elsif page.class contains 'contribute-checkout' %}
+      <!--start contribute tagline-->
+      <div class="title-block">
+        <h1 id="page-title">Thanks for supporting AustLII with your donation. </h1>
+        <p>Mr. Giovanni Castillo, Street name and number<br> City, State and postal code, Country </p>
       </div>
       <!--end contribute tagline-->
       {% else %}
