@@ -514,16 +514,6 @@
       float: left;
       margin-right: .55em !important;
       margin-bottom: .5em !important;
-      
-      &:first-child {
-        background-color: #ddd !important;
-        color: #888 !important;
-        
-        &:hover {
-          background-color: #ccc !important;
-          color: #777 !important;
-        }
-      }
     }
   }
 }
