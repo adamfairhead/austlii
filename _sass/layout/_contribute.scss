@@ -23,6 +23,18 @@
       }
     }
   }
+  
+  &:not(.contribute-request):not(.contribute-checkout) {
+    
+    h6 {      
+      line-height: 2.2;
+      margin-bottom: 0;
+    }
+  }
+  
+  .card .multi .meta {
+    width: 100%
+  }
 
   #page-main {
     position: relative;
