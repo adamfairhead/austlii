@@ -70,4 +70,11 @@ $(function() {
     
     $('[data-type-target="name"]').attr('name', nameValue);
   });
+  
+  //tick anything as tue by populating any hidden field
+  $('[data-type-hidden]').on('click', function () {
+    var nameValue = $(this).data('type-hidden');
+    
+    $('#' + nameValue + '').attr('name', nameValue).val(true);
+  });
 });

@@ -21,8 +21,10 @@ panel: none
       <li class="multi"><h6>This document title:</h6><div class="input"><input type="text" placeholder="e.g. Give an example here"><p class="meta">Some copy goes here to explain how this search box works.</p></div></li>
       <li class="multi">
         <h6>Search options:</h6>
-        <a href="#" class="card-options--solo">Include synonyms</a>
-        <a href="#" class="card-options--solo">Include word derivatives</a>
+        <a href="#" class="card-options--solo" data-type-hidden="include-synonims">Include synonyms</a>
+        <a href="#" class="card-options--solo" data-type-hidden="include-derivatives">Include word derivatives</a>
+        <input type="hidden" id="include-synonims" />
+        <input type="hidden" id="include-derivatives" />
       </li>
     </ul>
   </div>
@@ -80,5 +82,5 @@ panel: none
     </div>
   </div>
 
-  <a class="button" href="results.html">Advanced Search</a>
+  <input type="submit" class="button" value="Advanced Search">
 </form>
