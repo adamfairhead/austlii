@@ -29,6 +29,10 @@
     h6 {      
       line-height: 2.2;
       margin-bottom: 0;
+
+      @include media(max-width $medium-screen) {
+        margin-bottom: .5em;
+      }
     }
   }
   
@@ -53,7 +57,7 @@
       }
 
       @include media(max-width $medium-screen) {
-        top: $base-spacing + $small-spacing;
+        //top: $base-spacing + $small-spacing;
         right: 1em;
 
         .desktop { display: none; }
@@ -80,6 +84,12 @@
         font-weight: normal;
         word-wrap: break-word;
         hyphens: auto;
+
+        @include media(max-width em(420)) {
+          width: 100%;
+          margin: 0;
+          line-height: 1 !important;
+        }
       }
       
       p {
@@ -91,6 +101,10 @@
 
         @include media(max-width $medium-screen) {
           @include span-columns(9);
+        }
+
+        @include media(max-width em(420)) {
+          @include span-columns(12);      
         }
         
         &.select-wrapper {
@@ -142,6 +156,10 @@
 
       .set {
         @include span-columns(9);
+        
+        @include media(max-width em(420)) {
+          width: 100%;
+        }
 
         .input {
           @include span-columns(6 of 9);
@@ -205,8 +223,13 @@
 
           @include media(max-width $medium-screen) {
             @include span-columns(4.5 of 9);
+            margin-bottom: .5em;
 
             &:nth-of-type(4) { margin-right: 0; }
+          }
+
+          @include media(max-width em(420)) {
+            @include span-columns(12);     
           }
         }
 
@@ -216,12 +239,20 @@
 
           @include media(max-width $medium-screen) {
             @include span-columns(2 of 9);
+            margin-bottom: .5em;
 
             &:nth-of-type(4) { margin-right: 0; }
           }
 
           label {
             white-space: nowrap;
+          }
+
+          @include media(max-width em(420)) {
+            & + .input-sm {
+              width: 77%;
+              @include omega();
+            }            
           }
         }
 
@@ -238,7 +269,7 @@
           border: 1px solid #e5eff4;
           border-radius: 3px;
           float: left;
-          width: 71.75%;
+          width: 100%;
           max-height: 0px;
           transition: all .3s;
           overflow: hidden; 
@@ -256,10 +287,19 @@
               max-height: 250px;
             }
           }
+
+          @include media(max-width em(420)) {
+            width: 100%;
+          
+            &.is-opened {
+              max-height: 300px;
+            }
+          }
           
           & > p {
             margin: 1em;
             float: left;
+            max-width: 95%;
           }
           
           .field-extend {
@@ -267,11 +307,27 @@
             width: 45%;
             background: white;
             border: 1px solid #e5eff4;
-            margin: 1em 0 0 1em;
             padding: .5em;
+            
+            &:first-child {
+              width: 65%;
+              margin: 1em 0 0 1em;
+            }
+            
+            &:nth-child(2) {
+              width: 28%;
+              margin: 1em 0 0 2%;
+            }
 
             @include media(max-width $medium-screen) {
-              width: calc(100% - 2em);
+              &:first-child,
+              &:nth-child(2) {
+                width: calc(100% - 2em);
+              }
+            
+              &:nth-child(2) {
+                margin: 1em 0 0 1em;
+              }
             }
             
             .checkbox {
@@ -293,6 +349,14 @@
             .extend-text {
               color: #999;
               font-size: .9em;
+              
+              &:first-child {
+                
+                @include media(max-width em(498)) {
+                  display: block;
+                  margin-bottom: .25em;
+                }
+              }
             }
           }
         }
@@ -309,6 +373,32 @@
           font-size: .9em;
           height: 33px;
           position: relative;
+          padding: .25em .5em .25em 0;
+          
+          &:nth-child(3) {
+            margin-right: .5em;
+          }
+          
+          &:nth-child(5) {
+            margin-left: .25em;
+                
+            @include media(max-width em(420)) {
+              display: block;
+              width: 57%;
+              margin: .5em 0 0;
+            }
+          }
+
+          &:after {
+            content: "\25bc";
+            color: $medium-gray;
+            position: absolute;
+            top: .25em;
+            right: .5em;
+            font-size: .75em;
+            -webkit-transform: translateY(25%);
+            pointer-events: none;
+          }
 
           select {
             @include appearance(none);
@@ -316,20 +406,17 @@
             background: none;
             width: 100%;
             height:100%;
-            margin: 0;
+            margin: 0 !important;
             text-indent: .5em;
             outline: none;
-          }
-
-          &:after {
-            content: "\25bc";
-            color: $medium-gray;
-            position: absolute;
-            top: .5em;
-            right: 1em;
-            font-size: .75em;
-            -webkit-transform: translateY(25%);
-            pointer-events: none;
+          
+            &[name="years-recurring"] {
+              width: 30px;
+            }
+          
+            &[name="recurring-month"] {
+                width: 85px;
+            }
           }
         }
       }
@@ -361,6 +448,7 @@
 
         @include media(max-width $medium-screen) {
           @include span-columns(5);
+          margin-bottom: .5em;
         }
       }
 
@@ -384,6 +472,10 @@
 
         @include media(max-width $medium-screen) {
           @include span-columns(5);
+        }
+
+        @include media(max-width em(420)) {
+          @include span-columns(12);      
         }
       }
 
@@ -572,6 +664,12 @@
 
 .field-box {
   display: none;
+}
+
+.tablet-hide {
+  @include media(min-width em(641) max-width em(1190)) {
+    display: none;
+  }
 }
 
 @media print {
