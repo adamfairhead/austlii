@@ -278,6 +278,35 @@
           &.is-opened {
             max-height: 150px;
             opacity: 1;
+            position: relative;
+            overflow: visible;
+            margin-top: .5em;
+            
+            &::before,
+            &::after {
+              content: "";
+              display: block;
+              position: absolute;
+            }
+            
+            &::before {
+              width: 10px;
+              background: #ECF9FF;
+              border: 1px solid #e5eff4;
+              height: 10px;
+              transform: rotate(45deg);
+              left: 120px;
+              z-index: 0;
+              top: -5px;
+            }
+            
+            &::after {
+              width: 80px;
+              height: 12px;
+              background: #ECF9FF;
+              z-index: 4;
+              left: 80px;
+            }
           }
 
           @include media(max-width $medium-screen) {
