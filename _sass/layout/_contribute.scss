@@ -639,6 +639,12 @@
 
   .contribute-cards {
     float: left; 
+    opacity: 1;
+    transition: opacity .3s;
+    
+    &.hidden {
+      opacity: 0;
+    }
 
     img { vertical-align: middle; }
   }
