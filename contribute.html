@@ -92,14 +92,32 @@ panel: none
             <div class="field-extend">
               <span class="extend-text">Repeat for:</span>
               <span class="field-box"></span>
-              <select name="recurring">
-                <option value="2">2</option>
-                <option value="1">1</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-              </select>
-              <span class="extend-text">years</span>
+              <span class="select-wrapper">
+                <select name="recurring">
+                  <option value="2">2</option>
+                  <option value="1">1</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                </select>
+              </span>
+              <span class="extend-text">years, in the month of </span>
+              <span class="select-wrapper">
+                <select name="recurring-month">
+                  <option value="jan">January</option>
+                  <option value="feb">February</option>
+                  <option value="mar">March</option>
+                  <option value="apr">April</option>
+                  <option value="may">May</option>
+                  <option value="jun">June</option>
+                  <option value="jul">July</option>
+                  <option value="aug">August</option>
+                  <option value="sep">September</option>
+                  <option value="oct">October</option>
+                  <option value="nov">November</option>
+                  <option value="dec">December</option>
+                </select>                
+              </span>
             </div>
             <div class="field-extend">
               <label for="annualinvoice" class="checkbox" data-name="annualinvoice">
