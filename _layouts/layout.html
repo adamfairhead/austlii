@@ -57,19 +57,27 @@ layout: compress
       </div>
       <!--end contribute tagline-->
       {% elsif page.class contains 'contribute-request' %}
-      <!--start contribute tagline-->
+      <!--start contribute request tagline-->
       <div class="title-block">
         <h1 id="page-title">Thanks for your interest in supporting AustLII. </h1>
         <p>Your request for an invoice has been sent to our staff,<br> who will be contacting you shortly.</p>
       </div>
-      <!--end contribute tagline-->
+      <!--end contribute request tagline-->
       {% elsif page.class contains 'contribute-checkout' %}
-      <!--start contribute tagline-->
+      <!--start contribute checkout tagline-->
       <div class="title-block">
         <h1 id="page-title">Thanks for supporting AustLII with your donation. </h1>
         <p>Mr. Giovanni Castillo, Street name and number<br> City, State and postal code, Country </p>
       </div>
-      <!--end contribute tagline-->
+      <!--end contribute checkout tagline-->
+      <!--end contribute request tagline-->
+      {% elsif page.class contains 'contribute-cheque' %}
+      <!--start contribute checkout tagline-->
+      <div class="title-block">
+        <h1 id="page-title">Contribution Form </h1>
+        <p>Please print this form and mail it with a cheque made payable<br> to the AustLII Foundation Limited to AustLII, UTS,<br> PO Box 123, Broadway NSW 2007, Australia.</p>
+      </div>
+      <!--end contribute checkout tagline-->
       {% else %}
       <h1 id="page-title"><span>{{ page.title }}</span></h1>
       {% endif %}

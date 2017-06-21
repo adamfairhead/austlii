@@ -710,7 +710,225 @@
   }
 }
 
+
+
+//************************
+//contribute-cheque style overrides
+//************************
+
+
+.contribute-cheque.contribute #primary,
+.contribute-cheque #page-main {
+  padding-top: 2em;
+}
+  
+.contribute-cheque .page-break	{ 
+  display: block; 
+  page-break-before: always; 
+}
+
+.contribute.contribute-cheque:not(.contribute-request):not(.contribute-checkout) h6 {
+  line-height: 1.5;
+}
+
+.contribute.contribute-cheque #page-main .contribute-download {
+  top: 0;
+  right: 50%;
+  transform: translateX(50%);
+}
+
+.contribute-cheque.contribute #page-main .contribute-download .button {
+  font-size: 1em;
+}
+
+.contribute-cheque .logo-contribute {
+  display: none;
+}
+
+.contribute-cheque .card .multi .meta {
+    font-size: .85em;
+    margin-top: .5em;
+    color: #888;
+    line-height: 1.25;
+}
+
+.contribute-cheque .card li input, .contribute-cheque .document embed li input, .document .contribute-cheque embed li input {
+  margin-bottom: 0;
+  background: white;
+  border: 1px solid #dfdfdf;
+  box-shadow: none;
+  border-radius: 3px;
+  -webkit-appearance: none;
+  font-size: .9em;
+  height: 33px;
+}
+
+.contribute-cheque .input {
+  position: relative;
+  display: inline-block;
+
+  &::before {
+    content: "";
+    display: block;
+    position: absolute;
+    background: white;
+    top: 3px;
+    left: 3px;
+    right: 3px;
+    bottom: 3px;
+  }
+}
+
+.contribute-cheque .card li .input select, .contribute-cheque .document embed li .input select, .document .contribute-cheque embed li .input select {
+  border: 1px solid #dfdfdf;
+  background: white;
+  color: white;
+
+  &::after {
+    display: none !important;
+    content: "";
+  }
+}
+.contribute-cheque .card li .radio-options.checked:before, .contribute-cheque .document embed li .radio-options.checked:before, .document .contribute-cheque embed li .radio-options.checked:before {
+  background: white;
+  border: 1px solid #d2d2d2 !important;
+}
+
+.contribute-cheque .card li .radio-options:before, .contribute-cheque .document embed li .radio-options:before, .document .contribute-cheque embed li .radio-options:before {
+    border: 1px solid #d2d2d2;
+}
+
+.contribute-cheque .card li .radio-options.checked:after, .contribute-cheque .document embed li .radio-options.checked:after, .document .contribute-cheque embed li .radio-options.checked:after {
+  display: none;
+}
+
+.contribute-cheque .checkbox.checked, .contribute-cheque .checked.faux-checkbox {
+  background: white !important;
+  border: 1px solid #d2d2d2 !important;
+}
+
+.contribute-cheque .checkbox.checked:before, .contribute-cheque .checked.faux-checkbox:before {
+  display: none !important;
+}
+
+.contribute-cheque .card li input[type=number], .contribute-cheque .document embed li input[type=number], .document .contribute-cheque embed li input[type=number] {
+  border: none;
+}
+
+.contribute-cheque .card li .radio-options, .contribute-cheque .document embed li .radio-options, .document .contribute-cheque embed li .radio-options {
+  border: none;
+  background: white;
+}
+
+.contribute-cheque .card li .set .set-extend, .contribute-cheque .document embed li .set .set-extend, .document .contribute-cheque embed li .set .set-extend {
+  background: white;
+  border: none;
+  padding: 0;
+  float: left;
+  width: 100%;
+}
+
+.contribute-cheque .card li .set .set-extend .field-extend, .contribute-cheque .document embed li .set .set-extend .field-extend, .document .contribute-cheque embed li .set .set-extend .field-extend {
+  background: white;
+  border: none;
+  margin: 0;
+  padding: .5em 0;
+}
+
+.contribute-cheque .card li .set .set-extend, .contribute-cheque .document embed li .set .set-extend, .document .contribute-cheque embed li .set .set-extend {
+  max-height: 150px !important;
+  opacity: 1 !important;
+}
+
+.contribute-cheque .card li .set .set-extend .field-extend select, .contribute-cheque .document embed li .set .set-extend .field-extend select, .document .contribute-cheque embed li .set .set-extend .field-extend select {
+  border: 1px solid #d2d2d2;
+  color: white;
+}
+
+.contribute-cheque .card li .radio-options:before, .contribute-cheque .document embed li .radio-options:before, .document .contribute-cheque embed li .radio-options:before {
+  left: 0;
+}
+
+.contribute-cheque .card li .set .set-extend>p, .contribute-cheque .document embed li .set .set-extend>p, .document .contribute-cheque embed li .set .set-extend>p {
+  margin: 1em 0;
+}
+
+.contribute-cheque .card li .input.select-wrapper:after, .contribute-cheque .document embed li .input.select-wrapper:after, .document .contribute-cheque embed li .input.select-wrapper:after {
+  display: none;
+}
+
+.contribute-cheque .field-box {
+  display: inline-block;
+  height: 1.5em;
+  width: 1.5em;
+  border: 1px solid #d2d2d2;
+  margin: -5px .5em;
+  border-radius: 3px;
+}
+
+.contribute-cheque .card li .set .set-extend .field-extend select, .contribute-cheque .document embed li .set .set-extend .field-extend select, .document .contribute-cheque embed li .set .set-extend .field-extend select, .contribute-cheque .document embed li .set .set-extend .field-extend select, .document .contribute-cheque embed li .set .set-extend .field-extend select {
+  display: none;
+}
+
+.contribute-cheque .meta-method {
+  display: none;
+}
+
+.contribute-cheque .card:nth-last-child(2) ul .multi:last-child {
+  display: none;
+}
+
+.contribute-cheque form > .push:last-child {
+  display: none;
+}
+
+.contribute-cheque .arrow-down {
+  display: none !important;
+  color: white;
+}
+
+.contribute-cheque span.text-placeholder {
+  display: none;
+}
+
+.contribute-cheque {
+  ::-webkit-input-placeholder { 
+    color: white !important;
+  }
+  ::-moz-placeholder { 
+    color: white !important;
+  }
+  :-ms-input-placeholder { 
+    color: white !important;
+  }
+  :-moz-placeholder { 
+    color: white !important;
+  }
+}
+
+.contribute-cheque .field-extend .select-wrapper {
+  display: none;
+}
+
+.contribute-cheque #page-logo {
+  margin-top: 2.5em;
+  width: 3em;
+  height: 3em;
+}
+
+body.contribute-cheque {
+  background: white;
+}
+
+/************
+ PRINT RULES
+*************/
+
 @media print {
+  
+  .contribute:not(.contribute-cheque):not(.contribute-request):not(.contribute-checkout) {
+    padding-bottom: 0;
+  }
   
   .page-break	{ 
     display: block; 
@@ -718,6 +936,14 @@
   }
   
   .contribute-download {
+    display: none;
+  }
+  
+  .contribute:not(.contribute-cheque):not(.contribute-request):not(.contribute-checkout) .card li {
+    padding: .5em 1em 0;
+  }
+  
+  .tablet-hide {
     display: none;
   }
   
@@ -729,7 +955,7 @@
     border-radius: 3px;
     -webkit-appearance: none;
     font-size: .9em;
-    height: 33px;
+    height: 20px;
   }
 
   .input {
@@ -752,6 +978,7 @@
     border: 1px solid #dfdfdf;
     background: white;
     color: white;
+    height: 20px;
     
     &::after {
       display: none !important;
@@ -839,6 +1066,28 @@
     display: none;
   }
   
+  .contribute:not(.contribute-cheque):not(.contribute-request):not(.contribute-checkout) .card li .set .select-wrapper:nth-child(5) {
+    display: inline-block;
+    width: 80px;
+    height: 20px;
+    position: relative;
+    top: 7px;
+    
+    &::after {
+      display: none;
+    }
+  }
+  
+  .contribute .card li .set .set-extend .field-extend:first-child {
+    margin: 0;
+  }
+  
+  .contribute .card li .set .set-extend .field-extend:nth-child(2) {
+    margin: 0 0 0 2%;
+    position: relative;
+    top: 6px;
+  }
+  
   .meta-method {
     display: none;
   }
@@ -881,5 +1130,21 @@
   
   body {
     background: white;
+  }
+  
+  .contribute-cheque .title-block h1 {
+    font-size: 1.5em !important;
+  }
+  
+  .contribute-cheque #page-main {
+    padding-top: 0;
+  }
+  
+  .contribute-cheque .title-block p {
+    display: none;
+  }
+  
+  .field-extend .select-wrapper {
+    display: none;
   }
 }
