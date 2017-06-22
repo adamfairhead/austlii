@@ -18,13 +18,13 @@ panel: none
         <h6>Name:</h6>
         <div class="set">
           <div class="input input-tn"><input type="text" name="title" placeholder="Title"></div>
-          <div class="input input-sm"><input type="text" name="firstname" placeholder="First name"></div>
-          <div class="input input-sm"><input type="text" name="lastname" placeholder="Last Name"></div>
+          <div class="input input-sm"><input type="text" name="firstname" placeholder="First name" data-validation="required"></div>
+          <div class="input input-sm"><input type="text" name="lastname" placeholder="Last Name" data-validation="required"></div>
         </div>
       </li>
       <li class="multi">
         <h6>Email:</h6>
-        <div class="input"><input type="text" name="email"></div>
+        <div class="input"><input type="text" name="email" data-validation="email"></div>
       </li>
       <li class="multi">
         <h6>Organisation:</h6><div class="input"><input type="text" name="organisation"></div>
@@ -34,19 +34,19 @@ panel: none
       </li>
       <li class="multi">
         <h6>Address 1:</h6>
-        <div class="input"><input type="text" name="address1" placeholder="Street and number"></div>
+        <div class="input"><input type="text" name="address1" placeholder="Street and number" data-validation="required"></div>
       </li>
       <li class="multi">
         <h6>City:</h6>
-        <div class="input input-med"><input type="text" name="city"></div>
+        <div class="input input-med"><input type="text" name="city" data-validation="required"></div>
       </li>
       <li class="multi">
         <h6>State:</h6>
-        <div class="input input-med"><input type="text" name="state"></div>
+        <div class="input input-med"><input type="text" name="state" data-validation="required"></div>
       </li>
       <li class="multi">
         <h6>Postcode:</h6>
-        <div class="input input-med"><input type="text" name="postcode"></div>
+        <div class="input input-med"><input type="number" name="postcode" data-validation="number" data-validation-allowing="-"></div>
       </li>
       <li class="multi">
         <h6>Country:</h6>
@@ -187,7 +187,7 @@ panel: none
       <li class="multi">
         <h6>Are you human:</h6>
         <div class="set">
-          <div class="input input-tn"><label for="human">10 + 4 = </label></div>
+          <div class="input input-tn"><label for="human"><span class="cap1">10</span> + <span class="cap2">3</span> = </label></div>
           <div class="input input-med"><input class="input-text" id="human" name="vpc_human" value="" type="text"></div>
         </div>
       </li>

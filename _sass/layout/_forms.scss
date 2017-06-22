@@ -1,0 +1,22 @@
+// Form-specific modules, applicable to any form, regardless of placement
+
+//error messages
+
+.has-error {
+  margin-bottom: 0 !important;
+}
+
+[data-validation-current-error].error {
+  background: #F5E7E6 !important;
+  border-radius: 3px 3px 0 0 !important;
+}
+
+.help-block.error {
+  background: #FF8780;
+  color: white;
+  white-space: nowrap;
+  border-radius: 0 0 3px 3px;
+  padding: .25em .5em;
+  font-size: .85em;
+  position: relative;
+}
