@@ -65,10 +65,24 @@
           color: $medium-gray;
           position: absolute;
           top: .5em;
-          right: 1em;
+          right: .25em;
           font-size: .75em;
           -webkit-transform: translateY(25%);
           pointer-events: none;
+          display: none;
+          
+          @include media(em(360)){
+            right: .35em;
+            display: block;
+          }
+          
+          @include media(em(410)){
+            right: .75em;
+          }
+          
+          @include media($small-screen){
+            right: 1em;
+          }
         }
       }
 

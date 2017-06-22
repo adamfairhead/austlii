@@ -859,5 +859,13 @@ table {
   }
 }
 
-//js helpers
+//helpers
 .hide { display: none !important; }
+
+.mobile-hide {
+  display: none;
+  
+  @include media($medium-screen){
+    display: inline-block;
+  }
+}
