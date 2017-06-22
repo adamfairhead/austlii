@@ -68,7 +68,7 @@ $(function() {
   $('[data-type-name]').on('click', function () {
     var nameValue = $(this).data('type-name');
     
-    $('[data-type-target="name"]').attr('name', nameValue);
+    $('[name="method"]').attr('value', nameValue);
   });
   
   //tick anything as tue by populating any hidden field

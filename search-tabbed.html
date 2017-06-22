@@ -9,7 +9,7 @@ panel: none
 ---
 
 <form action="results-search.html">
-
+  <input type="hidden" name="method" value="autoSearch">
   <div id="page-sort"  class="tabs-block sort-tabs">
     <ul>
       <li class="sort-item query-type selected" data-type-name="autoSearch">Auto Search</li>
@@ -27,7 +27,7 @@ panel: none
       <li class="multi">
         <h6>Enter your search term</h6>
         <div class="input">
-          <input type="text" data-type-target="name" name="autoSearch" placeholder="e.g. Give an example here">
+          <input type="text" name="query" placeholder="e.g. Give an example here">
         </div>
       </li>
       <li class="multi">
