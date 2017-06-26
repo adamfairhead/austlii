@@ -18,9 +18,8 @@ layout: compress
   <meta name="msapplication-TileColor" content="#ee3224">
   <meta name="msapplication-TileImage" content="images/icon/ms.png">
   <script src="js/modernizr.min.js"></script>
-  <script src='https://www.google.com/recaptcha/api.js'></script>
 </head>
-<body class="{{ page.class }} no-js"> 
+<body class="{{ page.class }} no-js">
   <header id="page-header">
     <div id="primary">
       {% if page.class contains 'contribute' %}
@@ -46,7 +45,7 @@ layout: compress
       <h2 id="page-title"><span>{{ page.database }}</span></h2>
       {% elsif page.class contains 'home' %}
       <h1 id="page-title">
-        <span>Australasian Legal Information Institute</span> 
+        <span>Australasian Legal Information Institute</span>
         <span class="page-subheader">Free, comprehensive and independent access to Australasian law</span>
       </h1>
       {% elsif page.class == 'contribute' %}
@@ -102,7 +101,7 @@ layout: compress
 
   <div id="page-content">
 
-    <div id="page-main"> 
+    <div id="page-main">
       {% include sort.html %}
 
       {% if page.class contains 'document' %}
