@@ -1,6 +1,6 @@
 // Advanced Search
 
-.search, 
+.search,
 .lawcite {
   .card {
     .multi {
@@ -10,11 +10,19 @@
       h6 {
         @include span-columns(3);
         font-weight: normal;
+
+        @include media(max-width $medium-screen){
+          font-size: .9em;
+          padding-top: 9px;
+          text-transform: capitalize;
+        }
       }
 
       div {
         @include span-columns(9);
       }
+
+      .card-options--solo { float: left; }
 
       input,
       .month {
@@ -41,6 +49,10 @@
           width: 15%;
         }
       }
+      @include media(max-width $small-screen) {
+        .day, .year { width: 25%; }
+        .month { width: 40%; }
+      }
 
       .month {
         position: relative;
@@ -65,24 +77,16 @@
           color: $medium-gray;
           position: absolute;
           top: .5em;
-          right: .25em;
           font-size: .75em;
           -webkit-transform: translateY(25%);
           pointer-events: none;
-          display: none;
-          
-          @include media(em(360)){
-            right: .35em;
-            display: block;
-          }
-          
+          display: block;
+          right: .45em;
+
           @include media(em(410)){
-            right: .75em;
+            right: .65em;
           }
-          
-          @include media($small-screen){
-            right: 1em;
-          }
+
         }
       }
 
@@ -157,4 +161,11 @@
 
 .search.results.detail .multi {
   padding: 1em;
+}
+
+
+@include media(max-width $medium-screen){
+  .hide-s {
+    display: none !important;
+  }
 }

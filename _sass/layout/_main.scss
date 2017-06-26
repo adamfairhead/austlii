@@ -319,7 +319,7 @@ html.no-js .sort-more,
   & > ul > .sort-item.is-loading > a.sort-url {
     position: relative;
     padding: .5em 1.75em .5em 1em;
-    
+
     &:after {
       content: "";
       display: block;
@@ -334,7 +334,7 @@ html.no-js .sort-more,
       @extend .load-spinner;
     }
   }
-  
+
   & > ul > .sort-item > a.sort-url {
     &:after {
       content: "";
@@ -354,22 +354,22 @@ html.no-js .sort-more,
   border-style: solid;
   border-color: $base-border-color;
   margin-bottom: 1px;
-  
+
   @include media($desktop-screen) {
     font-size: .9em;
   }
-  
+
   @include media(em(1024)) {
     overflow: visible;
   }
-  
+
   @include media(em(1165)) {
     font-size: 1em;
   }
 
   ul {
     white-space: nowrap;
-    
+
     .query-type {
       @include transition(all 0.2s ease-in-out);
       padding: .5em;
@@ -379,15 +379,15 @@ html.no-js .sort-more,
       border-bottom: 0;
       display: inline-block;
       cursor: pointer;
-  
+
       @include media($desktop-screen) {
         padding: .5em .25em;
       }
-      
+
       @include media($x-large-screen) {
         padding: .5em;
       }
-        
+
       &::after {
         content: "";
         position: absolute;
@@ -406,20 +406,20 @@ html.no-js .sort-more,
         border-right: $base-border;
         background: white;
         border-radius: 0;
-        border-bottom: 0; 
+        border-bottom: 0;
         position: relative;
 
         &:first-child {
           border-left: 1px solid transparent;
         }
-        
+
         &::after {
           background: white;
         }
       }
-    }    
-  } 
-  
+    }
+  }
+
   & + .card {
     .multi h6 {
       margin: 0;
@@ -862,10 +862,8 @@ table {
 //helpers
 .hide { display: none !important; }
 
-.mobile-hide {
-  display: none;
-  
-  @include media($medium-screen){
-    display: inline-block;
+.hide-s {
+  @include media(max-width $medium-screen) {
+    display: none !important;
   }
 }
