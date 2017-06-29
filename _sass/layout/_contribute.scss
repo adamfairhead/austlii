@@ -974,6 +974,15 @@ body.contribute-cheque {
     }
   }
   
+  .help-block {
+    display: none;
+  }
+  
+  .has-error input.error {
+    border-color: #dfdfdf !important;
+    background: white !important;
+  }
+  
   .contribute .card li .input select, .contribute .document embed li .input select, .document .contribute embed li .input select {
     border: 1px solid #dfdfdf;
     background: white;
