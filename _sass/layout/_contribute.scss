@@ -963,7 +963,7 @@ body.contribute-cheque {
     display: inline-block;
 
     &::before {
-      content: "";
+      //content: "";
       display: block;
       position: absolute;
       background: white;
@@ -1038,6 +1038,14 @@ body.contribute-cheque {
     border: none;
     margin: 0;
     padding: .5em 0;
+  }
+  
+  .contribute .card li .set .set-extend.is-opened::before, .contribute .document embed li .set .set-extend.is-opened::before, .document .contribute embed li .set .set-extend.is-opened::before, .contribute .card li .set .set-extend.is-opened::after, .contribute .document embed li .set .set-extend.is-opened::after, .document .contribute embed li .set .set-extend.is-opened::after {
+    display: none;
+  }
+  
+  .contribute .card li .set .set-extend.is-opened, .contribute .document embed li .set .set-extend.is-opened, .document .contribute embed li .set .set-extend.is-opened {
+    margin-top: 0;
   }
   
   .contribute .card li .set .set-extend, .contribute .document embed li .set .set-extend, .document .contribute embed li .set .set-extend {
