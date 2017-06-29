@@ -976,11 +976,16 @@ $(function() {
     $('[name="method"]').attr('value', nameValue);
   });
   
-  //tick anything as tue by populating any hidden field
+  //tick anything as true by populating any hidden field
   $('[data-type-hidden]').on('click', function () {
     var nameValue = $(this).data('type-hidden');
     
     $('#' + nameValue + '').attr('name', nameValue).val(true);
+  });
+  
+  //reset tabbed form
+  $('#search-reset').on('click', function () {
+    $('#search-tabbed')[0].reset();
   });
 });
 
@@ -1314,10 +1319,6 @@ $(function () {
       window.scrollTo(0, 0);
     }, 0);
   }
-  
-  setTimeout(function () {
-      //$('body').removeClass('is-hidden');
-  }, 30);
   
   $('body').removeClass('no-js');
   

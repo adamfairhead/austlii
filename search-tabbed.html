@@ -8,17 +8,17 @@ ribbon: basic
 panel: none
 ---
 
-<form action="results-search.html">
+<form id="search-tabbed" action="results-search.html">
   <input type="hidden" name="method" value="autoSearch">
   <div id="page-sort"  class="tabs-block sort-tabs">
     <ul>
-      <li class="sort-item query-type selected" data-type-name="autoSearch">Auto Search</li>
-      <li class="sort-item query-type" data-type-name="booleanQuery">Boolean Query</li>
-      <li class="sort-item query-type" data-type-name="anyWords">Any of these words</li>
-      <li class="sort-item query-type" data-type-name="allWords">All of these words</li>
-      <li class="sort-item query-type" data-type-name="exactPhrase">Exact Phrase</li>
-      <li class="sort-item query-type" data-type-name="caseTitle">Case Title</li>
-      <li class="sort-item query-type" data-type-name="docTitle">Document Title</li>
+      <li class="sort-item query-type selected" data-type-name="autoSearch" role="tab" aria-selected="true">Auto Search</li>
+      <li class="sort-item query-type" data-type-name="booleanQuery" role="tab" aria-selected="false">Boolean Query</li>
+      <li class="sort-item query-type" data-type-name="anyWords" role="tab" aria-selected="false">Any of these words</li>
+      <li class="sort-item query-type" data-type-name="allWords" role="tab" aria-selected="false">All of these words</li>
+      <li class="sort-item query-type" data-type-name="exactPhrase" role="tab" aria-selected="false">Exact Phrase</li>
+      <li class="sort-item query-type" data-type-name="caseTitle" role="tab" aria-selected="false">Case Title</li>
+      <li class="sort-item query-type" data-type-name="docTitle" role="tab" aria-selected="false">Document Title</li>
     </ul>
   </div>
 
@@ -58,9 +58,9 @@ panel: none
       </li>
       <li class="multi">
         <h6 class="hide-s">Search options</h6>
-        <a href="#" class="card-options--solo" data-type-hidden="include-synonims">Include synonyms</a>
+        <a href="#" class="card-options--solo" data-type-hidden="include-synonyms">Include synonyms</a>
         <a href="#" class="card-options--solo" data-type-hidden="include-derivatives">Include word derivatives</a>
-        <input type="hidden" id="include-synonims" />
+        <input type="hidden" id="include-synonyms" />
         <input type="hidden" id="include-derivatives" />
       </li>
     </ul>
@@ -110,5 +110,5 @@ panel: none
     </div>
   </div>
 
-  <input type="submit" class="button" value="Advanced Search">
+  <input type="submit" class="button" value="Advanced Search"> <input id="search-reset" type="reset" class="button gray" value="Reset">
 </form>

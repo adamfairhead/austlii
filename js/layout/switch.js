@@ -6,10 +6,6 @@ $(function () {
     }, 0);
   }
   
-  setTimeout(function () {
-      //$('body').removeClass('is-hidden');
-  }, 30);
-  
   $('body').removeClass('no-js');
   
   $('[data-method="method1"]').on('click', function () {
