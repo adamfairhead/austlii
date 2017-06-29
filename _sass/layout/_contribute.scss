@@ -935,6 +935,10 @@ body.contribute-cheque {
     page-break-before: always; 
   }
   
+  body.contribute .card {
+    margin-bottom: -1em;
+  }
+  
   .contribute-download {
     display: none;
   }
@@ -986,21 +990,28 @@ body.contribute-cheque {
   .contribute .card li .input select, .contribute .document embed li .input select, .document .contribute embed li .input select {
     border: 1px solid #dfdfdf;
     background: white;
-    color: white;
+    color: black;
     height: 20px;
+    line-height: 1;
     
     &::after {
       display: none !important;
       content: "";
     }
   }
+  
   .contribute .card li .radio-options.checked:before, .contribute .document embed li .radio-options.checked:before, .document .contribute embed li .radio-options.checked:before {
     background: white;
     border: 1px solid #d2d2d2 !important;
   }
 
   .contribute .card li .radio-options:before, .contribute .document embed li .radio-options:before, .document .contribute embed li .radio-options:before {
-      border: 1px solid #d2d2d2;
+    border: 1px solid #d2d2d2;
+  }
+
+  .contribute .card li .radio-options.checked:before, .contribute .document embed li .radio-options.checked:before, .document .contribute embed li .radio-options.checked:before {
+    content: "\2714";
+    line-height: 2;
   }
   
   .contribute .card li .radio-options.checked:after, .contribute .document embed li .radio-options.checked:after, .document .contribute embed li .radio-options.checked:after {
@@ -1015,14 +1026,15 @@ body.contribute-cheque {
   .checkbox.checked:before, .checked.faux-checkbox:before {
     display: none !important;
   }
-
-  .contribute .card li input[type=number], .contribute .document embed li input[type=number], .document .contribute embed li input[type=number] {
-    border: none;
-  }
   
   .contribute .card li .radio-options, .contribute .document embed li .radio-options, .document .contribute embed li .radio-options {
     border: none;
     background: white;
+  }
+
+  .contribute .card li .radio-options input[type=number] {
+    border: none;
+    padding: 8px 0 0 5px;
   }
 
   .contribute .card li .set .set-extend, .contribute .document embed li .set .set-extend, .document .contribute embed li .set .set-extend {
@@ -1044,8 +1056,13 @@ body.contribute-cheque {
     display: none;
   }
   
+  .contribute .card li .set .set-extend {
+    display: none;
+  }
+  
   .contribute .card li .set .set-extend.is-opened, .contribute .document embed li .set .set-extend.is-opened, .document .contribute embed li .set .set-extend.is-opened {
     margin-top: 0;
+    display: block;
   }
   
   .contribute .card li .set .set-extend, .contribute .document embed li .set .set-extend, .document .contribute embed li .set .set-extend {
@@ -1053,9 +1070,32 @@ body.contribute-cheque {
     opacity: 1 !important;
   }
   
-  .contribute .card li .set .set-extend .field-extend select, .contribute .document embed li .set .set-extend .field-extend select, .document .contribute embed li .set .set-extend .field-extend select {
+  .contribute .card li .set .set-extend.is-opened .field-extend select, .contribute .document embed li .set .set-extend.is-opened .field-extend select, .document .contribute embed li .set .set-extend.is-opened .field-extend select {
+    border: none;
+    color: black;
+  }
+  
+  .contribute .card li .set .set-extend.is-opened .field-extend select[name="recurring-month"] {
+    position: relative;
+    top: -7px;
+  }
+  
+  .contribute .card li .set .set-extend .field-extend .checkbox.checked {
+    display: none;
+  }
+  
+  .contribute .card li .set .set-extend .field-extend .checkbox.checked + .extend-text:before {
+    content: "\2714";
+    color: gray;
+    font-size: .85em;
+    padding-left: 4px;
+    display: inline-block;
+    height: 20px;
+    width: 20px;
     border: 1px solid #d2d2d2;
-    color: white;
+    padding: 4px 5px;
+    margin-right: 3px;
+    border-radius: 2px;
   }
 
   .contribute .card li .radio-options:before, .contribute .document embed li .radio-options:before, .document .contribute embed li .radio-options:before {
@@ -1064,6 +1104,13 @@ body.contribute-cheque {
 
   .contribute .card li .set .set-extend>p, .contribute .document embed li .set .set-extend>p, .document .contribute embed li .set .set-extend>p {
     margin: 1em 0;
+  }
+  
+  .contribute .card li .set .set-extend .field-extend .checkbox.checked::before {
+    content: "\2714";
+    color: gray;
+    font-size: .85em;
+    padding-left: 4px;
   }
 
   .contribute .card li .input.select-wrapper:after, .contribute .document embed li .input.select-wrapper:after, .document .contribute embed li .input.select-wrapper:after {
@@ -1077,10 +1124,10 @@ body.contribute-cheque {
     border: 1px solid #d2d2d2;
     margin: -5px .5em;
     border-radius: 3px;
-  }
-
-  .contribute .card li .set .set-extend .field-extend select, .contribute .document embed li .set .set-extend .field-extend select, .document .contribute embed li .set .set-extend .field-extend select, .contribute .document embed li .set .set-extend .field-extend select, .document .contribute embed li .set .set-extend .field-extend select {
-    display: none;
+    
+    .is-opened & {
+      display: none;
+    }
   }
   
   .contribute:not(.contribute-cheque):not(.contribute-request):not(.contribute-checkout) .card li .set .select-wrapper:nth-child(5) {
@@ -1123,7 +1170,7 @@ body.contribute-cheque {
   }
 
   span.text-placeholder {
-    display: none;
+    display: none !important;
   }
 
   ::-webkit-input-placeholder { 
@@ -1162,6 +1209,18 @@ body.contribute-cheque {
   }
   
   .field-extend .select-wrapper {
+    display: none;
+  }
+  
+  .is-opened .field-extend .select-wrapper {
+    border: none !important;
+    display: inline-block;
+    padding: 0 !important;
+    margin: 0 -10px 0 0 !important;
+    background: transparent !important;
+  }
+  
+  .contribute .card li .set .is-opened .select-wrapper:after, .contribute .document embed li .set .is-opened .select-wrapper:after, .document .contribute embed li .set .is-opened .select-wrapper:after {
     display: none;
   }
 }
