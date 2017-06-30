@@ -1005,6 +1005,7 @@ body.contribute-cheque {
     color: black;
     height: 20px;
     line-height: 1;
+    padding: 0 .5em;
     
     &::after {
       display: none !important;
@@ -1162,10 +1163,6 @@ body.contribute-cheque {
     margin: 0 0 0 2%;
     position: relative;
     top: 6px;
-  }
-  
-  .meta-method {
-    display: none;
   }
   
   .card:nth-last-child(2) ul .multi:last-child {
