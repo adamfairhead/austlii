@@ -33,7 +33,8 @@
 #page-content .card-options--toggle,
 #page-content .card-options--solo,
 #page-content .card-options--link,
-#page-content .card-options--expand {
+#page-content .card-options--expand,
+.check-inblock {
   display: inline-block;
   border-radius: $base-border-radius;
   background: darken($light-gray, 6);

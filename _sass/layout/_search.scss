@@ -410,3 +410,21 @@ html.js .extra-search {
     background: #e5eff4;
   }
 }
+
+.check-inblock {
+  cursor: pointer;
+  
+  .checkbox {
+    margin: 0 .5em .1em .05em !important;
+    border: 2px solid #d2d2d2;
+    
+    &.checked {
+      border: 2px solid transparent;
+      
+      &::before {
+        left: 4px;
+        top: 0px;
+      }
+    }
+  }
+}

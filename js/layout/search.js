@@ -1,3 +1,29 @@
+var formReload = {
+  searchTabbed: function () {
+    
+    var thisInput = $('.check-inblock').find('input'),
+      inblockCheckbox = $('.check-inblock').find('.checkbox');
+    
+    inblockCheckbox.each(function () {
+      var thisInput = $('.check-inblock').find('input:checked');
+      
+      if (!$(this).hasClass('checked')) {
+        $(this).addClass('checked');
+      }
+    });
+    
+    thisInput.attr('checked', true);
+    
+    $('#search-tabbed')[0].reset();
+    
+    $('.checkbox').each(function () {
+      if(!$(this).hasClass('checked')) {
+        $(this).addClass('checked');
+      }      
+    });
+  }
+}
+
 $(function() {
 
   // Show search on mobile
@@ -78,15 +104,23 @@ $(function() {
     $('#' + nameValue + '').attr('name', nameValue).val(true);
   });
   
-  //reset tabbed form
-  $('#search-reset').on('click', function () {
-    $('#search-tabbed')[0].reset();
+  //tick the check-inblock field
+  $('.check-inblock').on('click', function () {
+    var thisInput = $(this).find('input:checked');
     
-    $('.checkbox').each(function () {
-      if(!$(this).hasClass('checked')) {
-        console.log('pig');
-        $(this).addClass('checked');
-      }      
-    });
+    $(this).find('.checkbox').toggleClass('checked');
+    
+    if (thisInput.length > 0) {
+      thisInput.attr('checked', false);
+    } else {
+      thisInput.attr('checked', true);
+    }
+  });
+  
+  //reset tabbed form on load & on reset button click    
+  formReload.searchTabbed();
+  
+  $('#search-reset').on('click', function () {
+    formReload.searchTabbed();
   });
 });
