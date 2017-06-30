@@ -969,6 +969,10 @@ body.contribute-cheque {
     font-size: .9em;
     height: 20px;
   }
+  
+  .contribute input[type="text"] {
+    padding: .05em .5em;
+  }
 
   .input {
     position: relative;
