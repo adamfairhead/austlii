@@ -29,3 +29,16 @@ button {
     opacity: 0.5;
   }
 }
+
+.button {
+  
+  &.gray {
+    background: #ddd !important;
+    color: #888 !important;
+    
+    &:hover {
+      background: #ccc !important;
+      color: #777 !important;
+    }
+  }
+}

@@ -986,6 +986,13 @@ $(function() {
   //reset tabbed form
   $('#search-reset').on('click', function () {
     $('#search-tabbed')[0].reset();
+    
+    $('.checkbox').each(function () {
+      if(!$(this).hasClass('checked')) {
+        console.log('pig');
+        $(this).addClass('checked');
+      }      
+    });
   });
 });
 
