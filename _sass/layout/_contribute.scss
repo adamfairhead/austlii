@@ -934,7 +934,7 @@ body.contribute-cheque {
     padding-bottom: 0;
   }
   
-  .contribute #page-title {
+  .contribute:not(.contribute-cheque):not(.contribute-request):not(.contribute-checkout) #page-title {
     display: none;
   }
   
@@ -1198,15 +1198,21 @@ body.contribute-cheque {
     color: white !important;
   }
   
-  .contribute #primary {
+  .contribute:not(.contribute-cheque):not(.contribute-request):not(.contribute-checkout) #primary {
     height: 50px;
   }
   
-  .contribute #primary .logo-contribute {
+  .contribute:not(.contribute-cheque):not(.contribute-request):not(.contribute-checkout) #primary .logo-contribute {
       height: 4.5em;
   }
   
   .contribute #page-logo {
+    margin-top: 2.5em;
+    width: 3em;
+    height: 3em;
+  }
+  
+  .contribute:not(.contribute-cheque):not(.contribute-request):not(.contribute-checkout) #page-logo {
     margin-top: .5em;
     width: 3em;
     height: 3em;
