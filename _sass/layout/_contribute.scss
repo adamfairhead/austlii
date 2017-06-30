@@ -926,8 +926,16 @@ body.contribute-cheque {
 
 @media print {
   
+  body.contribute #page-main {
+    width: 100%;
+  }
+  
   .contribute:not(.contribute-cheque):not(.contribute-request):not(.contribute-checkout) {
     padding-bottom: 0;
+  }
+  
+  .contribute #page-title {
+    display: none;
   }
   
   .page-break	{ 
@@ -1185,9 +1193,17 @@ body.contribute-cheque {
   :-moz-placeholder { 
     color: white !important;
   }
-
+  
+  .contribute #primary {
+    height: 50px;
+  }
+  
+  .contribute #primary .logo-contribute {
+      height: 4.5em;
+  }
+  
   .contribute #page-logo {
-    margin-top: 2.5em;
+    margin-top: .5em;
     width: 3em;
     height: 3em;
   }
