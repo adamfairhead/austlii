@@ -919,7 +919,9 @@ var formReload = {
     
     thisInput.attr('checked', true);
     
-    $('#search-tabbed')[0].reset();
+    if ($("#search-tabbed").length > 0){
+      $('#search-tabbed')[0].reset();
+    }
     
     $('.checkbox').each(function () {
       if(!$(this).hasClass('checked')) {
