@@ -214,15 +214,39 @@ $(function () {
     }
     return false;
   });
+  
+  var listCollapse = {
+    setHeight: function () {
+      
+    var $this = $('.card-checkboxes.is-collapsed'),
+      getFullHeight = parseInt($this.data('items-shown')),
+      getChildHeight = $this.find('li').outerHeight() + 1;
+      setHeight = (getFullHeight * getChildHeight) + 'px';
+      $this.css('max-height', setHeight);
+    }
+  }
+
+  // Set shown items number for Adv. Search
+  $('.card-checkboxes.is-collapsed').each(function () {
+    /*
+    var getFullHeight = parseInt($(this).data('items-shown')),
+      getChildHeight = $(this).find('li').outerHeight();
+      setHeight = (getFullHeight * getChildHeight) + 'px';
+      $(this).css('max-height', setHeight);
+    */
+    listCollapse.setHeight();
+  });
 
   // Narrow Results option for Adv. Search
   $('.search #show-databases').on('click', function (e) {
+    
     if ($(this).hasClass('checked')) {
       $(this).removeClass('checked');
       $('.card-checkboxes').addClass('is-collapsed');
+      listCollapse.setHeight();
     } else {
       $(this).addClass('checked');
-      $('.card-checkboxes.is-collapsed').removeClass('is-collapsed');
+      $('.card-checkboxes.is-collapsed').removeClass('is-collapsed').css('max-height', '');
     }
     e.stopPropagation();
     return false;
