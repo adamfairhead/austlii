@@ -1409,5 +1409,13 @@ $(function () {
       $('.contribute-cards').addClass('hidden');
     }
   });
+  
+  $('.contribute .set input').on('click', function () {
+    if(!$('#input-amount').val().length > 0) {
+      $('#input-placeholder').removeClass('hide');
+    } else {
+      $('#input-placeholder').addClass('hide');
+    }
+  })
 
 });

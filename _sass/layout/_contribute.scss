@@ -614,7 +614,7 @@
 
         input { 
           position: absolute;
-          top: 0;
+          top: -1px;
           background: transparent;
           right: 3px;
           width: 5em;
@@ -969,6 +969,12 @@ body.contribute-cheque {
     font-size: .9em;
     height: 20px;
     padding: 0 .5em;
+  }
+  
+  .contribute .card li .text-toggler input {
+    top: 0;
+    right: 5px;
+    background: transparent;
   }
   
   .contribute input[type="text"] {
