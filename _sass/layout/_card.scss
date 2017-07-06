@@ -254,13 +254,31 @@
   line-height: .9;
   border-radius: $base-border-radius - 1;
   outline: none;
+  
+  .no-js & {
+    background: transparent;
+  }
 
   input { display: none; }
+  
+  .no-js & {
+    
+    input { 
+      display: inline-block;
+      position: relative;
+      top: -10px;
+      margin: 0 !important;
+    }
+  }
 }
 
 .checkbox.checked {
   background: $blue;
   border: none;
+  
+  .no-js & {
+    background: transparent;
+  }
 }
 
 .checkbox.checked:before {
@@ -278,6 +296,10 @@
   -webkit-transform: rotate(45deg);
   transform: rotate(45deg);
   display: table;
+  
+  .no-js & {
+    display: none;
+  }
 }
 
 .faux-checkbox { @extend .checkbox; }

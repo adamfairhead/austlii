@@ -9,7 +9,7 @@ panel: none
 ---
 
 <form id="search-tabbed" action="results-search.html">
-  <input type="hidden" name="method" value="autoSearch">
+  
   <div id="page-sort"  class="tabs-block sort-tabs">
     <ul>
       <li class="sort-item query-type selected" data-type-name="autoSearch" role="tab" aria-selected="true">Auto Search</li>
@@ -20,6 +20,22 @@ panel: none
       <li class="sort-item query-type" data-type-name="caseTitle" role="tab" aria-selected="false">Case Title</li>
       <li class="sort-item query-type" data-type-name="docTitle" role="tab" aria-selected="false">Document Title</li>
     </ul>
+  </div>
+  <div class="no-js-search-method">
+    <input type="radio" name="method" value="autoSearch" checked>
+    <label for="autoSearch">Auto Search</label>
+    <input type="radio" name="method" value="booleanQuery">
+    <label for="">Boolean Query</label>
+    <input type="radio" name="method" value="anyWords">
+    <label for="">Any of these words</label>
+    <input type="radio" name="method" value="allWords">
+    <label for="">All of these words</label>
+    <input type="radio" name="method" value="exactPhrase">
+    <label for="">Exact Phrase</label>
+    <input type="radio" name="method" value="caseTitle">
+    <label for="">Case Title</label>
+    <input type="radio" name="method" value="docTitle">
+    <label for="">Document Title</label>
   </div>
 
   <div class="card">

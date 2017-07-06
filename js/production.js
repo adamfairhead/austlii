@@ -996,8 +996,12 @@ $(function() {
       $(this).text('Show');
     };
   });
+   
+  //prepare the advanced search js / no js verions method selection 
+  $('#search-tabbed #page-sort').prepend('<input type="hidden" name="method" value="autoSearch">');
+  $('.no-js-search-method').remove();
   
-  //advanced search textfield 
+  //prepare the advanced search textfield 
   $('[data-type-name]').on('click', function () {
     var nameValue = $(this).data('type-name');
     

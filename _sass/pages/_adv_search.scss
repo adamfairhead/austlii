@@ -149,6 +149,13 @@
     max-height: 9.65em;
     overflow: hidden;
   }
+  
+  .no-js & {
+    .card-checkboxes.is-collapsed {
+      max-height: initial;
+      overflow: visible;
+    }
+  }
 
   #page-main .button {
     margin: 0 0 2em 1em;
@@ -167,5 +174,26 @@
 @include media(max-width $medium-screen){
   .hide-s {
     display: none !important;
+  }
+}
+
+.no-js-search-method {
+  display: none;
+}
+
+.no-js .no-js-search-method {
+  display: block;
+  white-space: nowrap;
+  overflow-x: auto;
+  
+  input,
+  label {
+    display: inline-block;
+  }
+  
+  label {
+    font-size: 0.8em;
+    margin-right: 0.5em;
+    padding-bottom: 5px;
   }
 }
