@@ -1,3 +1,4 @@
+var tabnumindex = 0;
 var formReload = {
   searchTabbed: function () {
     
@@ -102,7 +103,22 @@ $(function() {
     
     $('[name="method"]').attr('value', nameValue);
   });
-  
+
+  //navigate search-tabbet with tab key
+  $(document).bind('keydown', function(event) {
+    if(event.keyCode == 9){   
+      event.preventDefault();
+      if ( tabnumindex <= 6 ) {
+        tabnumindex++;
+      } else {
+        tabnumindex = 0;
+        tabnumindex++;
+      }
+      $('[data-type-name]:nth-of-type(' + tabnumindex + '').last().attr("tabindex",-1).focus();
+      $('[data-type-name]:nth-of-type(' + tabnumindex + '').last().click();
+    } 
+  });
+
   //tick anything as true by populating any hidden field
   $('[data-type-hidden]').on('click', function () {
     var nameValue = $(this).data('type-hidden');
