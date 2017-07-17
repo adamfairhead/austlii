@@ -316,6 +316,10 @@ html.no-js .sort-more,
     border-bottom: 0;
   }
 
+  & > ul > .selected:focus {
+    outline: none;
+  }
+
   & > ul > .sort-item.is-loading > a.sort-url {
     position: relative;
     padding: .5em 1.75em .5em 1em;
