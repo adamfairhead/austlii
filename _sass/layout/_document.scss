@@ -48,6 +48,11 @@
         text-align: right;
       }
     }
+    
+    //blockquotes within the document
+    blockquote {
+      margin: 1em 2em;
+    }
 
     // Hyperlink styles within documents
     a { text-decoration: underline; }
@@ -159,6 +164,25 @@
 }
 
 .document .the-document ol {
+  
+  &:not(.value-data) {
+    counter-reset: usergenerated;
+    
+    li {
+      counter-increment: usergenerated;
+      position: relative;
+      padding-left: 1em;
+      margin-top: .75em;
+
+      &:before {
+        content: counter(usergenerated) '. ';
+      }
+      
+      ol, ul {
+        padding-left: 1em;
+      }
+    }
+  }
   
   &[type="a"] li, &[type="i"] li {
     

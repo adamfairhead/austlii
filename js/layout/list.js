@@ -48,5 +48,10 @@ $(function () {
         thisRoman = romanize(thisValue);
     $(this).attr('data-value', thisRoman);
   });
+  
+  //attach class to ordered lists that have numbers declared by data attributes
+  $('li[value]').each(function () {
+    $(this).parent().addClass('value-data');  
+  });
 
 });
