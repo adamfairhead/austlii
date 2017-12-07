@@ -41,35 +41,43 @@ panel: none
   <div class="card">
     <ul>
       <li class="multi">
-        <h6><span class="hide-s">Enter your </span>search<span class="hide-s" term</span></h6>
+        <h6><span class="hide-s">Enter your </span>search<span class="hide-s" >term</span></h6>
         <div class="input">
-          <input type="text" name="query" placeholder="e.g. Give an example here">
+          <input type="text" name="query" placeholder="e.g. Give an example here" data-validation="required">
         </div>
       </li>
       <li class="multi">
         <h6><span class="hide-s">Select your </span>From date</h6>
-          <div class="input">
-            <input type="text" name="dayFrom" class="day" value="1">
-            <div class="month">
-              <select name="monthFrom">
-                <option value="January">January</option>
-                <option value="February">February</option>
-              </select>
-            </div>
-            <input type="text" class="year" name="yearFrom" value="1970">
+        <div class="input">
+          <div class="input-item">
+            <input type="text" name="dayFrom" class="day" placeholder="e.g. &#8220;1&#8221;" data-validation="number">
           </div>
-        </li>
+          <div class="month">
+            <select name="monthFrom">
+              <option value="January">January</option>
+              <option value="February">February</option>
+            </select>
+          </div>
+          <div class="input-item">
+            <input type="text" class="year" name="yearFrom" placeholder="e.g. &#8220;1988&#8221;" data-validation="number">
+          </div>
+        </div>
+      </li>
       <li class="multi">
         <h6><span class="hide-s">Select your </span>To date</h6>
         <div class="input">
-          <input type="text" class="day" name="dayTo" value="21">
+          <div class="input-item">
+          <input type="text" class="day" name="dayTo" placeholder="e.g. &#8220;28&#8221;" data-validation="number">
+          </div>
           <div class="month">
             <select name="monthTo">
               <option value="January">January</option>
               <option value="February">February</option>
             </select>
           </div>
-          <input type="text" class="year" name="yearTo" value="2015">
+          <div class="input-item">
+            <input type="text" class="year" name="yearTo" placeholder="e.g. &#8220;1999&#8221;" data-validation="number">
+          </div>
         </div>
       </li>
       <li class="multi">

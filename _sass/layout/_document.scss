@@ -181,6 +181,84 @@
       ol, ul {
         padding-left: 1em;
       }
+      
+      ul {
+        counter-reset: none;
+        
+        li {
+          counter-increment: none;
+          padding-left: 0;
+          
+          &:before {
+            content: none;
+          } 
+      
+          ul {
+            counter-reset: none;
+
+            li {
+              counter-increment: none;
+              padding-left: 0;
+
+              &:before {
+                content: none;
+              }      
+            }
+
+            ol {
+              counter-reset: usergenerated;
+
+              li {
+                counter-increment: usergenerated;
+                padding-left: 1em;
+
+                &:before {
+                  content: counter(usergenerated) '. ';
+                }      
+              }
+            }
+          }     
+        }
+        
+        ol {
+          counter-reset: usergenerated;
+        
+          li {
+            counter-increment: usergenerated;
+            padding-left: 1em;
+
+            &:before {
+              content: counter(usergenerated) '. ';
+            } 
+      
+            ul {
+              counter-reset: none;
+
+              li {
+                counter-increment: none;
+                padding-left: 0;
+
+                &:before {
+                  content: none;
+                }      
+              }
+
+              ol {
+                counter-reset: usergenerated;
+
+                li {
+                  counter-increment: usergenerated;
+                  padding-left: 1em;
+
+                  &:before {
+                    content: counter(usergenerated) '. ';
+                  }      
+                }
+              }
+            }        
+          }
+        }
+      }
     }
   }
   

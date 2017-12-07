@@ -20,6 +20,26 @@
 
       div {
         @include span-columns(9);
+        
+        &.input-item {
+          width: 30%;
+          margin-right: 5%;
+          position: relative;
+
+          @include media($large-screen) {
+            width: 20%;
+          }
+      
+          @include media(max-width $small-screen) {
+            width: 100%;
+            margin-bottom: 1em;
+          }
+          
+          &:last-child {
+            margin-right: 0;
+            margin-bottom: 0;
+          }
+        }
       }
 
       .card-options--solo { float: left; }
@@ -40,18 +60,31 @@
       .day,
       .month,
       .year {
-        width: 30%;
         display: inline-block;
         margin-right: 5%;
         float: left;
+      }
+      
+      .month {
+        width: 30%;
 
         @include media($large-screen) {
           width: 15%;
         }
       }
+
+      .day,
+      .year {
+        width: 100%;
+        display: inline-block;
+        float: left;
+      }
+      
       @include media(max-width $small-screen) {
-        .day, .year { width: 25%; }
-        .month { width: 40%; }
+        .month { 
+          width: 100%; 
+          margin-bottom: 1em;
+        }
       }
 
       .month {
