@@ -4,11 +4,20 @@
 
 .has-error {
   margin-bottom: 0 !important;
+  
+  .search & {
+    position: relative;
+  }
 }
 
 [data-validation-current-error].error {
   background: #F5E7E6 !important;
   border-radius: 3px 3px 0 0 !important;
+  
+  .search & {
+    border-radius: 3px !important;
+    border: none !important;
+  }
 }
 
 .help-block.error {
@@ -19,4 +28,24 @@
   padding: .25em .5em;
   font-size: .85em;
   position: relative;
+  
+  .search & {
+    border-radius: 3px;
+    position: absolute;
+    bottom: calc(-100% + 5px);
+    left: 0;
+    
+    &::before {
+      content: "";
+      display: block;
+      height: 10px;
+      width: 10px;
+      background: #FF8780;
+      position: absolute;
+      left: 15px;
+      top: -5px;
+      -webkit-transform: rotate(45deg);
+      transform: rotate(45deg);
+    }
+  }
 }
