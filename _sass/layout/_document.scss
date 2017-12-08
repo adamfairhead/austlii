@@ -262,7 +262,7 @@
     }
   }
   
-  &[type="a"] li, &[type="i"] li {
+  &.value-data[type="a"] li, &.value-data[type="i"] li {
     
     &:before {
       content: attr(data-value) ".";
