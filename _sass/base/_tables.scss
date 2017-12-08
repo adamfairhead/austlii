@@ -24,6 +24,11 @@ th {
 
 td {
   padding: $small-spacing/4 $small-spacing $small-spacing/4 0;
+  
+  .the-document &  {    
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
 }
 
 tr:last-child td {
