@@ -23,5 +23,7 @@ $(function () {
   });
 
   $('[name="recurring-month"] option:eq(' + newMonth + ')').prop('selected', true);
+  
+  $('.no-js').removeClass('no-js');
 
 });
