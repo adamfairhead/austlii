@@ -77,6 +77,11 @@ $(function () {
 
   });
   
+  //check for unchecked elements and uncheck the toggler if they exist
+  if($('input[type="checkbox"]:not(:checked)').length >= 1){
+    switchAll.removeClass('checked');
+  }
+  
   $('.range-options').change(function (e) {
     e.stopPropagation();
     var range = $(this).val(),
@@ -152,7 +157,8 @@ $(function () {
 
 
   // Card checkboxes using JS so Firefox etc. can see the custom styles
-  $('input[type="checkbox"]').parent().addClass('checkbox checked');
+  $('input[type="checkbox"]').parent().addClass('checkbox');
+  $('input[type="checkbox"]:checked').parent().addClass('checked');
   $('input[type="checkbox"]').change(function () {
     if (this.checked) {
       $(this).parent().addClass('checked');

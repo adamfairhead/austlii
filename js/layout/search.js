@@ -95,7 +95,7 @@ $(function() {
    
   //prepare the advanced search js / no js verions method selection 
   $('#search-tabbed #page-sort').prepend('<input type="hidden" name="method" value="autoSearch">');
-  $('.no-js-search-method').remove();
+  $('.no-js-search-method input[checked]').attr('checked', false);
   
   //prepare the advanced search textfield 
   $('[data-type-name]').on('click', function () {
@@ -139,8 +139,11 @@ $(function() {
     }
   });
   
-  //reset tabbed form on load & on reset button click    
-  formReload.searchTabbed();
+  //uncheck off all the inputs that were unchecked by the user
+  var unchecked = $('input[type="checkbox"]:not(:checked)').parents('label').removeClass('checked');
+  
+  //reset tabbed form on reset button click - the reset tabbed form on load was commented out because it clashes with browsers' native functionality where hitting the back button will preserve data
+  //formReload.searchTabbed();
   
   $('#search-reset').on('click', function () {
     formReload.searchTabbed();
