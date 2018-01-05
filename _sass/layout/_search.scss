@@ -24,7 +24,7 @@
   @include media($medium-screen + 20em) {
     right: 0;
     top: -46px;
-    width: 500px;
+    width: 600px;
     padding-right: 1em;
   }
 
@@ -67,7 +67,13 @@
   }
 
   // Change width on larger screens (since it's % based)
-  @include media(em(480)) { width: 10%; }
+  @include media(em(480)) { 
+    width: 7.5%; 
+  
+    .home & {
+      width: 10%;
+    }
+  }
 
   // Change height on larger screens (to match width changes)
   @include media($medium-screen) {
@@ -168,7 +174,13 @@ html.js .search-options {
   padding-right: 74px;
   height: 33px;
 
-  @include media(em(480)) { width: 90%; }
+  @include media(em(480)) { 
+    width: 92.5%; 
+    
+    .home & {
+      width: 90%; 
+    }
+  }
 
   @include media($medium-screen) {
     height: 40px;
