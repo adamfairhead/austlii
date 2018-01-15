@@ -13,6 +13,10 @@
     left: 0;
     right: 0;
     
+    .has-announcement & {
+      top: 38px;
+    }
+    
     li {
       display: inline-block;
       

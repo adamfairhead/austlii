@@ -253,3 +253,61 @@
     }
   }
 }
+
+@keyframes fadein {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 100;
+  }
+}
+
+.announcement-container {
+  position: relative;
+  
+  .announcement-top {
+    position: relative;
+    display: block;
+    padding: .5em;
+    text-align: center;
+    opacity: 1;
+    color: white;
+    background: $action-color;
+    z-index: 10;
+    transition: all .3s;
+    animation: fadein 1s;
+
+    .announcement-content {
+      margin: 0 auto;
+      display: inline-block;
+      max-width: 75em;
+      letter-spacing: .45px;
+    }
+
+    &:hover {
+      color: white;
+      background: darken($action-color, 15%);
+    }
+  }
+
+  .announcement-close {
+    position: absolute;
+    display: inline-block;
+    z-index: 10;
+    color: white;
+    cursor: pointer;
+    top: em(8);
+    margin-left: 3px;
+    left: 50%;
+    font-size: 1.1em;
+  } 
+
+  .no-js & .announcement-close {
+    display: none;
+  } 
+}
+

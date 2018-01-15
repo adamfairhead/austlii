@@ -1,0 +1,17 @@
+<!-- announcement
+
+Announcement is the blue link bar along the top of the page.
+
+Its appearance can be randomized and the frequency is set by setting the data-random attribute. Frequency is set as "one in", e.g. if number 10 is set, then the announcement would show one out of ten times
+-->
+{% if page.announcement == 'regular' %}
+<div class="announcement-container" {% if page.announcement-type == 'random' %}data-random="2"{% endif %}>
+  <a href="/" class="announcement-top">
+    <span class="announcement-content">
+      <strong>Announcement title:</strong> Lorem ipsum dolor sit amet!
+    </span>  
+  </a>
+  <span class="announcement-close">&times;</span>  
+</div>
+
+{% endif %}

@@ -27,3 +27,44 @@ $(function () {
   $('.no-js').removeClass('no-js');
 
 });
+
+$(document).ready(function () {
+  'use strict';
+  
+  var annContWidth = $('.announcement-content').width() / 2,
+    annHeight = $('.announcement-top').outerHeight(),
+    ifWasSet = localStorage.announcement;
+  
+  //get random number out of range, show element if one number from the range is picked out
+  $('[data-random]').each(function () {
+    var range = $(this).data('random'),
+      rangeVal = Math.floor((Math.random() * range) + 1);
+    
+    if (rangeVal !== 1) {
+      $(this).remove();
+    }
+  });
+  
+  if ($('.announcement-container').length) {
+    
+    $('body').addClass('has-announcement');
+    $('#page-tertiary').css('top', annHeight);
+    
+    if (ifWasSet === 'hide') {
+      $('.announcement-container').remove();
+      $('#page-tertiary').removeAttr('style');
+      $('body').removeClass('has-announcement');
+    }
+  }
+  
+  $('.announcement-close').css('transform', 'translateX(' + annContWidth + 'px)');
+  
+  $('.announcement-close').on('click', function (e) {
+    e.stopImmediatePropagation();
+    $('.announcement-container').remove();
+    $('body').removeClass('has-announcement');
+    $('#page-tertiary').css('top', '-2px');
+    localStorage.setItem('announcement', 'hide');
+  });
+  
+});
