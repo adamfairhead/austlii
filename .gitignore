@@ -4,3 +4,5 @@ _site/
 *.ai
 Gemfile.lock
 *.swp
+node_modules
+_site
