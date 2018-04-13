@@ -1,35 +1,35 @@
 //globals
-var switchAll = $('.card-options--toggle'),
-  $sortItem,
-  sortItemElement = $('.sort-item'),
-  type = window.location.hash.substr(1),
-  allSection = $('.all-section'),
-  tagged = $('.all-section.tag'),
-  taggedInput = $('.all-section.tag .card-title input'),
-  sortTarget = $('.sort-url'),
-  sortSelect = {
-    activate: function (getEl) {
-      'use strict';
-      $('#page-sort .selected').removeClass('selected').removeClass('disabled');
-      getEl.addClass('selected');
-      switchAll.addClass('checked');
-      $sortItem = getEl.attr('data-sort');
-      allSection.addClass('is-hidden').find('.checkbox').removeClass('checked');
-      allSection.find('.checkbox input').prop('checked', false);
-      $('#' + $sortItem).removeClass('is-hidden');
-      $('#' + $sortItem).find('.checkbox').addClass('checked');
-      $('#' + $sortItem).find('.checkbox input').prop('checked', true);
-      $('.card-title input').removeClass('range-selected');
-      taggedInput.addClass('range-selected');
-    },
-    targetTab: function (getEl) {
-      'use strict';
-      if (sortTarget.length) {
-        sortItemElement.removeClass('is-loading');
-        getEl.addClass('is-loading');
-      }
+var switchAll = $('.card-options--toggle');
+var $sortItem;
+var sortItemElement = $('.sort-item');
+var type = window.location.hash.substr(1);
+var allSection = $('.all-section');
+var tagged = $('.all-section.tag');
+var taggedInput = $('.all-section.tag .card-title input');
+var sortTarget = $('.sort-url');
+var sortSelect = {
+  activate: function (getEl) {
+    'use strict';
+    $('#page-sort .selected').removeClass('selected').removeClass('disabled');
+    getEl.addClass('selected');
+    switchAll.addClass('checked');
+    $sortItem = getEl.attr('data-sort');
+    allSection.addClass('is-hidden').find('.checkbox').removeClass('checked');
+    allSection.find('.checkbox input').prop('checked', false);
+    $('#' + $sortItem).removeClass('is-hidden');
+    $('#' + $sortItem).find('.checkbox').addClass('checked');
+    $('#' + $sortItem).find('.checkbox input').prop('checked', true);
+    $('.card-title input').removeClass('range-selected');
+    taggedInput.addClass('range-selected');
+  },
+  targetTab: function (getEl) {
+    'use strict';
+    if (sortTarget.length) {
+      sortItemElement.removeClass('is-loading');
+      getEl.addClass('is-loading');
     }
-  };
+  }
+};
 
 $(function () {
   
@@ -53,8 +53,8 @@ $(function () {
       sortSelect.activate($(this));
       sortSelect.targetTab($(this));
       if ($('#' + $sortItem).hasClass('tag')) {
-        var range = $('[data-sort="' + $sortItem + '"] .range-options').val(),
-          tag = $('#' + $sortItem + '.tag');
+        var range = $('[data-sort="' + $sortItem + '"] .range-options').val();
+        var tag = $('#' + $sortItem + '.tag');
         var allSelect = $('.range-options').val();
         if ( allSelect !== 'All') {
           tag.find('.checkbox').toggleClass('checked');
@@ -85,9 +85,9 @@ $(function () {
   
   $('.range-options').change(function (e) {
     e.stopPropagation();
-    var range = $(this).val(),
-      parentId = $(this).closest('.sort-item').attr('data-sort'),
-      parent = $('#' + parentId);
+    var range = $(this).val();
+    var parentId = $(this).closest('.sort-item').attr('data-sort');
+    var parent = $('#' + parentId);
     parent.addClass('tag');
     parent.find('li').hide();
     parent.find('.checkbox').removeClass('checked');
@@ -134,9 +134,9 @@ $(function () {
   var sideList = $('[data-expand-after]');
   
   sideList.each(function () {
-    var sideListElThis = $(this).find('li'),
-      sideListShowLength = parseInt($(this).attr('data-expand-after'), 10) + 1,
-      sideListElOver = $(this).find('li:nth-child(n+' + sideListShowLength + ')');
+    var sideListElThis = $(this).find('li');
+    var sideListShowLength = parseInt($(this).attr('data-expand-after'), 10) + 1;
+    var sideListElOver = $(this).find('li:nth-child(n+' + sideListShowLength + ')');
     sideListElOver.addClass('hide');
     if (sideListElThis.length > sideListShowLength - 1) {
       $(this).after('<span data-show="Less" class="hide">Less</span>');
@@ -169,10 +169,10 @@ $(function () {
   });
 
   $(document).on('click', '.card-title input', function (e) {
-    var traverse = $(this).parent().parent().parent().parent(),
-      parentId = $(this).closest('.all-section').attr('id'),
-      parent = $('#' + parentId),
-      range = $('[data-sort="' + parentId + '"] .range-options').val();
+    var traverse = $(this).parent().parent().parent().parent();
+    var parentId = $(this).closest('.all-section').attr('id');
+    var parent = $('#' + parentId);
+    var range = $('[data-sort="' + parentId + '"] .range-options').val();
     switchAll.removeClass('checked');
     if ($(this).parent().hasClass('checked')) {
       traverse.find('.card-checkboxes .checkbox').removeClass('checked');
@@ -224,11 +224,10 @@ $(function () {
   
   var listCollapse = {
     setHeight: function () {
-      
-    var $this = $('.card-checkboxes.is-collapsed'),
-      getFullHeight = parseInt($this.data('items-shown')),
-      getChildHeight = $this.find('li').outerHeight() + 1;
-      setHeight = (getFullHeight * getChildHeight) + 'px';
+      var $this = $('.card-checkboxes.is-collapsed');
+      var getFullHeight = parseInt($this.data('items-shown'));
+      var getChildHeight = $this.find('li').outerHeight() + 1;
+      var setHeight = (getFullHeight * getChildHeight) + 'px';
       $this.css('max-height', setHeight);
     }
   }
@@ -261,14 +260,14 @@ $(function () {
 
   // Card Options: Toggle (for 'select all' / 'select none')
   switchAll.on('click', function () {
-    tag = $('#' + $sortItem + '.tag');
+    var tag = $('#' + $sortItem + '.tag');
     
     if ($(this).hasClass('checked')) {
       $(this).removeClass('checked');
       $('.checkbox input').prop('checked', false).parent().removeClass('checked');
     } else if ($('.all-section:not(.is-hidden)').hasClass('tag')) {
-      var sortItem = $('.all-section:not(.is-hidden)').attr('id'),
-        range = $('[data-sort="' + sortItem + '"] .range-options').val();
+      var sortItem = $('.all-section:not(.is-hidden)').attr('id');
+      var range = $('[data-sort="' + sortItem + '"] .range-options').val();
       $(this).addClass('checked');
       $('.all-section:not(.is-hidden)' + ' .checkbox input').prop('checked', true).parent().addClass('checked');
       tag.find('.card-title input').addClass('range-selected').prop('checked', true);
@@ -321,18 +320,18 @@ $(function () {
   });
 
   // radio elements
-  var radioLabel = $('.radio-options'),
-    radioFirst = $('.radio-options:first-child'),
-    identifier = $('[data-open-trigger]').data('open-trigger');
+  var radioLabel = $('.radio-options');
+  var radioFirst = $('.radio-options:first-child');
+  var identifier = $('[data-open-trigger]').data('open-trigger');
   radioLabel.parent().find('input[type="text"]').val('');
   radioFirst.find('input').prop('checked', true);
 
   radioLabel.on('click', function () {
-    var nameTarget = $(this).attr('data-name'),
-      siblings = $('[data-name="' + nameTarget + '"]'),
-      parent = $(this).parent(),
-      textField = $(this).find('input[type="text"]'),
-      placeholder = $(this).find('.text-placeholder');
+    var nameTarget = $(this).attr('data-name');
+    var siblings = $('[data-name="' + nameTarget + '"]');
+    var parent = $(this).parent();
+    var textField = $(this).find('input[type="text"]');
+    var placeholder = $(this).find('.text-placeholder');
 
     siblings.removeClass('checked');
     $(this).addClass('checked');
