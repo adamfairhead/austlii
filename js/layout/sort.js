@@ -234,12 +234,6 @@ $(function () {
 
   // Set shown items number for Adv. Search
   $('.card-checkboxes.is-collapsed').each(function () {
-    /*
-    var getFullHeight = parseInt($(this).data('items-shown')),
-      getChildHeight = $(this).find('li').outerHeight();
-      setHeight = (getFullHeight * getChildHeight) + 'px';
-      $(this).css('max-height', setHeight);
-    */
     listCollapse.setHeight();
   });
 
