@@ -43,15 +43,17 @@ $(function () {
   
   // Sort item filtering
   sortItemElement.each(function () {
+    var $this = $(this);
     
-    if ($(this).attr('data-sort') === type) {
-      sortSelect.activate($(this));
+    if ($this.attr('data-sort') === type) {
+      sortSelect.activate($this);
     }
 
-    $(this).on('click', function (e) {
+    $this.on('click', function (e) {
+      var $this = $(this);
       e.preventDefault();
-      sortSelect.activate($(this));
-      sortSelect.targetTab($(this));
+      sortSelect.activate($this);
+      sortSelect.targetTab($this);
       if ($('#' + $sortItem).hasClass('tag')) {
         var range = $('[data-sort="' + $sortItem + '"] .range-options').val();
         var tag = $('#' + $sortItem + '.tag');
@@ -85,8 +87,9 @@ $(function () {
   
   $('.range-options').change(function (e) {
     e.stopPropagation();
-    var range = $(this).val();
-    var parentId = $(this).closest('.sort-item').attr('data-sort');
+    var $this = $(this);
+    var range = $this.val();
+    var parentId = $this.closest('.sort-item').attr('data-sort');
     var parent = $('#' + parentId);
     parent.addClass('tag');
     parent.find('li').hide();
@@ -121,12 +124,13 @@ $(function () {
 
   // Show 'more' sidebar items
   $('.side-about-more-link').on('click', function () {
+    var $this = $(this);
     if ($('.side-about').hasClass('has-more')) {
       $('.side-about').removeClass('has-more');
-      $(this).text('More...');
+      $this.text('More...');
     } else {
       $('.side-about').addClass('has-more');
-      $(this).text('Less');
+      $this.text('Less');
     }
   });
   
@@ -134,25 +138,28 @@ $(function () {
   var sideList = $('[data-expand-after]');
   
   sideList.each(function () {
-    var sideListElThis = $(this).find('li');
-    var sideListShowLength = parseInt($(this).attr('data-expand-after'), 10) + 1;
-    var sideListElOver = $(this).find('li:nth-child(n+' + sideListShowLength + ')');
+    var $this = $(this);
+    var sideListElThis = $this.find('li');
+    var sideListShowLength = parseInt($this.attr('data-expand-after'), 10) + 1;
+    var sideListElOver = $this.find('li:nth-child(n+' + sideListShowLength + ')');
     sideListElOver.addClass('hide');
     if (sideListElThis.length > sideListShowLength - 1) {
-      $(this).after('<span data-show="Less" class="hide">Less</span>');
-      $(this).after('<span data-show="More">More</span>');
+      $this.after('<span data-show="Less" class="hide">Less</span>');
+      $this.after('<span data-show="More">More</span>');
     }
   
-    $(this).next($('[data-show="More"]')).on('click', function () {
-      $(this).parent().find('ul li.hide').removeClass('hide');
-      $(this).addClass('hide');
-      $(this).next($('[data-show="Less"]')).removeClass('hide');
+    $this.next($('[data-show="More"]')).on('click', function () {
+      var $this = $(this);
+      $this.parent().find('ul li.hide').removeClass('hide');
+      $this.addClass('hide');
+      $this.next($('[data-show="Less"]')).removeClass('hide');
     });
 
-    $(this).next().next($('[data-show="Less"]')).on('click', function () {
-      $(this).parent().find('ul li:nth-child(n+' + sideListShowLength + ')').addClass('hide');
-      $(this).addClass('hide');
-      $(this).parent().find($('[data-show="More"]')).removeClass('hide');
+    $this.next().next($('[data-show="Less"]')).on('click', function () {
+      var $this = $(this);
+      $this.parent().find('ul li:nth-child(n+' + sideListShowLength + ')').addClass('hide');
+      $this.addClass('hide');
+      $this.parent().find($('[data-show="More"]')).removeClass('hide');
     });
   });
 
@@ -161,23 +168,25 @@ $(function () {
   $('input[type="checkbox"]').parent().addClass('checkbox');
   $('input[type="checkbox"]:checked').parent().addClass('checked');
   $('input[type="checkbox"]').change(function () {
+    var $this = $(this);
     if (this.checked) {
-      $(this).parent().addClass('checked');
+      $this.parent().addClass('checked');
     } else {
-      $(this).parent().removeClass('checked');
+      $this.parent().removeClass('checked');
     }
   });
 
   $(document).on('click', '.card-title input', function (e) {
-    var parent = $(this).closest('.all-section');
+    var $this = $(this);
+    var parent = $this.closest('.all-section');
     var parentId = parent.attr('id');
     var range = $('[data-sort="' + parentId + '"] .range-options').val();
     switchAll.removeClass('checked');
-    if ($(this).parent().hasClass('checked')) {
+    if ($this.parent().hasClass('checked')) {
       parent.find('.card-checkboxes .checkbox').removeClass('checked');
       parent.find('.card-checkboxes .checkbox input').prop('checked', false);
       switchAll.removeClass('checked');
-    } else if ($(this).hasClass('range-selected')) {
+    } else if ($this.hasClass('range-selected')) {
       parent.find('.checkbox').removeClass('checked');
       parent.find('.checkbox input').prop('checked', false);
       parent.find(' .checkbox').addClass('checked');
@@ -193,30 +202,33 @@ $(function () {
   });
 
   $('.card-options--show').on('click', function () {
-    if ($(this).hasClass('checked')) {
-      $(this).removeClass('checked');
+    var $this = $(this);
+    if ($this.hasClass('checked')) {
+      $this.removeClass('checked');
       $('.card-checkboxes').removeClass('is-collapsed');
     } else {
-      $(this).addClass('checked');
+      $this.addClass('checked');
       $('.card-checkboxes').addClass('is-collapsed');
     }
     return false;
   });
 
   $('.card-options--detail').on('click', function () {
-    if ($(this).hasClass('checked')) {
-      $(this).removeClass('checked').text('List View');
+    var $this = $(this);
+    if ($this.hasClass('checked')) {
+      $this.removeClass('checked').text('List View');
     } else {
-      $(this).addClass('checked').text('Detail View');
+      $this.addClass('checked').text('Detail View');
     }
   });
 
   // Card Options: Solo (for non-visual changes)
   $('.card-options--solo').on('click', function () {
-    if ($(this).hasClass('checked')) {
-      $(this).removeClass('checked');
+    var $this = $(this);
+    if ($this.hasClass('checked')) {
+      $this.removeClass('checked');
     } else {
-      $(this).addClass('checked');
+      $this.addClass('checked');
     }
     return false;
   });
@@ -238,13 +250,14 @@ $(function () {
 
   // Narrow Results option for Adv. Search
   $('.search #show-databases').on('click', function (e) {
+    var $this = $(this);
     
-    if ($(this).hasClass('checked')) {
-      $(this).removeClass('checked');
+    if ($this.hasClass('checked')) {
+      $this.removeClass('checked');
       $('.card-checkboxes').addClass('is-collapsed');
       listCollapse.setHeight();
     } else {
-      $(this).addClass('checked');
+      $this.addClass('checked');
       $('.card-checkboxes.is-collapsed').removeClass('is-collapsed').css('max-height', '');
     }
     e.stopPropagation();
@@ -253,20 +266,21 @@ $(function () {
 
   // Card Options: Toggle (for 'select all' / 'select none')
   switchAll.on('click', function () {
+    var $this = $(this);
     var tag = $('#' + $sortItem + '.tag');
     
-    if ($(this).hasClass('checked')) {
-      $(this).removeClass('checked');
+    if ($this.hasClass('checked')) {
+      $this.removeClass('checked');
       $('.checkbox input').prop('checked', false).parent().removeClass('checked');
     } else if ($('.all-section:not(.is-hidden)').hasClass('tag')) {
       var sortItem = $('.all-section:not(.is-hidden)').attr('id');
       var range = $('[data-sort="' + sortItem + '"] .range-options').val();
-      $(this).addClass('checked');
+      $this.addClass('checked');
       $('.all-section:not(.is-hidden)' + ' .checkbox input').prop('checked', true).parent().addClass('checked');
       tag.find('.card-title input').addClass('range-selected').prop('checked', true);
       tag.find('.card-title label').addClass('checked');
     } else {
-      $(this).addClass('checked');
+      $this.addClass('checked');
       $('.all-section:not(.is-hidden) .checkbox input').prop('checked', true).parent().addClass('checked');
       tag.find('.card-title input').addClass('range-selected').prop('checked', true);
       tag.find('.card-title label').addClass('checked');
@@ -294,18 +308,20 @@ $(function () {
   });
 
   $('[data-switch]').on('click', function () {
-    var switchTarget = $(this).attr('data-switch');
+    var $this = $(this);
+    var switchTarget = $this.attr('data-switch');
 
     $('[data-target="' + switchTarget + '"]').slideDown('fast').addClass('opened');
-    $(this).addClass('checked');
-    $(this).siblings().removeClass('checked');
+    $this.addClass('checked');
+    $this.siblings().removeClass('checked');
   });
 
   $('[data-close]').on('click', function () {
-    var closeTarget = $(this).attr('data-close');
+    var $this = $(this);
+    var closeTarget = $this.attr('data-close');
 
-    $(this).addClass('checked');
-    $(this).siblings().removeClass('checked');
+    $this.addClass('checked');
+    $this.siblings().removeClass('checked');
     if ($('[data-target="' + closeTarget + '"]').hasClass('opened')) {
       $('[data-target="' + closeTarget + '"]').slideUp('fast').removeClass('opened');
     }
@@ -320,16 +336,17 @@ $(function () {
   radioFirst.find('input').prop('checked', true);
 
   radioLabel.on('click', function () {
-    var nameTarget = $(this).attr('data-name');
+    var $this = $(this);
+    var nameTarget = $this.attr('data-name');
     var siblings = $('[data-name="' + nameTarget + '"]');
-    var parent = $(this).parent();
-    var textField = $(this).find('input[type="text"]');
-    var placeholder = $(this).find('.text-placeholder');
+    var parent = $this.parent();
+    var textField = $this.find('input[type="text"]');
+    var placeholder = $this.find('.text-placeholder');
 
     siblings.removeClass('checked');
-    $(this).addClass('checked');
+    $this.addClass('checked');
     parent.find('input').prop('checked', false);
-    $(this).find('input').prop('checked', true);
+    $this.find('input').prop('checked', true);
     parent.find('input[type="text"]').val('');
     textField.focus();
     parent.find('.text-placeholder').css('display', 'inline');
