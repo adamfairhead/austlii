@@ -194,8 +194,8 @@ $(function () {
     } else if ($this.hasClass('range-selected')) {
       parent.find('.checkbox').removeClass('checked')
         .find('input').prop('checked', false);
-      parent.find('.checkbox').addClass('checked');
-      parent.find('.' + range + ' .checkbox input').prop('checked', true);
+      parent.find('.' + range + ' .checkbox').addClass('checked')
+        .find('input').prop('checked', true);
       var cardTitle = parent.find('.card-title');
       cardTitle.find('input').prop('checked', true);
       cardTitle.find('label').addClass('checked');
