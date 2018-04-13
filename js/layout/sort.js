@@ -277,7 +277,6 @@ $(function () {
       $('.checkbox input').prop('checked', false).parent().removeClass('checked');
     } else if (allSectionNotHidden.hasClass('tag')) {
       var sortItem = allSectionNotHidden.attr('id');
-      var range = $('[data-sort="' + sortItem + '"] .range-options').val();
       $this.addClass('checked');
       allSectionNotHidden.find('.checkbox input').prop('checked', true)
         .parent().addClass('checked');
