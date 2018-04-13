@@ -66,10 +66,11 @@ $(function () {
         }      
       }
       var pathname = window.location.pathname;
+      var historyHash;
       if ($sortItem === undefined) {
-        var historyHash = pathname;
+        historyHash = pathname;
       } else {
-        var historyHash = pathname + '#' + $sortItem;
+        historyHash = pathname + '#' + $sortItem;
       }
       history.pushState(null, null, historyHash);
       $(window).scrollTop(0);
