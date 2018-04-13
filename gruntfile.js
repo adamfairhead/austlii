@@ -31,6 +31,7 @@ module.exports = function(grunt) {
         files: ['js/layout/*.js'],
         tasks: ['default'],
         options: {
+          atBegin: true,
           spawn: false,
         },
       },
