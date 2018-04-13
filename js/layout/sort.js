@@ -169,14 +169,13 @@ $(function () {
   });
 
   $(document).on('click', '.card-title input', function (e) {
-    var traverse = $(this).parent().parent().parent().parent();
     var parentId = $(this).closest('.all-section').attr('id');
     var parent = $('#' + parentId);
     var range = $('[data-sort="' + parentId + '"] .range-options').val();
     switchAll.removeClass('checked');
     if ($(this).parent().hasClass('checked')) {
-      traverse.find('.card-checkboxes .checkbox').removeClass('checked');
-      traverse.find('.card-checkboxes .checkbox input').prop('checked', false);
+      parent.find('.card-checkboxes .checkbox').removeClass('checked');
+      parent.find('.card-checkboxes .checkbox input').prop('checked', false);
       switchAll.removeClass('checked');
     } else if ($(this).hasClass('range-selected')) {
       parent.find('.checkbox').removeClass('checked');
@@ -187,8 +186,8 @@ $(function () {
       parent.find('.card-title label').addClass('checked');
       switchAll.addClass('checked');
     } else {
-      traverse.find('.card-checkboxes .checkbox').addClass('checked');
-      traverse.find('.card-checkboxes .checkbox input').prop('checked', true);
+      parent.find('.card-checkboxes .checkbox').addClass('checked');
+      parent.find('.card-checkboxes .checkbox input').prop('checked', true);
       switchAll.addClass('checked');
     }
   });
