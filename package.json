@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "author": "Fairhead Creative LLC",
   "private": true,
+  "scripts": {
+    "dev": "grunt watch & bundle exec jekyll serve --watch",
+    "start": "npm run dev"
+  },
   "devDependencies": {
     "grunt": "~0.4.1",
     "grunt-contrib-concat": "~0.3.0",
