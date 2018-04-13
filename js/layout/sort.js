@@ -118,8 +118,8 @@ $(function () {
       .find('li').show();
     rangeOptions.val('All');
     if (switchAll.hasClass('checked')) {
-      allSection.find(".checkbox").addClass('checked')
-        .find("input").prop('checked', true);
+      allSection.find('.checkbox').addClass('checked')
+        .find('input').prop('checked', true);
     }
   });
 
