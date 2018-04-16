@@ -1286,13 +1286,13 @@ $(function () {
     }
   });
 
-  $(document).on('click', '.card-title input', function (e) {
+  $(document).on('change', '.card-title input', function (e) {
     var $this = $(this);
     var parent = $this.closest('.all-section');
     var parentId = parent.attr('id');
     var range = $('[data-sort="' + parentId + '"] .range-options').val();
     switchAll.removeClass('checked');
-    if ($this.parent().hasClass('checked')) {
+    if (!this.checked) {
       parent.find('.card-checkboxes .checkbox').removeClass('checked')
         .find('input').prop('checked', false);
       switchAll.removeClass('checked');
