@@ -4,7 +4,7 @@
   "author": "Fairhead Creative LLC",
   "private": true,
   "scripts": {
-    "dev": "grunt watch & bundle exec jekyll serve --watch",
+    "dev": "grunt watch & bundle exec jekyll serve",
     "start": "npm run dev"
   },
   "devDependencies": {
