@@ -1,10 +1,6 @@
 .DS_store
-_site/
 .sass-cache
 *.ai
 Gemfile.lock
 *.swp
 node_modules
-_site
-js/production.js
-js/production.min.js
