@@ -1182,6 +1182,11 @@ $(function () {
     $this.on('click', function (e) {
       var $this = $(this);
       e.preventDefault();
+
+      if ($(e.target).hasClass('range-options')) {
+        return;
+      }
+
       var pathname = window.location.pathname;
       var sortItem = $this.attr('data-sort');
       if (sortItem !== $sortItem) {
