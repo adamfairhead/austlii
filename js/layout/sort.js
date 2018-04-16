@@ -41,6 +41,30 @@ $(function () {
   
   //cleanup on page load
   sortItemElement.removeClass('is-loading');
+
+  var handleUrlChange = function () {
+    var sortItem = window.location.hash.substr(1);
+    var tab = $('[data-sort="'+ sortItem +'"]');
+
+    sortSelect.activate(tab);
+    sortSelect.targetTab(tab);
+    if ($('#' + $sortItem).hasClass('tag')) {
+      var range = $('[data-sort="' + $sortItem + '"] .range-options').val();
+      var tag = $('#' + $sortItem + '.tag');
+      var allSelect = $('.range-options').val();
+      if ( allSelect !== 'All') {
+        tag.find('.checkbox').toggleClass('checked')
+          .find('input').prop('checked', false);
+        tag.find('.' + range + ' .checkbox').addClass('checked')
+          .find('input').prop('checked', true);
+        var cardTitle = tag.find('.card-title');
+        cardTitle.find('input').addClass('range-selected').prop('checked', true);
+        cardTitle.find('label').addClass('checked');
+      }      
+    }
+  };
+
+  window.onhashchange = handleUrlChange;
   
   // Sort item filtering
   sortItemElement.each(function () {
@@ -53,30 +77,18 @@ $(function () {
     $this.on('click', function (e) {
       var $this = $(this);
       e.preventDefault();
-      sortSelect.activate($this);
-      sortSelect.targetTab($this);
-      if ($('#' + $sortItem).hasClass('tag')) {
-        var range = $('[data-sort="' + $sortItem + '"] .range-options').val();
-        var tag = $('#' + $sortItem + '.tag');
-        var allSelect = $('.range-options').val();
-        if ( allSelect !== 'All') {
-          tag.find('.checkbox').toggleClass('checked')
-            .find('input').prop('checked', false);
-          tag.find('.' + range + ' .checkbox').addClass('checked')
-            .find('input').prop('checked', true);
-          var cardTitle = tag.find('.card-title');
-          cardTitle.find('input').addClass('range-selected').prop('checked', true);
-          cardTitle.find('label').addClass('checked');
-        }      
-      }
       var pathname = window.location.pathname;
-      var historyHash;
-      if ($sortItem === undefined) {
-        historyHash = pathname;
-      } else {
-        historyHash = pathname + '#' + $sortItem;
+      var sortItem = $this.attr('data-sort');
+      if (sortItem !== $sortItem) {
+        var historyHash;
+        if (sortItem === undefined) {
+          historyHash = pathname;
+        } else {
+          historyHash = pathname + '#' + sortItem;
+        }
+        history.pushState(null, null, historyHash);
+        handleUrlChange();
       }
-      history.pushState(null, null, historyHash);
       $(window).scrollTop(0);
     });
 
