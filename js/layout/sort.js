@@ -60,6 +60,9 @@ $(function () {
       tab = sortItemElement.filter('[data-sort="'+ sortItem +'"]');
     } else {
       tab = sortItemElement.filter(':not([data-sort])');
+      allSection.removeClass('is-hidden')
+        .filter('.tag').removeClass('tag')
+        .find('li').show();
     }
 
     sortSelect.activate(tab);
@@ -147,7 +150,7 @@ $(function () {
   // Sort item "all"
   $('.sort-all').on('click', function () {
     allSection.removeClass('is-hidden')
-      .find('.tag').removeClass('tag')
+      .filter('.tag').removeClass('tag')
       .find('li').show();
     rangeOptions.val('All');
     if (switchAll.hasClass('checked')) {
