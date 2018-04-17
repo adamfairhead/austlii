@@ -1128,6 +1128,17 @@ var sortSelect = {
       .find('input').prop('checked', true);
     $('.card-title input').removeClass('range-selected');
     taggedInput.addClass('range-selected');
+
+    if ($sortItem === undefined) {
+      allSection.removeClass('is-hidden')
+        .find('.tag').removeClass('tag')
+        .find('li').show();
+      rangeOptions.val('All');
+      if (switchAll.hasClass('checked')) {
+        allSection.find('.checkbox').addClass('checked')
+          .find('input').prop('checked', true);
+      }
+    }
   },
   targetTab: function (getEl) {
     if (sortTarget.length) {
@@ -1149,7 +1160,12 @@ $(function () {
 
   var handleUrlChange = function () {
     var sortItem = window.location.hash.substr(1);
-    var tab = $('[data-sort="'+ sortItem +'"]');
+    var tab;
+    if (sortItem !== '') {
+      tab = sortItemElement.filter('[data-sort="'+ sortItem +'"]');
+    } else {
+      tab = sortItemElement.filter(':not([data-sort])');
+    }
 
     sortSelect.activate(tab);
     sortSelect.targetTab(tab);
