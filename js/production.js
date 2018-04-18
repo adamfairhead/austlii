@@ -1104,51 +1104,49 @@ $(function() {
 });
 
 'use strict';
-//globals
-var switchAll = $('.card-options--toggle');
-var $sortItem;
-var sortItemElement = $('.sort-item');
-var type = window.location.hash.substr(1);
-var allSection = $('.all-section');
-var tagged = allSection.filter('.tag');
-var taggedInput = tagged.find('.card-title input');
-var sortTarget = $('.sort-url');
-var rangeOptions = $('.range-options');
-var cardCheckboxes = $('.card-checkboxes');
-var sortSelect = {
-  activate: function (getEl) {
-    $('#page-sort .selected').removeClass('selected disabled');
-    getEl.addClass('selected');
-    switchAll.addClass('checked');
-    $sortItem = getEl.attr('data-sort');
-    allSection.addClass('is-hidden').find('.checkbox').removeClass('checked');
-    allSection.find('.checkbox input').prop('checked', false);
-    $('#' + $sortItem).removeClass('is-hidden')
-      .find('.checkbox').addClass('checked')
-      .find('input').prop('checked', true);
-    $('.card-title input').removeClass('range-selected');
-    taggedInput.addClass('range-selected');
+$(function () {
+  var switchAll = $('.card-options--toggle');
+  var $sortItem;
+  var sortItemElement = $('.sort-item');
+  var type = window.location.hash.substr(1);
+  var allSection = $('.all-section');
+  var tagged = allSection.filter('.tag');
+  var taggedInput = tagged.find('.card-title input');
+  var sortTarget = $('.sort-url');
+  var rangeOptions = $('.range-options');
+  var cardCheckboxes = $('.card-checkboxes');
+  var sortSelect = {
+    activate: function (getEl) {
+      $('#page-sort .selected').removeClass('selected disabled');
+      getEl.addClass('selected');
+      switchAll.addClass('checked');
+      $sortItem = getEl.attr('data-sort');
+      allSection.addClass('is-hidden').find('.checkbox').removeClass('checked');
+      allSection.find('.checkbox input').prop('checked', false);
+      $('#' + $sortItem).removeClass('is-hidden')
+        .find('.checkbox').addClass('checked')
+        .find('input').prop('checked', true);
+      $('.card-title input').removeClass('range-selected');
+      taggedInput.addClass('range-selected');
 
-    if ($sortItem === undefined) {
-      allSection.removeClass('is-hidden')
-        .find('.tag').removeClass('tag')
-        .find('li').show();
-      rangeOptions.val('All');
-      if (switchAll.hasClass('checked')) {
-        allSection.find('.checkbox').addClass('checked')
-          .find('input').prop('checked', true);
+      if ($sortItem === undefined) {
+        allSection.removeClass('is-hidden')
+          .find('.tag').removeClass('tag')
+          .find('li').show();
+        rangeOptions.val('All');
+        if (switchAll.hasClass('checked')) {
+          allSection.find('.checkbox').addClass('checked')
+            .find('input').prop('checked', true);
+        }
+      }
+    },
+    targetTab: function (getEl) {
+      if (sortTarget.length) {
+        sortItemElement.removeClass('is-loading');
+        getEl.addClass('is-loading');
       }
     }
-  },
-  targetTab: function (getEl) {
-    if (sortTarget.length) {
-      sortItemElement.removeClass('is-loading');
-      getEl.addClass('is-loading');
-    }
-  }
-};
-
-$(function () {
+  };
   
   if(sortItemElement.length === 0 && window.location.hash) {
     var scrollTo = window.location.hash;
