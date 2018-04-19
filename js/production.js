@@ -1121,13 +1121,10 @@ $(function () {
       getEl.addClass('selected');
       switchAll.addClass('checked');
       $sortItem = getEl.attr('data-sort');
-      allSection.addClass('is-hidden').find('.checkbox').removeClass('checked');
-      allSection.find('.checkbox input').prop('checked', false);
-      $('#' + $sortItem).removeClass('is-hidden')
-        .find('.checkbox').addClass('checked')
-        .find('input').prop('checked', true);
+      allSection.addClass('is-hidden');
       $('.card-title input').removeClass('range-selected');
       taggedInput.addClass('range-selected');
+      
 
       if ($sortItem === undefined) {
         allSection.removeClass('is-hidden')
@@ -1135,9 +1132,17 @@ $(function () {
           .find('li').show();
         rangeOptions.val('All');
         if (switchAll.hasClass('checked')) {
-          allSection.find('.checkbox').addClass('checked')
-            .find('input').prop('checked', true);
+          setCheckbox(allSection.find('.checkbox'));
         }
+      } else {
+        var section = $('#' + $sortItem);
+        section.removeClass('is-hidden');
+        var options = getEl.find('.range-options');
+        if (options.length > 0 && options.val() !== 'All') {
+          section.find('.card-title input').addClass('range-selected');
+        }
+        setCheckbox(allSection.find('.checkbox'), false);
+        setCheckbox(section.find('.card-title .checkbox'));
       }
     },
     targetTab: function (getEl) {
@@ -1147,6 +1152,29 @@ $(function () {
       }
     }
   };
+  var setCheckbox = function (checkbox, value, forceTrigger) {
+    if (value == null) {
+      value = true;
+    }
+    
+    if (forceTrigger == null) {
+      forceTrigger = false;
+    }
+
+    var input;
+
+    if (value) {
+      input = checkbox.find('input:not(:checked)');
+    } else {
+      input = checkbox.find('input:checked');
+    }
+
+    if (forceTrigger) {
+      checkbox.find('input').trigger('change');
+    } else {
+      input.prop('checked', value).trigger('change');
+    }
+  }
   
   if(sortItemElement.length === 0 && window.location.hash) {
     var scrollTo = window.location.hash;
@@ -1156,7 +1184,7 @@ $(function () {
   //cleanup on page load
   sortItemElement.removeClass('is-loading');
 
-  var handleUrlChange = function () {
+  var handleUrl = function () {
     var sortItem = window.location.hash.substr(1);
     var tab;
     if (sortItem !== '') {
@@ -1170,23 +1198,9 @@ $(function () {
 
     sortSelect.activate(tab);
     sortSelect.targetTab(tab);
-    if ($('#' + $sortItem).hasClass('tag')) {
-      var range = $('[data-sort="' + $sortItem + '"] .range-options').val();
-      var tag = $('#' + $sortItem + '.tag');
-      var allSelect = $('.range-options').val();
-      if ( allSelect !== 'All') {
-        tag.find('.checkbox').toggleClass('checked')
-          .find('input').prop('checked', false);
-        tag.find('.' + range + ' .checkbox').addClass('checked')
-          .find('input').prop('checked', true);
-        var cardTitle = tag.find('.card-title');
-        cardTitle.find('input').addClass('range-selected').prop('checked', true);
-        cardTitle.find('label').addClass('checked');
-      }      
-    }
   };
 
-  window.onhashchange = handleUrlChange;
+  window.onhashchange = handleUrl;
   
   // Sort item filtering
   sortItemElement.each(function () {
@@ -1214,7 +1228,7 @@ $(function () {
           historyHash = pathname + '#' + sortItem;
         }
         history.pushState(null, null, historyHash);
-        handleUrlChange();
+        handleUrl();
       }
       $(window).scrollTop(0);
     });
@@ -1231,23 +1245,16 @@ $(function () {
     var $this = $(this);
     var parentId = $this.closest('.sort-item').attr('data-sort');
     var parent = $('#' + parentId);
-    var range = parent.find('.' + $this.val());
     parent.addClass('tag');
-    parent.find('li').hide();
-    parent.find('.checkbox').removeClass('checked')
-      .find('input').prop('checked', false);
     var cardTitle = parent.find('.card-title');
-    cardTitle.find('input').addClass('range-selected').prop('checked', true);
-    cardTitle.find('label').addClass('checked');
-    range.show();
-    range.find('.checkbox').addClass('checked')
-      .find('input').prop('checked', true);
+    cardTitle.find('input').addClass('range-selected');
+    parent.find('li').show();
     if ($this.val() == 'All') {
-      parent.find('li').show();
-      parent.find('.checkbox').addClass('checked')
-        .find('input').prop('checked', true);
-      parent.find('.card-title input').removeClass('range-selected');
+      cardTitle.find('input').removeClass('range-selected');
+    } else {
+      parent.find('li:not(.' + $this.val() + ')').hide();
     }
+    setCheckbox(cardTitle.find('label'), true, true);
   });
 
   // Sort item "all"
@@ -1257,8 +1264,7 @@ $(function () {
       .find('li').show();
     rangeOptions.val('All');
     if (switchAll.hasClass('checked')) {
-      allSection.find('.checkbox').addClass('checked')
-        .find('input').prop('checked', true);
+      setCheckbox(allSection.find('.checkbox'));
     }
   });
 
@@ -1325,23 +1331,15 @@ $(function () {
     var parent = $this.closest('.all-section');
     var parentId = parent.attr('id');
     var range = $('[data-sort="' + parentId + '"] .range-options').val();
-    switchAll.removeClass('checked');
     if (!this.checked) {
-      parent.find('.card-checkboxes .checkbox').removeClass('checked')
-        .find('input').prop('checked', false);
+      setCheckbox(parent.find('.card-checkboxes .checkbox'), false);
       switchAll.removeClass('checked');
     } else if ($this.hasClass('range-selected')) {
-      parent.find('.checkbox').removeClass('checked')
-        .find('input').prop('checked', false);
-      parent.find('.' + range + ' .checkbox').addClass('checked')
-        .find('input').prop('checked', true);
-      var cardTitle = parent.find('.card-title');
-      cardTitle.find('input').prop('checked', true);
-      cardTitle.find('label').addClass('checked');
+      setCheckbox(parent.find('.card-checkboxes .checkbox'), false);
+      setCheckbox(parent.find('.' + range + ' .checkbox'));
       switchAll.addClass('checked');
     } else {
-      parent.find('.card-checkboxes .checkbox').addClass('checked')
-        .find('input').prop('checked', true);
+      setCheckbox(parent.find('.card-checkboxes .checkbox'));
       switchAll.addClass('checked');
     }
   });
@@ -1407,26 +1405,14 @@ $(function () {
   // Card Options: Toggle (for 'select all' / 'select none')
   switchAll.on('click', function () {
     var $this = $(this);
-    var tag = $('#' + $sortItem + '.tag');
     var allSectionNotHidden = allSection.filter(':not(.is-hidden)');
-    var cardTitle = tag.find('.card-title');
     
     if ($this.hasClass('checked')) {
       $this.removeClass('checked');
-      $('.checkbox input').prop('checked', false).parent().removeClass('checked');
-    } else if (allSectionNotHidden.hasClass('tag')) {
-      var sortItem = allSectionNotHidden.attr('id');
-      $this.addClass('checked');
-      allSectionNotHidden.find('.checkbox input').prop('checked', true)
-        .parent().addClass('checked');
-      cardTitle.find('input').addClass('range-selected').prop('checked', true);
-      cardTitle.find('label').addClass('checked');
+      setCheckbox($('.checkbox'), false);
     } else {
       $this.addClass('checked');
-      allSectionNotHidden.find('.checkbox input').prop('checked', true)
-        .parent().addClass('checked');
-      cardTitle.find('input').addClass('range-selected').prop('checked', true);
-      cardTitle.find('label').addClass('checked');
+      setCheckbox(allSectionNotHidden.find('.card-title .checkbox'));
     }
     return false;
   });
@@ -1502,6 +1488,7 @@ $(function () {
     }
   });
 
+  handleUrl();
 });
 
 $(function () {
