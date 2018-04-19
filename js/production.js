@@ -1190,7 +1190,7 @@ $(function () {
     if (sortItem !== '') {
       tab = sortItemElement.filter('[data-sort="'+ sortItem +'"]');
     } else {
-      tab = sortItemElement.filter(':not([data-sort])');
+      tab = sortItemElement.filter(':not([data-sort])').first();
       allSection.removeClass('is-hidden')
         .filter('.tag').removeClass('tag')
         .find('li').show();
@@ -1228,8 +1228,9 @@ $(function () {
           historyHash = pathname + '#' + sortItem;
         }
         history.pushState(null, null, historyHash);
-        handleUrl();
       }
+      sortSelect.activate($this);
+      sortSelect.targetTab($this);
       $(window).scrollTop(0);
     });
 
