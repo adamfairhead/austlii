@@ -79,7 +79,7 @@ $(function () {
   //cleanup on page load
   sortItemElement.removeClass('is-loading');
 
-  var handleUrl = function () {
+  var handleUrl = function (preloaded) {
     var sortItem = window.location.hash.substr(1);
     var tab;
     if (sortItem !== '') {
@@ -92,7 +92,10 @@ $(function () {
     }
 
     sortSelect.activate(tab);
-    sortSelect.targetTab(tab);
+
+    if (!preloaded) {
+      sortSelect.targetTab(tab);
+    }
   };
 
   window.onhashchange = handleUrl;
@@ -384,5 +387,5 @@ $(function () {
     }
   });
 
-  handleUrl();
+  handleUrl(true);
 });
