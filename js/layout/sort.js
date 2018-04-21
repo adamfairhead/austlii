@@ -103,10 +103,6 @@ $(function () {
   // Sort item filtering
   sortItemElement.each(function () {
     var $this = $(this);
-    
-    if ($this.attr('data-sort') === type) {
-      sortSelect.activate($this);
-    }
 
     $this.on('click', function (e) {
       var $this = $(this);
