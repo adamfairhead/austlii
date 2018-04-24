@@ -108,14 +108,12 @@ $(function() {
   $(document).bind('keydown', function(event) {
     if(event.keyCode == 9){   
       event.preventDefault();
-      if ( tabnumindex <= 6 ) {
+      if ( tabnumindex < 6 ) {
         tabnumindex++;
       } else {
         tabnumindex = 0;
-        tabnumindex++;
       }
-      $('[data-type-name]:nth-of-type(' + tabnumindex + '').last().attr("tabindex",-1).focus();
-      $('[data-type-name]:nth-of-type(' + tabnumindex + '').last().click();
+      $('[data-type-name]:eq(' + tabnumindex + ')').attr("tabindex",-1).focus().click();
     } 
   });
 

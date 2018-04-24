@@ -24,11 +24,23 @@ module.exports = function(grunt) {
           'js/production.min.js': ['<%= concat.dist.dest %>']
         }
       }
-    } 
+    },
+
+    watch: {
+      scripts: {
+        files: ['js/layout/*.js'],
+        tasks: ['default'],
+        options: {
+          atBegin: true,
+          spawn: false,
+        },
+      },
+    },
 
   });
 
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.registerTask('default', ['concat', 'uglify']);
 };
