@@ -18,26 +18,69 @@ Aviation Law Association library database.
   <div id="page-search" class="filters-search">
     <h2 class="hide">Search AustLII</h2>
     <div class="search-box">
-      <a class="search-dropdown" href="javascript:void(0);">&#9660;</a> 
-
       <fieldset>
         <legend>Search Options</legend>
-        <ul class="search-options">
-          {% if page.class contains 'results' %}
-            <li><label for="database-all">All databases <input type="radio" name="search-database" id="database-all" checked tabindex="2"></label></li>
-            <li><label for="database-this">This database only <input type="radio" name="search-database" id="database-this" tabindex="3"></label></li>
-          {% endif %}
-
-          {% if page.searchable == true %}
-            <li><label for="database-selected">Selected databases <input type="radio" name="search-filter" checked tabindex="4"></label></li>
-            <li><label for="database-all">All databases <input type="radio" name="search-filter" id="database-all" tabindex="5"></label></li>
-          {% endif %}
-
-          <li><label for="database-full">Full text <input type="radio" name="search-text" id="database-full" checked tabindex="6"></label></li>
-          <li><label for="database-title">Titles only <input type="radio" name="search-text" id="database-title" tabindex="7"></label></li>
-
-          <li class="advanced-search"><a href="search.html" tabindex="8">Advanced Search…</a></li>
-        </ul>
+        <div class="search-dropdown is-hidden" id="search-dropdown">
+          <ul class="search-dropdown-databases" id="search-dropdown-databases">
+            <li>
+              <span>
+                Search <strong>My search history</strong> in all databases
+              </span>
+              <label for="database-all">
+                <input type="radio" name="search-filter" id="database-all" checked>
+                All databases
+              </label>
+            </li>
+            {% if page.searchable == true %}
+              <li>
+                <span>
+                  Search <strong>My search history</strong> in selected databases
+                </span>
+                <label for="database-selected">
+                  <input type="radio" name="search-filter" id="database-selected">
+                  Selected databases
+                </label>
+              </li>
+            {% endif %}
+            {% if page.class contains 'results' %}
+              <li>
+                <span>
+                  Search <strong>My search history</strong> in this database only
+                </span>
+                <label for="database-this">
+                  <input type="radio" name="search-filter" id="database-this">
+                  This database
+                </label>
+              </li>
+              <li>
+                <span>
+                  Search <strong>My search history</strong> in this database this year
+                </span>
+                <label for="database-this-year">
+                  <input type="radio" name="search-filter" id="database-this-year">
+                  This database this year
+                </label>
+              </li>
+            {% endif %}
+          </ul>
+          <ul class="search-dropdown-options">
+            <li>
+              <label for="database-full">
+                <input type="radio" name="search-text" id="database-full" checked>
+                Full text
+              </label>
+            </li>
+            <li>
+              <label for="database-title">
+                <input type="radio" name="search-text" id="database-title">
+                Titles only
+              </label>
+            </li>
+            <li>
+              <a href="search.html" tabindex="8">Advanced Search…</a>
+            </li>
+          </ul>
+        </div>
       </fieldset>
 
       <label for="search-box" class="hide">Search term:</label>
@@ -51,7 +94,7 @@ Aviation Law Association library database.
       <input id="search-box" type="text" placeholder="Search AustLII" tabindex="9">
       {% endif %}
       <a href="javascript:void(0);" class="search-box-clear hide">&times;</a>
-      <input type="submit" value="Search" tabindex="9">
+      <input type="submit" value="Search all" tabindex="9" class="is-hidden">
 
       {% if page.extra-search == true %}
       <div class="extra-search">

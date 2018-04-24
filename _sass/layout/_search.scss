@@ -41,146 +41,21 @@
   }
 }
 
-// The down arrow to open search dropdowns
-.search-dropdown {
-  @include transition(all 0.25s ease-in-out);
-  text-align: center;
-  display: inline-block;
-  float: left;
-  width: 15%;
-  height: 33px;
-  font-size: .8em;
-  background: $light-gray;
-  border: $base-border;
-  border-right: none;
-  border-radius: $base-border-radius 0 0 $base-border-radius;
-  color: $medium-gray;
-  line-height: 2.7;
-  z-index: 6;
-  position: relative;
-
-  html.no-js & { color: $light-gray; }
-
-  // Enable hover states when JS is available
-  html.js & {
-    &:hover { color: black; }
-  }
-
-  // Change width on larger screens (since it's % based)
-  @include media(em(480)) { 
-    width: 7.5%; 
-  
-    .home & {
-      width: 10%;
-    }
-  }
-
-  // Change height on larger screens (to match width changes)
-  @include media($medium-screen) {
-    height: 40px;
-    line-height: 3.2;
-  }
-  // Change height on x-larger screens (to match width changes)
-  @include media($xx-large-screen) {
-    height: 40px;
-    line-height: 2.8;
-  }
-  // Change height on xx-larger screens (to match width changes)
-  @include media($xxx-large-screen) {
-    height: 40px;
-    line-height: 2.5;
-  }
-}
-
-// If no JS, list out these options underneath the search box
-html.no-js .search-options {
-  position: absolute;
-  top: 38px;
-  right: 1em;
-  text-align: right;
-  width: 100%;
-
-  li {
-    display: inline-block;
-    font-size: .7em;
-    margin-left: .25em;
-  }
-
-  input { margin-left: .25em; }
-}
-
-// Reposition search options dropdown on homepage
-html.js .home .search-box .search-options {
-  @include media($medium-screen) { left: 135px; }
-}
-
-// Create search options dropdown styles & hide them
-html.js .search-options {
-  @extend %dropdown;
-  border-radius: 0 0 $base-border-radius $base-border-radius;
-  top: 33px;
-  left: 1em;
-
-  input[type="radio"] {
-    float: right;
-    margin: 4px 4px 0 10px;
-  }
-
-  @include media($medium-screen) { top: 40px; }
-
-  @include media($medium-screen + 20em) { .home & { left: 135px; }}
-}
-
-// Reveal search options dropdown when you tap .search-dropdown
-.search-box.options-visible {
-  .search-options {
-    opacity: 1;
-    max-height: 270px;
-  }
-
-  .search-dropdown {
-    background: white;
-    color: $base-font-color;
-    border-bottom: 1px solid white;
-    border-radius: $base-border-radius 0 0 0;
-  }
-}
-
-// Make sure search options aren't visible when search is hidden, even if opened
-@include media(max-width $medium-screen + 20em) {
-  .options-visible .search-options {
-    opacity: 0 !important;
-    max-height: 0 !important;
-  }
-
-  .search-is-visible .options-visible .search-options {
-    opacity: 1 !important;
-    max-height: 270px !important;
-  }
-}
-
 // The actual input field in the search section
 .search-box input[type="text"] {
   float: left; 
   background: $light-gray;
   border: $base-border;
   box-shadow: none;
-  border-radius: 0 $base-border-radius $base-border-radius 0;
+  border-radius: $base-border-radius;
   -webkit-appearance: none;
-  width: 85%;
   font-size: .9em;
   padding-top: .6em; 
   padding-bottom: .6em;
-  padding-right: 74px;
+  padding-right: 124px;
   height: 33px;
-
-  @include media(em(480)) { 
-    width: 92.5%; 
-    
-    .home & {
-      width: 90%; 
-    }
-  }
+  position: relative;
+  z-index: 6;
 
   @include media($medium-screen) {
     height: 40px;
@@ -194,41 +69,46 @@ html.js .search-options {
 
 // The submit button
 .search-box input[type="submit"] {
-  width: 10%;
   height: 27px;
-  text-indent: -999em;
-  background: $light-gray url('../images/search.svg') center no-repeat;
-  background-size: 15px auto;
-
-  @include media(max-width $medium-screen) {
-    background: $red url('../images/search-2.svg') center no-repeat;
-    background-size: 15px auto;
-  }
+  font-size: 0.8125rem;
+  background: $red url('../images/search-2.svg') 1em center no-repeat;
+  background-size: 11px auto;
+  padding-left: 2em;
+  letter-spacing: -0.2px;
 
   float: left;
   box-shadow: none;
   border: none;
   border-radius: $base-border-radius;
   -webkit-appearance: none;
+  @include transition(opacity .3s ease-in-out);
   position: absolute;
   right: 53px;
   top: 3px;
+  z-index: 6;
 
   &:hover,
   &:focus { background-color: darken($red, 10) !important; }
 
-  @include media($medium-screen) { height: 34px; }
+  @include media($medium-screen) {
+    height: 34px;
+  }
 
   @include media($medium-screen + 20em) {
-    right: 1.2em;
-    width: 7%;
+    right: 1.1875rem;
   }
-}
 
-.search-box.hover input[type="submit"],
-.search-box.focus input[type="submit"] {
-  background: $red url('../images/search-2.svg') center no-repeat;
-  background-size: 15px auto;
+  html.js & {
+    opacity: 0;
+    
+    &.is-hidden {
+      display: none;
+    }
+
+    &.is-active {
+      opacity: 1;
+    }
+  }
 }
 
 // Clear search button
@@ -239,13 +119,14 @@ html.js .search-options {
     display: block;
     position: absolute;
     top: 4px;
-    right: 60px;
+    right: 110px;
     padding: 0 9px 0 3px;
     height: 34px;
     line-height: 1.4;
     font-size: 1.5em;
     color: darken($light-gray, 15);
     background: $light-gray;
+    z-index: 6;
 
     &.hide { display: none; }
 
@@ -257,6 +138,159 @@ html.js .search-options {
   @include media($xxx-large-screen) {
     font-size: 1.5em;
     line-height: 1.15;
+  }
+}
+
+.search-dropdown {
+  position: absolute;
+
+  html.js & {
+    display: block;
+    top: 30px;
+    left: 1rem;
+    right: 50px;
+    box-shadow: 0 1px 15px 0 rgba(0, 0, 0, 0.15);
+    background-color: #ffffff;
+    border: solid 1px #ebebeb;
+    font-size: 0.8125rem;
+    opacity: 0;
+    @include transform(translateY(-10px));
+    @include transition(opacity .3s ease-in-out, transform .3s ease-in-out);
+    z-index: 5;
+
+    @include media($medium-screen) {
+      top: 37px;
+    }
+
+    @include media($medium-screen + 20em) {
+      right: 1rem;
+    }
+
+    &.is-active {
+      opacity: 1;
+      @include transform(translateY(0px));
+    }
+
+    &.is-hidden {
+      display: none;
+    }
+  }
+
+  html.js .home & {
+    @include media($medium-screen + 20em) {
+      left: 135px;
+    }
+  }
+
+  html.no-js & {
+    top: 44px;
+    right: 1em;
+    text-align: right;
+    width: 100%;
+    font-size: .7rem;
+  }
+}
+
+.search-dropdown-databases {
+  html.js & {
+    display: block;
+    padding-bottom: 1px;
+
+    li {
+      display: block;
+      cursor: pointer;
+      background-color: transparent;
+      margin-bottom: -1px;
+      position: relative;
+
+      &::after {
+        content: '';
+        display: inline-block;
+        width: 0.5rem;
+        height: 0.5rem;
+        border-top: 1px solid #C4C4C4;
+        border-right: 1px solid #C4C4C4;
+        @include transform(rotate(45deg));
+        position: absolute;
+        top: 11px;
+        right: 10px;
+      }
+
+      > span {
+        display: block;
+        margin-left: 10px;
+        border-top: solid 1px #ebebeb;
+        padding: 6px 0;
+        padding-right: 25px;
+  
+        strong {
+          font-weight: 600;
+        }
+      }
+  
+      > label {
+        display: none;
+      }
+  
+      &:hover {
+        background-color: #ebebeb;
+      }
+    }
+  }
+
+  html.no-js & {
+    display: inline;
+
+    li {
+      display: inline;
+      margin-left: 1em;
+      
+      > span {
+        display: none;
+      }
+
+      > label {
+        display: inline;
+      }
+    }
+  }
+}
+
+.search-dropdown-options {
+  html.js & {
+    border-top: 1px solid #ebebeb;
+
+    li {
+      display: inline-block;
+      padding: 5px 10px;
+      border-right: 1px solid #ebebeb;
+
+      &:last-child {
+        border-right: none;
+      }
+
+      label {
+        font-weight: normal;
+        margin: 0;
+
+        input {
+          margin-right: 5px;
+        }
+      }
+    }
+  }
+
+  html.no-js & {
+    display: inline;
+
+    li {
+      display: inline;
+      margin-left: 1em;
+
+      label {
+        display: inline;
+      }
+    }
   }
 }
 
