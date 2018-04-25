@@ -93,8 +93,10 @@ Aviation Law Association library database.
       {% else %}
       <input id="search-box" type="text" placeholder="Search AustLII" tabindex="9">
       {% endif %}
-      <a href="javascript:void(0);" class="search-box-clear hide">&times;</a>
-      <input type="submit" value="Search all" tabindex="9" class="is-hidden">
+      <div class="search-box-controls">
+        <a href="javascript:void(0);" class="search-box-clear hide">&times;</a>
+        <input type="submit" value="Search all" tabindex="9" class="is-hidden">
+      </div>
 
       {% if page.extra-search == true %}
       <div class="extra-search">
