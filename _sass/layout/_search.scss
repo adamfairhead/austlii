@@ -67,6 +67,17 @@
   }
 }
 
+.search-box-controls {
+  position: absolute;
+  right: 53px;
+  top: 3px;
+  z-index: 6;
+
+  @include media($medium-screen + 20em) {
+    right: 1.1875rem;
+  }
+}
+
 // The submit button
 .search-box input[type="submit"] {
   height: 27px;
@@ -75,27 +86,19 @@
   background-size: 11px auto;
   padding-left: 2em;
   letter-spacing: -0.2px;
-
   float: left;
+
   box-shadow: none;
   border: none;
   border-radius: $base-border-radius;
   -webkit-appearance: none;
   @include transition(opacity .3s ease-in-out);
-  position: absolute;
-  right: 53px;
-  top: 3px;
-  z-index: 6;
 
   &:hover,
   &:focus { background-color: darken($red, 10) !important; }
 
   @include media($medium-screen) {
     height: 34px;
-  }
-
-  @include media($medium-screen + 20em) {
-    right: 1.1875rem;
   }
 
   html.js & {
@@ -116,17 +119,13 @@
   display: none;
 
   @include media($medium-screen + 20em) {
-    display: block;
-    position: absolute;
-    top: 4px;
-    right: 110px;
+    display: inline-block;
+    float: left;
     padding: 0 9px 0 3px;
     height: 34px;
     line-height: 1.4;
     font-size: 1.5em;
     color: darken($light-gray, 15);
-    background: $light-gray;
-    z-index: 6;
 
     &.hide { display: none; }
 
