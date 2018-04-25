@@ -1107,6 +1107,7 @@ $(function() {
   });
   $document.on('click', '.search-box-clear', function() {
     $searchInput.val('');
+    searchSubmit.hide();
     $(this).addClass('hide');
   });
 
