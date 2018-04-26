@@ -4,3 +4,4 @@
 Gemfile.lock
 *.swp
 node_modules
+_site

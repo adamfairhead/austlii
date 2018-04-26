@@ -69,7 +69,7 @@
 // When the search box is visible on small screens, push the primary section up out of the way.
 .search-is-visible #primary {
   
-  @include media(max-width em(960)) {
+  @include media(max-width em(959)) {
     top: -100px;  
   }
 }
