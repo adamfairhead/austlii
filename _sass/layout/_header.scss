@@ -68,7 +68,10 @@
 
 // When the search box is visible on small screens, push the primary section up out of the way.
 .search-is-visible #primary {
-  top: -100px;
+  
+  @include media(max-width em(960)) {
+    top: -100px;  
+  }
 }
 
 // The logo at the top of every page: sizes for different viewports and pages.
