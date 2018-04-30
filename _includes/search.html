@@ -68,13 +68,13 @@ Aviation Law Association library database.
           <ul class="search-dropdown-options">
             <li>
               <label for="database-full">
-                <input type="radio" name="search-text" id="database-full" checked>
+                <input type="radio" name="queryType" value="fullText" id="database-full" checked>
                 Full text
               </label>
             </li>
             <li>
               <label for="database-title">
-                <input type="radio" name="search-text" id="database-title">
+                <input type="radio" name="queryType" value="titlesOnly" id="database-title">
                 Titles only
               </label>
             </li>
@@ -87,13 +87,13 @@ Aviation Law Association library database.
 
       <label for="search-box" class="hide">Search term:</label>
       {% if page.class contains 'home' %} 
-      <input id="search-box" type="text" placeholder="Search all databases" tabindex="9">
+      <input id="search-box" type="text" name="searchText" placeholder="Search all databases" tabindex="9">
       {% elsif page.searchable == true %}
-      <input id="search-box" type="text" placeholder="Search selected databases" tabindex="9">
+      <input id="search-box" type="text" name="searchText" placeholder="Search selected databases" tabindex="9">
       {% elsif page.class contains 'results search' %}
-      <input id="search-box" type="text" placeholder="Search AustLII" value="Test" tabindex="9">
+      <input id="search-box" type="text" name="searchText" placeholder="Search AustLII" value="Test" tabindex="9">
       {% else %}
-      <input id="search-box" type="text" placeholder="Search AustLII" tabindex="9">
+      <input id="search-box" type="text" name="searchText" placeholder="Search AustLII" tabindex="9">
       {% endif %}
       <div class="search-box-controls">
         <a href="javascript:void(0);" class="search-box-clear hide">&times;</a>
