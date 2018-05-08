@@ -391,7 +391,7 @@
   }
 }
 
-.checkbox.checked {
+.checkbox.checked, .checkbox.semi-checked {
   background: $blue;
   border: none;
   
@@ -419,6 +419,25 @@
   .no-js & {
     display: none;
   }
+}
+
+.checkbox.semi-checked:before {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  background: #eee;
+  left: 4px;
+  top: 8px;
+  width: 10px;
+  height: 2px;
+  
+  .no-js & {
+    display: none;
+  }
+}
+
+.no-js .checkbox-group {
+  display: none;
 }
 
 .faux-checkbox { @extend .checkbox; }

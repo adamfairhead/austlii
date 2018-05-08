@@ -94,7 +94,7 @@ panel: none
     </div> -->
 
     <h2 class="card-title card-title-large">
-      <label><input type="checkbox" checked></label> Filter by database
+      <label class="checkbox-group"><input type="checkbox" data-checkbox-group-control="allDatabases" checked></label> Filter by database
     </h2>
 
     <div class="card card-checkboxes" data-items-shown="8">
@@ -102,47 +102,47 @@ panel: none
         <li>
           <div>
             <button class="card-checkboxes-dropdown"></button>
-            <label><input type="checkbox" name="database" checked></label><a href="javascript:void(0);">All AustLII Databases</a>
+            <label class="checkbox-group"><input type="checkbox" name="database" data-checkbox-group="allDatabases" data-checkbox-group-control="group1" checked></label><a href="javascript:void(0);">All AustLII Databases</a>
           </div>
           <ul>
-            <li><label><input type="checkbox" name="database" value="AllSecondaryMaterials" checked></label><a href="javascript:void(0);">All Secondary Materials Databases (includes journals)</a></li>
-            <li><label><input type="checkbox" name="database" value="CommonwealthAllPrimaryMaterials" checked></label><a href="javascript:void(0);">Commonwealth: All Primary Materials</a></li>
-            <li><label><input type="checkbox" name="database" value="CommonwealthAllLegislation" checked></label><a href="javascript:void(0);">Commonwealth: All Legislation</a></li>
-            <li><label><input type="checkbox" name="database" value="CommonwealthAllCases" checked></label><a href="javascript:void(0);">Commonwealth: All Cases</a></li>
-            <li><label><input type="checkbox" name="database" value="CommonwealthBills" checked></label><a href="javascript:void(0);">Commonwealth: Bills</a></li>
-            <li><label><input type="checkbox" name="database" value="CommonwealthBillsExplanatoryMemoranda" checked></label><a href="javascript:void(0);">Commonwealth: Bills Explanatory Memoranda</a></li>
-            <li><label><input type="checkbox" name="database" value="CommonwealthBillsDigests" checked></label><a href="javascript:void(0);">Commonwealth: Bills Digests</a></li>
-            <li><label><input type="checkbox" name="database" value="CommonwealthConsolidatedActs" checked></label><a href="javascript:void(0);">Commonwealth: Consolidated Acts</a></li>
-            <li><label><input type="checkbox" name="database" value="CommonwealthConsolidatedRegulations" checked></label><a href="javascript:void(0);">Commonwealth: Consolidated Regulations</a></li>
-            <li><label><input type="checkbox" name="database" value="CommonwealthLegislationTables" checked></label><a href="javascript:void(0);">Commonwealth: Legislation Tables</a></li>
-            <li><label><input type="checkbox" name="database" value="CommonwealthNumberedActs" checked></label><a href="javascript:void(0);">Commonwealth: Numbered Acts</a></li>
+            <li><label><input type="checkbox" name="database" value="AllSecondaryMaterials" data-checkbox-group="group1" checked></label><a href="javascript:void(0);">All Secondary Materials Databases (includes journals)</a></li>
+            <li><label><input type="checkbox" name="database" value="CommonwealthAllPrimaryMaterials" data-checkbox-group="group1" checked></label><a href="javascript:void(0);">Commonwealth: All Primary Materials</a></li>
+            <li><label><input type="checkbox" name="database" value="CommonwealthAllLegislation" data-checkbox-group="group1" checked></label><a href="javascript:void(0);">Commonwealth: All Legislation</a></li>
+            <li><label><input type="checkbox" name="database" value="CommonwealthAllCases" data-checkbox-group="group1" checked></label><a href="javascript:void(0);">Commonwealth: All Cases</a></li>
+            <li><label><input type="checkbox" name="database" value="CommonwealthBills" data-checkbox-group="group1" checked></label><a href="javascript:void(0);">Commonwealth: Bills</a></li>
+            <li><label><input type="checkbox" name="database" value="CommonwealthBillsExplanatoryMemoranda" data-checkbox-group="group1" checked></label><a href="javascript:void(0);">Commonwealth: Bills Explanatory Memoranda</a></li>
+            <li><label><input type="checkbox" name="database" value="CommonwealthBillsDigests" data-checkbox-group="group1" checked></label><a href="javascript:void(0);">Commonwealth: Bills Digests</a></li>
+            <li><label><input type="checkbox" name="database" value="CommonwealthConsolidatedActs" data-checkbox-group="group1" checked></label><a href="javascript:void(0);">Commonwealth: Consolidated Acts</a></li>
+            <li><label><input type="checkbox" name="database" value="CommonwealthConsolidatedRegulations" data-checkbox-group="group1" checked></label><a href="javascript:void(0);">Commonwealth: Consolidated Regulations</a></li>
+            <li><label><input type="checkbox" name="database" value="CommonwealthLegislationTables" data-checkbox-group="group1" checked></label><a href="javascript:void(0);">Commonwealth: Legislation Tables</a></li>
+            <li><label><input type="checkbox" name="database" value="CommonwealthNumberedActs" data-checkbox-group="group1" checked></label><a href="javascript:void(0);">Commonwealth: Numbered Acts</a></li>
           </ul>
         </li>
-        <li><label><input type="checkbox" name="database" value="AllAustLII" checked></label><a href="javascript:void(0);">All AustLII Databases</a></li>
-        <li><label><input type="checkbox" name="database" value="AllLegislation" checked></label><a href="javascript:void(0);">All Legislation Databases</a></li>
+        <li><label><input type="checkbox" name="database" value="AllAustLII" data-checkbox-group="allDatabases" checked></label><a href="javascript:void(0);">All AustLII Databases</a></li>
+        <li><label><input type="checkbox" name="database" value="AllLegislation" data-checkbox-group="allDatabases" checked></label><a href="javascript:void(0);">All Legislation Databases</a></li>
         <li>
           <div>
             <button class="card-checkboxes-dropdown"></button>
-            <label><input type="checkbox" name="database" value="AllCaseLaw" checked></label><a href="javascript:void(0);">All Case Law Databases</a>
+            <label class="checkbox-group"><input type="checkbox" name="database" value="AllCaseLaw" data-checkbox-group="allDatabases" data-checkbox-group-control="group2" checked></label><a href="javascript:void(0);">All Case Law Databases</a>
           </div>
           <ul>
-            <li><label><input type="checkbox" name="database" value="CommonwealthBills" checked></label><a href="javascript:void(0);">Commonwealth: Bills</a></li>
-            <li><label><input type="checkbox" name="database" value="CommonwealthBillsExplanatoryMemoranda" checked></label><a href="javascript:void(0);">Commonwealth: Bills Explanatory Memoranda</a></li>
-            <li><label><input type="checkbox" name="database" value="CommonwealthBillsDigests" checked></label><a href="javascript:void(0);">Commonwealth: Bills Digests</a></li>
-            <li><label><input type="checkbox" name="database" value="CommonwealthConsolidatedActs" checked></label><a href="javascript:void(0);">Commonwealth: Consolidated Acts</a></li>
-            <li><label><input type="checkbox" name="database" value="CommonwealthConsolidatedRegulations" checked></label><a href="javascript:void(0);">Commonwealth: Consolidated Regulations</a></li>
-            <li><label><input type="checkbox" name="database" value="CommonwealthLegislationTables" checked></label><a href="javascript:void(0);">Commonwealth: Legislation Tables</a></li>
-            <li><label><input type="checkbox" name="database" value="CommonwealthNumberedActs" checked></label><a href="javascript:void(0);">Commonwealth: Numbered Acts</a></li>
-            <li><label><input type="checkbox" name="database" value="CommonwealthNumberedRegulations" checked></label><a href="javascript:void(0);">Commonwealth: Numbered Regulations</a></li>
-            <li><label><input type="checkbox" name="database" value="CommonwealthNumberedRegulationsExplanatoryStatements" checked></label><a href="javascript:void(0);">Commonwealth: Numbered Regulations Explanatory Statements</a></li>
+            <li><label><input type="checkbox" name="database" value="CommonwealthBills" data-checkbox-group="group2" checked></label><a href="javascript:void(0);">Commonwealth: Bills</a></li>
+            <li><label><input type="checkbox" name="database" value="CommonwealthBillsExplanatoryMemoranda" data-checkbox-group="group2" checked></label><a href="javascript:void(0);">Commonwealth: Bills Explanatory Memoranda</a></li>
+            <li><label><input type="checkbox" name="database" value="CommonwealthBillsDigests" data-checkbox-group="group2" checked></label><a href="javascript:void(0);">Commonwealth: Bills Digests</a></li>
+            <li><label><input type="checkbox" name="database" value="CommonwealthConsolidatedActs" data-checkbox-group="group2" checked></label><a href="javascript:void(0);">Commonwealth: Consolidated Acts</a></li>
+            <li><label><input type="checkbox" name="database" value="CommonwealthConsolidatedRegulations" data-checkbox-group="group2" checked></label><a href="javascript:void(0);">Commonwealth: Consolidated Regulations</a></li>
+            <li><label><input type="checkbox" name="database" value="CommonwealthLegislationTables" data-checkbox-group="group2" checked></label><a href="javascript:void(0);">Commonwealth: Legislation Tables</a></li>
+            <li><label><input type="checkbox" name="database" value="CommonwealthNumberedActs" data-checkbox-group="group2" checked></label><a href="javascript:void(0);">Commonwealth: Numbered Acts</a></li>
+            <li><label><input type="checkbox" name="database" value="CommonwealthNumberedRegulations" data-checkbox-group="group2" checked></label><a href="javascript:void(0);">Commonwealth: Numbered Regulations</a></li>
+            <li><label><input type="checkbox" name="database" value="CommonwealthNumberedRegulationsExplanatoryStatements" data-checkbox-group="group2" checked></label><a href="javascript:void(0);">Commonwealth: Numbered Regulations Explanatory Statements</a></li>
           </ul>
         </li>
-        <li><label><input type="checkbox" name="database" value="AllJournals" checked></label><a href="javascript:void(0);">All Journals Databases</a></li>
-        <li><label><input type="checkbox" name="database" value="CommonwealthNumberedRegulations" checked></label><a href="javascript:void(0);">Commonwealth: Numbered Regulations</a></li>
-        <li><label><input type="checkbox" name="database" value="CommonwealthNumberedRegulationsExplanatoryStatements" checked></label><a href="javascript:void(0);">Commonwealth: Numbered Regulations Explanatory Statements</a></li>
-        <li><label><input type="checkbox" name="database" value="CommonwealthAllPrimaryMaterials" checked></label><a href="javascript:void(0);">Commonwealth: All Primary Materials</a></li>
-        <li><label><input type="checkbox" name="database" value="CommonwealthAllLegislation" checked></label><a href="javascript:void(0);">Commonwealth: All Legislation</a></li>
-        <li><label><input type="checkbox" name="database" value="CommonwealthAllCases" checked></label><a href="javascript:void(0);">Commonwealth: All Cases</a></li>
+        <li><label><input type="checkbox" name="database" value="AllJournals" data-checkbox-group="allDatabases" checked></label><a href="javascript:void(0);">All Journals Databases</a></li>
+        <li><label><input type="checkbox" name="database" value="CommonwealthNumberedRegulations" data-checkbox-group="allDatabases" checked></label><a href="javascript:void(0);">Commonwealth: Numbered Regulations</a></li>
+        <li><label><input type="checkbox" name="database" value="CommonwealthNumberedRegulationsExplanatoryStatements" data-checkbox-group="allDatabases" checked></label><a href="javascript:void(0);">Commonwealth: Numbered Regulations Explanatory Statements</a></li>
+        <li><label><input type="checkbox" name="database" value="CommonwealthAllPrimaryMaterials" data-checkbox-group="allDatabases" checked></label><a href="javascript:void(0);">Commonwealth: All Primary Materials</a></li>
+        <li><label><input type="checkbox" name="database" value="CommonwealthAllLegislation" data-checkbox-group="allDatabases" checked></label><a href="javascript:void(0);">Commonwealth: All Legislation</a></li>
+        <li><label><input type="checkbox" name="database" value="CommonwealthAllCases" data-checkbox-group="allDatabases" checked></label><a href="javascript:void(0);">Commonwealth: All Cases</a></li>
       </ul>
     </div>
   </div>

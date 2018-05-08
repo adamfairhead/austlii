@@ -1231,7 +1231,21 @@ $(function () {
       }
     }
   };
-  var setCheckbox = function (checkbox, value, forceTrigger) {
+  var getAllCheckboxGroupElements = function (groups) {
+    var $array = $([]);
+    groups.split(' ').forEach(function (group) {
+      $array = $array.add($('input[type="checkbox"][data-checkbox-group~="'+ group +'"]').parent());
+    });
+    return $array;
+  };
+  var getArrayCheckboxGroupElements = function (groups) {
+    var groupsObj = {};
+    groups.split(' ').forEach(function (group) {
+      groupsObj[group] = $('input[type="checkbox"][data-checkbox-group~="'+ group +'"]').parent();
+    });
+    return groupsObj;
+  };
+  var setCheckbox = function ($checkbox, value, forceTrigger) {
     if (value == null) {
       value = true;
     }
@@ -1243,17 +1257,47 @@ $(function () {
     var input;
 
     if (value) {
-      input = checkbox.find('input:not(:checked)');
+      $input = $checkbox.find('input:not(:checked)');
     } else {
-      input = checkbox.find('input:checked');
+      $input = $checkbox.find('input:checked');
     }
 
     if (forceTrigger) {
-      checkbox.find('input').trigger('change');
+      $checkbox.find('input').trigger('change');
     } else {
-      input.prop('checked', value).trigger('change');
+      $input.prop('checked', value).trigger('change');
     }
   }
+  var updateCheckboxGroupControls = function ($checkbox) {
+    $checkbox.each(function () {
+      var $this = $(this);
+      var groupsString = $this.data('checkbox-group');
+      if (groupsString) {
+        var groups = getArrayCheckboxGroupElements(groupsString);
+
+        Object.keys(groups).forEach(function (group) {
+          var $checked = groups[group].find('input:checked');
+          var $semiChecked = groups[group].filter('.semi-checked');
+          var $groupControlsInput = $('input[type="checkbox"][data-checkbox-group-control~="'+ group +'"]');
+          var $groupControls = $groupControlsInput.parent();
+          if ($checked.length > 0 || $semiChecked.length > 0) {
+            if (groups[group].length !== $checked.length) {
+              $groupControls.addClass('semi-checked').removeClass('checked');
+              setCheckbox($groupControls, false);
+            } else {
+              $groupControls.removeClass('semi-checked');
+              setCheckbox($groupControls, true);
+            }
+          } else {
+            $groupControls.removeClass('semi-checked');
+            setCheckbox($groupControls, false);
+          }
+
+          updateCheckboxGroupControls($groupControlsInput);
+        });
+      }
+    });
+  };
   
   if(sortItemElement.length === 0 && window.location.hash) {
     var scrollTo = window.location.hash;
@@ -1396,12 +1440,46 @@ $(function () {
   var checkbox = $('input[type="checkbox"]');
   checkbox.parent().addClass('checkbox');
   checkbox.filter(':checked').parent().addClass('checked');
-  checkbox.change(function () {
+  checkbox.change(function (e) {
     var $this = $(this);
+    var $parent = $this.parent();
+
+    updateCheckboxGroupControls($this);
+
     if (this.checked) {
-      $this.parent().addClass('checked');
+      if ($parent.hasClass('checkbox-group')) {
+        if ($parent.hasClass('semi-checked')) {
+          function deselect($this) {
+            var $toUpdate = getAllCheckboxGroupElements($this.data('checkbox-group-control'));
+            setCheckbox($toUpdate, false);
+            $parent.removeClass('semi-checked');
+            this.checked = false;
+            
+            $toUpdate.filter('.semi-checked').find('input').each(function () {
+              deselect($(this));
+            });
+          }
+
+          deselect($this);
+        } else {
+          var $toUpdate = getAllCheckboxGroupElements($this.data('checkbox-group-control'));
+          setCheckbox($toUpdate);
+          $parent.addClass('checked');
+        }
+      } else {
+        $parent.addClass('checked');
+      }
     } else {
-      $this.parent().removeClass('checked');
+      if ($parent.hasClass('semi-checked')) {
+        e.preventDefault();
+        return;
+      }
+
+      if ($parent.hasClass('checkbox-group')) {
+        var $toUpdate = getAllCheckboxGroupElements($this.data('checkbox-group-control'));
+        setCheckbox($toUpdate, false);
+      }
+      $parent.removeClass('checked');
     }
   });
 
