@@ -1481,6 +1481,102 @@ $(function () {
     return false;
   });
 
+  var $expandedLists = [];
+  var $window = $(window);
+  var $htmlAndBody = $('html, body');
+
+  var cardCheckboxesDropdown = {
+    open: function ($el) {
+      var $list = $el.parent().nextAll('ul');
+      $list.addClass('is-active');
+      $list.stop().animate({ maxHeight: $list.outerHeight() + $list[0].scrollHeight },
+        200, cardCheckboxesDropdown.updateFixedPosition);
+      $expandedLists.push({
+        $el: $el.parent(),
+        $parent: $el.parent().parent(),
+        isFixed: false,
+      });
+    },
+    close: function ($el) {
+      var $list = $el.parent().nextAll('ul');
+      var $parent = $el.parent();
+
+      function narrow() {
+        $list.removeClass('is-active');
+        $list.stop().animate({ maxHeight: 0 }, 200);
+        $parent.removeClass('is-shadowed');
+        $expandedLists = $expandedLists.filter(function (item) {
+          return !item.$el.is($parent);
+        });
+      }
+
+      var inStore = $expandedLists.find(function (item) { return item.$el.is($parent); });
+      if (inStore && inStore.isFixed) {
+        $htmlAndBody.animate({
+          scrollTop: inStore.$parent.offset().top - 10
+        }, 400, narrow);
+      } else {
+        narrow();
+      }
+    },
+    updateFixedPosition: function (fullUpdate) {
+      $expandedLists.forEach(function (item) {
+        var offset = item.$parent.offset();
+        if ($window.scrollTop() >= offset.top) {
+          if (item.isFixed && !fullUpdate) {
+            var position = Math.min(0, item.$parent[0].getBoundingClientRect().bottom - item.$el.outerHeight() - 1);
+            item.$el.css('top', position);
+            if (position < 0) {
+              item.$el.removeClass('is-shadowed');
+            } else {
+              item.$el.addClass('is-shadowed');
+            }
+            return;
+          }
+  
+          item.$el.css({
+            width: item.$parent.outerWidth(),
+            left: offset.left,
+            top: Math.min(0, item.$parent[0].getBoundingClientRect().bottom - item.$el.outerHeight() - 1)
+          });
+          item.$el.addClass('is-fixed is-shadowed');
+          item.$parent.css('padding-top', item.$el.outerHeight());
+          item.isFixed = true;
+        } else if (item.isFixed) {
+          item.$el.css({
+            width: '',
+            left: '',
+            top: ''
+          });
+          item.$el.removeClass('is-fixed');
+          item.$parent.css('padding-top', '');
+          item.isFixed = false;
+        }
+      });
+    }
+  };
+
+  $('.card-checkboxes-dropdown').click(function (e) {
+    e.preventDefault();
+
+    var $this = $(this);
+    var $list = $this.parent().nextAll('ul');
+    $this.toggleClass('is-active');
+
+    if ($this.hasClass('is-active')) {
+      cardCheckboxesDropdown.open($this);
+    } else {
+      cardCheckboxesDropdown.close($this);
+    }
+  });
+
+  $window.scroll(function () {
+    cardCheckboxesDropdown.updateFixedPosition();
+  });
+  $window.resize(function () {
+    cardCheckboxesDropdown.updateFixedPosition(true);
+  });
+
   // Card Options: Toggle (for 'select all' / 'select none')
   switchAll.on('click', function () {
     var $this = $(this);

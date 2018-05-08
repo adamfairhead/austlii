@@ -34,32 +34,92 @@
   border-top: $base-border;
   border-bottom: $base-border;
 
-  // For when cards have checkboxes in the rows
-  &.card-checkboxes a { padding: .5em 1em .5em 3.5em; }
-      
-  &.card-checkboxes .content-inline a {
-    display: inline-block;
-  }
-      
-  &.card-checkboxes .content-inline {
+  &.card-checkboxes {
+
+    // For when cards have checkboxes in the rows
+    a { padding: .5em 1em .5em 3.5em; }
+
+    .content-inline a {
+      display: inline-block;
+    }
+
+    .content-inline {
     
+      li {
+        padding: .4em 1em .4em 3.5em;
+        position: relative;
+      }
+      
+      .checkbox {
+        position: absolute;
+        left: 1em;
+        top: .55em;
+        margin: 0;
+      }
+      
+      a {
+        display: inline;
+        padding: 0;
+      }
+    }
+
     li {
-      padding: .4em 1em .4em 3.5em;
       position: relative;
+
+      > div {
+        position: relative;
+
+        &.is-fixed {
+          position: fixed;
+          top: 0;
+          z-index: 1;
+        }
+
+        &.is-shadowed {
+          box-shadow: 0 5px 3px -3px rgba(0, 0, 0, 0.2);
+        }
+      }
+
+      > ul {
+        max-height: 0px;
+        overflow: hidden;
+        position: relative;
+
+        li:first-child {
+          border-top: 1px solid #e5eff4;
+        }
+
+        > li {
+          padding-left: 8px;
+          @include transform(translateY(-50%));
+          @include transition(transform .2s ease-in-out);
+        }
+
+        &::after {
+          content: '';
+          display: inline-block;
+          width: 8px;
+          background: #E8E8E8;
+          @include transform(translateX(-100%));
+          @include transition(transform .2s ease-in-out);
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          left: 0;
+        }
+
+        &.is-active {
+          &::after {
+            @include transform(translateX(0%));
+          }
+
+          > li {
+            @include transform(translateY(0%));
+          }
+        }
+      }
     }
-    
-    .checkbox {
-      position: absolute;
-      left: 1em;
-      top: .55em;
-      margin: 0;
-    }
-    
-    a {
-      display: inline;
-      padding: 0;
-    }
-  } 
+  }
 
   // Give sides etc. when larger
   @include media($medium-screen) {
@@ -176,12 +236,24 @@
     a { padding: 0; }
   }
 
+  li {
+    border-bottom: 1px solid #e5eff4;
+  }
+
   // Odd/Even row styles
+  li:nth-child(2n - 1),
+  .multi:nth-child(2n - 1) {
+    &, & > div {
+      background: white;
+    }
+  }
+
   li:nth-child(2n),
   .multi:nth-child(2n) {
-    background: #f7fbfd;
-    border-top: 1px solid #e5eff4;
-    border-bottom: 1px solid #e5eff4;
+
+    &, & > div {
+      background: #f7fbfd;
+    }
   }
 
   li:last-child,
@@ -197,6 +269,53 @@
   .checkbox {
     margin: 0.55em .5em 0 1em;
     float: left;
+  }
+}
+
+.card-checkboxes-dropdown {
+  width: 2rem;
+  height: 2rem;
+  background-color: transparent;
+  border-radius: 0;
+  padding: 0;
+  border: none;
+  position: absolute;
+  top: 2px;
+  right: 4px;
+
+  &::after {
+    content: '';
+    display: inline-block;
+    padding: 0;
+    width: 0.5rem;
+    height: 0.5rem;
+    border-top: 1px solid #E1E2E0;
+    border-right: 1px solid #E1E2E0;
+    @include transform-origin(5px 3px);
+    @include transform(translate(-50%, -30%) rotate(135deg));
+    @include transition(transform .2s ease-in-out, border-top-color .2s ease-in-out, border-right-color .2s ease-in-out);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+  }
+
+  &:hover {
+    background-color: transparent;
+
+    &::after {
+      border-top-color: #D9DEDF;
+      border-right-color: #D9DEDF;
+    }
+  }
+
+  &:focus {
+    background-color: transparent;
+  }
+
+  &.is-active {
+    &::after {
+      @include transform(translate(-50%, -30%) rotate(315deg));
+    }
   }
 }
 
