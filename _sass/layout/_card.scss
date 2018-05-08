@@ -63,8 +63,21 @@
       }
     }
 
+    > ul {
+      .no-js & {
+        max-height: 19.5rem;
+        overflow: auto;
+      }
+    }
+
     li {
       position: relative;
+
+      > label {
+        .no-js & {
+          margin-bottom: 0;
+        }
+      }
 
       > div {
         position: relative;
@@ -85,6 +98,10 @@
         overflow: hidden;
         position: relative;
 
+        .no-js & {
+          max-height: none;
+        }
+
         li:first-child {
           border-top: 1px solid #e5eff4;
         }
@@ -93,6 +110,10 @@
           padding-left: 8px;
           @include transform(translateY(-50%));
           @include transition(transform .2s ease-in-out);
+          
+          .no-js & {
+            @include transform(translateY(0));
+          }
         }
 
         &::after {
@@ -316,6 +337,10 @@
     &::after {
       @include transform(translate(-50%, -30%) rotate(315deg));
     }
+  }
+
+  .no-js & {
+    display: none;
   }
 }
 
