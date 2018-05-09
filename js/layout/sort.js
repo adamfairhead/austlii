@@ -377,6 +377,16 @@ $(function () {
     }
   }
 
+  cardCheckboxes.find('.checkbox + a').click(function () {
+    var $prev = $(this).prev();
+
+    if ($prev.hasClass('checkbox-group')) {
+      $prev.prev().click();
+    } else {
+      $prev.find('input').click();
+    }
+  });
+
   // Set shown items number for Adv. Search
   cardCheckboxes.filter('.is-collapsed').each(function () {
     listCollapse.setHeight();
