@@ -300,6 +300,10 @@ $(function () {
       }
       $parent.removeClass('checked');
     }
+
+    if (this.value !== 'on') {
+      setCheckbox($this.parents('form').find('input[type="checkbox"][name="'+ this.name +'"][value="'+ this.value +'"]').parent(), this.checked);
+    }
   });
 
   checkbox.parent().filter('.checkbox-group').each(function () {
