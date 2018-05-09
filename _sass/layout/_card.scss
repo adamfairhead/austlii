@@ -310,8 +310,8 @@
     padding: 0;
     width: 0.5rem;
     height: 0.5rem;
-    border-top: 1px solid #E1E2E0;
-    border-right: 1px solid #E1E2E0;
+    border-top: 1px solid #C3C3C3;
+    border-right: 1px solid #C3C3C3;
     @include transform-origin(5px 3px);
     @include transform(translate(-50%, -30%) rotate(135deg));
     @include transition(transform .2s ease-in-out, border-top-color .2s ease-in-out, border-right-color .2s ease-in-out);
@@ -322,11 +322,6 @@
 
   &:hover {
     background-color: transparent;
-
-    &::after {
-      border-top-color: #D9DEDF;
-      border-right-color: #D9DEDF;
-    }
   }
 
   &:focus {
