@@ -1483,6 +1483,23 @@ $(function () {
     }
   });
 
+  checkbox.parent().filter('.checkbox-group').each(function () {
+    var $checkbox = $(this);
+    var checked = $checkbox.find('input').prop('checked');
+    var semiChecked = $checkbox.hasClass('semi-checked');
+
+    $checkbox.parents('form').on('reset', function () {
+      console.log(checked, semiChecked);
+      if (checked) {
+        $checkbox.removeClass('semi-checked').addClass('checked');
+      } else if (semiChecked) {
+        $checkbox.removeClass('checked').addClass('semi-checked');
+      } else {
+        $checkbox.removeClass('checked semi-checked');
+      }
+    });
+  });
+
   $(document).on('change', '.card-title input', function (e) {
     var $this = $(this);
     var parent = $this.closest('.all-section');
