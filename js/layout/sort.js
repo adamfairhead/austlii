@@ -256,6 +256,9 @@ $(function () {
   var checkbox = $('input[type="checkbox"]');
   checkbox.parent().addClass('checkbox');
   checkbox.filter(':checked').parent().addClass('checked');
+  
+  updateCheckboxGroupControls(checkbox);
+
   checkbox.change(function (e) {
     var $this = $(this);
     var $parent = $this.parent();

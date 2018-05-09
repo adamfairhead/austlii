@@ -1440,6 +1440,9 @@ $(function () {
   var checkbox = $('input[type="checkbox"]');
   checkbox.parent().addClass('checkbox');
   checkbox.filter(':checked').parent().addClass('checked');
+  
+  updateCheckboxGroupControls(checkbox);
+
   checkbox.change(function (e) {
     var $this = $(this);
     var $parent = $this.parent();
@@ -1489,7 +1492,6 @@ $(function () {
     var semiChecked = $checkbox.hasClass('semi-checked');
 
     $checkbox.parents('form').on('reset', function () {
-      console.log(checked, semiChecked);
       if (checked) {
         $checkbox.removeClass('semi-checked').addClass('checked');
       } else if (semiChecked) {
