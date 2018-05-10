@@ -68,8 +68,11 @@ $(document).ready(function () {
   });
 
   $('.form-remove-query-duplicates').on('submit', function (e) {
-    e.preventDefault();
     var $this = $(this);
+    if ($this.attr('method') != null && $this.attr('method').toLowerCase !== 'get') {
+      return;
+    }
+    e.preventDefault();
 
     var queryString = $this.serialize();
     queryString = $.unique(queryString.split('&')).join('&');
