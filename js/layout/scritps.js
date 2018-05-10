@@ -66,5 +66,14 @@ $(document).ready(function () {
     $('#page-tertiary').css('top', '-2px');
     localStorage.setItem('announcement', 'hide');
   });
-  
+
+  $('.form-remove-query-duplicates').on('submit', function (e) {
+    e.preventDefault();
+    var $this = $(this);
+
+    var queryString = $this.serialize();
+    queryString = $.unique(queryString.split('&')).join('&');
+
+    window.location.href = $this.prop('action') + '?' + queryString;
+  });
 });
