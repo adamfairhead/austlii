@@ -66,5 +66,17 @@ $(document).ready(function () {
     $('#page-tertiary').css('top', '-2px');
     localStorage.setItem('announcement', 'hide');
   });
-  
+
+  $('.form-remove-query-duplicates').on('submit', function (e) {
+    var $this = $(this);
+    if ($this.attr('method') != null && $this.attr('method').toLowerCase !== 'get') {
+      return;
+    }
+    e.preventDefault();
+
+    var queryString = $this.serialize();
+    queryString = $.unique(queryString.split('&')).join('&');
+
+    window.location.href = $this.prop('action') + '?' + queryString;
+  });
 });
