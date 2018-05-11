@@ -1302,7 +1302,6 @@ $(function() {
     },
   };
   searchDropdown.setSearchTextDebounced = $.debounce(250, searchDropdown.setSearchText)
-  searchDropdown.show();
   searchDropdown.$el.on('transitionend webkitTransitionEnd oTransitionEnd', function () {
     if (!searchDropdown.isActive) {
       searchDropdown.$el.addClass('is-hidden');
