@@ -33,6 +33,17 @@ Aviation Law Association library database.
                 All databases
               </label>
             </li>
+            {% if page.class contains 'home' %}
+              <li>
+                <span>
+                  Search <strong>My search history</strong> in all databases in 2018
+                </span>
+                <label for="database-selected">
+                  <input type="radio" name="search-filter" id="database-all-year">
+                  All databases in 2018
+                </label>
+              </li>
+            {% endif %}
             {% if page.searchable == true %}
               <li>
                 <span>
