@@ -1251,28 +1251,98 @@ $(function() {
   };
   var searchDropdown = {
     $el: $('#search-dropdown'),
+    $suggestionsList: $('#search-dropdown-suggestions'),
     $databasesOptions: $('#search-dropdown-databases').find('li'),
-    $databasesOptionsSearchText: $('#search-dropdown-databases').find('li span strong'),
     isActive: false,
     delayedHideTimeoutId: null,
-    fitSearchText: function () {
-      this.$databasesOptions.find('span').each(function () {
-        var $this = $(this);
+    currentSearchText: '',
+    currentFetchRequest: null,
+    lastSearchData: {},
+    init: function () {
+      var self = this;
+      this.setSearchTextDebounced = $.debounce(250, this.setSearchText);
+      this.fitContentDebounced = $.debounce(150, this.fitContent);
+      $(window).on('resize', this.fitContentDebounced.bind(this));
+      $searchInput.attr('autocomplete', 'off');
+      this.$el.on('transitionend webkitTransitionEnd oTransitionEnd', function () {
+        if (!self.isActive) {
+          self.$el.addClass('is-hidden');
+        }
+      });
+      this.$el.on('click', 'label', function () {
+        $searchInput.focus();
+      });
 
-        if ($this.outerHeight() > 40) {
-          var $text = $this.find('strong');
-          var text = $text.text().slice(0, 140) + '...';
+      this.$suggestionsList.on('click', 'a', function (e) {
+        e.preventDefault();
+
+        self.setSearchText(self.lastSearchData.suggestions[$(this).attr('data-index')]);
+      });
+    },
+    fitTextRow: function ($container, $child, text, isReversed) {
+      if (isReversed == null) {
+        isReversed = false;
+      }
+
+      $container.each(function (index) {
+        var $this = $(this);
+        var $target;
+        var currentText;
+        if ($child) {
+          $target = $child.eq(index);
+        } else {
+          $target = $this;
+        }
+        if (text instanceof Array) {
+          currentText = text[index];
+        } else {
+          currentText = text;
+        }
+
+        $target.text('.');
+        var height = $this.height();
+
+        $target.text(currentText);
+
+        if ($this.height() > height) {
+          var cuttedText;
+          if (!isReversed) {
+            cuttedText = currentText.slice(0, 140) + '...';
+          } else {
+            cuttedText = '...' + currentText.slice(-140, currentText.length);
+          }
 
           do {
-            text = text.slice(0, text.length - 4) + text.slice(text.length - 3, text.length);
-            $text.text(text);
-          } while ($this.outerHeight() > 40);
+            if (!isReversed) {
+              cuttedText = cuttedText.slice(0, cuttedText.length - 4) + '...';
+            } else {
+              cuttedText = '...' + cuttedText.slice(4, cuttedText.length);
+            }
+
+            $target.text(cuttedText);
+          } while ($this.height() > height);
         }
       });
     },
-    setSearchText: function (text) {
-      this.$databasesOptionsSearchText.text(text);
-      this.fitSearchText();
+    fitSuggestions: function () {
+      var $suggestionsItems = this.$suggestionsList.find('li');
+      this.fitTextRow($suggestionsItems, $suggestionsItems.find('a'), this.lastSearchData.suggestions, true);
+    },
+    fitContent: function () {
+      var text = $searchInput.val();
+      this.fitTextRow(this.$databasesOptions, this.$databasesOptions.find('span strong'), text);
+      this.fitSuggestions();
+    },
+    setSearchText: function (text, updateInput) {
+      if (updateInput == null) {
+        updateInput = true;
+      }
+
+      if (updateInput) {
+        $searchInput.val(text).focus();
+      }
+      this.fitContent();
+      this.fetchSearchData(text);
     },
     redraw: function () {
       this.$el[0].offsetHeight;
@@ -1282,8 +1352,8 @@ $(function() {
       if (this.isActive) {
         return;
       }
-      this.setSearchText($searchInput.val());
       this.isActive = true;
+      this.setSearchText($searchInput.val());
       this.$el.removeClass('is-hidden');
       this.redraw();
       this.$el.addClass('is-active');
@@ -1300,16 +1370,35 @@ $(function() {
       clearTimeout(this.delayedHideTimeoutId);
       this.delayedHideTimeoutId = setTimeout(this.hide.bind(this), 200);
     },
+    setSuggestions: function (items) {
+      var self = this;
+      this.$suggestionsList.html('');
+
+      items.forEach(function (item, index) {
+        var $newSuggestion = $('<li/>').append(
+          $('<a/>').text(item).attr('href', 'javascript:void(0);').attr('data-index', index)
+        );
+        self.$suggestionsList.append($newSuggestion);
+      });
+
+      this.fitSuggestions();
+    },
+    fetchSearchData: function (searchText) {
+      var self = this;
+      if (this.currentFetchRequest && this.currentFetchRequest.readyState !== 4) {
+        this.currentFetchRequest.abort();
+      }
+      this.currentFetchRequest = $.ajax({
+        url: '/endpoints/search-dropdown/' + searchText + '.json',
+      }).done(function (data) {
+        self.lastSearchData = data;
+        self.setSuggestions(data.suggestions);
+      }).fail(function () {
+        self.setSuggestions([]);
+      });
+    },
   };
-  searchDropdown.setSearchTextDebounced = $.debounce(250, searchDropdown.setSearchText)
-  searchDropdown.$el.on('transitionend webkitTransitionEnd oTransitionEnd', function () {
-    if (!searchDropdown.isActive) {
-      searchDropdown.$el.addClass('is-hidden');
-    }
-  });
-  searchDropdown.$el.on('click', 'label', function () {
-    $searchInput.focus();
-  });
+  searchDropdown.init();
 
   var searchSubmit = {
     $el: $searchBox.find('input[type="submit"]'),
@@ -1362,7 +1451,7 @@ $(function() {
     $searchBox.addClass('focus');
     if($searchInput.val().length !== 0) {
       searchDropdown.show();
-      searchDropdown.setSearchText($searchInput.val());
+      searchDropdown.setSearchText($searchInput.val(), false);
     }
   });
   $document.on('focusout', '#search-box', function() {
@@ -1385,7 +1474,7 @@ $(function() {
     } else {
       $('.search-box-clear').removeClass('hide');
       searchDropdown.show();
-      searchDropdown.setSearchTextDebounced($searchInput.val());
+      searchDropdown.setSearchTextDebounced($searchInput.val(), false);
       searchSubmit.show();
     };
   });

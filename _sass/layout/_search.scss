@@ -152,6 +152,7 @@
     background-color: #ffffff;
     border: solid 1px #ebebeb;
     font-size: 0.8125rem;
+    padding-top: 2px;
     opacity: 0;
     @include transform(translateY(-10px));
     @include transition(opacity .3s ease-in-out, transform .3s ease-in-out);
@@ -190,6 +191,33 @@
 
     @include media(max-width $medium-screen + 20em) {
       display: none;
+    }
+  }
+}
+
+.search-dropdown-suggestions {
+  li {
+    display: inline-block;
+    width: 100%;
+
+    a {
+      display: inline-block;
+      width: 100%;
+      font-weight: 600;
+      color: #333;
+      padding: 3px 10px;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    &:first-child {
+      padding-top: 3px;
+    }
+
+    &:last-child {
+      padding-bottom: 3px;
     }
   }
 }
