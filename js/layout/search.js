@@ -33,11 +33,28 @@ $(function() {
   };
   var searchDropdown = {
     $el: $('#search-dropdown'),
-    $databasesText: $('#search-dropdown-databases').find('li span strong'),
+    $databasesOptions: $('#search-dropdown-databases').find('li'),
+    $databasesOptionsSearchText: $('#search-dropdown-databases').find('li span strong'),
     isActive: false,
     delayedHideTimeoutId: null,
+    fitSearchText: function () {
+      this.$databasesOptions.find('span').each(function () {
+        var $this = $(this);
+
+        if ($this.outerHeight() > 40) {
+          var $text = $this.find('strong');
+          var text = $text.text().slice(0, 140) + '...';
+
+          do {
+            text = text.slice(0, text.length - 4) + text.slice(text.length - 3, text.length);
+            $text.text(text);
+          } while ($this.outerHeight() > 40);
+        }
+      });
+    },
     setSearchText: function (text) {
-      this.$databasesText.text(text);
+      this.$databasesOptionsSearchText.text(text);
+      this.fitSearchText();
     },
     redraw: function () {
       this.$el[0].offsetHeight;
@@ -47,6 +64,7 @@ $(function() {
       if (this.isActive) {
         return;
       }
+      this.setSearchText($searchInput.val());
       this.isActive = true;
       this.$el.removeClass('is-hidden');
       this.redraw();
@@ -65,6 +83,7 @@ $(function() {
       this.delayedHideTimeoutId = setTimeout(this.hide.bind(this), 200);
     },
   };
+  searchDropdown.setSearchTextDebounced = $.debounce(250, searchDropdown.setSearchText)
   searchDropdown.$el.on('transitionend webkitTransitionEnd oTransitionEnd', function () {
     if (!searchDropdown.isActive) {
       searchDropdown.$el.addClass('is-hidden');
@@ -148,7 +167,7 @@ $(function() {
     } else {
       $('.search-box-clear').removeClass('hide');
       searchDropdown.show();
-      searchDropdown.setSearchText($searchInput.val());
+      searchDropdown.setSearchTextDebounced($searchInput.val());
       searchSubmit.show();
     };
   });
