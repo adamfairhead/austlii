@@ -72,6 +72,7 @@
   right: 53px;
   top: 3px;
   z-index: 6;
+  pointer-events: none;
 
   @include media($medium-screen + 20em) {
     right: 1.1875rem;
@@ -82,9 +83,10 @@
 .search-box input[type="submit"] {
   height: 27px;
   font-size: 0.8125rem;
-  background: $red url('../images/search-2.svg') 1em center no-repeat;
+  background: $red url('../images/search-2.svg') 0.8rem center no-repeat;
   background-size: 11px 11px;
-  padding-left: 2.2em;
+  padding: 0.6rem;
+  padding-left: 1.8rem;
   letter-spacing: -0.2px;
   float: left;
 
@@ -92,7 +94,6 @@
   border: none;
   border-radius: $base-border-radius;
   -webkit-appearance: none;
-  @include transition(opacity .3s ease-in-out);
 
   &:hover,
   &:focus { background-color: darken($red, 10) !important; }
@@ -102,14 +103,21 @@
   }
 
   html.js & {
-    opacity: 0;
+    pointer-events: none;
+    overflow: hidden;
+    width: 40px;
+    color: rgba(255, 255, 255, 0);
+    background: rgba($red, 0) url('../images/search.svg') 0.8rem center no-repeat;
+    background-size: 11px 11px;
+    @include transition(background-color .3s .2s ease-out, color .2s ease-out);
     
-    &.is-hidden {
-      display: none;
-    }
-
     &.is-active {
-      opacity: 1;
+      width: auto;
+      pointer-events: initial;
+      background-color: rgba($red, 1);
+      background-image: url('../images/search-2.svg');
+      color: rgba(255, 255, 255, 1);
+      @include transition(background-color .3s ease-in-out, color .2s .3s ease-out);
     }
   }
 }
@@ -117,6 +125,7 @@
 // Clear search button
 .search-box-clear {
   display: none;
+  pointer-events: initial;
 
   @include media($medium-screen + 20em) {
     display: inline-block;

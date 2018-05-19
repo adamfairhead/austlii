@@ -1410,24 +1410,31 @@ $(function() {
       if (this.isActive) {
         return;
       }
+      var self = this;
       this.isActive = true;
-      this.$el.removeClass('is-hidden');
-      this.redraw();
-      this.$el.addClass('is-active');
+      this.$el
+        .stop().animate({
+          width: this.$el[0].scrollWidth
+        }, 300, function () {
+          self.$el.css('width', '');
+        })
+        .addClass('is-active');
     },
     hide: function () {
       if (!this.isActive) {
         return;
       }
+      var self = this;
       this.isActive = false;
-      this.$el.removeClass('is-active');
+      this.$el
+        .stop().animate({
+          width: 40
+        }, 300, function () {
+          self.$el.css('width', '');
+        })
+        .removeClass('is-active');
     },
   };
-  searchSubmit.$el.on('transitionend webkitTransitionEnd oTransitionEnd', function () {
-    if (!searchSubmit.isActive) {
-      searchSubmit.$el.addClass('is-hidden');
-    }
-  });
 
   var $searchDropdownDatabases = $('#search-dropdown-databases');
   $searchDropdownDatabases.find('li').click(function () {
@@ -1463,7 +1470,7 @@ $(function() {
   if($searchInput.length > 0) {
     if( $searchInput.val().length !== 0 ) {
       $('.search-box-clear').removeClass('hide');
-      searchSubmit.$el.removeClass('is-hidden').addClass('is-active');
+      searchSubmit.show();
     };
   };
   $searchInput.keyup(function() {
