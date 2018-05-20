@@ -1458,15 +1458,15 @@ $(function() {
       if (this.currentFetchRequest && this.currentFetchRequest.readyState !== 4) {
         this.currentFetchRequest.abort();
       }
-      var toHeight;
+      var transitionHeight;
       if (this.$suggestionsList.data('is-active')) {
-        toHeight = 60;
+        transitionHeight = 60;
       } else {
-        toHeight = 0;
+        transitionHeight = 0;
       }
       this.hideBlock(this.$suggestionsList, function () {
-        self.showBlock(self.$suggestionsLoader, null, toHeight);
-      }, toHeight);
+        self.showBlock(self.$suggestionsLoader, null, transitionHeight);
+      }, transitionHeight);
 
       function sendRequest() {
         return $.ajax({
@@ -1475,12 +1475,12 @@ $(function() {
           .done(function (data) {
             self.lastSearchData = data;
             self.mockSuggestions(data.suggestions.length);
-            var toHeight = self.$suggestionsList[0].scrollHeight;
+            var transitionHeight = self.$suggestionsList[0].scrollHeight;
             self.hideBlock(self.$suggestionsLoader, function () {
               self.showBlock(self.$suggestionsList, function () {
                 self.setSuggestions(data.suggestions);
-              }, toHeight);
-            }, toHeight);
+              }, transitionHeight);
+            }, transitionHeight);
           }).fail(function () {
             self.setSuggestions([]);
             self.hideBlock(self.$suggestionsLoader);
