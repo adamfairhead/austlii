@@ -240,25 +240,34 @@ $(function() {
       this.hideBlock(this.$suggestionsList, function () {
         self.showBlock(self.$suggestionsLoader, null, toHeight);
       }, toHeight);
-      clearTimeout(this.currentFetchDelay);
-      this.currentFetchDelay = setTimeout((function () {
-        this.currentFetchRequest = $.ajax({
-          url: '/endpoints/search-dropdown/' + searchText + '.json',
-        })
-        .done(function (data) {
-          self.lastSearchData = data;
-          self.mockSuggestions(data.suggestions.length);
-          var toHeight = self.$suggestionsList[0].scrollHeight;
-          self.hideBlock(self.$suggestionsLoader, function () {
-            self.showBlock(self.$suggestionsList, function () {
-              self.setSuggestions(data.suggestions);
+
+      function sendRequest() {
+        return $.ajax({
+            url: config.getSearchBoxEndpoint(searchText),
+          })
+          .done(function (data) {
+            self.lastSearchData = data;
+            self.mockSuggestions(data.suggestions.length);
+            var toHeight = self.$suggestionsList[0].scrollHeight;
+            self.hideBlock(self.$suggestionsLoader, function () {
+              self.showBlock(self.$suggestionsList, function () {
+                self.setSuggestions(data.suggestions);
+              }, toHeight);
             }, toHeight);
-          }, toHeight);
-        }).fail(function () {
-          self.setSuggestions([]);
-          self.hideBlock(self.$suggestionsLoader);
-        });
-      }).bind(this), 300 + (Math.random() * 3000));
+          }).fail(function () {
+            self.setSuggestions([]);
+            self.hideBlock(self.$suggestionsLoader);
+          });
+      }
+
+      if (config.isDev) {
+        clearTimeout(this.currentFetchDelay);
+        this.currentFetchDelay = setTimeout((function () {
+          this.currentFetchRequest = sendRequest();
+        }).bind(this), 300 + (Math.random() * 3000));
+      } else {
+        this.currentFetchRequest = sendRequest();
+      }
     },
   };
   searchDropdown.init();
