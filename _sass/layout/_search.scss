@@ -205,6 +205,18 @@
 }
 
 .search-dropdown-suggestions {
+  opacity: 0;
+  @include transition(opacity .1s ease-out);
+  overflow: hidden;
+
+  &.is-active {
+    opacity: 1;
+  }
+  
+  &.is-hidden {
+    height: 0;
+  }
+
   li {
     display: inline-block;
     width: 100%;
@@ -235,6 +247,7 @@
   html.js & {
     display: block;
     padding-bottom: 1px;
+    margin-top: -1px;
 
     li {
       display: block;
@@ -333,6 +346,54 @@
         display: inline;
       }
     }
+  }
+}
+
+.search-dropdown-loader {
+  position: relative;
+  opacity: 0;
+  text-align: center;
+  font-size: 0;
+  @include transition(opacity .1s ease-out);
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    display: inline-block;
+    width: 60px;
+    height: 60px;
+  }
+
+  &::after {
+    content: '';
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    @include retina-image('/images/loader', 30px, png, '/images/loader', \@2x);
+    background-position: center;
+    background-repeat: no-repeat;
+    @include animation(loader-rotate 1s linear infinite);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+  }
+
+  &.is-active {
+    opacity: 1;
+  }
+
+  &.is-hidden {
+    height: 0;
+  }
+}
+
+@include keyframes(loader-rotate) {
+  from {
+    @include transform(translate(-50%, -50%) rotate(0deg));
+  }
+
+  to {
+    @include transform(translate(-50%, -50%) rotate(360deg));
   }
 }
 

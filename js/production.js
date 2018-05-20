@@ -267,6 +267,15 @@ switch(m[0]){case"out":this.errorMessage=e.groupCheckedRangeStart+k+e.groupCheck
   
 })(this);
 
+(function ( $ ) { 
+  $.fn.redraw = function () {
+    for (var i = 0; i < this.length; i++) {
+      this[i].offsetHeight;
+    }
+    return this;
+  };
+}(jQuery));
+
 /**
  * jQuery Form Validator Module: Security
  * ------------------------------------------
@@ -1253,11 +1262,63 @@ $(function() {
     $el: $('#search-dropdown'),
     $suggestionsList: $('#search-dropdown-suggestions'),
     $databasesOptions: $('#search-dropdown-databases').find('li'),
+    $suggestionsLoader: $('#search-dropdown-suggestions-loader'),
     isActive: false,
     delayedHideTimeoutId: null,
     currentSearchText: '',
     currentFetchRequest: null,
+    lastSearchText: '',
     lastSearchData: {},
+    suggestionsLoader: null,
+    showBlock: function ($el, onFinish, fromHeight) {     
+      if (fromHeight == null) {
+        fromHeight = 0;
+      }
+      
+      if ($el.data('is-active')) {
+        if (onFinish instanceof Function) {
+          onFinish();
+        }
+        return;
+      }
+      $el.data('is-active', true);
+      var targetHeight = $el[0].scrollHeight;
+      $el.css('height', fromHeight)
+        .removeClass('is-hidden')
+        .stop()
+        .animate({
+          height: targetHeight,
+        }, 200, function () {
+          $el.css('height', '').addClass('is-active').redraw();
+          if (onFinish instanceof Function) {
+            onFinish();
+          }
+        });
+    },
+    hideBlock: function ($el, onFinish, toHeight) {
+      if (toHeight == null) {
+        toHeight = 0;
+      }
+
+      if (!$el.data('is-active')) {
+        if (onFinish instanceof Function) {
+          onFinish();
+        }
+        return;
+      }
+      $el.data('is-active', false)
+        .removeClass('is-active')
+        .stop()
+        .animate({
+          height: toHeight,
+        }, 200, function () {
+          $el.addClass('is-hidden')
+            .css('height', '');
+          if (onFinish instanceof Function) {
+            onFinish();
+          }
+        });
+    },
     init: function () {
       var self = this;
       this.setSearchTextDebounced = $.debounce(250, this.setSearchText);
@@ -1342,10 +1403,10 @@ $(function() {
         $searchInput.val(text).focus();
       }
       this.fitContent();
-      this.fetchSearchData(text);
-    },
-    redraw: function () {
-      this.$el[0].offsetHeight;
+
+      if (this.lastSearchText !== text) {
+        this.fetchSearchData(text);
+      }
     },
     show: function () {
       clearTimeout(this.delayedHideTimeoutId);
@@ -1355,7 +1416,7 @@ $(function() {
       this.isActive = true;
       this.setSearchText($searchInput.val());
       this.$el.removeClass('is-hidden');
-      this.redraw();
+      this.$el.redraw();
       this.$el.addClass('is-active');
     },
     hide: function () {
@@ -1370,42 +1431,69 @@ $(function() {
       clearTimeout(this.delayedHideTimeoutId);
       this.delayedHideTimeoutId = setTimeout(this.hide.bind(this), 200);
     },
+    mockSuggestions: function (count) {
+      var $items = $([]);
+      for (var i = 0; i < count; i++) {
+        $items = $items.add($('<li/>').append(
+          $('<a/>').text('.').attr('href', 'javascript:void(0);')
+        ));
+      }
+      this.$suggestionsList.html($items);
+    },
     setSuggestions: function (items) {
       var self = this;
-      this.$suggestionsList.html('');
-
+      var $items = $([]);
       items.forEach(function (item, index) {
-        var $newSuggestion = $('<li/>').append(
+        $items = $items.add($('<li/>').append(
           $('<a/>').text(item).attr('href', 'javascript:void(0);').attr('data-index', index)
-        );
-        self.$suggestionsList.append($newSuggestion);
+        ));
       });
+      this.$suggestionsList.html($items);
 
       this.fitSuggestions();
     },
     fetchSearchData: function (searchText) {
       var self = this;
+      this.lastSearchText = searchText;
       if (this.currentFetchRequest && this.currentFetchRequest.readyState !== 4) {
         this.currentFetchRequest.abort();
       }
-      this.currentFetchRequest = $.ajax({
-        url: '/endpoints/search-dropdown/' + searchText + '.json',
-      }).done(function (data) {
-        self.lastSearchData = data;
-        self.setSuggestions(data.suggestions);
-      }).fail(function () {
-        self.setSuggestions([]);
-      });
+      var toHeight;
+      if (this.$suggestionsList.data('is-active')) {
+        toHeight = 60;
+      } else {
+        toHeight = 0;
+      }
+      this.hideBlock(this.$suggestionsList, function () {
+        self.showBlock(self.$suggestionsLoader, null, toHeight);
+      }, toHeight);
+      clearTimeout(this.currentFetchDelay);
+      this.currentFetchDelay = setTimeout((function () {
+        this.currentFetchRequest = $.ajax({
+          url: '/endpoints/search-dropdown/' + searchText + '.json',
+        })
+        .done(function (data) {
+          self.lastSearchData = data;
+          self.mockSuggestions(data.suggestions.length);
+          var toHeight = self.$suggestionsList[0].scrollHeight;
+          self.hideBlock(self.$suggestionsLoader, function () {
+            self.showBlock(self.$suggestionsList, function () {
+              self.setSuggestions(data.suggestions);
+            }, toHeight);
+          }, toHeight);
+        }).fail(function () {
+          self.setSuggestions([]);
+          self.hideBlock(self.$suggestionsLoader);
+        });
+      }).bind(this), 300 + (Math.random() * 3000));
     },
   };
   searchDropdown.init();
+  searchDropdown.show();
 
   var searchSubmit = {
     $el: $searchBox.find('input[type="submit"]'),
     isActive: false,
-    redraw: function () {
-      this.$el[0].offsetHeight;
-    },
     show: function () {
       if (this.isActive) {
         return;
@@ -1473,7 +1561,7 @@ $(function() {
       searchSubmit.show();
     };
   };
-  $searchInput.keyup(function() {
+  $searchInput.on('input', function() {
     if($searchInput.val().length === 0) {
       $('.search-box-clear').addClass('hide');
       searchDropdown.hide();
