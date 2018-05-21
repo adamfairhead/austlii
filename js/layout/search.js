@@ -2,6 +2,7 @@ $(function() {
   var $document = $(document);
   var $searchBox = $('.search-box');
   var $searchInput = $('#search-box');
+  var $searchClear = $searchBox.find('.search-box-clear');
 
   var tabnumindex = 0;
   var formReload = {
@@ -338,26 +339,26 @@ $(function() {
   // Clear search box
   if($searchInput.length > 0) {
     if( $searchInput.val().length !== 0 ) {
-      $('.search-box-clear').removeClass('hide');
+      $searchClear.removeClass('hide');
       searchSubmit.show();
     };
   };
   $searchInput.on('input', function() {
     if($searchInput.val().length === 0) {
-      $('.search-box-clear').addClass('hide');
+      $searchClear.addClass('hide');
       searchDropdown.hide();
       searchSubmit.hide();
     } else {
-      $('.search-box-clear').removeClass('hide');
+      $searchClear.removeClass('hide');
       searchDropdown.show();
       searchDropdown.setSearchTextDebounced($searchInput.val(), false);
       searchSubmit.show();
     };
   });
-  $document.on('click', '.search-box-clear', function() {
+  $searchClear.click(function() {
     $searchInput.val('');
     searchSubmit.hide();
-    $(this).addClass('hide');
+    $searchClear.addClass('hide');
   });
 
   // Close search options when you click on the page
