@@ -109,7 +109,7 @@
     color: rgba(255, 255, 255, 0);
     background: rgba($red, 0) url('../images/search.svg') 0.8rem center no-repeat;
     background-size: 11px 11px;
-    @include transition(background-color .3s .2s ease-out, color .2s ease-out);
+    @include transition(background-color .25s .15s ease-out, color .15s ease-out);
     
     &.is-active {
       width: auto;
@@ -117,7 +117,7 @@
       background-color: rgba($red, 1);
       background-image: url('../images/search-2.svg');
       color: rgba(255, 255, 255, 1);
-      @include transition(background-color .3s ease-in-out, color .2s .3s ease-out);
+      @include transition(background-color .25s ease-in-out, color .15s .25s ease-out);
     }
   }
 }

@@ -1512,7 +1512,7 @@ $(function() {
       this.$el
         .stop().animate({
           width: this.$el[0].scrollWidth
-        }, 300, function () {
+        }, 250, function () {
           self.$el.css('width', '');
         })
         .addClass('is-active');
@@ -1526,7 +1526,7 @@ $(function() {
       this.$el
         .stop().animate({
           width: 40
-        }, 300, function () {
+        }, 250, function () {
           self.$el.css('width', '');
         })
         .removeClass('is-active');
