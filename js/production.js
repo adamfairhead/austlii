@@ -1498,7 +1498,6 @@ $(function() {
     },
   };
   searchDropdown.init();
-  searchDropdown.show();
 
   var searchSubmit = {
     $el: $searchBox.find('input[type="submit"]'),
