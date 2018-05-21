@@ -1460,7 +1460,7 @@ $(function() {
       }
       var transitionHeight;
       if (this.$suggestionsList.data('is-active')) {
-        transitionHeight = 60;
+        transitionHeight = this.$suggestionsLoader[0].scrollHeight;
       } else {
         transitionHeight = 0;
       }
@@ -1498,6 +1498,7 @@ $(function() {
     },
   };
   searchDropdown.init();
+  searchDropdown.show();
 
   var searchSubmit = {
     $el: $searchBox.find('input[type="submit"]'),
