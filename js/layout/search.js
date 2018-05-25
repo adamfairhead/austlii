@@ -3,7 +3,6 @@ $(function() {
   var $searchBox = $('.search-box');
   var $searchInput = $('#search-box');
 
-  var tabnumindex = 0;
   var formReload = {
     searchTabbed: function () {
       
@@ -202,19 +201,6 @@ $(function() {
     var nameValue = $(this).data('type-name');
     
     $('[name="method"]').attr('value', nameValue);
-  });
-
-  //navigate search-tabbet with tab key
-  $document.bind('keydown', function(event) {
-    if(event.keyCode == 9){   
-      event.preventDefault();
-      if ( tabnumindex < 6 ) {
-        tabnumindex++;
-      } else {
-        tabnumindex = 0;
-      }
-      $('[data-type-name]:eq(' + tabnumindex + ')').attr("tabindex",-1).focus().click();
-    } 
   });
 
   //tick anything as true by populating any hidden field
