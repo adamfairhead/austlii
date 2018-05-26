@@ -211,15 +211,9 @@ $(function() {
   });
   
   //tick the check-inblock field
-  $('.check-inblock').on('click', function () {
-    var thisInput = $(this).find('input:checked');
-    
-    $(this).find('.checkbox').toggleClass('checked');
-    
-    if (thisInput.length > 0) {
-      thisInput.attr('checked', false);
-    } else {
-      thisInput.attr('checked', true);
+  $('.check-inblock').on('click', function (e) {
+    if (e.target === e.currentTarget) {
+      $(this).find('.checkbox').click();
     }
   });
   
