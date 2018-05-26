@@ -390,6 +390,7 @@ html.no-js .sort-more,
       border-bottom: 0;
       display: inline-block;
       cursor: pointer;
+      background-color: #f9f9f9;
 
       @include media($desktop-screen) {
         padding: .5em .25em;
@@ -427,6 +428,11 @@ html.no-js .sort-more,
         &::after {
           background: white;
         }
+      }
+
+      &:focus {
+        background-color: darken(#f9f9f9, 5%);
+        outline: none;
       }
     }
   }
