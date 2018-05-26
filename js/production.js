@@ -1466,8 +1466,8 @@ $(function () {
   var cardCheckboxes = $('.card-checkboxes');
   var sortSelect = {
     activate: function (getEl) {
-      $('#page-sort .selected').removeClass('selected disabled');
-      getEl.addClass('selected');
+      $('#page-sort .selected').removeClass('selected disabled').attr('aria-selected', false).attr('tabindex', 0);
+      getEl.addClass('selected').attr('aria-selected', true).attr('tabindex', -1).blur();
       switchAll.addClass('checked');
       $sortItem = getEl.attr('data-sort');
       allSection.addClass('is-hidden');
@@ -1602,7 +1602,7 @@ $(function () {
   sortItemElement.each(function () {
     var $this = $(this);
 
-    $this.on('click', function (e) {
+    var handleSelection = (function (e) {
       var $this = $(this);
       e.preventDefault();
 
@@ -1623,7 +1623,17 @@ $(function () {
       }
       sortSelect.activate($this);
       sortSelect.targetTab($this);
-      $(window).scrollTop(0);
+      // $(window).scrollTop(0);
+    }).bind(this);
+
+    $this.on('click', handleSelection);
+
+    $this.on('keydown', function (e) {
+      if (e.keyCode === 32) {
+        e.preventDefault();
+        e.stopPropagation();
+        handleSelection(e);
+      }
     });
 
   });
