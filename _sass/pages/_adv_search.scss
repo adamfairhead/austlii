@@ -58,7 +58,7 @@
         @include transition(background-color .2s ease-in-out);
 
         &:focus {
-          background-color: darken(white, 5%);
+          background-color: darken(white, 10%);
         }
       }
 
@@ -112,7 +112,7 @@
           @include transition(background-color .2s ease-in-out);
 
           &:focus {
-            background-color: darken(white, 5%);
+            background-color: darken(white, 10%);
           }
         }
 
