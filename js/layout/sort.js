@@ -264,7 +264,8 @@ $(function () {
 
   // Card checkboxes using JS so Firefox etc. can see the custom styles
   var checkbox = $('input[type="checkbox"]');
-  checkbox.parent().addClass('checkbox');
+  var checkboxParent = checkbox.parent();
+  checkboxParent.addClass('checkbox');
   checkbox.filter(':checked').parent().addClass('checked');
   
   updateCheckboxGroupControls(checkbox);
@@ -316,7 +317,14 @@ $(function () {
     }
   });
 
-  checkbox.parent().filter('.checkbox-group').each(function () {
+  checkboxParent.on('keydown', function (e) {
+    if (e.keyCode === 32) {
+      e.preventDefault();
+      $(this).find('input').click();
+    }
+  });
+
+  checkboxParent.filter('.checkbox-group').each(function () {
     var $checkbox = $(this);
 
     $checkbox.parents('form').on('reset', function () {
