@@ -108,6 +108,7 @@
           height:100%;
           margin: 0;
           text-indent: .5em;
+          border-radius: 0;
           outline: none;
           @include transition(background-color .2s ease-in-out);
 
