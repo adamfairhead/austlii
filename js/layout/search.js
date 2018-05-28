@@ -196,11 +196,16 @@ $(function() {
   $('#search-tabbed #page-sort').prepend('<input type="hidden" name="method" value="autoSearch">');
   $('.no-js-search-method input[checked]').attr('checked', false);
   
-  //prepare the advanced search textfield 
-  $('[data-type-name]').on('click', function () {
-    var nameValue = $(this).data('type-name');
-    
-    $('[name="method"]').attr('value', nameValue);
+  //prepare the advanced search textfield
+  $('#search-tabbed #page-sort').prepend('<input type="hidden" name="method" value="autoSearch">');
+  var selectMethod = function () {
+    $('[name="method"]').attr('value', $(this).data('type-name'));
+  }
+  $('[data-type-name]').on('click', selectMethod);
+  $('[data-type-name]').on('keydown', function (e) {
+    if (e.keyCode === 32) {
+      selectMethod.call(this);
+    }
   });
 
   //tick anything as true by populating any hidden field
