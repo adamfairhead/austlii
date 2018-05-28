@@ -1154,7 +1154,8 @@ $(function () {
   
   $.validate({
     errorMessageClass: 'error',
-    modules : 'security'
+    modules : 'security',
+    validateOnBlur : false,
   });
 
   $('[name="recurring-month"] option:eq(' + newMonth + ')').prop('selected', true);
