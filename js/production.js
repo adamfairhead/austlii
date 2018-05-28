@@ -267,6 +267,15 @@ switch(m[0]){case"out":this.errorMessage=e.groupCheckedRangeStart+k+e.groupCheck
   
 })(this);
 
+(function ( $ ) { 
+  $.fn.redraw = function () {
+    for (var i = 0; i < this.length; i++) {
+      this[i].offsetHeight;
+    }
+    return this;
+  };
+}(jQuery));
+
 /**
  * jQuery Form Validator Module: Security
  * ------------------------------------------
@@ -1220,6 +1229,7 @@ $(function() {
   var $document = $(document);
   var $searchBox = $('.search-box');
   var $searchInput = $('#search-box');
+  var $searchClear = $searchBox.find('.search-box-clear');
 
   var tabnumindex = 0;
   var formReload = {
@@ -1251,41 +1261,163 @@ $(function() {
   };
   var searchDropdown = {
     $el: $('#search-dropdown'),
+    $suggestionsList: $('#search-dropdown-suggestions'),
     $databasesOptions: $('#search-dropdown-databases').find('li'),
-    $databasesOptionsSearchText: $('#search-dropdown-databases').find('li span strong'),
+    $suggestionsLoader: $('#search-dropdown-suggestions-loader'),
     isActive: false,
     delayedHideTimeoutId: null,
-    fitSearchText: function () {
-      this.$databasesOptions.find('span').each(function () {
-        var $this = $(this);
+    currentSearchText: '',
+    currentFetchRequest: null,
+    lastSearchText: '',
+    lastSearchData: {},
+    suggestionsLoader: null,
+    showBlock: function ($el, onFinish, fromHeight) {     
+      if (fromHeight == null) {
+        fromHeight = 0;
+      }
+      
+      if ($el.data('is-active')) {
+        if (onFinish instanceof Function) {
+          onFinish();
+        }
+        return;
+      }
+      $el.data('is-active', true);
+      var targetHeight = $el[0].scrollHeight;
+      $el.css('height', fromHeight)
+        .removeClass('is-hidden')
+        .stop()
+        .animate({
+          height: targetHeight,
+        }, 200, function () {
+          $el.css('height', '').addClass('is-active').redraw();
+          if (onFinish instanceof Function) {
+            onFinish();
+          }
+        });
+    },
+    hideBlock: function ($el, onFinish, toHeight) {
+      if (toHeight == null) {
+        toHeight = 0;
+      }
 
-        if ($this.outerHeight() > 40) {
-          var $text = $this.find('strong');
-          var text = $text.text().slice(0, 140) + '...';
+      if (!$el.data('is-active')) {
+        if (onFinish instanceof Function) {
+          onFinish();
+        }
+        return;
+      }
+      $el.data('is-active', false)
+        .removeClass('is-active')
+        .stop()
+        .animate({
+          height: toHeight,
+        }, 200, function () {
+          $el.addClass('is-hidden')
+            .css('height', '');
+          if (onFinish instanceof Function) {
+            onFinish();
+          }
+        });
+    },
+    init: function () {
+      var self = this;
+      this.setSearchTextDebounced = $.debounce(250, this.setSearchText);
+      this.fitContentDebounced = $.debounce(150, this.fitContent);
+      $(window).on('resize', this.fitContentDebounced.bind(this));
+      $searchInput.attr('autocomplete', 'off');
+      this.$el.on('transitionend webkitTransitionEnd oTransitionEnd', function () {
+        if (!self.isActive) {
+          self.$el.addClass('is-hidden');
+        }
+      });
+      this.$el.on('click', 'label', function () {
+        $searchInput.focus();
+      });
+
+      this.$suggestionsList.on('click', 'a', function (e) {
+        e.preventDefault();
+
+        self.setSearchText(self.lastSearchData.suggestions[$(this).attr('data-index')]);
+      });
+    },
+    fitTextRow: function ($container, $child, text, isReversed) {
+      if (isReversed == null) {
+        isReversed = false;
+      }
+
+      $container.each(function (index) {
+        var $this = $(this);
+        var $target;
+        var currentText;
+        if ($child) {
+          $target = $child.eq(index);
+        } else {
+          $target = $this;
+        }
+        if (text instanceof Array) {
+          currentText = text[index];
+        } else {
+          currentText = text;
+        }
+
+        $target.text('.');
+        var height = $this.height();
+
+        $target.text(currentText);
+
+        if ($this.height() > height) {
+          var cuttedText;
+          if (!isReversed) {
+            cuttedText = currentText.slice(0, 140) + '...';
+          } else {
+            cuttedText = '...' + currentText.slice(-140, currentText.length);
+          }
 
           do {
-            text = text.slice(0, text.length - 4) + text.slice(text.length - 3, text.length);
-            $text.text(text);
-          } while ($this.outerHeight() > 40);
+            if (!isReversed) {
+              cuttedText = cuttedText.slice(0, cuttedText.length - 4) + '...';
+            } else {
+              cuttedText = '...' + cuttedText.slice(4, cuttedText.length);
+            }
+
+            $target.text(cuttedText);
+          } while ($this.height() > height);
         }
       });
     },
-    setSearchText: function (text) {
-      this.$databasesOptionsSearchText.text(text);
-      this.fitSearchText();
+    fitSuggestions: function () {
+      var $suggestionsItems = this.$suggestionsList.find('li');
+      this.fitTextRow($suggestionsItems, $suggestionsItems.find('a'), this.lastSearchData.suggestions, true);
     },
-    redraw: function () {
-      this.$el[0].offsetHeight;
+    fitContent: function () {
+      var text = $searchInput.val();
+      this.fitTextRow(this.$databasesOptions, this.$databasesOptions.find('span strong'), text);
+      this.fitSuggestions();
+    },
+    setSearchText: function (text, updateInput) {
+      if (updateInput == null) {
+        updateInput = true;
+      }
+
+      if (updateInput) {
+        $searchInput.val(text).focus();
+      }
+      this.fitContent();
+
+      if (this.lastSearchText !== text) {
+        this.fetchSearchData(text);
+      }
     },
     show: function () {
       clearTimeout(this.delayedHideTimeoutId);
       if (this.isActive) {
         return;
       }
-      this.setSearchText($searchInput.val());
       this.isActive = true;
+      this.setSearchText($searchInput.val());
       this.$el.removeClass('is-hidden');
-      this.redraw();
+      this.$el.redraw();
       this.$el.addClass('is-active');
     },
     hide: function () {
@@ -1300,45 +1432,106 @@ $(function() {
       clearTimeout(this.delayedHideTimeoutId);
       this.delayedHideTimeoutId = setTimeout(this.hide.bind(this), 200);
     },
+    mockSuggestions: function (count) {
+      var $items = $([]);
+      for (var i = 0; i < count; i++) {
+        $items = $items.add($('<li/>').append(
+          $('<a/>').text('.').attr('href', 'javascript:void(0);')
+        ));
+      }
+      this.$suggestionsList.html($items);
+    },
+    setSuggestions: function (items) {
+      var self = this;
+      var $items = $([]);
+      items.forEach(function (item, index) {
+        $items = $items.add($('<li/>').append(
+          $('<a/>').text(item).attr('href', 'javascript:void(0);').attr('data-index', index)
+        ));
+      });
+      this.$suggestionsList.html($items);
+
+      this.fitSuggestions();
+    },
+    fetchSearchData: function (searchText) {
+      var self = this;
+      this.lastSearchText = searchText;
+      if (this.currentFetchRequest && this.currentFetchRequest.readyState !== 4) {
+        this.currentFetchRequest.abort();
+      }
+      var transitionHeight;
+      if (this.$suggestionsList.data('is-active')) {
+        transitionHeight = this.$suggestionsLoader[0].scrollHeight;
+      } else {
+        transitionHeight = 0;
+      }
+      this.hideBlock(this.$suggestionsList, function () {
+        self.showBlock(self.$suggestionsLoader, null, transitionHeight);
+      }, transitionHeight);
+
+      function sendRequest() {
+        return $.ajax({
+            url: config.getSearchBoxEndpoint(searchText),
+          })
+          .done(function (data) {
+            self.lastSearchData = data;
+            self.mockSuggestions(data.suggestions.length);
+            var transitionHeight = self.$suggestionsList[0].scrollHeight;
+            self.hideBlock(self.$suggestionsLoader, function () {
+              self.showBlock(self.$suggestionsList, function () {
+                self.setSuggestions(data.suggestions);
+              }, transitionHeight);
+            }, transitionHeight);
+          }).fail(function () {
+            self.setSuggestions([]);
+            self.hideBlock(self.$suggestionsLoader);
+          });
+      }
+
+      if (config.isDev) {
+        clearTimeout(this.currentFetchDelay);
+        this.currentFetchDelay = setTimeout((function () {
+          this.currentFetchRequest = sendRequest();
+        }).bind(this), 300 + (Math.random() * 3000));
+      } else {
+        this.currentFetchRequest = sendRequest();
+      }
+    },
   };
-  searchDropdown.setSearchTextDebounced = $.debounce(250, searchDropdown.setSearchText)
-  searchDropdown.$el.on('transitionend webkitTransitionEnd oTransitionEnd', function () {
-    if (!searchDropdown.isActive) {
-      searchDropdown.$el.addClass('is-hidden');
-    }
-  });
-  searchDropdown.$el.on('click', 'label', function () {
-    $searchInput.focus();
-  });
+  searchDropdown.init();
 
   var searchSubmit = {
     $el: $searchBox.find('input[type="submit"]'),
     isActive: false,
-    redraw: function () {
-      this.$el[0].offsetHeight;
-    },
     show: function () {
       if (this.isActive) {
         return;
       }
+      var self = this;
       this.isActive = true;
-      this.$el.removeClass('is-hidden');
-      this.redraw();
-      this.$el.addClass('is-active');
+      this.$el
+        .stop().animate({
+          width: this.$el[0].scrollWidth
+        }, 250, function () {
+          self.$el.css('width', '');
+        })
+        .addClass('is-active');
     },
     hide: function () {
       if (!this.isActive) {
         return;
       }
+      var self = this;
       this.isActive = false;
-      this.$el.removeClass('is-active');
+      this.$el
+        .stop().animate({
+          width: 40
+        }, 250, function () {
+          self.$el.css('width', '');
+        })
+        .removeClass('is-active');
     },
   };
-  searchSubmit.$el.on('transitionend webkitTransitionEnd oTransitionEnd', function () {
-    if (!searchSubmit.isActive) {
-      searchSubmit.$el.addClass('is-hidden');
-    }
-  });
 
   var $searchDropdownDatabases = $('#search-dropdown-databases');
   $searchDropdownDatabases.find('li').click(function () {
@@ -1362,7 +1555,7 @@ $(function() {
     $searchBox.addClass('focus');
     if($searchInput.val().length !== 0) {
       searchDropdown.show();
-      searchDropdown.setSearchText($searchInput.val());
+      searchDropdown.setSearchText($searchInput.val(), false);
     }
   });
   $document.on('focusout', '#search-box', function() {
@@ -1373,26 +1566,26 @@ $(function() {
   // Clear search box
   if($searchInput.length > 0) {
     if( $searchInput.val().length !== 0 ) {
-      $('.search-box-clear').removeClass('hide');
-      searchSubmit.$el.removeClass('is-hidden').addClass('is-active');
+      $searchClear.removeClass('hide');
+      searchSubmit.show();
     };
   };
-  $searchInput.keyup(function() {
+  $searchInput.on('input', function() {
     if($searchInput.val().length === 0) {
-      $('.search-box-clear').addClass('hide');
+      $searchClear.addClass('hide');
       searchDropdown.hide();
       searchSubmit.hide();
     } else {
-      $('.search-box-clear').removeClass('hide');
+      $searchClear.removeClass('hide');
       searchDropdown.show();
-      searchDropdown.setSearchTextDebounced($searchInput.val());
+      searchDropdown.setSearchTextDebounced($searchInput.val(), false);
       searchSubmit.show();
     };
   });
-  $document.on('click', '.search-box-clear', function() {
+  $searchClear.click(function() {
     $searchInput.val('');
     searchSubmit.hide();
-    $(this).addClass('hide');
+    $searchClear.addClass('hide');
   });
 
   // Close search options when you click on the page
