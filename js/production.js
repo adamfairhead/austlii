@@ -959,8 +959,8 @@ $(function() {
 
   var body = $('body');
   //let browser cache the print version of screen.css to avoid screen flicker
-  $('head').append('<link rel="stylesheet" type="text/css" href="css/screen.css?print" media="screen" />');
-  $('[href="css/screen.css?print"]').remove();
+  $('head').append('<link rel="stylesheet" type="text/css" href="/css/screen.css?print" media="screen" />');
+  $('[href="/css/screen.css?print"]').remove();
   
   // Select a panel item
   $('#panels a').on('click', function() {
@@ -1048,17 +1048,17 @@ $(function() {
   // Set print layout
   $(document).on('click', '.print-special', function() {
     body.addClass('special');
-    $('head').append('<link rel="stylesheet" type="text/css" href="css/screen.css?print" media="screen" />');
+    $('head').append('<link rel="stylesheet" type="text/css" href="/css/screen.css?print" media="screen" />');
     setTimeout(function(){
-      $('[href="css/screen.css"]').remove();
-      $('head').append('<link rel="stylesheet" type="text/css" href="css/print.css" media="print" />');
+      $('[href="/css/screen.css"]').remove();
+      $('head').append('<link rel="stylesheet" type="text/css" href="/css/print.css" media="print" />');
       setTimeout(function(){
         window.print();
-        $('head').append('<link rel="stylesheet" type="text/css" href="css/screen.css" media="all" />');
+        $('head').append('<link rel="stylesheet" type="text/css" href="/css/screen.css" media="all" />');
         setTimeout(function(){
           body.removeClass('special');
-          $('[href="css/print.css"]').remove();
-          $('[href="css/screen.css?print"]').remove();
+          $('[href="/css/print.css"]').remove();
+          $('[href="/css/screen.css?print"]').remove();
           return false;
         }, 300);
       }, 500);
@@ -1066,16 +1066,16 @@ $(function() {
   });
 
   $(document).on('click', '.print-minimal', function() {
-    $('head').append('<link rel="stylesheet" type="text/css" href="css/screen.css?print" media="screen" />');
+    $('head').append('<link rel="stylesheet" type="text/css" href="/css/screen.css?print" media="screen" />');
     setTimeout(function(){
-      $('[href="css/screen.css"]').remove();
-      $('head').append('<link rel="stylesheet" type="text/css" href="css/print.css" media="print" />');
+      $('[href="/css/screen.css"]').remove();
+      $('head').append('<link rel="stylesheet" type="text/css" href="/css/print.css" media="print" />');
       setTimeout(function(){
         window.print();
-        $('head').append('<link rel="stylesheet" type="text/css" href="css/screen.css" media="all" />');
+        $('head').append('<link rel="stylesheet" type="text/css" href="/css/screen.css" media="all" />');
         setTimeout(function(){
-          $('[href="css/print.css"]').remove();
-          $('[href="css/screen.css?print"]').remove();
+          $('[href="/css/print.css"]').remove();
+          $('[href="/css/screen.css?print"]').remove();
           return false;
         }, 300);
       }, 500);
