@@ -203,7 +203,7 @@ $(function() {
   }
   $('[data-type-name]').on('click', selectMethod);
   $('[data-type-name]').on('keydown', function (e) {
-    if (e.keyCode === 32) {
+    if ([32, 13].indexOf(e.keyCode) !== -1) {
       selectMethod.call(this);
     }
   });

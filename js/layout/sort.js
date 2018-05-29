@@ -175,7 +175,7 @@ $(function () {
     $this.on('click', handleSelection);
 
     $this.on('keydown', function (e) {
-      if (e.keyCode === 32) {
+      if ([32, 13].indexOf(e.keyCode) !== -1) {
         e.preventDefault();
         handleSelection(e);
       }
@@ -317,7 +317,7 @@ $(function () {
   });
 
   checkboxParent.on('keydown', function (e) {
-    if (e.keyCode === 32) {
+    if ([32, 13].indexOf(e.keyCode) !== -1) {
       e.preventDefault();
       $(this).find('input').click();
     }
