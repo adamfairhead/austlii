@@ -143,6 +143,10 @@
     line-height: 1.3;
 
     &:hover { text-decoration: underline; }
+
+    &:focus {
+      outline: 1px dotted #3796cc;
+    }
   }
   
   [data-show] {
