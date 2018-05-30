@@ -1164,7 +1164,9 @@ $(function () {
 
 });
 
-$(document).ready(function () {
+var $document = $(document);
+
+$document.ready(function () {
   'use strict';
   
   var annContWidth = $('.announcement-content').width() / 2,
@@ -1180,7 +1182,20 @@ $(document).ready(function () {
       $(this).remove();
     }
   });
-  
+
+  $document.on('keydown', 'select', function (e) {
+    if (e.keyCode === 13) {
+      e.preventDefault();
+      if (document.createEvent) {
+        var e = document.createEvent('MouseEvents');
+        e.initMouseEvent('mousedown', true, true, window);
+        this.dispatchEvent(e);
+      } else if (element.fireEvent) { // ie
+        this.fireEvent('onmousedown');
+      }
+    }
+  });
+
   if ($('.announcement-container').length) {
     
     $('body').addClass('has-announcement');
