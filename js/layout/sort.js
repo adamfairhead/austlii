@@ -13,7 +13,7 @@ $(function () {
   var sortSelect = {
     activate: function (getEl) {
       $('#page-sort .selected').removeClass('selected disabled').attr('aria-selected', false).attr('tabindex', 0);
-      getEl.addClass('selected').attr('aria-selected', true).attr('tabindex', -1).blur();
+      getEl.addClass('selected').attr('aria-selected', true).attr('tabindex', -1);
       switchAll.addClass('checked');
       $sortItem = getEl.attr('data-sort');
       allSection.addClass('is-hidden');

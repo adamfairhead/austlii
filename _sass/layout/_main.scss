@@ -412,6 +412,11 @@ html.no-js .sort-more,
         transition: background .3s;
       }
 
+      &:focus {
+        background-color: darken(#f9f9f9, 5%);
+        outline: none;
+      }
+
       &.selected {
         color: $base-font-color;
         border-left: $base-border;
@@ -428,11 +433,6 @@ html.no-js .sort-more,
         &::after {
           background: white;
         }
-      }
-
-      &:focus {
-        background-color: darken(#f9f9f9, 5%);
-        outline: none;
       }
     }
   }
