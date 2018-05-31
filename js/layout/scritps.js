@@ -30,6 +30,7 @@ $(function () {
 });
 
 var $document = $(document);
+var $window = $(window);
 
 $document.ready(function () {
   'use strict';
@@ -95,4 +96,74 @@ $document.ready(function () {
 
     window.location.href = $this.prop('action') + '?' + queryString;
   });
+
+  var $searchTabbed = $('#search-tabbed');
+  if ($searchTabbed.length !== 0) {
+    var $ribbon = $('#ribbon');
+    var $logo = $('#page-logo');
+    var $tertiary = $('#page-tertiary');
+    var $side = $('#page-side');
+
+    var focusableSelector = ':focusable:not([tabindex=-1])';
+
+    function onTab(e, fn) {
+      if (e.keyCode === 9 && !e.shiftKey) {
+        fn(e);
+      }
+    }
+
+    function onTabReversed(e, fn) {
+      if (e.keyCode === 9 && e.shiftKey) {
+        fn(e);
+      }
+    }
+
+    $window.on('keydown', function (e) {
+      onTab(e, function () {
+        switch (e.target) {
+          case document.body:
+            e.preventDefault();
+            $ribbon.find(focusableSelector).first().focus();
+            break;
+          case $ribbon.find(focusableSelector).last()[0]:
+            e.preventDefault();
+            $searchTabbed.find(focusableSelector).first().focus();
+            break;
+          case $searchTabbed.find(focusableSelector).last()[0]:
+            e.preventDefault();  
+            $logo.focus();
+            break;
+          case $logo[0]:
+            e.preventDefault();  
+            $tertiary.find(focusableSelector).first().focus();
+            break;
+          case $tertiary.find(focusableSelector).last()[0]:
+            e.preventDefault();
+            $side.find(focusableSelector).first().focus();
+            break;
+        }
+      });
+
+      onTabReversed(e, function () {
+        switch (e.target) {
+          case $side.find(focusableSelector).first()[0]:
+            e.preventDefault();
+            $tertiary.find(focusableSelector).last().focus();
+            break;
+          case $tertiary.find(focusableSelector).first()[0]:
+            e.preventDefault();
+            $logo.focus();
+            break;
+          case $logo[0]:
+            e.preventDefault();
+            $searchTabbed.find(focusableSelector).last().focus();
+            break;
+          case $searchTabbed.find(focusableSelector).first()[0]:
+            e.preventDefault();
+            $ribbon.find(focusableSelector).last().focus();
+            break;
+        }
+      });
+    });
+  }
 });
