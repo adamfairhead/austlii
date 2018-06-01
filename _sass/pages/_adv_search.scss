@@ -55,6 +55,11 @@
         -webkit-appearance: none;
         font-size: .9em;
         height: 33px;
+        @include transition(background-color .2s ease-in-out);
+
+        &:focus {
+          background-color: darken(white, 10%);
+        }
       }
 
       .day,
@@ -89,6 +94,7 @@
 
       .month {
         position: relative;
+        background-color: none;
 
         @include media($large-screen) {
           width: 20%;
@@ -97,12 +103,18 @@
         select {
           @include appearance(none);
           border: none;
-          background: none;
+          background: white;
           width: 100%;
           height:100%;
           margin: 0;
           text-indent: .5em;
+          border-radius: 0;
           outline: none;
+          @include transition(background-color .2s ease-in-out);
+
+          &:focus {
+            background-color: darken(white, 10%);
+          }
         }
 
         &:after {

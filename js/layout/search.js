@@ -4,7 +4,6 @@ $(function() {
   var $searchInput = $('#search-box');
   var $searchClear = $searchBox.find('.search-box-clear');
 
-  var tabnumindex = 0;
   var formReload = {
     searchTabbed: function () {
       
@@ -381,24 +380,16 @@ $(function() {
   $('#search-tabbed #page-sort').prepend('<input type="hidden" name="method" value="autoSearch">');
   $('.no-js-search-method input[checked]').attr('checked', false);
   
-  //prepare the advanced search textfield 
-  $('[data-type-name]').on('click', function () {
-    var nameValue = $(this).data('type-name');
-    
-    $('[name="method"]').attr('value', nameValue);
-  });
-
-  //navigate search-tabbet with tab key
-  $document.bind('keydown', function(event) {
-    if(event.keyCode == 9){   
-      event.preventDefault();
-      if ( tabnumindex < 6 ) {
-        tabnumindex++;
-      } else {
-        tabnumindex = 0;
-      }
-      $('[data-type-name]:eq(' + tabnumindex + ')').attr("tabindex",-1).focus().click();
-    } 
+  //prepare the advanced search textfield
+  $('#search-tabbed #page-sort').prepend('<input type="hidden" name="method" value="autoSearch">');
+  var selectMethod = function () {
+    $('[name="method"]').attr('value', $(this).data('type-name'));
+  }
+  $('[data-type-name]').on('click', selectMethod);
+  $('[data-type-name]').on('keydown', function (e) {
+    if ([32, 13].indexOf(e.keyCode) !== -1) {
+      selectMethod.call(this);
+    }
   });
 
   //tick anything as true by populating any hidden field
@@ -409,15 +400,9 @@ $(function() {
   });
   
   //tick the check-inblock field
-  $('.check-inblock').on('click', function () {
-    var thisInput = $(this).find('input:checked');
-    
-    $(this).find('.checkbox').toggleClass('checked');
-    
-    if (thisInput.length > 0) {
-      thisInput.attr('checked', false);
-    } else {
-      thisInput.attr('checked', true);
+  $('.check-inblock').on('click', function (e) {
+    if (e.target === e.currentTarget) {
+      $(this).find('.checkbox').click();
     }
   });
   

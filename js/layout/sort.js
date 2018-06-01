@@ -12,8 +12,8 @@ $(function () {
   var cardCheckboxes = $('.card-checkboxes');
   var sortSelect = {
     activate: function (getEl) {
-      $('#page-sort .selected').removeClass('selected disabled');
-      getEl.addClass('selected');
+      $('#page-sort .selected').removeClass('selected disabled').attr('aria-selected', false).attr('tabindex', 0);
+      getEl.addClass('selected').attr('aria-selected', true).attr('tabindex', -1);
       switchAll.addClass('checked');
       $sortItem = getEl.attr('data-sort');
       allSection.addClass('is-hidden');
@@ -148,7 +148,7 @@ $(function () {
   sortItemElement.each(function () {
     var $this = $(this);
 
-    $this.on('click', function (e) {
+    var handleSelection = (function (e) {
       var $this = $(this);
       e.preventDefault();
 
@@ -170,6 +170,15 @@ $(function () {
       sortSelect.activate($this);
       sortSelect.targetTab($this);
       $(window).scrollTop(0);
+    }).bind(this);
+
+    $this.on('click', handleSelection);
+
+    $this.on('keydown', function (e) {
+      if ([32, 13].indexOf(e.keyCode) !== -1) {
+        e.preventDefault();
+        handleSelection(e);
+      }
     });
 
   });
@@ -254,7 +263,8 @@ $(function () {
 
   // Card checkboxes using JS so Firefox etc. can see the custom styles
   var checkbox = $('input[type="checkbox"]');
-  checkbox.parent().addClass('checkbox');
+  var checkboxParent = checkbox.parent();
+  checkboxParent.addClass('checkbox');
   checkbox.filter(':checked').parent().addClass('checked');
   
   updateCheckboxGroupControls(checkbox);
@@ -306,7 +316,14 @@ $(function () {
     }
   });
 
-  checkbox.parent().filter('.checkbox-group').each(function () {
+  checkboxParent.on('keydown', function (e) {
+    if ([32, 13].indexOf(e.keyCode) !== -1) {
+      e.preventDefault();
+      $(this).find('input').click();
+    }
+  });
+
+  checkboxParent.filter('.checkbox-group').each(function () {
     var $checkbox = $(this);
 
     $checkbox.parents('form').on('reset', function () {

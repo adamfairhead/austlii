@@ -267,6 +267,105 @@ switch(m[0]){case"out":this.errorMessage=e.groupCheckedRangeStart+k+e.groupCheck
   
 })(this);
 
+/*! jQuery UI - v1.12.1 - 2018-05-31
+* http://jqueryui.com
+* Includes: focusable.js
+* Copyright jQuery Foundation and other contributors; Licensed MIT */
+
+(function( factory ) {
+	if ( typeof define === "function" && define.amd ) {
+
+		// AMD. Register as an anonymous module.
+		define([ "jquery" ], factory );
+	} else {
+
+		// Browser globals
+		factory( jQuery );
+	}
+}(function( $ ) {
+
+$.ui = $.ui || {};
+
+var version = $.ui.version = "1.12.1";
+
+
+/*!
+ * jQuery UI Focusable 1.12.1
+ * http://jqueryui.com
+ *
+ * Copyright jQuery Foundation and other contributors
+ * Released under the MIT license.
+ * http://jquery.org/license
+ */
+
+//>>label: :focusable Selector
+//>>group: Core
+//>>description: Selects elements which can be focused.
+//>>docs: http://api.jqueryui.com/focusable-selector/
+
+
+
+// Selectors
+$.ui.focusable = function( element, hasTabindex ) {
+	var map, mapName, img, focusableIfVisible, fieldset,
+		nodeName = element.nodeName.toLowerCase();
+
+	if ( "area" === nodeName ) {
+		map = element.parentNode;
+		mapName = map.name;
+		if ( !element.href || !mapName || map.nodeName.toLowerCase() !== "map" ) {
+			return false;
+		}
+		img = $( "img[usemap='#" + mapName + "']" );
+		return img.length > 0 && img.is( ":visible" );
+	}
+
+	if ( /^(input|select|textarea|button|object)$/.test( nodeName ) ) {
+		focusableIfVisible = !element.disabled;
+
+		if ( focusableIfVisible ) {
+
+			// Form controls within a disabled fieldset are disabled.
+			// However, controls within the fieldset's legend do not get disabled.
+			// Since controls generally aren't placed inside legends, we skip
+			// this portion of the check.
+			fieldset = $( element ).closest( "fieldset" )[ 0 ];
+			if ( fieldset ) {
+				focusableIfVisible = !fieldset.disabled;
+			}
+		}
+	} else if ( "a" === nodeName ) {
+		focusableIfVisible = element.href || hasTabindex;
+	} else {
+		focusableIfVisible = hasTabindex;
+	}
+
+	return focusableIfVisible && $( element ).is( ":visible" ) && visible( $( element ) );
+};
+
+// Support: IE 8 only
+// IE 8 doesn't resolve inherit to visible/hidden for computed values
+function visible( element ) {
+	var visibility = element.css( "visibility" );
+	while ( visibility === "inherit" ) {
+		element = element.parent();
+		visibility = element.css( "visibility" );
+	}
+	return visibility !== "hidden";
+}
+
+$.extend( $.expr[ ":" ], {
+	focusable: function( element ) {
+		return $.ui.focusable( element, $.attr( element, "tabindex" ) != null );
+	}
+} );
+
+var focusable = $.ui.focusable;
+
+
+
+
+}));
 (function ( $ ) { 
   $.fn.redraw = function () {
     for (var i = 0; i < this.length; i++) {
@@ -275,7 +374,6 @@ switch(m[0]){case"out":this.errorMessage=e.groupCheckedRangeStart+k+e.groupCheck
     return this;
   };
 }(jQuery));
-
 /**
  * jQuery Form Validator Module: Security
  * ------------------------------------------
@@ -1163,7 +1261,8 @@ $(function () {
   
   $.validate({
     errorMessageClass: 'error',
-    modules : 'security'
+    modules : 'security',
+    validateOnBlur : false,
   });
 
   $('[name="recurring-month"] option:eq(' + newMonth + ')').prop('selected', true);
@@ -1172,7 +1271,10 @@ $(function () {
 
 });
 
-$(document).ready(function () {
+var $document = $(document);
+var $window = $(window);
+
+$document.ready(function () {
   'use strict';
   
   var annContWidth = $('.announcement-content').width() / 2,
@@ -1188,7 +1290,20 @@ $(document).ready(function () {
       $(this).remove();
     }
   });
-  
+
+  $document.on('keydown', 'select', function (e) {
+    if (e.keyCode === 13) {
+      e.preventDefault();
+      if (document.createEvent) {
+        var e = document.createEvent('MouseEvents');
+        e.initMouseEvent('mousedown', true, true, window);
+        this.dispatchEvent(e);
+      } else if (element.fireEvent) { // ie
+        this.fireEvent('onmousedown');
+      }
+    }
+  });
+
   if ($('.announcement-container').length) {
     
     $('body').addClass('has-announcement');
@@ -1223,6 +1338,80 @@ $(document).ready(function () {
 
     window.location.href = $this.prop('action') + '?' + queryString;
   });
+
+  var $searchTabbed = $('#search-tabbed');
+  if ($searchTabbed.length !== 0) {
+    var $ribbon = $('#ribbon');
+    var $logo = $('#page-logo');
+    var $tertiary = $('#page-tertiary');
+    var $side = $('#page-side');
+
+    var focusableSelector = ':focusable:not([tabindex=-1])';
+
+    function onTab(e, fn) {
+      if (e.keyCode === 9 && !e.shiftKey) {
+        fn(e);
+      }
+    }
+
+    function onTabReversed(e, fn) {
+      if (e.keyCode === 9 && e.shiftKey) {
+        fn(e);
+      }
+    }
+
+    $window.on('keydown', function (e) {
+      onTab(e, function () {
+        switch (e.target) {
+          case document.body:
+            e.preventDefault();
+            $ribbon.find(focusableSelector).first().focus();
+            break;
+          case $ribbon.find(focusableSelector).last()[0]:
+            e.preventDefault();
+            $searchTabbed.find(focusableSelector).first().focus();
+            break;
+          case $searchTabbed.find(focusableSelector).last()[0]:
+            e.preventDefault();  
+            $logo.focus();
+            break;
+          case $logo[0]:
+            e.preventDefault();  
+            $tertiary.find(focusableSelector).first().focus();
+            break;
+          case $tertiary.find(focusableSelector).last()[0]:
+            e.preventDefault();
+            $side.find(focusableSelector).first().focus();
+            break;
+          default:
+            break;
+        }
+      });
+
+      onTabReversed(e, function () {
+        switch (e.target) {
+          case $side.find(focusableSelector).first()[0]:
+            e.preventDefault();
+            $tertiary.find(focusableSelector).last().focus();
+            break;
+          case $tertiary.find(focusableSelector).first()[0]:
+            e.preventDefault();
+            $logo.focus();
+            break;
+          case $logo[0]:
+            e.preventDefault();
+            $searchTabbed.find(focusableSelector).last().focus();
+            break;
+          case $searchTabbed.find(focusableSelector).first()[0]:
+            e.preventDefault();
+            $ribbon.find(focusableSelector).last().focus();
+            break;
+          default:
+            break;
+        }
+      });
+    });
+  }
 });
 
 $(function() {
@@ -1231,7 +1420,6 @@ $(function() {
   var $searchInput = $('#search-box');
   var $searchClear = $searchBox.find('.search-box-clear');
 
-  var tabnumindex = 0;
   var formReload = {
     searchTabbed: function () {
       
@@ -1608,24 +1796,16 @@ $(function() {
   $('#search-tabbed #page-sort').prepend('<input type="hidden" name="method" value="autoSearch">');
   $('.no-js-search-method input[checked]').attr('checked', false);
   
-  //prepare the advanced search textfield 
-  $('[data-type-name]').on('click', function () {
-    var nameValue = $(this).data('type-name');
-    
-    $('[name="method"]').attr('value', nameValue);
-  });
-
-  //navigate search-tabbet with tab key
-  $document.bind('keydown', function(event) {
-    if(event.keyCode == 9){   
-      event.preventDefault();
-      if ( tabnumindex < 6 ) {
-        tabnumindex++;
-      } else {
-        tabnumindex = 0;
-      }
-      $('[data-type-name]:eq(' + tabnumindex + ')').attr("tabindex",-1).focus().click();
-    } 
+  //prepare the advanced search textfield
+  $('#search-tabbed #page-sort').prepend('<input type="hidden" name="method" value="autoSearch">');
+  var selectMethod = function () {
+    $('[name="method"]').attr('value', $(this).data('type-name'));
+  }
+  $('[data-type-name]').on('click', selectMethod);
+  $('[data-type-name]').on('keydown', function (e) {
+    if ([32, 13].indexOf(e.keyCode) !== -1) {
+      selectMethod.call(this);
+    }
   });
 
   //tick anything as true by populating any hidden field
@@ -1636,15 +1816,9 @@ $(function() {
   });
   
   //tick the check-inblock field
-  $('.check-inblock').on('click', function () {
-    var thisInput = $(this).find('input:checked');
-    
-    $(this).find('.checkbox').toggleClass('checked');
-    
-    if (thisInput.length > 0) {
-      thisInput.attr('checked', false);
-    } else {
-      thisInput.attr('checked', true);
+  $('.check-inblock').on('click', function (e) {
+    if (e.target === e.currentTarget) {
+      $(this).find('.checkbox').click();
     }
   });
   
@@ -1673,8 +1847,8 @@ $(function () {
   var cardCheckboxes = $('.card-checkboxes');
   var sortSelect = {
     activate: function (getEl) {
-      $('#page-sort .selected').removeClass('selected disabled');
-      getEl.addClass('selected');
+      $('#page-sort .selected').removeClass('selected disabled').attr('aria-selected', false).attr('tabindex', 0);
+      getEl.addClass('selected').attr('aria-selected', true).attr('tabindex', -1);
       switchAll.addClass('checked');
       $sortItem = getEl.attr('data-sort');
       allSection.addClass('is-hidden');
@@ -1809,7 +1983,7 @@ $(function () {
   sortItemElement.each(function () {
     var $this = $(this);
 
-    $this.on('click', function (e) {
+    var handleSelection = (function (e) {
       var $this = $(this);
       e.preventDefault();
 
@@ -1831,6 +2005,15 @@ $(function () {
       sortSelect.activate($this);
       sortSelect.targetTab($this);
       $(window).scrollTop(0);
+    }).bind(this);
+
+    $this.on('click', handleSelection);
+
+    $this.on('keydown', function (e) {
+      if ([32, 13].indexOf(e.keyCode) !== -1) {
+        e.preventDefault();
+        handleSelection(e);
+      }
     });
 
   });
@@ -1915,7 +2098,8 @@ $(function () {
 
   // Card checkboxes using JS so Firefox etc. can see the custom styles
   var checkbox = $('input[type="checkbox"]');
-  checkbox.parent().addClass('checkbox');
+  var checkboxParent = checkbox.parent();
+  checkboxParent.addClass('checkbox');
   checkbox.filter(':checked').parent().addClass('checked');
   
   updateCheckboxGroupControls(checkbox);
@@ -1967,7 +2151,14 @@ $(function () {
     }
   });
 
-  checkbox.parent().filter('.checkbox-group').each(function () {
+  checkboxParent.on('keydown', function (e) {
+    if ([32, 13].indexOf(e.keyCode) !== -1) {
+      e.preventDefault();
+      $(this).find('input').click();
+    }
+  });
+
+  checkboxParent.filter('.checkbox-group').each(function () {
     var $checkbox = $(this);
 
     $checkbox.parents('form').on('reset', function () {
