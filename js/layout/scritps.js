@@ -141,6 +141,8 @@ $document.ready(function () {
             e.preventDefault();
             $side.find(focusableSelector).first().focus();
             break;
+          default:
+            break;
         }
       });
 
@@ -161,6 +163,8 @@ $document.ready(function () {
           case $searchTabbed.find(focusableSelector).first()[0]:
             e.preventDefault();
             $ribbon.find(focusableSelector).last().focus();
+            break;
+          default:
             break;
         }
       });
