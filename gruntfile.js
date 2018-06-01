@@ -10,6 +10,7 @@ module.exports = function(grunt) {
           'js/libs/jquery.form-validator.min.js',
           'js/libs/jquery.ba-throttle-debounce.js',
           'js/libs/jquery.focusable.js',
+          'js/libs/jquery.redraw.js',
           'js/libs/security.js',
           'js/layout/*.js'
         ],

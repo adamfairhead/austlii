@@ -23,6 +23,8 @@ Aviation Law Association library database.
       <fieldset>
         <legend>Search Options</legend>
         <div class="search-dropdown is-hidden" id="search-dropdown">
+          <div class="search-dropdown-loader is-hidden" id="search-dropdown-suggestions-loader"></div>
+          <ul class="search-dropdown-suggestions is-hidden" id="search-dropdown-suggestions"></ul>
           <ul class="search-dropdown-databases" id="search-dropdown-databases">
             <li>
               <span>
@@ -108,7 +110,7 @@ Aviation Law Association library database.
       {% endif %}
       <div class="search-box-controls">
         <a href="javascript:void(0);" class="search-box-clear hide">&times;</a>
-        <input type="submit" value="Search all" tabindex="9" class="is-hidden">
+        <input type="submit" value="Search all" tabindex="9">
       </div>
 
       {% if page.extra-search == true %}

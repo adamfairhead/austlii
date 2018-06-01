@@ -82,9 +82,10 @@
 .search-box input[type="submit"] {
   height: 27px;
   font-size: 0.8125rem;
-  background: $red url('../images/search-2.svg') 1em center no-repeat;
+  background: $red url('../images/search-2.svg') 0.8rem center no-repeat;
   background-size: 11px 11px;
-  padding-left: 2.2em;
+  padding: 0.6rem;
+  padding-left: 1.8rem;
   letter-spacing: -0.2px;
   float: left;
 
@@ -92,7 +93,6 @@
   border: none;
   border-radius: $base-border-radius;
   -webkit-appearance: none;
-  @include transition(opacity .3s ease-in-out);
 
   &:hover,
   &:focus { background-color: darken($red, 10) !important; }
@@ -102,14 +102,32 @@
   }
 
   html.js & {
-    opacity: 0;
+    overflow: hidden;
+    width: 40px;
+    color: rgba(255, 255, 255, 0);
+    background-color: rgba($red, 0);
+    background-image: url('../images/search.svg');
+    background-size: 15px 15px;
+    background-position: 0.8rem center;
+    background-repeat: no-repeat;
+    @include transition(background-color .25s .15s ease-out, color .15s ease-out, background-image 0s .25s);
+    position: relative;
     
-    &.is-hidden {
-      display: none;
-    }
-
     &.is-active {
-      opacity: 1;
+      width: auto;
+      pointer-events: initial;
+      background-color: rgba($red, 1);
+      background-image: url('../images/search-2.svg');
+      background-size: 11px 11px;
+      color: rgba(255, 255, 255, 1);
+      @include transition(background-color .25s ease-in-out, color .15s .25s ease-out);
+    }
+    
+    &:not(.is-active) {
+      &:hover {
+        background-image: url('../images/search-2.svg');
+        @include transition(background-color .25s ease-out, background-image 0s);
+      }
     }
   }
 }
@@ -152,6 +170,7 @@
     background-color: #ffffff;
     border: solid 1px #ebebeb;
     font-size: 0.8125rem;
+    padding-top: 2px;
     opacity: 0;
     @include transform(translateY(-10px));
     @include transition(opacity .3s ease-in-out, transform .3s ease-in-out);
@@ -194,10 +213,50 @@
   }
 }
 
+.search-dropdown-suggestions {
+  opacity: 0;
+  @include transition(opacity .1s ease-out);
+  overflow: hidden;
+
+  &.is-active {
+    opacity: 1;
+  }
+  
+  &.is-hidden {
+    height: 0;
+  }
+
+  li {
+    display: inline-block;
+    width: 100%;
+
+    a {
+      display: inline-block;
+      width: 100%;
+      font-weight: 600;
+      color: #333;
+      padding: 3px 10px;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    &:first-child {
+      padding-top: 3px;
+    }
+
+    &:last-child {
+      padding-bottom: 3px;
+    }
+  }
+}
+
 .search-dropdown-databases {
   html.js & {
     display: block;
     padding-bottom: 1px;
+    margin-top: -1px;
 
     li {
       display: block;
@@ -296,6 +355,54 @@
         display: inline;
       }
     }
+  }
+}
+
+.search-dropdown-loader {
+  position: relative;
+  opacity: 0;
+  text-align: center;
+  font-size: 0;
+  @include transition(opacity .1s ease-out);
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    display: inline-block;
+    width: 72px;
+    height: 72px;
+  }
+
+  &::after {
+    content: '';
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    @include retina-image('/images/loader', 24px, png, '/images/loader', \@2x);
+    background-position: center;
+    background-repeat: no-repeat;
+    @include animation(loader-rotate 1s linear infinite);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+  }
+
+  &.is-active {
+    opacity: 1;
+  }
+
+  &.is-hidden {
+    height: 0;
+  }
+}
+
+@include keyframes(loader-rotate) {
+  from {
+    @include transform(translate(-50%, -50%) rotate(0deg));
+  }
+
+  to {
+    @include transform(translate(-50%, -50%) rotate(360deg));
   }
 }
 
