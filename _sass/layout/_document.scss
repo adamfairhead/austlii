@@ -42,9 +42,7 @@
       color: $medium-gray;
 
       @include media(min-width 78.75em) {
-        left: -1.3em;
         width: 2em;
-        position: absolute;
         text-align: right;
       }
     }
