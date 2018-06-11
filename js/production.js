@@ -374,6 +374,7 @@ var focusable = $.ui.focusable;
     return this;
   };
 }(jQuery));
+
 /**
  * jQuery Form Validator Module: Security
  * ------------------------------------------
@@ -1033,17 +1034,29 @@ $(function () {
   //get value from list element value attribute, attach correct letter to it and pass to data-value attribute to be processed by css
   
   listLatin.each(function () {
-    var thisValue = $(this).attr('value'),
+    var $this = $(this);
+    var thisValue = $this.attr('value'),
         thisAlphabet = alphabet[thisValue-1];
-    $(this).attr('data-value', thisAlphabet);
+
+    if ($this.parent().attr('type') === 'A' && thisAlphabet) {
+      thisAlphabet = thisAlphabet.toUpperCase();
+    }
+
+    $this.attr('data-value', thisAlphabet);
   });
   
   //get value from list element value attribute, attach correct roman number to it and pass to data-value attribute to be processed by css
   
   listRoman.each(function () {
-    var thisValue = $(this).attr('value'),
+    var $this = $(this);
+    var thisValue = $this.attr('value'),
         thisRoman = romanize(thisValue);
-    $(this).attr('data-value', thisRoman);
+
+    if ($this.parent().attr('type') === 'I' && thisRoman) {
+      thisRoman = thisRoman.toUpperCase();
+    }
+
+    $this.attr('data-value', thisRoman);
   });
   
   //attach class to ordered lists that have numbers declared by data attributes
