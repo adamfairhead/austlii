@@ -34,16 +34,31 @@
       li { margin-bottom: 1em; }
     }
 
-    ol li { margin-bottom: 1em; }
+    ol {
+      li {
+        margin-bottom: 1em;
 
-    ol li[value]::before {
-      content: attr(value) ".";
-      margin-right: .5em;
-      color: $medium-gray;
+        &[value]::before {
+          content: attr(value) ".";
+          margin-right: .5em;
+          color: $medium-gray;
 
-      @include media(min-width 78.75em) {
-        width: 2em;
-        text-align: right;
+          @include media(min-width 78.75em) {
+            width: 2em;
+            text-align: right;
+            position: absolute;
+            left: -1.3em;
+          }
+        }
+      }
+
+      &[type="a"], &[type="i"] {
+        li::before {
+          @include media(min-width 78.75em) {
+            position: initial;
+            left: 0;
+          }
+        }
       }
     }
     
