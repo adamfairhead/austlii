@@ -377,11 +377,11 @@ $(function() {
   });
    
   //prepare the advanced search js / no js verions method selection 
-  $('#search-tabbed #page-sort').prepend('<input type="hidden" name="method" value="autoSearch">');
+  // $('#search-tabbed #page-sort').prepend('<input type="hidden" name="method" value="autoSearch">');
   $('.no-js-search-method input[checked]').attr('checked', false);
   
   //prepare the advanced search textfield
-  $('#search-tabbed #page-sort').prepend('<input type="hidden" name="method" value="autoSearch">');
+  // $('#search-tabbed #page-sort').prepend('<input type="hidden" name="method" value="autoSearch">');
   var selectMethod = function () {
     $('[name="method"]').attr('value', $(this).data('type-name'));
   }
