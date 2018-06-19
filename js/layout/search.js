@@ -375,22 +375,25 @@ $(function() {
       $(this).text('Show');
     };
   });
-   
-  //prepare the advanced search js / no js verions method selection 
-  // $('#search-tabbed #page-sort').prepend('<input type="hidden" name="method" value="autoSearch">');
-  $('.no-js-search-method input[checked]').attr('checked', false);
-  
-  //prepare the advanced search textfield
-  // $('#search-tabbed #page-sort').prepend('<input type="hidden" name="method" value="autoSearch">');
+
+  var $methodRadios = $('[name="method"]');
+  var $methodButtons = $('[data-type-name]');
   var selectMethod = function () {
-    $('[name="method"]').attr('value', $(this).data('type-name'));
+    $methodRadios.prop('checked', false)
+      .filter('[value="' + $(this).data('type-name') + '"]')
+      .prop('checked', true);
   }
-  $('[data-type-name]').on('click', selectMethod);
-  $('[data-type-name]').on('keydown', function (e) {
+  $methodButtons.on('click', selectMethod);
+  $methodButtons.on('keydown', function (e) {
     if ([32, 13].indexOf(e.keyCode) !== -1) {
       selectMethod.call(this);
     }
   });
+
+  // Wait for scripts initialization
+  setTimeout(function () {
+    $methodButtons.filter('[data-type-name="' + $methodRadios.filter(':checked').val() + '"]').click();
+  }, 0);
 
   //tick anything as true by populating any hidden field
   $('[data-type-hidden]').on('click', function () {
