@@ -181,13 +181,13 @@ $(function() {
         this.fetchSearchData(text);
       }
     },
-    show: function () {
+    show: function (updateInput) {
       clearTimeout(this.delayedHideTimeoutId);
       if (this.isActive) {
         return;
       }
       this.isActive = true;
-      this.setSearchText($searchInput.val());
+      this.setSearchText($searchInput.val(), updateInput);
       this.$el.removeClass('is-hidden');
       this.$el.redraw();
       this.$el.addClass('is-active');
