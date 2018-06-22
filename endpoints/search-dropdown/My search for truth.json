@@ -4,30 +4,12 @@
     "My search for truth 2"
   ],
   "quickSearches": {
-    "total": 4,
+    "total": 1,
     "items": [
       {
         "title": "High Court of <strong>My search</strong>ville",
         "type": "Database",
         "info": "7,528 documents • 2,247,836 accesses in the last 12 months",
-        "link": "#"
-      },
-      {
-        "title": "[1981] ALRC 18 \"<strong>My search</strong> for Child Welfare\"",
-        "type": "Case",
-        "info": "From Australian Law Reform Commission Reports • 1 January 1981",
-        "link": "#"
-      },
-      {
-        "title": "High Court of <strong>My search</strong>ville",
-        "type": "Database",
-        "info": "7,528 documents • 2,247,836 accesses in the last 12 months",
-        "link": "#"
-      },
-      {
-        "title": "[1981] ALRC 18 \"<strong>My search</strong> for Child Welfare\"",
-        "type": "Case",
-        "info": "From Australian Law Reform Commission Reports • 1 January 1981",
         "link": "#"
       }
     ]
