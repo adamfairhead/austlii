@@ -92,7 +92,12 @@
 
     this.el = d.createElement('div');
     this.el.setAttribute('class', 'ss-content');
-    this.el.style.width = 'calc(100% + '+ getScrollbarWidth() +'px)';
+    if (getScrollbarWidth() === 0) {
+      this.el.style.paddingRight = '20px';
+      this.el.style.width = 'calc(100% + 20px)';
+    } else {
+      this.el.style.width = 'calc(100% + '+ getScrollbarWidth() +'px)';
+    }
 
     if (this.direction === 'rtl') {
       this.el.classList.add('rtl');
