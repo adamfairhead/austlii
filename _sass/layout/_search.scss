@@ -360,18 +360,21 @@
 
 .search-dropdown-quick {
   background-color: #f7fbfd;
-  min-height: 50px;
+  position: relative;
 
   &::before {
     content: '';
     display: block;
     height: 4px;
     background-color: #ebebeb;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
   }
 
   ul {
-    padding-top: 5px;
-
     li {
       display: block;
       position: relative;
@@ -414,6 +417,8 @@
       }
 
       &:first-child {
+        padding-top: 9px;
+
         a > span:first-child {
           border-top: none;
         }
@@ -452,14 +457,17 @@
   border-radius: 0;
   color: #3796cc;
   padding: 0;
-  margin-left: 10px;
   font-weight: 400;
-  margin-bottom: 10px;
+  margin: 5px 10px 10px;
   transition: color .2s ease-in-out;
 
   &:hover {
     background: transparent;
     color: #377aaf;
+  }
+
+  &.is-hidden {
+    display: none;
   }
 }
 
