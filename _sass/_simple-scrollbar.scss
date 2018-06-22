@@ -13,15 +13,15 @@
 
 .ss-content {
   height: 100%;
-  width: calc(100% + 18px);
+  width: 100%;
   padding: 0 0 0 0;
   position: relative;
-  overflow: auto;
+  overflow-y: scroll;
   box-sizing: border-box;
 }
 
 .ss-content.rtl {
-  width: calc(100% + 18px);
+  width: 100%;
   right: auto;
 }
 
@@ -37,9 +37,9 @@
   transition: opacity 0.25s linear;
 }
 
-.ss-hidden {
-  display: none;
-}
+// .ss-hidden {
+//   display: none;
+// }
 
 .ss-container:hover .ss-scroll,
 .ss-container:active .ss-scroll {

@@ -7,6 +7,41 @@
 })(this, function(w, d) {
   var raf = w.requestAnimationFrame || w.setImmediate || function(c) { return setTimeout(c, 0); };
 
+  var getScrollbarWidth = (function () {
+    var cachedWidth = null;
+  
+    var calculate = function () {
+      var fullWidth = 0;
+      var barWidth = 0;
+      var wrapper = document.createElement('div');
+      var child = document.createElement('div');
+  
+      wrapper.style.position = 'absolute';
+      wrapper.style.top = '-100px';
+      wrapper.style.left = '-100px';
+      wrapper.style.width = '30px';
+      wrapper.style.overflow = 'hidden';
+      
+      wrapper.appendChild(child);
+      document.body.appendChild(wrapper);
+      fullWidth = child.offsetWidth;
+      wrapper.style.overflowY = 'scroll';
+      barWidth = fullWidth - child.offsetWidth;
+  
+      wrapper.remove();
+  
+      return barWidth;
+    }
+  
+    return function () {
+      if (cachedWidth == null) {
+        cachedWidth = calculate();
+      }
+  
+      return cachedWidth;
+    }
+  }());
+
   function initEl(el) {
     if (Object.prototype.hasOwnProperty.call(el, 'data-simple-scrollbar')) return;
     Object.defineProperty(el, 'data-simple-scrollbar', { value: new SimpleScrollbar(el) });
@@ -57,6 +92,7 @@
 
     this.el = d.createElement('div');
     this.el.setAttribute('class', 'ss-content');
+    this.el.style.width = 'calc(100% + '+ getScrollbarWidth() +'px)';
 
     if (this.direction === 'rtl') {
       this.el.classList.add('rtl');
