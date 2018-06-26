@@ -361,6 +361,7 @@
 .search-dropdown-quick {
   background-color: #f7fbfd;
   position: relative;
+  overflow: hidden;
 
   &::before {
     content: '';
