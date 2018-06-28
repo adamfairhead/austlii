@@ -11,6 +11,7 @@ module.exports = function(grunt) {
           'js/libs/jquery.ba-throttle-debounce.js',
           'js/libs/jquery.focusable.js',
           'js/libs/jquery.redraw.js',
+          'js/libs/simple-scrollbar.js',
           'js/libs/security.js',
           'js/layout/*.js'
         ],
